@@ -1,0 +1,50 @@
+﻿@{
+    string title = "Winner List";
+    ViewBag.Title = title;
+    var winnerPrizeList = Model as List<YearEndParty.Web.Models.WinnerPrize>;
+}
+<div data-role="page">
+    <div data-role="header" data-theme="b">
+        <a data-rel="back" data-icon="back">Back</a>
+        <h1>@title</h1>
+        <a href="javascript:window.location.reload()" data-icon="refresh" class="ui-btn-right">Refresh</a>
+    </div>
+    <div data-role="content">
+        <p>
+            Search winners using full name, nickname or barcode ID
+        </p>
+
+        @*<input type="search" name="query" id="query" value="" tabindex="1" onkeypress="winner.execSearch()" />*@
+        <input type="search" name="query" id="query" value="" tabindex="1" />
+        <input type="button" name="search" id="search" value="Search" data-theme="e"
+            onclick="winner.execSearch()" tabindex="2" />
+
+        <ul id="list_winner" data-role="listview" data-inset="true" data-theme="d">
+            @foreach (var prize in winnerPrizeList)
+            {
+                if (prize.Winners.ToList().Count > 0)
+                { 
+                <li data-role="list-divider" role="heading" class="head @prize.PrizeType">
+                    @prize.TypeName
+                </li>
+                    foreach (var wi in prize.Winners)
+                    {
+                <li data-theme="d" class="winner"
+                            type="@prize.PrizeType" full="@wi.FullName"
+                            unsign="@wi.UsignName" nick="@wi.Nick" code="@wi.Code">
+                    <img src="@Url.Action("Handler", "Image", new { type = "staff", id = wi.StaffId })" alt="" />
+                    <h3>@wi.FullName [@wi.Nick]</h3>
+                    <p>@wi.Department</p>
+                    <p>@wi.PrizeName</p>
+                </li>
+                    }
+                }
+            }
+        </ul>
+        
+        <p id="no_result" style="display: none">No winner found!</p>
+    </div>
+    <div data-role="footer" data-theme="b">
+        <h4>&copy; Staff Annual Party 2014</h4>
+    </div>
+</div>

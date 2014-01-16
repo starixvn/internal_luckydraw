@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{67C2B2A8-6D17-487B-BEB8-F740182429C6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YearEndParty.Presentation</RootNamespace>
+    <AssemblyName>YearEndParty.Presentation</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>D:\Test\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperComponentsLocation>Relative</BootstrapperComponentsLocation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>3750E0F87F0E9E23D9C23E21E7586DF4F6DC05C3</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>YearEndParty.Presentation_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\YearEndParty.Library\Binary\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\YearEndParty.Library\Binary\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdhocPrize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdhocPrize.Designer.cs">
+      <DependentUpon>AdhocPrize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CashPrizeIndexEnum.cs" />
+    <Compile Include="Controls\GrandPrizeIndexEnum.cs" />
+    <Compile Include="Controls\MajorPrizeIndexEnum.cs" />
+    <Compile Include="Controls\PrizeTile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PrizeTile.Designer.cs">
+      <DependentUpon>PrizeTile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SuperGrandPrizeIndexEnum.cs" />
+    <Compile Include="Controls\TransparentLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\WinnerTile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\WinnerTile.Designer.cs">
+      <DependentUpon>WinnerTile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LuckyList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LuckyList.Designer.cs">
+      <DependentUpon>LuckyList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NameValue.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SuperGrandWinnerSpecialDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuperGrandWinnerSpecialDetails.designer.cs">
+      <DependentUpon>SuperGrandWinnerSpecialDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XAdhocPrize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XAdhocPrize.Designer.cs">
+      <DependentUpon>XAdhocPrize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SuperGrandWinnerDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuperGrandWinnerDetails.Designer.cs">
+      <DependentUpon>SuperGrandWinnerDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrizeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrizeList.Designer.cs">
+      <DependentUpon>PrizeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinnerDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinnerDetails.Designer.cs">
+      <DependentUpon>WinnerDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrizeTypes.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdhocPrize.resx">
+      <DependentUpon>AdhocPrize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PrizeTile.resx">
+      <DependentUpon>PrizeTile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\WinnerTile.resx">
+      <DependentUpon>WinnerTile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LuckyList.resx">
+      <DependentUpon>LuckyList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuperGrandWinnerSpecialDetails.resx">
+      <DependentUpon>SuperGrandWinnerSpecialDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XAdhocPrize.resx">
+      <DependentUpon>XAdhocPrize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuperGrandWinnerDetails.resx">
+      <DependentUpon>SuperGrandWinnerDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrizeList.resx">
+      <DependentUpon>PrizeList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinnerDetails.resx">
+      <DependentUpon>WinnerDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <Content Include="Numbers\1.png" />
+    <Content Include="Numbers\2.png" />
+    <Content Include="Numbers\3.png" />
+    <Content Include="Numbers\4.png" />
+    <Content Include="Numbers\5.png" />
+    <Content Include="Numbers\6.png" />
+    <Content Include="Numbers\7.png" />
+    <Content Include="Numbers\8.png" />
+    <Content Include="Numbers\9.png" />
+    <None Include="Resources\2013\winner_small.png" />
+    <None Include="Resources\2013\Winner_big.png" />
+    <None Include="Resources\2013\1.png" />
+    <None Include="Resources\2013\2.png" />
+    <None Include="Resources\2013\3.png" />
+    <None Include="Resources\2013\4.png" />
+    <None Include="Resources\2013\5.png" />
+    <None Include="Resources\2013\6.png" />
+    <None Include="Resources\2013\7.png" />
+    <None Include="Resources\2013\8.png" />
+    <None Include="Resources\2013\9.png" />
+    <Content Include="Resources\2013\Adhoc_bg.jpg" />
+    <None Include="Resources\2013\Apple_ipad_air_16g_16_17_18_BLOCKED.jpg" />
+    <None Include="Resources\2013\Apple_ipad_air_16g_16_17_18_unBLOCKED.jpg" />
+    <None Include="Resources\2013\Apple_ipad_air_16g_19_20_21_BLOCKED.jpg" />
+    <None Include="Resources\2013\Apple_ipad_air_16g_19_20_21_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Apple_ipad_air_16g_22_23_24_BLOCKED.jpg" />
+    <None Include="Resources\2013\Apple_ipad_air_16g_22_23_24_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Apple_ipad_mini_16g_wifi_4g_31_32_33_BLOCKED.jpg" />
+    <None Include="Resources\2013\Apple_ipad_mini_16g_wifi_4g_31_32_33_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Apple_ipad_mini_16g_wifi_4g_34_35_36_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Apple_iphone_5s_16gb_10_11_12_BLOCKED.jpg" />
+    <None Include="Resources\2013\Apple_iphone_5s_16gb_10_11_12_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Canon_camera_powershot_n_55_56_57_BLOCKED.jpg" />
+    <None Include="Resources\2013\Canon_camera_powershot_n_55_56_57_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Apple_ipad_mini_16g_wifi_4g_34_35_36_BLOCK.jpg" />
+    <None Include="Resources\2013\Blue.png" />
+    <None Include="Resources\2013\Apple_ipad_air_16g.png" />
+    <None Include="Resources\2013\apple_ipad_mini_16g_wifi_4g.png" />
+    <None Include="Resources\2013\Apple_iphone_5s.png" />
+    <None Include="Resources\2013\Canon_camera_powershot.png" />
+    <None Include="Resources\2013\Apple_ipad_mini_16g_wifi_4g_34_35_36.jpg" />
+    <Content Include="Resources\2013\Cash1.jpg" />
+    <Content Include="Resources\2013\CashVoucher3mil.jpg" />
+    <None Include="Resources\2013\Cash_5mil_76_77_78_blocked.jpg" />
+    <None Include="Resources\2013\Cash_3mil_79_80_81_blocked.jpg" />
+    <None Include="Resources\2013\Cash_3mil_79_80_81_unblocked.jpg" />
+    <None Include="Resources\2013\Cash_3mil_82_83_84_blocked.jpg" />
+    <None Include="Resources\2013\Cash_3mil_82_83_84_unblocked.jpg" />
+    <None Include="Resources\2013\Cash_3mil_85_86_87_blocked.jpg" />
+    <None Include="Resources\2013\Cash_3mil_85_86_87_unblocked.jpg" />
+    <None Include="Resources\2013\Cash_3mil_88_89_90_blocked.jpg" />
+    <None Include="Resources\2013\Cash_3mil_88_89_90_unblocked.jpg" />
+    <None Include="Resources\2013\Cash_5mil_70_71_72_blocked.jpg" />
+    <None Include="Resources\2013\Cash_5mil_70_71_72_unblocked.jpg" />
+    <None Include="Resources\2013\Cash_5mil_73_74_75_blocked.jpg" />
+    <None Include="Resources\2013\Cash_5mil_73_74_75_unblocked.jpg" />
+    <None Include="Resources\2013\Cash_5mil_76_77_78_unblocked.jpg" />
+    <None Include="Resources\2013\Cash_10mil_64_65_66_blocked.jpg" />
+    <None Include="Resources\2013\Cash_10mil_64_65_66_unblocked.jpg" />
+    <None Include="Resources\2013\Cash_10mil_67_68_69_blocked.jpg" />
+    <None Include="Resources\2013\Cash_10mil_67_68_69_unblocked.jpg" />
+    <Content Include="Resources\2013\Cash_bg.jpg" />
+    <None Include="Resources\2013\Cash_voucher_3mil.png" />
+    <None Include="Resources\2013\Cash_voucher_5mil.png" />
+    <None Include="Resources\2013\Cash_voucher_10mil.png" />
+    <None Include="Resources\2013\Frame.png" />
+    <None Include="Resources\2013\Gift_voucher_6mil.png" />
+    <None Include="Resources\2013\Exp1900x1140\Adhoc_1900x1140.jpg" />
+    <None Include="Resources\2013\Exp1900x1140\Cash_1900x1140.jpg" />
+    <None Include="Resources\2013\Exp1900x1140\Grand_1900x1140.jpg" />
+    <None Include="Resources\2013\Exp1900x1140\Major_1900x1140.jpg" />
+    <None Include="Resources\2013\Exp1900x1140\Super_Grand_1900x1140.jpg" />
+    <None Include="Resources\2013\Exp1900x1140\Winner_supergrand_1900x1140_1_2_3.jpg" />
+    <None Include="Resources\2013\Exp1900x1140\Winner_supergrand_1900x1140_4_5_6.jpg" />
+    <None Include="Resources\2013\Exp1900x1140\Winner_supergrand_1900x1140_7_8_9.jpg" />
+    <None Include="Resources\2013\Exp1900x1140\Winners_1900x1069.jpg" />
+    <None Include="Resources\2013\Exp1900x1140\Home_1900x1140.jpg" />
+    <Content Include="Resources\2013\Grand_bg.jpg" />
+    <None Include="Resources\2013\Grey.png" />
+    <None Include="Resources\2013\Green.png" />
+    <Content Include="Resources\2013\Home.jpg" />
+    <None Include="Resources\2013\Lenovo_laptop_cpu_core_i5_25_26_27_BLOCKED.jpg" />
+    <None Include="Resources\2013\Lenovo_laptop_cpu_core_i5_25_26_27_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Lenovo_laptop_cpu_core_i5_28_29_30_BLOCKED.jpg" />
+    <None Include="Resources\2013\Lenovo_laptop_cpu_core_i5_28_29_30_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Lenovo_laptop_corei5.png" />
+    <Content Include="Resources\2013\Major_bg.jpg" />
+    <None Include="Resources\2013\Nokia_Lumia_925_37_38_39_BLOCKED.jpg" />
+    <None Include="Resources\2013\Nokia_Lumia_925_37_38_39_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Panasonic_microwave_61_62_63_BLOCKED.jpg" />
+    <None Include="Resources\2013\Panasonic_microwave_61_62_63_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Pink.png" />
+    <None Include="Resources\2013\Nokia_lumia_925.png" />
+    <None Include="Resources\2013\Panasonic_microwave.png" />
+    <Content Include="Resources\2013\prizeblock.jpg" />
+    <Content Include="Resources\2013\prizeblock_unblocked.jpg" />
+    <None Include="Resources\2013\Samsung_galaxy_note_3_N9000_16Gb_13_14_15_BLOCKED.jpg" />
+    <None Include="Resources\2013\Samsung_galaxy_note_3_N9000_16Gb_13_14_15_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Sanyo_fridge_sr_u205pn_58_59_60_BLOCKED.jpg" />
+    <None Include="Resources\2013\Sanyo_fridge_sr_u205pn_58_59_60_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Sony_32_led_tv_40_41_42_BLOCKED.jpg" />
+    <None Include="Resources\2013\Sony_32_led_tv_40_41_42_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Sony_32_led_tv_43_44_45_BLOCKED.jpg" />
+    <None Include="Resources\2013\Sony_32_led_tv_43_44_45_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Sony_32_led_tv_46_47_48_BLOCKED.jpg" />
+    <None Include="Resources\2013\Sony_32_led_tv_46_47_48_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Sony_32_led_tv_49_50_51_BLOCKED.jpg" />
+    <None Include="Resources\2013\Sony_32_led_tv_49_50_51_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\SuperGrand_winners_4_5_6.jpg" />
+    <None Include="Resources\2013\SuperGrand_winners1_2_3.jpg" />
+    <None Include="Resources\2013\SuperGrand_winners7_8_9.jpg" />
+    <None Include="Resources\2013\Sony_32_inches_led_tv.png" />
+    <None Include="Resources\2013\Review.jpg" />
+    <None Include="Resources\2013\Samsung_galaxy_note_3.png" />
+    <None Include="Resources\2013\Sanyo_fridge.png" />
+    <None Include="Resources\2013\SuperGrand_winners.jpg" />
+    <None Include="Resources\2013\SuperGrand_winners1_2_3_UNBLOCKED.jpg" />
+    <Content Include="Resources\2013\Super_Grand_bg.jpg" />
+    <None Include="Resources\2013\Voucher_gift_pass_6mil_52_53_54_BLOCKED.jpg" />
+    <None Include="Resources\2013\Voucher_gift_pass_6mil_52_53_54_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_canon_eos700D_9.jpg" />
+    <None Include="Resources\2013\Super_Grand_canon_eos700D_9_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_honda_Lead_2_BLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_honda_Lead_2_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_honda_vision_3_BLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_honda_vision_3_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_saigontourist_travel_voucher_6_BLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_saigontourist_travel_voucher_6_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_saigontourist_travel_voucher_7_BLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_saigontourist_travel_voucher_7_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_sony_bdv_N9100_8_BLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_sony_bdv_N9100_8_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_superstar_travel_voucher_4_BLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_superstar_travel_voucher_4_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_superstar_travel_voucher_5_BLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_superstar_travel_voucher_5_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_yamaha_exciter_1_BLOCKED.jpg" />
+    <None Include="Resources\2013\Super_Grand_yamaha_exciter_1_UNBLOCKED.jpg" />
+    <None Include="Resources\2013\Super_grand_winners.jpg" />
+    <None Include="Resources\2013\unknown_big.jpg" />
+    <None Include="Resources\2013\unknown_small.png" />
+    <None Include="Resources\2013\unknown_big.png" />
+    <Content Include="Resources\2013\winners_bg.jpg" />
+    <None Include="Resources\2012\winnerlistsuper_version2_bg.png" />
+    <None Include="Resources\2012\winnerlistsuper_bg.png" />
+    <None Include="Resources\2012\majorwinnerlist_bg.png" />
+    <None Include="Resources\2012\grandwinnerlist_bg.png" />
+    <None Include="Resources\2012\adhocwinnerlist_bg.png" />
+    <None Include="Resources\2012\cashwinnerlist_bg.png" />
+    <None Include="Resources\2012\winnerlist_grand_bg.png" />
+    <None Include="Resources\2012\graybox.png" />
+    <None Include="Resources\2012\yellowbox.png" />
+    <None Include="Resources\2012\winnerboard_pink.png" />
+    <None Include="Resources\2012\winnerboard_green.png" />
+    <None Include="Resources\2012\winnerboard_blue.png" />
+    <None Include="Resources\2012\super.png" />
+    <None Include="Resources\2012\smallsquare.png" />
+    <None Include="Resources\2012\sbox.png" />
+    <None Include="Resources\2012\redbox.png" />
+    <None Include="Resources\2012\questionmark.png" />
+    <None Include="Resources\2012\purplebox.png" />
+    <None Include="Resources\2012\program.png" />
+    <None Include="Resources\2012\Pattern.png" />
+    <None Include="Resources\2012\outline.png" />
+    <None Include="Resources\2012\minor.png" />
+    <None Include="Resources\2012\major.png" />
+    <None Include="Resources\2012\grand.png" />
+    <None Include="Resources\2012\cash.png" />
+    <None Include="Resources\2012\bluebox.png" />
+    <None Include="Resources\2012\bigsquare.png" />
+    <None Include="Resources\2012\adhoc.png" />
+    <None Include="Resources\luckylist.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Visual.C++.10.0.x64">
+      <Visible>False</Visible>
+      <ProductName>Visual C++ 2010 Runtime Libraries %28x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Visual.C++.10.0.x86">
+      <Visible>False</Visible>
+      <ProductName>Visual C++ 2010 Runtime Libraries %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YearEndParty.Core\YearEndParty.Core.csproj">
+      <Project>{BEEFABCF-2642-4299-8943-8C9E18246288}</Project>
+      <Name>YearEndParty.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <PublishFile Include="Microsoft.Web.Infrastructure">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="System.Web.Mvc">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="System.Web.Razor">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="System.Web.WebPages">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="System.Web.WebPages.Deployment">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="System.Web.WebPages.Razor">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="YearEndParty.Core">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="YearEndParty.Core.pdb">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

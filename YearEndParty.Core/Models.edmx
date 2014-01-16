@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="YearEndPartyModels.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="YearEndPartyModelsStoreContainer">
+          <EntitySet Name="Departments" EntityType="YearEndPartyModels.Store.Departments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Prizes" EntityType="YearEndPartyModels.Store.Prizes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PrizeSettings" EntityType="YearEndPartyModels.Store.PrizeSettings" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Staffs" EntityType="YearEndPartyModels.Store.Staffs" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Winners" EntityType="YearEndPartyModels.Store.Winners" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Name="DepartmentId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="64" />
+        </EntityType>
+        <EntityType Name="Prizes">
+          <Key>
+            <PropertyRef Name="PrizeId" />
+          </Key>
+          <Property Name="PrizeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PrizeType" Type="int" Nullable="false" />
+          <Property Name="PriceIndex" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Image" Type="varbinary(max)" Nullable="false" />
+          <Property Name="PriceProgram" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="PrizeSettings">
+          <Key>
+            <PropertyRef Name="PrizeType" />
+          </Key>
+          <Property Name="PrizeType" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="64" />
+          <Property Name="CurrentPrize" Type="int" Nullable="false" />
+          <Property Name="ParentType" Type="int" />
+          <Property Name="DuplicateAllow" Type="bit" Nullable="false" />
+          <Property Name="DuplicateFromAdHoc" Type="bit" Nullable="false" />
+          <Property Name="XAdHoc" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staffs">
+          <Key>
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Name="StaffId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Grade" Type="nvarchar" MaxLength="2" />
+          <Property Name="StaffCode" Type="nvarchar" Nullable="false" MaxLength="64" />
+          <Property Name="BarCode" Type="nvarchar" MaxLength="100" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="256" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="64" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="64" />
+          <Property Name="Avatar" Type="varbinary(max)" />
+          <Property Name="Nick" Type="nvarchar" MaxLength="64" />
+          <Property Name="UnsignName" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="Winners">
+          <Key>
+            <PropertyRef Name="PrizeId" />
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Name="PrizeId" Type="int" Nullable="false" />
+          <Property Name="StaffId" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="YearEndPartyModels" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="bodb_luckyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Departments" EntityType="YearEndPartyModels.Departments" />
+          <EntitySet Name="Prizes" EntityType="YearEndPartyModels.Prizes" />
+          <EntitySet Name="Winners" EntityType="YearEndPartyModels.Winners" />
+          <EntitySet Name="Staffs" EntityType="YearEndPartyModels.Staffs" />
+          <EntitySet Name="PrizeSettings" EntityType="YearEndPartyModels.PrizeSettings" />
+        </EntityContainer>
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="DepartmentId" />
+          </Key>
+          <Property Type="Int32" Name="DepartmentId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShortName" MaxLength="64" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Prizes">
+          <Key>
+            <PropertyRef Name="PrizeId" />
+          </Key>
+          <Property Type="Int32" Name="PrizeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="PrizeType" Nullable="false" />
+          <Property Type="Int32" Name="PriceIndex" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="Image" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="PriceProgram" MaxLength="20" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Winners">
+          <Key>
+            <PropertyRef Name="PrizeId" />
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Type="Int32" Name="PrizeId" Nullable="false" />
+          <Property Type="Int32" Name="StaffId" Nullable="false" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staffs">
+          <Key>
+            <PropertyRef Name="StaffId" />
+          </Key>
+          <Property Type="Int32" Name="StaffId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Grade" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="StaffCode" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="BarCode" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="DepartmentId" />
+          <Property Type="String" Name="FullName" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LastName" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="Binary" Name="Avatar" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="Nick" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UnsignName" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PrizeSettings">
+          <Key>
+            <PropertyRef Name="PrizeType" />
+          </Key>
+          <Property Type="Int32" Name="PrizeType" Nullable="false" />
+          <Property Type="Int32" Name="Quantity" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CurrentPrize" Nullable="false" />
+          <Property Type="Int32" Name="ParentType" />
+          <Property Type="Boolean" Name="DuplicateAllow" Nullable="false" />
+          <Property Type="Boolean" Name="DuplicateFromAdHoc" Nullable="false" />
+          <Property Type="Boolean" Name="XAdHoc" Nullable="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="YearEndPartyModelsStoreContainer" CdmEntityContainer="bodb_luckyEntities">
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="IsTypeOf(YearEndPartyModels.Departments)">
+        <MappingFragment StoreEntitySet="Departments">
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prizes">
+      <EntityTypeMapping TypeName="IsTypeOf(YearEndPartyModels.Prizes)">
+        <MappingFragment StoreEntitySet="Prizes">
+          <ScalarProperty Name="PrizeId" ColumnName="PrizeId" />
+          <ScalarProperty Name="PrizeType" ColumnName="PrizeType" />
+          <ScalarProperty Name="PriceIndex" ColumnName="PriceIndex" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="PriceProgram" ColumnName="PriceProgram" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Winners">
+      <EntityTypeMapping TypeName="IsTypeOf(YearEndPartyModels.Winners)">
+        <MappingFragment StoreEntitySet="Winners">
+          <ScalarProperty Name="PrizeId" ColumnName="PrizeId" />
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staffs">
+      <EntityTypeMapping TypeName="IsTypeOf(YearEndPartyModels.Staffs)">
+        <MappingFragment StoreEntitySet="Staffs">
+          <ScalarProperty Name="StaffId" ColumnName="StaffId" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="StaffCode" ColumnName="StaffCode" />
+          <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Nick" ColumnName="Nick" />
+          <ScalarProperty Name="UnsignName" ColumnName="UnsignName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+          <EntitySetMapping Name="PrizeSettings">
+            <EntityTypeMapping TypeName="YearEndPartyModels.PrizeSettings">
+              <MappingFragment StoreEntitySet="PrizeSettings">
+                <ScalarProperty Name="XAdHoc" ColumnName="XAdHoc" />
+                <ScalarProperty Name="DuplicateFromAdHoc" ColumnName="DuplicateFromAdHoc" />
+                <ScalarProperty Name="DuplicateAllow" ColumnName="DuplicateAllow" />
+                <ScalarProperty Name="ParentType" ColumnName="ParentType" />
+                <ScalarProperty Name="CurrentPrize" ColumnName="CurrentPrize" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="PrizeType" ColumnName="PrizeType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Models">
+        <EntityTypeShape EntityType="YearEndPartyModels.Departments" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="YearEndPartyModels.Prizes" Width="1.5" PointX="0.75" PointY="3.75" Height="1.9802864583333326" />
+        <EntityTypeShape EntityType="YearEndPartyModels.Winners" Width="1.5" PointX="6.75" PointY="0.75" Height="1.5956835937500031" />
+        <EntityTypeShape EntityType="YearEndPartyModels.Staffs" Width="1.5" PointX="5.375" PointY="3.75" Height="3.1340950520833322" />
+        <EntityTypeShape EntityType="YearEndPartyModels.PrizeSettings" Width="1.5" PointX="2.625" PointY="4.375" Height="2.5571907552083317" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

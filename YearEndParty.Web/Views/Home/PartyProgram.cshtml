@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Party Program";
+}
+<div data-role="page">
+    <div data-role="header" data-theme="b">
+        <a href="/" data-transition="slide" data-icon="back">Back</a>
+	    <h1>Party program</h1>
+    </div>
+    <div data-role="content">	
+	    <ul data-role="listview" data-inset="true" data-theme="d">
+            <li><a href="@Url.Action("PartyAgenda")" data-transition="slide">Party Agenda</a></li>
+            <li><a href="@Url.Action("DinnerMenu")" data-transition="slide">Dinner Menu</a></li>
+        </ul>	
+    </div>
+    <div data-role="footer" data-theme="b">
+        <h4>&copy; Staff Annual Party 2014</h4>
+    </div>
+</div>

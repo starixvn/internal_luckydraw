@@ -1,0 +1,70 @@
+﻿@{
+	string title = "Dinner Menu";
+	ViewBag.Title = title;
+}
+@*@section Head {
+	<style type="text/css">
+		.ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-thumb {
+			padding: 10px 10px 20px;
+			min-height: 300px;
+			line-height: 2em;
+		}
+
+		.ui-li-thumb, .ui-listview .ui-li-icon {
+			position: relative;
+			max-height: 260px;
+			max-width: 260px;
+		}
+	</style>
+}*@
+
+<div data-role="page">
+	<div data-role="header" data-theme="b">
+		<a data-rel="back" data-icon="back">Back</a>
+		<h1>@title</h1>
+		<a href="javascript:window.location.reload()" data-icon="refresh" class="ui-btn-right">Refresh</a>
+	</div>
+	<div data-role="content">
+		<ul data-role="listview" data-inset="true" data-theme="d">
+			<li style="padding: 10px 10px 20px;min-height: 300px;line-height: 2em;">
+                1. Danish ham Cheese (Bánh Đầu Giờ)
+                <img src="@Url.Content("~/Images/1.png")"
+					class="ui-li-thumb ui-corner-all" style="position: relative;max-height: 260px;max-width: 260px;"/>
+            </li>
+			<li style="padding: 10px 10px 20px;min-height: 300px;line-height: 2em;">
+                2. Spaghetti Roll with Mayonnaise - Salad - Ham Rolled Chicken (Chả Giò Spaghetti - Salad - Gà Cuộn Dăm Bông)
+                <img src="@Url.Content("~/Images/2.png")"
+					class="ui-li-thumb ui-corner-all" style="position: relative;max-height: 260px;max-width: 260px;"/>
+            </li>
+			<li style="padding: 10px 10px 20px;min-height: 300px;line-height: 2em;">3. Szechuan Seafood Soup (Súp Hải Sản Tứ Xuyên)
+            <img src="@Url.Content("~/Images/3.png")"
+					class="ui-li-thumb ui-corner-all" style="position: relative;max-height: 260px;max-width: 260px;"/>
+            </li>
+			<li style="padding: 10px 10px 20px;min-height: 300px;line-height: 2em;">
+            4. Fried Scampi with Salted Egg and Cheese Sauce - Fried Potatoes with Garlic (Tôm Càng Sốt Phô Mai Trứng Muối & Khoai Tây Xóc Tỏi)
+            <img src="@Url.Content("~/Images/4.png")"
+					class="ui-li-thumb ui-corner-all" style="position: relative;max-height: 260px;max-width: 260px;"/>
+            </li>
+			<li style="padding: 10px 10px 20px;min-height: 300px;line-height: 2em;">5. Steamed Garoupa with Smoked Dried Duck Meat (Cá Mú Hấp Vịt Lạp Xông Khói)
+            <img src="@Url.Content("~/Images/5.png")"
+					class="ui-li-thumb ui-corner-all" style="position: relative;max-height: 260px;max-width: 260px;"/>
+            </li>
+			<li style="padding: 10px 10px 20px;min-height: 300px;line-height: 2em;">6. Braised Abalone with Supreme Sauce (Bào Ngư Xốt Thượng Hạng)
+				<img src="@Url.Content("~/Images/6.png")"
+					class="ui-li-thumb ui-corner-all" style="position: relative;max-height: 260px;max-width: 260px;"/></li>
+			<li style="padding: 10px 10px 20px;min-height: 300px;line-height: 2em;">7. Baked Scallop with Parmesan Cheese - Fruit salad (Sò Mai Đút Lò với Phô-mai Parmesan -  Salad Trái cây)
+				<img src="@Url.Content("~/Images/7.png")"
+					class="ui-li-thumb ui-corner-all" style="position: relative;max-height: 260px;max-width: 260px;"/></li>
+			<li style="padding: 10px 10px 20px;min-height: 300px;line-height: 2em;">8. Fried Glass Noodle with Roasted Pigeon (Miến Bồ Câu)
+				<img src="@Url.Content("~/Images/8.png")"
+					class="ui-li-thumb ui-corner-all" style="position: relative;max-height: 260px;max-width: 260px;"/></li>
+			<li style="padding: 10px 10px 20px;min-height: 300px;line-height: 2em;">9. Coffee and Chocolate Jelly – Fresh Fruit (Jelly Cà Phê Sô-Cô-La – Trái cây)
+				<img src="@Url.Content("~/Images/9.png")"
+					class="ui-li-thumb ui-corner-all" style="position: relative;max-height: 260px;max-width: 260px;"/></li>
+			
+		</ul>
+	</div>
+	<div data-role="footer" data-theme="b">
+		<h4>&copy; Staff Annual Party 2014</h4>
+	</div>
+</div>

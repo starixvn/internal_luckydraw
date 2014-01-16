@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Super_Grand_superstar_travel_voucher_4_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_superstar_travel_voucher_4_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="unknown_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\unknown_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_3mil_88_89_90_unblocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_3mil_88_89_90_unblocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Canon_camera_powershot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Canon_camera_powershot.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sony_32_inches_led_tv" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Sony_32_inches_led_tv.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Panasonic_microwave_61_62_63_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Panasonic_microwave_61_62_63_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Review" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Review.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_canon_eos700D_9_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_canon_eos700D_9_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Winner_supergrand_1900x1140_4_5_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Exp1900x1140\Winner_supergrand_1900x1140_4_5_6.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_5mil_70_71_72_unblocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_5mil_70_71_72_unblocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_5mil_76_77_78_blocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_5mil_76_77_78_blocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_sony_bdv_N9100_8_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_sony_bdv_N9100_8_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="graybox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2012\graybox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gift_voucher_6mil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Gift_voucher_6mil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sony_32_led_tv_43_44_45_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Sony_32_led_tv_43_44_45_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_ipad_air_16g_22_23_24_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_ipad_air_16g_22_23_24_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lenovo_laptop_cpu_core_i5_25_26_27_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Lenovo_laptop_cpu_core_i5_25_26_27_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="questionmark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2012\questionmark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Home_1900x1140" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Exp1900x1140\Home_1900x1140.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_honda_Lead_2_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_honda_Lead_2_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_ipad_air_16g" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_ipad_air_16g.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_ipad_air_16g_19_20_21_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_ipad_air_16g_19_20_21_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Voucher_gift_pass_6mil_52_53_54_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Voucher_gift_pass_6mil_52_53_54_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prizeblock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\prizeblock.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_saigontourist_travel_voucher_6_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_saigontourist_travel_voucher_6_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Winners_1900x1069" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Exp1900x1140\Winners_1900x1069.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Panasonic_microwave_61_62_63_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Panasonic_microwave_61_62_63_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_honda_vision_3_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_honda_vision_3_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Nokia_Lumia_925_37_38_39_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Nokia_Lumia_925_37_38_39_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_voucher_3mil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_voucher_3mil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_yamaha_exciter_1_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_yamaha_exciter_1_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Samsung_galaxy_note_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Samsung_galaxy_note_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_3mil_82_83_84_blocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_3mil_82_83_84_blocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_superstar_travel_voucher_5_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_superstar_travel_voucher_5_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sanyo_fridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Sanyo_fridge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_10mil_67_68_69_unblocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_10mil_67_68_69_unblocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sony_32_led_tv_40_41_42_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Sony_32_led_tv_40_41_42_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_5mil_73_74_75_blocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_5mil_73_74_75_blocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Winner_big1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Winner_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yellowbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2012\yellowbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_3mil_79_80_81_unblocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_3mil_79_80_81_unblocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_ipad_air_16g_22_23_24_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_ipad_air_16g_22_23_24_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_ipad_air_16g_16_17_18_unBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_ipad_air_16g_16_17_18_unBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_10mil_64_65_66_unblocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_10mil_64_65_66_unblocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_ipad_mini_16g_wifi_4g_34_35_36" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_ipad_mini_16g_wifi_4g_34_35_36.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="smallsquare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2012\smallsquare.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2012\sbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sony_32_led_tv_46_47_48_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Sony_32_led_tv_46_47_48_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Winner_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Winner_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Frame1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Frame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Samsung_galaxy_note_3_N9000_16Gb_13_14_15_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Samsung_galaxy_note_3_N9000_16Gb_13_14_15_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sanyo_fridge_sr_u205pn_58_59_60_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Sanyo_fridge_sr_u205pn_58_59_60_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bigsquare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2012\bigsquare.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Nokia_Lumia_925_37_38_39_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Nokia_Lumia_925_37_38_39_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_iphone_5s_16gb_10_11_12_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_iphone_5s_16gb_10_11_12_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_5mil_70_71_72_blocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_5mil_70_71_72_blocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_ipad_air_16g_19_20_21_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_ipad_air_16g_19_20_21_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_3mil_82_83_84_unblocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_3mil_82_83_84_unblocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_voucher_10mil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_voucher_10mil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sony_32_led_tv_43_44_45_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Sony_32_led_tv_43_44_45_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_iphone_5s" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_iphone_5s.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_ipad_mini_16g_wifi_4g_34_35_36_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_ipad_mini_16g_wifi_4g_34_35_36_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_canon_eos700D_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_canon_eos700D_9.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_ipad_mini_16g_wifi_4g_31_32_33_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_ipad_mini_16g_wifi_4g_31_32_33_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_saigontourist_travel_voucher_6_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_saigontourist_travel_voucher_6_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_honda_vision_3_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_honda_vision_3_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prizeblock_unblocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\prizeblock_unblocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lenovo_laptop_cpu_core_i5_28_29_30_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Lenovo_laptop_cpu_core_i5_28_29_30_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_ipad_mini_16g_wifi_4g_31_32_33_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_ipad_mini_16g_wifi_4g_31_32_33_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winner_small" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\winner_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lenovo_laptop_corei5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Lenovo_laptop_corei5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_10mil_67_68_69_blocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_10mil_67_68_69_blocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_1900x1140" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Exp1900x1140\Cash_1900x1140.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sony_32_led_tv_49_50_51_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Sony_32_led_tv_49_50_51_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Voucher_gift_pass_6mil_52_53_54_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Voucher_gift_pass_6mil_52_53_54_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lenovo_laptop_cpu_core_i5_25_26_27_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Lenovo_laptop_cpu_core_i5_25_26_27_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="redbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2012\redbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_superstar_travel_voucher_5_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_superstar_travel_voucher_5_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_1900x1140" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Exp1900x1140\Super_Grand_1900x1140.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_voucher_5mil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_voucher_5mil.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_yamaha_exciter_1_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_yamaha_exciter_1_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_3mil_85_86_87_blocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_3mil_85_86_87_blocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Canon_camera_powershot_n_55_56_57_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Canon_camera_powershot_n_55_56_57_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Panasonic_microwave" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Panasonic_microwave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Pink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="apple_ipad_mini_16g_wifi_4g" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\apple_ipad_mini_16g_wifi_4g.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Major_1900x1140" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Exp1900x1140\Major_1900x1140.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Frame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Frame.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_ipad_air_16g_16_17_18_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_ipad_air_16g_16_17_18_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_3mil_88_89_90_blocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_3mil_88_89_90_blocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_saigontourist_travel_voucher_7_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_saigontourist_travel_voucher_7_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Winner_supergrand_1900x1140_1_2_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Exp1900x1140\Winner_supergrand_1900x1140_1_2_3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="purplebox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2012\purplebox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_ipad_mini_16g_wifi_4g_34_35_36_BLOCK" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_ipad_mini_16g_wifi_4g_34_35_36_BLOCK.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Grey1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_superstar_travel_voucher_4_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_superstar_travel_voucher_4_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bluebox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2012\bluebox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_5mil_76_77_78_unblocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_5mil_76_77_78_unblocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sony_32_led_tv_49_50_51_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Sony_32_led_tv_49_50_51_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Grand_1900x1140" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Exp1900x1140\Grand_1900x1140.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pattern" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2012\pattern.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Winner_supergrand_1900x1140_7_8_9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Exp1900x1140\Winner_supergrand_1900x1140_7_8_9.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Nokia_lumia_925" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Nokia_lumia_925.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Adhoc_1900x1140" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Exp1900x1140\Adhoc_1900x1140.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_3mil_85_86_87_unblocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_3mil_85_86_87_unblocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Lenovo_laptop_cpu_core_i5_28_29_30_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Lenovo_laptop_cpu_core_i5_28_29_30_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sony_32_led_tv_40_41_42_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Sony_32_led_tv_40_41_42_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Canon_camera_powershot_n_55_56_57_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Canon_camera_powershot_n_55_56_57_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Apple_iphone_5s_16gb_10_11_12_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Apple_iphone_5s_16gb_10_11_12_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_3mil_79_80_81_blocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_3mil_79_80_81_blocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="outline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2012\outline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_5mil_73_74_75_unblocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_5mil_73_74_75_unblocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_honda_Lead_2_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_honda_Lead_2_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cash_10mil_64_65_66_blocked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Cash_10mil_64_65_66_blocked.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="winner_small1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\winner_small.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Samsung_galaxy_note_3_N9000_16Gb_13_14_15_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Samsung_galaxy_note_3_N9000_16Gb_13_14_15_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_saigontourist_travel_voucher_7_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_saigontourist_travel_voucher_7_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Super_Grand_sony_bdv_N9100_8_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Super_Grand_sony_bdv_N9100_8_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sony_32_led_tv_46_47_48_UNBLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Sony_32_led_tv_46_47_48_UNBLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Sanyo_fridge_sr_u205pn_58_59_60_BLOCKED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\Sanyo_fridge_sr_u205pn_58_59_60_BLOCKED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CashVoucher3mil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\CashVoucher3mil.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="unknown_big" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2013\unknown_big.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

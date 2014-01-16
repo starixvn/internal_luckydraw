@@ -1,0 +1,53 @@
+﻿@model IEnumerable<YearEndParty.Web.Models.LabelModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Label</title>
+    <style type="text/css">
+        body
+        {
+            width:900px;
+            margin: 0 auto;
+        }
+        .barcode
+        {
+            float: left;
+            margin-bottom:20px;
+            text-align:center;
+            width:300px;
+        }
+        .barcode_name
+        {
+            text-transform:uppercase;
+            margin-bottom:2px;
+        }
+        .barcode_barcode
+        {
+            letter-spacing:15px;
+            font-weight:bold;
+            padding-left:15px;
+        }
+    </style>
+</head>
+<body>
+    @foreach (var item in Model)
+    {
+        <div class="barcode">
+            <div class="barcode_name">
+                @item.Name
+            </div>
+            <div class="barcode_image">
+                <img src="/image/handler?type=staff&id=@(item.StaffId)"/>
+            </div>
+            <div class="barcode_barcode">
+                @item.Barcode
+            </div>
+        </div>
+    }
+</body>
+</html>
