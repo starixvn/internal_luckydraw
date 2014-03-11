@@ -76,9 +76,6 @@ namespace YearEndParty.Presentation
                     IsClosed = true;
                     Close();
                     break;
-                //case (char)45:
-                //    RemoveWinners();
-                //    break;
                 case (char)49: //1
                     ChoosePrize(1);
                     break;
@@ -106,9 +103,6 @@ namespace YearEndParty.Presentation
                 case (char)57: //9
                     ChoosePrize(9);
                     break;
-                //case (char)47:
-                //    ResetPrize();
-                //    break;
             }
         }
 
@@ -152,7 +146,6 @@ namespace YearEndParty.Presentation
             var widthBoderImage = 206 * WidthScreen / WidthImage;
             var heightBoderImage = 220 * HeightScreen / HeightImage;
 
-            //var widthImage = 99 * WidthScreen / WidthImage;
             var topImage = 7 * HeightScreen / HeightImage;
             var heightImage = 214 * HeightScreen / HeightImage;
             
@@ -290,11 +283,6 @@ namespace YearEndParty.Presentation
 
             var superGrandPrize = _context.PrizeSettings.Where(t => t.PrizeType == (int)PrizeType).FirstOrDefault();
 
-            //var prize = (from i in _context.Prizes
-            //             where i.PrizeType == (int)PrizeType
-            //             orderby i.PriceIndex ascending
-            //             select i).First();
-
             // render background
             RenderBackGround(PrizeIndex);
             for (var i = 0; i < prizes.Count(); i++)
@@ -313,28 +301,6 @@ namespace YearEndParty.Presentation
                 .Where(i =>
                        (prizes.Any(j => (j.PrizeId == i.PrizeId || i.PrizeId == -1))) 
                 ).ToList();
-
-
-            //var loadWinners = loadAllWinners
-            //    .Where(i =>i.PrizeId == -1).ToList();
-
-            //for (var i = 0; i < _prizeIds.Count; i++)
-            //{
-            //    var winner = winners.Where(t => t.PrizeId == _prizeIds[i]).FirstOrDefault();
-
-            //    if (winner != null)
-            //    {
-            //        var staff = _context.Staffs.FirstOrDefault(t => t.StaffId == winner.StaffId);
-            //        var dept = _context.Departments.First(t => t.DepartmentId == staff.DepartmentId);
-
-            //        FillPrizeWinner(staff, dept, i);
-
-            //        _savedWinners.Add(winner.StaffId, staff.StaffCode);
-
-            //        _prizedIndex--;
-            //        _prizedWinners.Add(staff.StaffId);
-            //    }
-            //}
 
             var index = 1;
             foreach (var winner in winners)
@@ -375,7 +341,7 @@ namespace YearEndParty.Presentation
                 return;
             }
 
-            //AllowDuplicateGroup
+            // AllowDuplicateGroup
             if (!isAllowDuplicateGroup)
             {
                 if (_savedWinners.Any(i => i.Value.StartsWith(barcode.Substring(0, 2))))
@@ -443,7 +409,6 @@ namespace YearEndParty.Presentation
             var nick = string.IsNullOrWhiteSpace(staff.Nick) ? staff.FirstName.ToUpper() : staff.Nick.ToUpper();
             string fullName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(staff.FullName.ToLower());
             var prizeNumber = Properties.Resources._1;
-          //  var grade = staff.StaffCode.Substring(0, 2);
 
             switch (prizeIndex)
             {
@@ -785,22 +750,6 @@ namespace YearEndParty.Presentation
                         SetFocus();
                     }
                     break;
-                
-                //case 38:
-                //    if (_focus > 1)
-                //    {
-                //        _focus--;
-                //        SetFocus();
-                //    }
-                //    break;
-                //case 40:
-                //    if (_focus < 3)
-                //    {
-                //        _focus++;
-                //        SetFocus();
-                //    }
-                    
-                //    break;
                 case 46:
                     DeleteSpecial();
                     break;

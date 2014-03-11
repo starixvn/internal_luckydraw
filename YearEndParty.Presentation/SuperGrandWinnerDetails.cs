@@ -65,9 +65,6 @@ namespace YearEndParty.Presentation
                 case (char)4: //press ctrl+D to remove winners
                     RemoveWinners();
                     break;
-                //case (char)5: //press ctrl+E to close
-                //    ResetPrize();
-                //    break;
                 case (char)13:
                 case (char)27:
                     IsClosed = true;

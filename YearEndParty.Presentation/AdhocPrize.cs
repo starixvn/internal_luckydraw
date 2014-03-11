@@ -99,12 +99,6 @@ namespace YearEndParty.Presentation
                 case (char)56:
                     RemoveWinner(7);
                     break;
-                //case (char)57:
-                //    RemoveWinner(8);
-                //    break;
-                //case (char)48:
-                //    RemoveWinner(9);
-                    //break;
                 case (char)115:
                     var list = new LuckyList { PrizeType = (int)PrizeTypes.AdHoc };
                     list.Show();

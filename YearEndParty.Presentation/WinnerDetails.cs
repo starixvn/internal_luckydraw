@@ -76,11 +76,8 @@ namespace YearEndParty.Presentation
 
         private void ResizeControl()
         {
-            //pnlPrize
-            //pnlPink
-            //pnlGreen
-            //pnlBlue
-
+            // Constant below is follow position of control in images which design team provide
+            // Example: 82, 2, 790, 634, ...
             var topPrizeImage = 82 * HeightScreen / HeightImage;
             var leftPrizeImage = 2 * WidthScreen / WidthImage;
             var widthPrizeImage = 790 * WidthScreen / WidthImage;
@@ -321,7 +318,6 @@ namespace YearEndParty.Presentation
         private void FillWinner(Staffs staff, Departments dept)
         {
             var avatar = Utilities.ScaleImage(staff.Avatar, pictureBoxWinner1.Width, pictureBoxWinner1.Height);
-           // var fullName = staff.FullName;
             string fullName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(staff.FullName.ToLower());
             var nick = string.IsNullOrWhiteSpace(staff.Nick) ? staff.FirstName.ToUpper() : staff.Nick.ToUpper();
             var grade = staff.StaffCode.Substring(0, 2);
@@ -398,7 +394,6 @@ namespace YearEndParty.Presentation
             var staffId = _context.Staffs.First(i => i.StaffCode == barcode).StaffId;
 
             //delete from database
-
             var staff = _context.Winners.First(i => i.StaffId == staffId);
             _context.Winners.DeleteObject(staff);
 

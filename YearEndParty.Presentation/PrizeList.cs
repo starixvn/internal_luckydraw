@@ -19,8 +19,6 @@ namespace YearEndParty.Presentation
         private const int grandPrizeRow = 3;
 
         //width & height of image
-        //private const int WidthImage = 1408;
-        //private const int HeightImage = 640;
         private const int WidthImage = 1900;
         private const int HeightImage = 1140;
 
@@ -198,12 +196,6 @@ namespace YearEndParty.Presentation
             var total = setting.Quantity / Multiply;
             _currentPrize = setting.CurrentPrize;
 
-            //if 1 prize only has 1 winner
-            //if (Multiply == 1)
-            //{
-            //    _currentPrize *= 3;
-            //}
-
             // Load Background
             switch (PrizeType)
             {
@@ -349,7 +341,6 @@ namespace YearEndParty.Presentation
                 {
                     if ((i == 0 && j != 0 && j != 3) || i != 0)
                     {
-                         //(i * grandPrizeColumn + j);
                         if (index < total)
                         {
                             int color;

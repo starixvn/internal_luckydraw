@@ -58,23 +58,14 @@ namespace YearEndParty.Presentation
             switch (PrizeType)
             {
                 case (int)PrizeTypes.Cash:
-                    //BackgroundImage = Properties.Resources.cashwinnerlist_bg;
-                    ShowWinners();
-                    break;
                 case (int)PrizeTypes.Major:
-                   // BackgroundImage = Properties.Resources.majorwinnerlist_bg;
-                    ShowWinners();
-                    break;
                 case (int)PrizeTypes.Grand:
-                    //BackgroundImage = Properties.Resources.grandwinnerlist_bg;
                     ShowWinners();
                     break;
                 case (int)PrizeTypes.SuperGrand:
-                    //BackgroundImage = Properties.Resources.winnerlistsuper_version2_bg;
                     ShowSupperWinners();
                     break;
                 case (int)PrizeTypes.AdHoc:
-                   // BackgroundImage = Properties.Resources.adhocwinnerlist_bg;
                     ShowAdhocWinners();
                     break;
             }
