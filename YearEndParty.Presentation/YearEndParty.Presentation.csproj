@@ -141,12 +141,6 @@
     <Compile Include="SuperGrandWinnerSpecialDetails.designer.cs">
       <DependentUpon>SuperGrandWinnerSpecialDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="XAdhocPrize.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="XAdhocPrize.Designer.cs">
-      <DependentUpon>XAdhocPrize.cs</DependentUpon>
-    </Compile>
     <Compile Include="SuperGrandWinnerDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,9 +182,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SuperGrandWinnerSpecialDetails.resx">
       <DependentUpon>SuperGrandWinnerSpecialDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XAdhocPrize.resx">
-      <DependentUpon>XAdhocPrize.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SuperGrandWinnerDetails.resx">
       <DependentUpon>SuperGrandWinnerDetails.cs</DependentUpon>

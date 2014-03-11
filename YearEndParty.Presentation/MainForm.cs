@@ -27,7 +27,6 @@ namespace YearEndParty.Presentation
         private readonly Thread _serverThread;
         private PrizeList _prizeList;
         private AdhocPrize _adhocPrize;
-        private XAdhocPrize _xAdhocPrize;
         private LuckyList _luckyList;
         private static readonly ILog Log = LogManager.GetLogger("YearEndParty2012");
         private delegate void BarcodeNotify(string barcode);
@@ -112,10 +111,6 @@ namespace YearEndParty.Presentation
                     _adhocPrize.Show();
                     break;
 
-                case (char)57: //9
-                    _xAdhocPrize = new XAdhocPrize { TalkBack = TalkBack };
-                    _xAdhocPrize.Show();
-                    break;
                 case (char)5: //press ctrl+E to close
                     Exit();
                     break;
@@ -245,9 +240,6 @@ namespace YearEndParty.Presentation
 
                 if (_adhocPrize != null && !_adhocPrize.IsClosed)
                     _adhocPrize.Barcode(barcode);
-
-                if (_xAdhocPrize != null && !_xAdhocPrize.IsClosed)
-                    _xAdhocPrize.Barcode(barcode);
             }
         }
 
