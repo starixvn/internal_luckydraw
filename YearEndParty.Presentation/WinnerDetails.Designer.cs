@@ -31,25 +31,18 @@ namespace YearEndParty.Presentation
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pnlPrize = new System.Windows.Forms.Panel();
             this.labelNumber1 = new System.Windows.Forms.Label();
             this.labelWinner3 = new System.Windows.Forms.Label();
             this.pnl_Blue = new System.Windows.Forms.Panel();
             this.labelDept3 = new System.Windows.Forms.Label();
             this.labelNick3 = new System.Windows.Forms.Label();
             this.labelName3 = new System.Windows.Forms.Label();
-            this.pictureBoxWinner3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.labelWinner2 = new System.Windows.Forms.Label();
             this.pnl_Green = new System.Windows.Forms.Panel();
             this.labelDept2 = new System.Windows.Forms.Label();
             this.labelNick2 = new System.Windows.Forms.Label();
             this.labelName2 = new System.Windows.Forms.Label();
-            this.pictureBoxWinner2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnl_Pink = new System.Windows.Forms.Panel();
-            this.pictureBoxWinner1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelNick1 = new System.Windows.Forms.Label();
             this.labelDept1 = new System.Windows.Forms.Label();
             this.labelName1 = new System.Windows.Forms.Label();
@@ -57,28 +50,24 @@ namespace YearEndParty.Presentation
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelNumber2 = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.pictureBoxWinner3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxWinner2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxWinner1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlPrize = new System.Windows.Forms.Panel();
             this.pnl_Blue.SuspendLayout();
+            this.pnl_Green.SuspendLayout();
+            this.pnl_Pink.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWinner3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.pnl_Green.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWinner2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.pnl_Pink.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWinner1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlPrize
-            // 
-            this.pnlPrize.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlPrize.BackColor = System.Drawing.Color.Transparent;
-            this.pnlPrize.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.Sony_32_inches_led_tv;
-            this.pnlPrize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlPrize.Location = new System.Drawing.Point(2, 82);
-            this.pnlPrize.Name = "pnlPrize";
-            this.pnlPrize.Size = new System.Drawing.Size(790, 634);
-            this.pnlPrize.TabIndex = 39;
             // 
             // labelNumber1
             // 
@@ -99,7 +88,7 @@ namespace YearEndParty.Presentation
             this.labelWinner3.BackColor = System.Drawing.Color.Transparent;
             this.labelWinner3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWinner3.ForeColor = System.Drawing.Color.White;
-            this.labelWinner3.Location = new System.Drawing.Point(110, 173);
+            this.labelWinner3.Location = new System.Drawing.Point(242, 95);
             this.labelWinner3.Name = "labelWinner3";
             this.labelWinner3.Size = new System.Drawing.Size(119, 24);
             this.labelWinner3.TabIndex = 37;
@@ -116,7 +105,7 @@ namespace YearEndParty.Presentation
             this.pnl_Blue.Controls.Add(this.labelName3);
             this.pnl_Blue.Controls.Add(this.pictureBoxWinner3);
             this.pnl_Blue.Controls.Add(this.pictureBox3);
-            this.pnl_Blue.Location = new System.Drawing.Point(657, 535);
+            this.pnl_Blue.Location = new System.Drawing.Point(589, 130);
             this.pnl_Blue.Name = "pnl_Blue";
             this.pnl_Blue.Size = new System.Drawing.Size(570, 189);
             this.pnl_Blue.TabIndex = 36;
@@ -125,56 +114,33 @@ namespace YearEndParty.Presentation
             // 
             this.labelDept3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.labelDept3.BackColor = System.Drawing.Color.Transparent;
-            this.labelDept3.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDept3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(156)))), ((int)(((byte)(255)))));
+            this.labelDept3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDept3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(188)))), ((int)(((byte)(225)))));
             this.labelDept3.Location = new System.Drawing.Point(3, 146);
             this.labelDept3.Name = "labelDept3";
             this.labelDept3.Size = new System.Drawing.Size(402, 40);
             this.labelDept3.TabIndex = 35;
-            this.labelDept3.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.labelDept3.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // labelNick3
             // 
             this.labelNick3.BackColor = System.Drawing.Color.Transparent;
-            this.labelNick3.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNick3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(156)))), ((int)(((byte)(255)))));
+            this.labelNick3.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNick3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(188)))), ((int)(((byte)(225)))));
             this.labelNick3.Location = new System.Drawing.Point(3, 4);
             this.labelNick3.Name = "labelNick3";
             this.labelNick3.Size = new System.Drawing.Size(402, 35);
             this.labelNick3.TabIndex = 34;
-            this.labelNick3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelName3
             // 
             this.labelName3.BackColor = System.Drawing.Color.Transparent;
-            this.labelName3.Font = new System.Drawing.Font("Roboto Condensed", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(156)))), ((int)(((byte)(255)))));
+            this.labelName3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(188)))), ((int)(((byte)(225)))));
             this.labelName3.Location = new System.Drawing.Point(3, 47);
             this.labelName3.Name = "labelName3";
             this.labelName3.Size = new System.Drawing.Size(402, 77);
             this.labelName3.TabIndex = 2;
-            this.labelName3.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // pictureBoxWinner3
-            // 
-            this.pictureBoxWinner3.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.Blue;
-            this.pictureBoxWinner3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxWinner3.Location = new System.Drawing.Point(413, 13);
-            this.pictureBoxWinner3.Name = "pictureBoxWinner3";
-            this.pictureBoxWinner3.Size = new System.Drawing.Size(151, 166);
-            this.pictureBoxWinner3.TabIndex = 0;
-            this.pictureBoxWinner3.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.Grey;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(409, 9);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(158, 175);
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Visible = false;
             // 
             // labelWinner2
             // 
@@ -182,7 +148,7 @@ namespace YearEndParty.Presentation
             this.labelWinner2.BackColor = System.Drawing.Color.Transparent;
             this.labelWinner2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWinner2.ForeColor = System.Drawing.Color.White;
-            this.labelWinner2.Location = new System.Drawing.Point(163, 203);
+            this.labelWinner2.Location = new System.Drawing.Point(510, 78);
             this.labelWinner2.Name = "labelWinner2";
             this.labelWinner2.Size = new System.Drawing.Size(119, 24);
             this.labelWinner2.TabIndex = 35;
@@ -199,7 +165,7 @@ namespace YearEndParty.Presentation
             this.pnl_Green.Controls.Add(this.labelName2);
             this.pnl_Green.Controls.Add(this.pictureBoxWinner2);
             this.pnl_Green.Controls.Add(this.pictureBox2);
-            this.pnl_Green.Location = new System.Drawing.Point(657, 303);
+            this.pnl_Green.Location = new System.Drawing.Point(651, 325);
             this.pnl_Green.Name = "pnl_Green";
             this.pnl_Green.Size = new System.Drawing.Size(570, 189);
             this.pnl_Green.TabIndex = 34;
@@ -207,56 +173,33 @@ namespace YearEndParty.Presentation
             // labelDept2
             // 
             this.labelDept2.BackColor = System.Drawing.Color.Transparent;
-            this.labelDept2.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDept2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(255)))), ((int)(((byte)(126)))));
+            this.labelDept2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDept2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(239)))), ((int)(((byte)(54)))));
             this.labelDept2.Location = new System.Drawing.Point(3, 146);
             this.labelDept2.Name = "labelDept2";
             this.labelDept2.Size = new System.Drawing.Size(402, 40);
             this.labelDept2.TabIndex = 35;
-            this.labelDept2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.labelDept2.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // labelNick2
             // 
             this.labelNick2.BackColor = System.Drawing.Color.Transparent;
-            this.labelNick2.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNick2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(255)))), ((int)(((byte)(126)))));
+            this.labelNick2.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNick2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(239)))), ((int)(((byte)(54)))));
             this.labelNick2.Location = new System.Drawing.Point(3, 4);
             this.labelNick2.Name = "labelNick2";
             this.labelNick2.Size = new System.Drawing.Size(402, 35);
             this.labelNick2.TabIndex = 34;
-            this.labelNick2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelName2
             // 
             this.labelName2.BackColor = System.Drawing.Color.Transparent;
-            this.labelName2.Font = new System.Drawing.Font("Roboto Condensed", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(255)))), ((int)(((byte)(126)))));
+            this.labelName2.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(167)))), ((int)(((byte)(239)))), ((int)(((byte)(54)))));
             this.labelName2.Location = new System.Drawing.Point(3, 47);
             this.labelName2.Name = "labelName2";
             this.labelName2.Size = new System.Drawing.Size(402, 77);
             this.labelName2.TabIndex = 2;
-            this.labelName2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // pictureBoxWinner2
-            // 
-            this.pictureBoxWinner2.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.Green;
-            this.pictureBoxWinner2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxWinner2.Location = new System.Drawing.Point(413, 13);
-            this.pictureBoxWinner2.Name = "pictureBoxWinner2";
-            this.pictureBoxWinner2.Size = new System.Drawing.Size(151, 166);
-            this.pictureBoxWinner2.TabIndex = 0;
-            this.pictureBoxWinner2.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.Grey;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(409, 9);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(158, 175);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Visible = false;
             // 
             // pnl_Pink
             // 
@@ -268,64 +211,41 @@ namespace YearEndParty.Presentation
             this.pnl_Pink.Controls.Add(this.labelNick1);
             this.pnl_Pink.Controls.Add(this.labelDept1);
             this.pnl_Pink.Controls.Add(this.labelName1);
-            this.pnl_Pink.Location = new System.Drawing.Point(657, 71);
+            this.pnl_Pink.Location = new System.Drawing.Point(673, 541);
             this.pnl_Pink.Name = "pnl_Pink";
-            this.pnl_Pink.Size = new System.Drawing.Size(570, 189);
+            this.pnl_Pink.Size = new System.Drawing.Size(542, 153);
             this.pnl_Pink.TabIndex = 10;
-            // 
-            // pictureBoxWinner1
-            // 
-            this.pictureBoxWinner1.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.Pink;
-            this.pictureBoxWinner1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxWinner1.Location = new System.Drawing.Point(413, 13);
-            this.pictureBoxWinner1.Name = "pictureBoxWinner1";
-            this.pictureBoxWinner1.Size = new System.Drawing.Size(151, 166);
-            this.pictureBoxWinner1.TabIndex = 36;
-            this.pictureBoxWinner1.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.Grey;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(409, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(158, 175);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Visible = false;
             // 
             // labelNick1
             // 
             this.labelNick1.BackColor = System.Drawing.Color.Transparent;
-            this.labelNick1.Font = new System.Drawing.Font("Roboto Condensed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNick1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(126)))), ((int)(((byte)(209)))));
-            this.labelNick1.Location = new System.Drawing.Point(3, 4);
+            this.labelNick1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNick1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(109)))), ((int)(((byte)(124)))));
+            this.labelNick1.Location = new System.Drawing.Point(5, 5);
             this.labelNick1.Name = "labelNick1";
-            this.labelNick1.Size = new System.Drawing.Size(402, 35);
+            this.labelNick1.Size = new System.Drawing.Size(371, 35);
             this.labelNick1.TabIndex = 34;
-            this.labelNick1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelDept1
             // 
             this.labelDept1.BackColor = System.Drawing.Color.Transparent;
-            this.labelDept1.Font = new System.Drawing.Font("Roboto Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDept1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(126)))), ((int)(((byte)(209)))));
-            this.labelDept1.Location = new System.Drawing.Point(3, 146);
+            this.labelDept1.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDept1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(109)))), ((int)(((byte)(124)))));
+            this.labelDept1.Location = new System.Drawing.Point(5, 109);
             this.labelDept1.Name = "labelDept1";
-            this.labelDept1.Size = new System.Drawing.Size(402, 40);
+            this.labelDept1.Size = new System.Drawing.Size(371, 30);
             this.labelDept1.TabIndex = 35;
-            this.labelDept1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.labelDept1.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // labelName1
             // 
             this.labelName1.BackColor = System.Drawing.Color.Transparent;
-            this.labelName1.Font = new System.Drawing.Font("Roboto Condensed", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelName1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(126)))), ((int)(((byte)(209)))));
-            this.labelName1.Location = new System.Drawing.Point(3, 47);
+            this.labelName1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(109)))), ((int)(((byte)(124)))));
+            this.labelName1.Location = new System.Drawing.Point(1, 45);
             this.labelName1.Name = "labelName1";
-            this.labelName1.Size = new System.Drawing.Size(402, 77);
+            this.labelName1.Size = new System.Drawing.Size(384, 55);
             this.labelName1.TabIndex = 2;
-            this.labelName1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // labelWinner1
             // 
@@ -369,11 +289,81 @@ namespace YearEndParty.Presentation
             this.timer.Interval = 1;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // pictureBoxWinner3
+            // 
+            this.pictureBoxWinner3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxWinner3.Location = new System.Drawing.Point(413, 13);
+            this.pictureBoxWinner3.Name = "pictureBoxWinner3";
+            this.pictureBoxWinner3.Size = new System.Drawing.Size(151, 166);
+            this.pictureBoxWinner3.TabIndex = 0;
+            this.pictureBoxWinner3.TabStop = false;
+            this.pictureBoxWinner3.Visible = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.winnerimage_blue;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(409, 9);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(158, 175);
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBoxWinner2
+            // 
+            this.pictureBoxWinner2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxWinner2.Location = new System.Drawing.Point(413, 13);
+            this.pictureBoxWinner2.Name = "pictureBoxWinner2";
+            this.pictureBoxWinner2.Size = new System.Drawing.Size(151, 166);
+            this.pictureBoxWinner2.TabIndex = 0;
+            this.pictureBoxWinner2.TabStop = false;
+            this.pictureBoxWinner2.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.winnerimage_green;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(409, 9);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(158, 175);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBoxWinner1
+            // 
+            this.pictureBoxWinner1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxWinner1.Location = new System.Drawing.Point(405, 27);
+            this.pictureBoxWinner1.Name = "pictureBoxWinner1";
+            this.pictureBoxWinner1.Size = new System.Drawing.Size(119, 82);
+            this.pictureBoxWinner1.TabIndex = 36;
+            this.pictureBoxWinner1.TabStop = false;
+            this.pictureBoxWinner1.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.winnerimage_pink;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(391, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(146, 145);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pnlPrize
+            // 
+            this.pnlPrize.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlPrize.BackColor = System.Drawing.Color.Transparent;
+            this.pnlPrize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pnlPrize.Location = new System.Drawing.Point(142, 133);
+            this.pnlPrize.Name = "pnlPrize";
+            this.pnlPrize.Size = new System.Drawing.Size(404, 550);
+            this.pnlPrize.TabIndex = 39;
+            // 
             // WinnerDetails
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.Winners_1900x1069;
+            this.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.winner_bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1350, 788);
             this.Controls.Add(this.panel1);
@@ -393,16 +383,16 @@ namespace YearEndParty.Presentation
             this.Load += new System.EventHandler(this.PrizeDetails_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PrizeDetails_KeyPress);
             this.pnl_Blue.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWinner3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnl_Green.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWinner2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnl_Pink.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWinner1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWinner3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWinner2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxWinner1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

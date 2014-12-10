@@ -1,23 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using log4net;
-using YearEndParty.Core;
-using System.Globalization;
-using System.Drawing;
-using System.IO;
-using System.Configuration;
-
-namespace YearEndParty.Presentation
+﻿namespace YearEndParty.Presentation
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Windows.Forms;
+    using log4net;
+    using YearEndParty.Core;
+    using System.Globalization;
+    using System.Drawing;
+    using System.IO;
+    using System.Configuration;
+
     public partial class WinnerDetails : Form
     {
         public delegate void TalkBackDelegate(string message);
         public TalkBackDelegate TalkBack;
 
-        private const int WidthImage = 1350;
-        private const int HeightImage = 810;
+        private const int WidthImage = 1536;
+        private const int HeightImage = 750;
 
         //width & height of screen
         private int WidthScreen = 0;
@@ -78,38 +78,38 @@ namespace YearEndParty.Presentation
         {
             // Constant below is follow position of control in images which design team provide
             // Example: 82, 2, 790, 634, ...
-            var topPrizeImage = 82 * HeightScreen / HeightImage;
-            var leftPrizeImage = 2 * WidthScreen / WidthImage;
-            var widthPrizeImage = 790 * WidthScreen / WidthImage;
-            var heightPrizeImage = 634 * HeightScreen / HeightImage;
+            var topPrizeImage = 120 * HeightScreen / HeightImage;
+            var leftPrizeImage = 850 * WidthScreen / WidthImage;
+            var widthPrizeImage = 350 * WidthScreen / WidthImage;
+            var heightPrizeImage = 525 * HeightScreen / HeightImage;
 
-            var topPanelPink = 71 * HeightScreen / HeightImage;
-            var topPanelGreen = 303 * HeightScreen / HeightImage;
-            var topPanelBlue = 535 * HeightScreen / HeightImage;
-            var leftPanel = 657 * WidthScreen / WidthImage;
-            var widthPanel = 570 * WidthScreen / WidthImage;
-            var heightPanel = 189 * HeightScreen / HeightImage;
+            var topPanelBlue = 130 * HeightScreen / HeightImage;
+            var topPanelGreen = 317 * HeightScreen / HeightImage;
+            var topPanelPink = 500 * HeightScreen / HeightImage;
+            var leftPanel = 290 * WidthScreen / WidthImage;
+            var widthPanel = 510 * WidthScreen / WidthImage;
+            var heightPanel = 151 * HeightScreen / HeightImage;
 
-            var leftItem = 3 * WidthScreen / WidthImage;
-            var widthItem = 402 * WidthScreen / WidthImage;
+            var leftItem = 110 * WidthScreen / WidthImage;
+            var widthItem = 360 * WidthScreen / WidthImage;
             var topNick = 4 * HeightScreen / HeightImage;
             var heightNick = 40 * HeightScreen / HeightImage;
 
-            var topName = 52 * HeightScreen / HeightImage;
-            var heightName = 72 * HeightScreen / HeightImage;
+            var topName = 45 * HeightScreen / HeightImage;
+            var heightName = 64 * HeightScreen / HeightImage;
 
-            var topDepartment = 146 * HeightScreen / HeightImage;
-            var heightDepartment = 40 * HeightScreen / HeightImage;
+            var topDepartment = 110 * HeightScreen / HeightImage;
+            var heightDepartment = 35 * HeightScreen / HeightImage;
 
-            var topImage = 13 * HeightScreen / HeightImage;
-            var leftImage = 413 * WidthScreen / WidthImage;
-            var widthImage = 151 * WidthScreen / WidthImage;
-            var heightImage = 166 * HeightScreen / HeightImage;
+            var topImage = 5 * HeightScreen / HeightImage;
+            var leftImage = 4 * WidthScreen / WidthImage;
+            var widthImage = 102 * WidthScreen / WidthImage;
+            var heightImage = 140 * HeightScreen / HeightImage;
 
-            var topBorder = 9 * HeightScreen / HeightImage;
-            var leftBorder = 409 * WidthScreen / WidthImage;
-            var widthBorder = 158 * WidthScreen / WidthImage;
-            var heightBorder = 175 * HeightScreen / HeightImage;
+            var topBorder = 1 * HeightScreen / HeightImage;
+            var leftBorder = 1 * WidthScreen / WidthImage;
+            var widthBorder = 108 * WidthScreen / WidthImage;
+            var heightBorder = 148 * HeightScreen / HeightImage;
 
             pnlPrize.Location = new Point(leftPrizeImage, topPrizeImage);
             pnlPrize.Height = heightPrizeImage;
@@ -329,7 +329,7 @@ namespace YearEndParty.Presentation
                     labelNick1.Text = nick;
                     labelDept1.Text = dept.ShortName.ToUpper();
                     pictureBoxWinner1.Image = avatar;
-                    pictureBox1.Visible = true;
+                    pictureBoxWinner1.Visible = true;
                     break;
                 case "11":
                     labelWinner2.Text = staff.StaffCode;
@@ -337,7 +337,7 @@ namespace YearEndParty.Presentation
                     labelNick2.Text = nick;
                     labelDept2.Text = dept.ShortName.ToUpper();
                     pictureBoxWinner2.Image = avatar;
-                    pictureBox2.Visible = true;
+                    pictureBoxWinner2.Visible = true;
                     break;
                 case "12":
                     labelWinner3.Text = staff.StaffCode;
@@ -345,7 +345,7 @@ namespace YearEndParty.Presentation
                     labelNick3.Text = nick;
                     labelDept3.Text = dept.ShortName.ToUpper();
                     pictureBoxWinner3.Image = avatar;
-                    pictureBox3.Visible = true;
+                    pictureBoxWinner3.Visible = true;
                     break;
 
             }
@@ -382,7 +382,7 @@ namespace YearEndParty.Presentation
 
             var result = MessageBox.Show(
                 "Are you sure you want to remove " + fullName + " (" + nick + ") from winner list?",
-                "Year End Party 2012",
+                "Staff Annual Party",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
                 );

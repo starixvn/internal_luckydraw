@@ -8,7 +8,6 @@ namespace YearEndParty.Web.Controllers
 {
     public class SecureController : Controller
     {
-        [NonAction]
         public ActionResult Label(int? id)
         {
             var context = new bodb_luckyEntities();
@@ -24,7 +23,6 @@ namespace YearEndParty.Web.Controllers
             return View(model);
         }
 
-        [NonAction]
         public ActionResult Label2(int? id)
         {
             var context = new bodb_luckyEntities();

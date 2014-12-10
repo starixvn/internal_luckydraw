@@ -36,10 +36,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.Home_1900x1140;
+            this.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.luckdraw_opening_bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1362, 640);
             this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
@@ -53,6 +54,8 @@
         }
 
         #endregion
+
+
 
     }
 }

@@ -25,8 +25,8 @@ namespace YearEndParty.Presentation
         private IList<int> _prizedWinners = new List<int>(3);
         private IList<int> _prizeIds = new List<int>(3);
 
-        private const int WidthImage = 1900;
-        private const int HeightImage = 1140;
+        private const int WidthImage = 1536;
+        private const int HeightImage = 750;
 
         //width & height of screen
         private int WidthScreen = 0;
@@ -108,47 +108,64 @@ namespace YearEndParty.Presentation
 
         private void ResizeControl()
         {
-            // number
-            var heightNumber = 70 * HeightScreen / HeightImage;
-            var widthNumber = 50 * WidthScreen / WidthImage;
+            // number  pnlNumber2
+            var heightNumber = 40 * HeightScreen / HeightImage;
+            var widthNumber = 30 * WidthScreen / WidthImage;
 
-            var topNumber3 = 250 * HeightScreen / HeightImage;
-            var leftNumber3 = 415 * WidthScreen / WidthImage;
+            var topNumber3 = 115 * HeightScreen / HeightImage;
+            var leftNumber3 = 285 * WidthScreen / WidthImage;
 
-            var topNumber2 = 250 * HeightScreen / HeightImage;
-            var leftNumber2 = 660 * WidthScreen / WidthImage;
+            var topNumber2 = 301 * HeightScreen / HeightImage;
+            var leftNumber2 = 285 * WidthScreen / WidthImage;
 
-            var topNumber1 = 250 * HeightScreen / HeightImage;
-            var leftNumber1 = 905 * WidthScreen / WidthImage;
+            var topNumber1 = 487 * HeightScreen / HeightImage;
+            var leftNumber1 = 285 * WidthScreen / WidthImage;
 
             // panel
-            var heightPanel = 470 * HeightScreen / HeightImage;
-            var widthPanel = 240 * WidthScreen / WidthImage;
+            var heightPanel = 160 * HeightScreen / HeightImage;
+            var widthPanel = 500 * WidthScreen / WidthImage;
 
-            var topPanel3 = 344 * HeightScreen / HeightImage;
-            var leftPanel3 = 330 * WidthScreen / WidthImage;
+            var topPanel3 = 140 * HeightScreen / HeightImage;
+            var leftPanel3 = 310 * WidthScreen / WidthImage;
 
-            var topPanel2 = 344 * HeightScreen / HeightImage;
-            var leftPanel2 = 575 * WidthScreen / WidthImage;
+            var topPanel2 = 326 * HeightScreen / HeightImage;
+            var leftPanel2 = 310 * WidthScreen / WidthImage;
 
-            var topPanel1 = 344 * HeightScreen / HeightImage;
-            var leftPanel1 = 820 * WidthScreen / WidthImage;
+            var topPanel1 = 512 * HeightScreen / HeightImage;
+            var leftPanel1 = 310 * WidthScreen / WidthImage;
+
+            var topNick = 4 * HeightScreen / HeightImage;
+            var heightNick = 40 * HeightScreen / HeightImage;
+            var topName = 45 * HeightScreen / HeightImage;
+            var heightName = 64 * HeightScreen / HeightImage;
+            var topDepartment = 110 * HeightScreen / HeightImage;
+            var heightDepartment = 35 * HeightScreen / HeightImage;
+
+            // image
+            var topBoderImage = 1 * HeightScreen / HeightImage;
+            var leftBoderImage = 1 * WidthScreen / WidthImage;
+            var widthBoderImage = 108 * WidthScreen / WidthImage;
+            var heightBoderImage = 148 * HeightScreen / HeightImage;
 
             // info
-            var leftItem = 3 * WidthScreen / WidthImage;
-            var widthItem = 225 * WidthScreen / WidthImage;
+            var leftItem = 112 * WidthScreen / WidthImage;
+            var widthItem = 355 * WidthScreen / WidthImage;
+            var topImage = 5 * HeightScreen / HeightImage;
+            var leftImage = 5 * WidthScreen / WidthImage;
+            var heightImage = 140 * HeightScreen / HeightImage;
+            var widthImage = 101 * WidthScreen / WidthImage;
 
-            var widthImage = 200 * WidthScreen / WidthImage;
-            var leftImage = 12 * WidthScreen / WidthImage;
-            // image
-            var topBoderImage = 3 * HeightScreen / HeightImage;
-            var leftBoderImage = 9 * HeightScreen / HeightImage;
-            var widthBoderImage = 206 * WidthScreen / WidthImage;
-            var heightBoderImage = 220 * HeightScreen / HeightImage;
+            pictureBoxNumber1.Location = new Point(leftNumber1, topNumber1);
+            pictureBoxNumber1.Height = heightNumber;
+            pictureBoxNumber1.Width = widthNumber;
 
-            var topImage = 7 * HeightScreen / HeightImage;
-            var heightImage = 214 * HeightScreen / HeightImage;
-            
+            pictureBoxNumber2.Location = new Point(leftNumber2, topNumber2);
+            pictureBoxNumber2.Height = heightNumber;
+            pictureBoxNumber2.Width = widthNumber;
+
+            pictureBoxNumber3.Location = new Point(leftNumber3, topNumber3);
+            pictureBoxNumber3.Height = heightNumber;
+            pictureBoxNumber3.Width = widthNumber;
 
             pictureBoxNumber1.Location = new Point(leftNumber1, topNumber1);
             pictureBoxNumber1.Height = heightNumber;
@@ -198,10 +215,6 @@ namespace YearEndParty.Presentation
             imageLucky3.Height = heightImage;
             imageLucky3.Width = widthImage;
 
-            // Nick
-            var topNick = imageLucky1.Top + imageLucky1.Height + 11 * HeightScreen / HeightImage;
-            var heightNick = 40 * HeightScreen / HeightImage;
-
             nickLucky1.Location = new Point(leftItem, topNick);
             nickLucky1.Height = heightNick;
             nickLucky1.Width = widthItem;
@@ -214,10 +227,6 @@ namespace YearEndParty.Presentation
             nickLucky3.Height = heightNick;
             nickLucky3.Width = widthItem;
 
-            // Name
-            var topName = nickLucky1.Top + nickLucky1.Height + 11 * HeightScreen / HeightImage;
-            var heightName = 120 * HeightScreen / HeightImage;
-
             nameLucky1.Location = new Point(leftItem, topName);
             nameLucky1.Height = heightName;
             nameLucky1.Width = widthItem;
@@ -229,10 +238,6 @@ namespace YearEndParty.Presentation
             nameLucky3.Location = new Point(leftItem, topName);
             nameLucky3.Height = heightName;
             nameLucky3.Width = widthItem;
-
-            // Department
-            var topDepartment = nameLucky1.Top + nameLucky1.Height + 11 * HeightScreen / HeightImage;
-            var heightDepartment = 50 * HeightScreen / HeightImage;
 
             deptLucky1.Location = new Point(leftItem, topDepartment);
             deptLucky1.Height = heightDepartment;
@@ -385,20 +390,20 @@ namespace YearEndParty.Presentation
                 case 9:
                 case 8:
                 case 7:
-                    this.BackgroundImage = Properties.Resources.Winner_supergrand_1900x1140_7_8_9;
+                    this.BackgroundImage = Properties.Resources.supergrandprize789;
                     break;
                 case 6:
                 case 5:
                 case 4:
-                    this.BackgroundImage = Properties.Resources.Winner_supergrand_1900x1140_4_5_6;
+                    this.BackgroundImage = Properties.Resources.supergrandprize456;
                     break;
                 case 3:
                 case 2:
                 case 1:
-                    this.BackgroundImage = Properties.Resources.Winner_supergrand_1900x1140_1_2_3;
+                    this.BackgroundImage = Properties.Resources.supergrandprize123;
                     break;
                 default:
-                    this.BackgroundImage = Properties.Resources.Winner_supergrand_1900x1140_7_8_9;
+                    this.BackgroundImage = Properties.Resources.supergrandprize123;
                     break;
             }
         }
@@ -441,6 +446,7 @@ namespace YearEndParty.Presentation
                     nickLucky1.ForeColor = color;
                     nameLucky1.ForeColor = color;
                     deptLucky1.ForeColor = color;
+                    imageLucky1.Visible = true;
                     break;
                 case 2:
                     codeLucky2.Text = staff.StaffCode;
@@ -453,6 +459,7 @@ namespace YearEndParty.Presentation
                     nickLucky2.ForeColor = color;
                     nameLucky2.ForeColor = color;
                     deptLucky2.ForeColor = color;
+                    imageLucky2.Visible = true;
                     break;
                 case 3:
                     codeLucky3.Text = staff.StaffCode;
@@ -465,6 +472,7 @@ namespace YearEndParty.Presentation
                     nickLucky3.ForeColor = color;
                     nameLucky3.ForeColor = color;
                     deptLucky3.ForeColor = color;
+                    imageLucky3.Visible = true;
                     break;
 
             }
@@ -474,17 +482,17 @@ namespace YearEndParty.Presentation
 
         private Color GetColorByGroup(string grade)
         {
-            var color = Color.FromArgb(254, 126, 209);
+            var color = Color.FromArgb(242, 109, 124);
             switch (grade)
             {
                 case "10":
-                    color = Color.FromArgb(254, 126, 209);
+                    color = Color.FromArgb(242, 109, 124);
                     break;
                 case "11":
-                    color = Color.FromArgb(179, 255, 176);
+                    color = Color.FromArgb(167, 239, 54);
                     break;
                 case "12":
-                    color = Color.FromArgb(155, 156, 255);
+                    color = Color.FromArgb(136, 188, 225);
                     break;
                 default:
                     color = Color.White;
@@ -570,16 +578,19 @@ namespace YearEndParty.Presentation
                     codeLucky1.Text = string.Empty;
                     pictureBoxNumber1.BackgroundImage = null;
                     imageLucky1.Image = null;
+                    imageLucky1.Visible = false;
                     break;
                 case 2:
                     codeLucky2.Text = string.Empty;
                     pictureBoxNumber2.BackgroundImage = null;
                     imageLucky2.Image = null;
+                    imageLucky2.Visible = false;
                     break;
                 case 3:
                     codeLucky3.Text = string.Empty;
                     pictureBoxNumber3.BackgroundImage = null;
                     imageLucky3.Image = null;
+                    imageLucky3.Visible = false;
                     break;
             }
         }
@@ -590,7 +601,7 @@ namespace YearEndParty.Presentation
 
             var result = MessageBox.Show(
                 "Are you sure you want to reset all prizes?",
-                "Annual Party 2014",
+                "Staff Annual Party",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
                 );
@@ -633,7 +644,7 @@ namespace YearEndParty.Presentation
 
             var result = MessageBox.Show(
                 "Are you sure you want to remove all winners?",
-                "Annual Party 2014",
+                "Staff Annual Party",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
                 );
@@ -696,7 +707,7 @@ namespace YearEndParty.Presentation
 
             var result = MessageBox.Show(
                 "Are you sure you want to remove " + name + " (" + nick + ") from lucky list?",
-                "Year End Party 2012",
+                "Staff Annual party",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
                 );
@@ -736,14 +747,14 @@ namespace YearEndParty.Presentation
         {
             switch (e.KeyValue)
             {
-                case 37:
+                case 38:
                     if (_focus < 3)
                     {
                         _focus++;
                         SetFocus();
                     }
                     break;
-                case 39:
+                case 40:
                     if (_focus > 1)
                     {
                         _focus--;
@@ -771,24 +782,33 @@ namespace YearEndParty.Presentation
             switch (_focus)
             {
                 case 1:
-                    bgImage1.Visible = true;
-                    bgImage2.Visible = false;
-                    bgImage3.Visible = false;
+                    bgImage1.BackgroundImage = null;
+                    bgImage2.BackgroundImage = YearEndParty.Presentation.Properties.Resources.winner_pic;
+                    bgImage3.BackgroundImage = YearEndParty.Presentation.Properties.Resources.winner_pic;
+                    bgImage1.BackColor = Color.LightSteelBlue;
+                    bgImage2.BackColor = Color.Transparent;
+                    bgImage3.BackColor = Color.Transparent;
                     break;
                 case 2:
-                    bgImage1.Visible = false;
-                    bgImage2.Visible = true;
-                    bgImage3.Visible = false;
+                    bgImage1.BackgroundImage = YearEndParty.Presentation.Properties.Resources.winner_pic;
+                    bgImage2.BackgroundImage = null;
+                    bgImage3.BackgroundImage = YearEndParty.Presentation.Properties.Resources.winner_pic;
+                    bgImage1.BackColor = Color.Transparent;
+                    bgImage2.BackColor = Color.LightSteelBlue;
+                    bgImage3.BackColor = Color.Transparent;
                     break;
                 case 3:
-                    bgImage1.Visible = false;
-                    bgImage2.Visible = false;
-                    bgImage3.Visible = true;
+                    bgImage1.BackgroundImage = YearEndParty.Presentation.Properties.Resources.winner_pic;
+                    bgImage2.BackgroundImage = YearEndParty.Presentation.Properties.Resources.winner_pic;
+                    bgImage3.BackgroundImage = null;
+                    bgImage1.BackColor = Color.Transparent;
+                    bgImage2.BackColor = Color.Transparent;
+                    bgImage3.BackColor = Color.LightSteelBlue;
                     break;
                 default:
-                    bgImage1.Visible = false;
-                    bgImage2.Visible = false;
-                    bgImage3.Visible = true;
+                    bgImage1.BackColor = Color.Transparent;
+                    bgImage2.BackColor = Color.Transparent;
+                    bgImage2.BackColor = Color.White;
                     break;
             }
         }

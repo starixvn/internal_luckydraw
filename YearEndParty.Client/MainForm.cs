@@ -235,7 +235,7 @@ namespace YearEndParty.Client
 
             _barcode += e.KeyChar.ToString();
 
-            if (_barcode.Length == 7)
+            if (_barcode.Length == 8)
             {
                 SendBarcode(_barcode, true);
             }

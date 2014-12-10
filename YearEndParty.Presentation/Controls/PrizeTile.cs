@@ -97,34 +97,34 @@ namespace YearEndParty.Presentation.Controls
             switch (prizeIndex)
             {
                 case CashPrizeIndexEnum.Prize64To66:
-                    BackgroundImage = Properties.Resources.Cash_10mil_64_65_66_unblocked;
+                    BackgroundImage = Properties.Resources._66_65_64_after;
                     break;
                 case CashPrizeIndexEnum.Prize67To69:
-                    BackgroundImage = Properties.Resources.Cash_10mil_67_68_69_unblocked;
+                    BackgroundImage = Properties.Resources._69_68_67_after;
                     break;
                 case CashPrizeIndexEnum.Prize70To72:
-                    BackgroundImage = Properties.Resources.Cash_5mil_70_71_72_unblocked;
+                    BackgroundImage = Properties.Resources._72_71_70_after;
                     break;
                 case CashPrizeIndexEnum.Prize73To75:
-                    BackgroundImage = Properties.Resources.Cash_5mil_73_74_75_unblocked;
+                    BackgroundImage = Properties.Resources._75_74_73_after;
                     break;
                 case CashPrizeIndexEnum.Prize76To78:
-                    BackgroundImage = Properties.Resources.Cash_5mil_76_77_78_unblocked;
+                    BackgroundImage = Properties.Resources._78_77_76_after;
                     break;
                 case CashPrizeIndexEnum.Prize79To81:
-                    BackgroundImage = Properties.Resources.Cash_3mil_79_80_81_unblocked;
+                    BackgroundImage = Properties.Resources._81_80_79_after;
                     break;
                 case CashPrizeIndexEnum.Prize82To84:
-                    BackgroundImage = Properties.Resources.Cash_3mil_82_83_84_unblocked;
+                    BackgroundImage = Properties.Resources._84_83_82_after;
                     break;
                 case CashPrizeIndexEnum.Prize85To87:
-                    BackgroundImage = Properties.Resources.Cash_3mil_85_86_87_unblocked;
+                    BackgroundImage = Properties.Resources._87_86_85_after;
                     break;
                 case CashPrizeIndexEnum.Prize88To90: 
-                    BackgroundImage = Properties.Resources.Cash_3mil_88_89_90_unblocked;
+                    BackgroundImage = Properties.Resources._90_89_88_after;
                     break;
                 default: 
-                    BackgroundImage = Properties.Resources.prizeblock;
+                    BackgroundImage = Properties.Resources.blank_ticket_b;
                     break;
             }
         }
@@ -134,34 +134,34 @@ namespace YearEndParty.Presentation.Controls
             switch (prizeIndex)
             {
                 case CashPrizeIndexEnum.Prize64To66:
-                    BackgroundImage = Properties.Resources.Cash_10mil_64_65_66_blocked;
+                    BackgroundImage = Properties.Resources._66_65_64_before;
                     break;
                 case CashPrizeIndexEnum.Prize67To69:
-                    BackgroundImage = Properties.Resources.Cash_10mil_67_68_69_blocked;
+                    BackgroundImage = Properties.Resources._69_68_67_before;
                     break;
                 case CashPrizeIndexEnum.Prize70To72:
-                    BackgroundImage = Properties.Resources.Cash_5mil_70_71_72_blocked;
+                    BackgroundImage = Properties.Resources._72_71_70_before;
                     break;
                 case CashPrizeIndexEnum.Prize73To75:
-                    BackgroundImage = Properties.Resources.Cash_5mil_73_74_75_blocked;
+                    BackgroundImage = Properties.Resources._75_74_73_before;
                     break;
                 case CashPrizeIndexEnum.Prize76To78:
-                    BackgroundImage = Properties.Resources.Cash_5mil_76_77_78_blocked;
+                    BackgroundImage = Properties.Resources._78_77_76_before;
                     break;
                 case CashPrizeIndexEnum.Prize79To81:
-                    BackgroundImage = Properties.Resources.Cash_3mil_79_80_81_blocked;
+                    BackgroundImage = Properties.Resources._81_80_79_before;
                     break;
                 case CashPrizeIndexEnum.Prize82To84:
-                    BackgroundImage = Properties.Resources.Cash_3mil_82_83_84_blocked;
+                    BackgroundImage = Properties.Resources._84_83_82_before;
                     break;
                 case CashPrizeIndexEnum.Prize85To87:
-                    BackgroundImage = Properties.Resources.Cash_3mil_85_86_87_blocked;
+                    BackgroundImage = Properties.Resources._87_86_85_before;
                     break;
                 case CashPrizeIndexEnum.Prize88To90:
-                    BackgroundImage = Properties.Resources.Cash_3mil_88_89_90_blocked;
+                    BackgroundImage = Properties.Resources._90_89_88_before;
                     break;
                 default:
-                    BackgroundImage = Properties.Resources.prizeblock;
+                    BackgroundImage = Properties.Resources.blank_ticket_a;
                     break;
             }
         }
@@ -171,31 +171,31 @@ namespace YearEndParty.Presentation.Controls
             switch (prizeIndex)
             {
                 case MajorPrizeIndexEnum.Prize40To42:
-                    BackgroundImage = Properties.Resources.Sony_32_led_tv_40_41_42_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._42_41_40_after;
                     break;
                 case MajorPrizeIndexEnum.Prize43To45:
-                    BackgroundImage = Properties.Resources.Sony_32_led_tv_43_44_45_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._45_44_43_after;
                     break;
                 case MajorPrizeIndexEnum.Prize46To48:
-                    BackgroundImage = Properties.Resources.Sony_32_led_tv_46_47_48_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._48_47_46_after;
                     break;
                 case MajorPrizeIndexEnum.Prize49To51:
-                    BackgroundImage = Properties.Resources.Sony_32_led_tv_49_50_51_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._51_50_49_after;
                     break;
                 case MajorPrizeIndexEnum.Prize52To54:
-                    BackgroundImage = Properties.Resources.Voucher_gift_pass_6mil_52_53_54_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._54_53_52_after;
                     break;
                 case MajorPrizeIndexEnum.Prize55To57:
-                    BackgroundImage = Properties.Resources.Canon_camera_powershot_n_55_56_57_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._57_56_55_after;
                     break;
                 case MajorPrizeIndexEnum.Prize58To60:
-                    BackgroundImage = Properties.Resources.Sanyo_fridge_sr_u205pn_58_59_60_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._60_59_58_after;
                     break;
                 case MajorPrizeIndexEnum.Prize61To63:
-                    BackgroundImage = Properties.Resources.Panasonic_microwave_61_62_63_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._63_62_61_after;
                     break;
                 default:
-                    BackgroundImage = Properties.Resources.prizeblock;
+                    BackgroundImage = Properties.Resources.blank_ticket_b;
                     break;
             }
         }
@@ -205,31 +205,31 @@ namespace YearEndParty.Presentation.Controls
             switch (prizeIndex)
             {
                 case MajorPrizeIndexEnum.Prize40To42:
-                    BackgroundImage = Properties.Resources.Sony_32_led_tv_40_41_42_BLOCKED;
+                    BackgroundImage = Properties.Resources._42_41_40_before;
                     break;
                 case MajorPrizeIndexEnum.Prize43To45:
-                    BackgroundImage = Properties.Resources.Sony_32_led_tv_43_44_45_BLOCKED;
+                    BackgroundImage = Properties.Resources._45_44_43_before;
                     break;
                 case MajorPrizeIndexEnum.Prize46To48:
-                    BackgroundImage = Properties.Resources.Sony_32_led_tv_46_47_48_BLOCKED;
+                    BackgroundImage = Properties.Resources._48_47_46_before;
                     break;
                 case MajorPrizeIndexEnum.Prize49To51:
-                    BackgroundImage = Properties.Resources.Sony_32_led_tv_49_50_51_BLOCKED;
+                    BackgroundImage = Properties.Resources._51_50_49_before;
                     break;
                 case MajorPrizeIndexEnum.Prize52To54:
-                    BackgroundImage = Properties.Resources.Voucher_gift_pass_6mil_52_53_54_BLOCKED;
+                    BackgroundImage = Properties.Resources._54_53_52_before;
                     break;
                 case MajorPrizeIndexEnum.Prize55To57:
-                    BackgroundImage = Properties.Resources.Canon_camera_powershot_n_55_56_57_BLOCKED;
+                    BackgroundImage = Properties.Resources._57_56_55_before;
                     break;
                 case MajorPrizeIndexEnum.Prize58To60:
-                    BackgroundImage = Properties.Resources.Sanyo_fridge_sr_u205pn_58_59_60_BLOCKED;
+                    BackgroundImage = Properties.Resources._60_59_58_before;
                     break;
                 case MajorPrizeIndexEnum.Prize61To63:
-                    BackgroundImage = Properties.Resources.Panasonic_microwave_61_62_63_BLOCKED;
+                    BackgroundImage = Properties.Resources._63_62_61_before;
                     break;
                 default:
-                    BackgroundImage = Properties.Resources.prizeblock;
+                    BackgroundImage = Properties.Resources.blank_ticket_a;
                     break;
             }
         }
@@ -239,37 +239,37 @@ namespace YearEndParty.Presentation.Controls
             switch (prizeIndex)
             {
                 case GrandPrizeIndexEnum.Prize10To12:
-                    BackgroundImage = Properties.Resources.Apple_iphone_5s_16gb_10_11_12_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._12_11_10_after;
                     break;
                 case GrandPrizeIndexEnum.Prize13To15:
-                    BackgroundImage = Properties.Resources.Samsung_galaxy_note_3_N9000_16Gb_13_14_15_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._15_14_13_after;
                     break;
                 case GrandPrizeIndexEnum.Prize16To18:
-                    BackgroundImage = Properties.Resources.Apple_ipad_air_16g_16_17_18_unBLOCKED;
+                    BackgroundImage = Properties.Resources._18_17_16_after;
                     break;
                 case GrandPrizeIndexEnum.Prize19To21:
-                    BackgroundImage = Properties.Resources.Apple_ipad_air_16g_19_20_21_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._21_20_19_after;
                     break;
                 case GrandPrizeIndexEnum.Prize22To24:
-                    BackgroundImage = Properties.Resources.Apple_ipad_air_16g_22_23_24_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._24_23_22_after;
                     break;
                 case GrandPrizeIndexEnum.Prize25To27:
-                    BackgroundImage = Properties.Resources.Lenovo_laptop_cpu_core_i5_25_26_27_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._27_26_25_after;
                     break;
                 case GrandPrizeIndexEnum.Prize28To30:
-                    BackgroundImage = Properties.Resources.Lenovo_laptop_cpu_core_i5_28_29_30_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._30_29_28_after;
                     break;
                 case GrandPrizeIndexEnum.Prize31To33:
-                    BackgroundImage = Properties.Resources.Apple_ipad_mini_16g_wifi_4g_31_32_33_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._33_32_31_after;
                     break;
                 case GrandPrizeIndexEnum.Prize34To36:
-                    BackgroundImage = Properties.Resources.Apple_ipad_mini_16g_wifi_4g_34_35_36_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._36_35_34_after;
                     break;
                 case GrandPrizeIndexEnum.Prize37To39:
-                    BackgroundImage = Properties.Resources.Nokia_Lumia_925_37_38_39_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._39_38_37_after;
                     break;
                 default:
-                    BackgroundImage = Properties.Resources.prizeblock;
+                    BackgroundImage = Properties.Resources.blank_ticket_b;
                     break;
             }
         }
@@ -279,37 +279,37 @@ namespace YearEndParty.Presentation.Controls
             switch (prizeIndex)
             {
                 case GrandPrizeIndexEnum.Prize10To12:
-                    BackgroundImage = Properties.Resources.Apple_iphone_5s_16gb_10_11_12_BLOCKED;
+                    BackgroundImage = Properties.Resources._12_11_10_before;
                     break;
                 case GrandPrizeIndexEnum.Prize13To15:
-                    BackgroundImage = Properties.Resources.Samsung_galaxy_note_3_N9000_16Gb_13_14_15_BLOCKED;
+                    BackgroundImage = Properties.Resources._15_14_13_before;
                     break;
                 case GrandPrizeIndexEnum.Prize16To18:
-                    BackgroundImage = Properties.Resources.Apple_ipad_air_16g_16_17_18_BLOCKED;
+                    BackgroundImage = Properties.Resources._18_17_16_before;
                     break;
                 case GrandPrizeIndexEnum.Prize19To21:
-                    BackgroundImage = Properties.Resources.Apple_ipad_air_16g_19_20_21_BLOCKED;
+                    BackgroundImage = Properties.Resources._21_20_19_before;
                     break;
                 case GrandPrizeIndexEnum.Prize22To24:
-                    BackgroundImage = Properties.Resources.Apple_ipad_air_16g_22_23_24_BLOCKED;
+                    BackgroundImage = Properties.Resources._21_20_19_before;
                     break;
                 case GrandPrizeIndexEnum.Prize25To27:
-                    BackgroundImage = Properties.Resources.Lenovo_laptop_cpu_core_i5_25_26_27_BLOCKED;
+                    BackgroundImage = Properties.Resources._24_23_22_before;
                     break;
                 case GrandPrizeIndexEnum.Prize28To30:
-                    BackgroundImage = Properties.Resources.Lenovo_laptop_cpu_core_i5_28_29_30_BLOCKED;
+                    BackgroundImage = Properties.Resources._27_26_25_before;
                     break;
                 case GrandPrizeIndexEnum.Prize31To33:
-                    BackgroundImage = Properties.Resources.Apple_ipad_mini_16g_wifi_4g_31_32_33_BLOCKED;
+                    BackgroundImage = Properties.Resources._30_2928_before;
                     break;
                 case GrandPrizeIndexEnum.Prize34To36:
-                    BackgroundImage = Properties.Resources.Apple_ipad_mini_16g_wifi_4g_34_35_36_BLOCK;
+                    BackgroundImage = Properties.Resources._36_35_34_before;
                     break;
                 case GrandPrizeIndexEnum.Prize37To39:
-                    BackgroundImage = Properties.Resources.Nokia_Lumia_925_37_38_39_BLOCKED;
+                    BackgroundImage = Properties.Resources._39_38_37_before;
                     break;
                 default:
-                    BackgroundImage = Properties.Resources.prizeblock;
+                    BackgroundImage = Properties.Resources.blank_ticket_a;
                     break;
             }
         }
@@ -319,34 +319,34 @@ namespace YearEndParty.Presentation.Controls
             switch (prizeIndex)
             {
                 case SuperGrandPrizeIndexEnum.Prize01:
-                    BackgroundImage = Properties.Resources.Super_Grand_yamaha_exciter_1_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._1_after;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize02:
-                    BackgroundImage = Properties.Resources.Super_Grand_honda_Lead_2_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._2_after;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize03:
-                    BackgroundImage = Properties.Resources.Super_Grand_honda_vision_3_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._3_after;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize04:
-                    BackgroundImage = Properties.Resources.Super_Grand_superstar_travel_voucher_4_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._4_after;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize05:
-                    BackgroundImage = Properties.Resources.Super_Grand_superstar_travel_voucher_5_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._5_after;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize06:
-                    BackgroundImage = Properties.Resources.Super_Grand_saigontourist_travel_voucher_6_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._6_after;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize07:
-                    BackgroundImage = Properties.Resources.Super_Grand_saigontourist_travel_voucher_7_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._7_after;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize08:
-                    BackgroundImage = Properties.Resources.Super_Grand_sony_bdv_N9100_8_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._8_after;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize09:
-                    BackgroundImage = Properties.Resources.Super_Grand_canon_eos700D_9_UNBLOCKED;
+                    BackgroundImage = Properties.Resources._9_after;
                     break;
                 default:
-                    BackgroundImage = Properties.Resources.prizeblock;
+                    BackgroundImage = Properties.Resources.blank_ticket_b;
                     break;
             }
         }
@@ -356,34 +356,34 @@ namespace YearEndParty.Presentation.Controls
             switch (prizeIndex)
             {
                 case SuperGrandPrizeIndexEnum.Prize01:
-                    BackgroundImage = Properties.Resources.Super_Grand_yamaha_exciter_1_BLOCKED;
+                    BackgroundImage = Properties.Resources._1_before;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize02:
-                    BackgroundImage = Properties.Resources.Super_Grand_honda_Lead_2_BLOCKED;
+                    BackgroundImage = Properties.Resources._2_before;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize03:
-                    BackgroundImage = Properties.Resources.Super_Grand_honda_vision_3_BLOCKED;
+                    BackgroundImage = Properties.Resources._3_before;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize04:
-                    BackgroundImage = Properties.Resources.Super_Grand_superstar_travel_voucher_4_BLOCKED;
+                    BackgroundImage = Properties.Resources._4_before;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize05:
-                    BackgroundImage = Properties.Resources.Super_Grand_superstar_travel_voucher_5_BLOCKED;
+                    BackgroundImage = Properties.Resources._5_before;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize06:
-                    BackgroundImage = Properties.Resources.Super_Grand_saigontourist_travel_voucher_6_BLOCKED;
+                    BackgroundImage = Properties.Resources._6_before;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize07:
-                    BackgroundImage = Properties.Resources.Super_Grand_saigontourist_travel_voucher_7_BLOCKED;
+                    BackgroundImage = Properties.Resources._7_before;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize08:
-                    BackgroundImage = Properties.Resources.Super_Grand_sony_bdv_N9100_8_BLOCKED;
+                    BackgroundImage = Properties.Resources._8_before;
                     break;
                 case SuperGrandPrizeIndexEnum.Prize09:
-                    BackgroundImage = Properties.Resources.Super_Grand_canon_eos700D_9;
+                    BackgroundImage = Properties.Resources._9_before;
                     break;
                 default:
-                    BackgroundImage = Properties.Resources.prizeblock;
+                    BackgroundImage = Properties.Resources.blank_ticket_a;
                     break;
             }
         }

@@ -1,30 +1,32 @@
-﻿using System.Collections.Generic;
-using System.Configuration;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
-using YearEndParty.Core;
-using YearEndParty.Presentation.Controls;
-
-namespace YearEndParty.Presentation
+﻿namespace YearEndParty.Presentation
 {
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Drawing;
+    using System.Linq;
+    using System.Windows.Forms;
+    using YearEndParty.Core;
+    using YearEndParty.Presentation.Controls;
+
     public partial class PrizeList : Form
     {
         //maximum rows & columns
         private const int cashPrizeColumn = 3;
         private const int cashPrizeRow = 3;
-        private const int majorPrizeColumn = 4;
-        private const int majorPrizeRow = 2;
+        private const int majorPrizeColumn = 3;
+        private const int majorPrizeRow = 3;
         private const int grandPrizeColumn = 4;
         private const int grandPrizeRow = 3;
 
         //width & height of image
-        private const int WidthImage = 1900;
-        private const int HeightImage = 1140;
+        private const int WidthImage = 1536;
+        private const int HeightImage = 750;
 
         //width & height of screen
         private int WidthScreen = 0;
         private int HeightScreen = 0;
+
+        private bool isOpeningPrize = false;
 
         public delegate void TalkBackDelegate(string message);
         public TalkBackDelegate TalkBack;
@@ -38,7 +40,7 @@ namespace YearEndParty.Presentation
         private SuperGrandWinnerSpecialDetails supergrandSpecialDetail { get; set; }
 
         private bodb_luckyEntities context = new bodb_luckyEntities();
-
+       
         public PrizeList()
         {
             DoubleBuffered = true;
@@ -66,46 +68,53 @@ namespace YearEndParty.Presentation
             switch (e.KeyChar)
             {
                 case (char)26: //ctrl+z to back
-                    context = new bodb_luckyEntities();
-                    var setting1 = context.PrizeSettings.First(i => i.PrizeType == (int)PrizeType);
-                    if (Multiply == 3)
+                    if (isOpeningPrize)
                     {
-                        if (setting1.Quantity > setting1.CurrentPrize * 3)
+                        context = new bodb_luckyEntities();
+                        var setting1 = context.PrizeSettings.First(i => i.PrizeType == (int)PrizeType);
+                        if (Multiply == 3)
                         {
-                            setting1.CurrentPrize++;
-                            context.SaveChanges();
+                            if (setting1.Quantity > setting1.CurrentPrize * 3)
+                            {
+                                setting1.CurrentPrize++;
+                                context.SaveChanges();
+                            }
+                        }
+                        else
+                        {
+                            if (setting1.Quantity > setting1.CurrentPrize)
+                            {
+                                setting1.CurrentPrize += 3;
+                                context.SaveChanges();
+                            }
                         }
                     }
-                    else
-                    {
-                        if (setting1.Quantity > setting1.CurrentPrize)
-                        {
-                            setting1.CurrentPrize += 3;
-                            context.SaveChanges();
-                        }
-                    }
+
                     break;
 
                 case (char)25: //ctrl+y to next
-                    context = new bodb_luckyEntities();
-                    var setting2 = context.PrizeSettings.First(i => i.PrizeType == (int)PrizeType);
-                    if (Multiply == 3)
+                    if (isOpeningPrize)
                     {
-                        if (0 < setting2.CurrentPrize)
+                        context = new bodb_luckyEntities();
+                        var setting2 = context.PrizeSettings.First(i => i.PrizeType == (int)PrizeType);
+                        if (Multiply == 3)
                         {
-                            setting2.CurrentPrize--;
-                            context.SaveChanges();
+                            if (0 < setting2.CurrentPrize)
+                            {
+                                setting2.CurrentPrize--;
+                                context.SaveChanges();
+                            }
+                        }
+                        else
+                        {
+                            if (0 < setting2.CurrentPrize)
+                            {
+                                setting2.CurrentPrize -= 3;
+                                context.SaveChanges();
+                            }
                         }
                     }
-                    else
-                    {
-                        if (0 < setting2.CurrentPrize)
-                        {
-                            setting2.CurrentPrize -= 3;
-                            context.SaveChanges();
-                        }
-                    }
-                    
+
                     break;
                 case (char)27: //Esc
                     IsClosed = true;
@@ -117,67 +126,76 @@ namespace YearEndParty.Presentation
                     break;
                 case (char)13: //enter
                     {
-                        context = new bodb_luckyEntities();
-                        var setting = context.PrizeSettings.First(i => i.PrizeType == (int)PrizeType);
-                        if (setting.CurrentPrize == 0) return;
-                        switch (Multiply)
+                        if (isOpeningPrize)
                         {
-                            case 3:
-                                pictureBox1.Visible = true;
-                                
-                                prizeDetail = new WinnerDetails
-                                {
-                                    PrizeIndex = setting.CurrentPrize,
-                                    PrizeType = PrizeType,
-                                    TalkBack = TalkBackToClient
-                                };
-                                prizeDetail.ShowDialog();
+                            context = new bodb_luckyEntities();
+                            var setting = context.PrizeSettings.First(i => i.PrizeType == (int)PrizeType);
+                            if (setting.CurrentPrize == 0) return;
+                            switch (Multiply)
+                            {
+                                case 3:
+                                    pictureBox1.Visible = true;
 
-                                var next = setting.CurrentPrize - 1;
-                                _prizeTiles[next].SetBackground(next + 1, true);
-                                pictureBox1.Visible = false;
-                                break;
-                            case 1:
-                                pictureBox1.Visible = true;
-
-                                if (setting.CurrentPrize > 3)
-                                {
-                                    supergrandDetail = new SuperGrandWinnerDetails
+                                    prizeDetail = new WinnerDetails
                                     {
                                         PrizeIndex = setting.CurrentPrize,
+                                        PrizeType = PrizeType,
                                         TalkBack = TalkBackToClient
                                     };
+                                    prizeDetail.ShowDialog();
 
-                                    supergrandDetail.ShowDialog();
-                                    var settingTemp = context.PrizeSettings.FirstOrDefault(i => i.PrizeType == (int)PrizeTypes.SuperGrand);
+                                    var next = setting.CurrentPrize - 1;
+                                    _prizeTiles[next].SetBackground(next + 1, true);
+                                    pictureBox1.Visible = false;
+                                    break;
+                                case 1:
+                                    pictureBox1.Visible = true;
 
-                                    for (var i = settingTemp.CurrentPrize - 3; i < settingTemp.Quantity; i++)
+                                    if (setting.CurrentPrize > 3)
                                     {
-                                        _prizeTiles[i].SetBackground(i + 1, true);
+                                        supergrandDetail = new SuperGrandWinnerDetails
+                                        {
+                                            PrizeIndex = setting.CurrentPrize,
+                                            TalkBack = TalkBackToClient
+                                        };
+
+                                        supergrandDetail.ShowDialog();
+                                        var settingTemp = context.PrizeSettings.FirstOrDefault(i => i.PrizeType == (int)PrizeTypes.SuperGrand);
+
+                                        for (var i = settingTemp.CurrentPrize - 3; i < settingTemp.Quantity; i++)
+                                        {
+                                            _prizeTiles[i].SetBackground(i + 1, true);
+                                        }
                                     }
-                                }
-                                else
-                                {
-                                    supergrandSpecialDetail = new SuperGrandWinnerSpecialDetails
+                                    else
                                     {
-                                        PrizeIndex = setting.CurrentPrize,
-                                        TalkBack = TalkBackToClient
-                                    };
-                                    supergrandSpecialDetail.ShowDialog();
+                                        supergrandSpecialDetail = new SuperGrandWinnerSpecialDetails
+                                        {
+                                            PrizeIndex = setting.CurrentPrize,
+                                            TalkBack = TalkBackToClient
+                                        };
+                                        supergrandSpecialDetail.ShowDialog();
 
-                                    for (var i = setting.CurrentPrize; i < setting.Quantity; i++)
-                                    {
-                                        _prizeTiles[i].SetBackground(i + 1, true);
+                                        for (var i = setting.CurrentPrize; i < setting.Quantity; i++)
+                                        {
+                                            _prizeTiles[i].SetBackground(i + 1, true);
+                                        }
+                                        _prizeTiles[0].SetBackground(1, true);
+                                        _prizeTiles[1].SetBackground(2, true);
+                                        _prizeTiles[2].SetBackground(3, true);
                                     }
-                                    _prizeTiles[0].SetBackground(1, true);
-                                    _prizeTiles[1].SetBackground(2, true);
-                                    _prizeTiles[2].SetBackground(3, true);
-                                }
-                                
-                                pictureBox1.Visible = false;
-                                break;
+
+                                    pictureBox1.Visible = false;
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            LoadPrizes();
+                            isOpeningPrize = true;
                         }
                     }
+
                     break;
             }
         }
@@ -190,30 +208,21 @@ namespace YearEndParty.Presentation
             IsClosed = false;
             Visible = false;
 
-            var prizes = context.Prizes.Where(i => i.PrizeType == (int)PrizeType).ToList();
-
-            var setting = context.PrizeSettings.First(i => i.PrizeType == (int)PrizeType);
-            var total = setting.Quantity / Multiply;
-            _currentPrize = setting.CurrentPrize;
-
             // Load Background
             switch (PrizeType)
             {
                 case PrizeTypes.Cash:
-                    BackgroundImage = Properties.Resources.Cash_1900x1140;
-                    RenderListCashPrize(total, prizes);
+                    BackgroundImage = Properties.Resources.cashprize_bg;
+                    //RenderListCashPrize(total, prizes);
                     break;
                 case PrizeTypes.Major:
-                    BackgroundImage = Properties.Resources.Major_1900x1140;
-                    RenderListMajorPrize(total, prizes);
+                    BackgroundImage = Properties.Resources.majorprize_bg;
                     break;
                 case PrizeTypes.Grand:
-                    BackgroundImage = Properties.Resources.Grand_1900x1140;
-                    RenderListGrandPrize(total, prizes);
+                    BackgroundImage = Properties.Resources.grandprize_bg;
                     break;
                 case PrizeTypes.SuperGrand:
-                    BackgroundImage = Properties.Resources.Super_Grand_1900x1140;
-                    RenderSuperGrandPrize(total, prizes);
+                    BackgroundImage = Properties.Resources.supergrandprize_bg;
                     break;
             }
 
@@ -235,19 +244,43 @@ namespace YearEndParty.Presentation
             TalkBack(message);
         }
 
+        private void LoadPrizes()
+        {
+            var prizes = context.Prizes.Where(i => i.PrizeType == (int)PrizeType).ToList();
+            var setting = context.PrizeSettings.First(i => i.PrizeType == (int)PrizeType);
+            var total = setting.Quantity / Multiply;
+            _currentPrize = setting.CurrentPrize;
+
+            // Load Background
+            switch (PrizeType)
+            {
+                case PrizeTypes.Cash:
+                    RenderListCashPrize(total, prizes);
+                    break;
+                case PrizeTypes.Major:
+                    RenderListMajorPrize(total, prizes);
+                    break;
+                case PrizeTypes.Grand:
+                    RenderListGrandPrize(total, prizes);
+                    break;
+                case PrizeTypes.SuperGrand:
+                    RenderSuperGrandPrize(total, prizes);
+                    break;
+            }
+        }
+
         private void RenderListCashPrize(int total, List<Prizes> prizes)
         {
-            // Top & Left of the first item
-            var marginTop = 300 * HeightScreen / HeightImage;
-            var marginLeft = 413 * WidthScreen / WidthImage;
+            var marginTop = 180 * HeightScreen / HeightImage;
+            var marginLeft = 332 * WidthScreen / WidthImage;
 
             // width & Height of one item
-            var height = 174 * HeightScreen / HeightImage;
-            var width = 365 * WidthScreen / WidthImage;
+            var height = 156 * HeightScreen / HeightImage;
+            var width = 292 * WidthScreen / WidthImage;
 
             // space width & height
-            var spaceX = 6;
-            var spaceY = 5;
+            var spaceX = 0;
+            var spaceY = 0;
 
             _prizeTiles = new List<PrizeTile>(total);
 
@@ -277,17 +310,16 @@ namespace YearEndParty.Presentation
 
         private void RenderListMajorPrize(int total, List<Prizes> prizes)
         {
-            // Top & Left of the first item
-            var marginTop = 496 * HeightScreen / HeightImage;
-            var marginLeft = 226 * WidthScreen / WidthImage;
+            var marginTop = 180 * HeightScreen / HeightImage;
+            var marginLeft = 332 * WidthScreen / WidthImage;
 
             // width & Height of one item
-            var height = 176 * HeightScreen / HeightImage;
-            var width = 365 * WidthScreen / WidthImage;
+            var height = 156 * HeightScreen / HeightImage;
+            var width = 292 * WidthScreen / WidthImage;
 
             // space width & height
-            var spaceX = 6;
-            var spaceY = 5;
+            var spaceX = 0;
+            var spaceY = 0;
 
             _prizeTiles = new List<PrizeTile>(total);
 
@@ -321,17 +353,16 @@ namespace YearEndParty.Presentation
 
         private void RenderListGrandPrize(int total, List<Prizes> prizes)
         {
-            // Top & Left of the first item
-            var marginTop = 326 * HeightScreen / HeightImage;
-            var marginLeft = 228 * WidthScreen / WidthImage;
+            var marginTop = 180 * HeightScreen / HeightImage;
+            var marginLeft = 188 * WidthScreen / WidthImage;
 
             // width & Height of one item
-            var height = 174 * HeightScreen / HeightImage;
-            var width = 362 * WidthScreen / WidthImage;
+            var height = 156 * HeightScreen / HeightImage;
+            var width = 292 * WidthScreen / WidthImage;
 
             // space width & height
-            var spaceX = 6;
-            var spaceY = 5;
+            var spaceX = 0;
+            var spaceY = 0;
 
             _prizeTiles = new List<PrizeTile>(total);
             var index = 0;
@@ -369,17 +400,16 @@ namespace YearEndParty.Presentation
 
         private void RenderSuperGrandPrize(int total, List<Prizes> prizes)
         {
-            // Top & Left of the first item
-            var marginTop = 298 * HeightScreen / HeightImage;
-            var marginLeft = 406 * WidthScreen / WidthImage;
+            var marginTop = 180 * HeightScreen / HeightImage;
+            var marginLeft = 332 * WidthScreen / WidthImage;
 
             // width & Height of one item
-            var height = 175 * HeightScreen / HeightImage;
-            var width = 368 * WidthScreen / WidthImage;
+            var height = 156 * HeightScreen / HeightImage;
+            var width = 292 * WidthScreen / WidthImage;
 
             // space width & height
-            var spaceX = 6;
-            var spaceY = 5;
+            var spaceX = 0;
+            var spaceY = 0;
 
             _prizeTiles = new List<PrizeTile>(total);
 

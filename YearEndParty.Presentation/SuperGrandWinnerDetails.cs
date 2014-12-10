@@ -24,8 +24,8 @@ namespace YearEndParty.Presentation
         private IList<int> _prizedWinners = new List<int>(3);
         private IList<int> _prizeIds = new List<int>(3);
 
-        private const int WidthImage = 1900;
-        private const int HeightImage = 1140;
+        private const int WidthImage = 1536;
+        private const int HeightImage = 750;
 
         //width & height of screen
         private int WidthScreen = 0;
@@ -75,42 +75,53 @@ namespace YearEndParty.Presentation
 
         private void ResizeControl()
         {
-            // number
-            var heightNumber = 70 * HeightScreen / HeightImage;
-            var widthNumber = 50 * WidthScreen / WidthImage;
+            // number  pnlNumber2
+            var heightNumber = 40 * HeightScreen / HeightImage;
+            var widthNumber = 30 * WidthScreen / WidthImage;
 
-            var topNumber3 = 250 * HeightScreen / HeightImage;
-            var leftNumber3 = 415 * WidthScreen / WidthImage;
+            var topNumber3 = 115 * HeightScreen / HeightImage;
+            var leftNumber3 = 285 * WidthScreen / WidthImage;
 
-            var topNumber2 = 250 * HeightScreen / HeightImage;
-            var leftNumber2 = 660 * WidthScreen / WidthImage;
+            var topNumber2 = 301 * HeightScreen / HeightImage;
+            var leftNumber2 = 285 * WidthScreen / WidthImage;
 
-            var topNumber1 = 250 * HeightScreen / HeightImage;
-            var leftNumber1 = 905 * WidthScreen / WidthImage;
+            var topNumber1 = 487 * HeightScreen / HeightImage;
+            var leftNumber1 = 285 * WidthScreen / WidthImage;
 
             // panel
-            var heightPanel = 470 * HeightScreen / HeightImage;
-            var widthPanel = 240 * WidthScreen / WidthImage;
+            var heightPanel = 160 * HeightScreen / HeightImage;
+            var widthPanel = 500 * WidthScreen / WidthImage;
 
-            var topPanel3 = 344 * HeightScreen / HeightImage;
-            var leftPanel3 = 330 * WidthScreen / WidthImage;
+            var topPanel3 = 140 * HeightScreen / HeightImage;
+            var leftPanel3 = 310 * WidthScreen / WidthImage;
 
-            var topPanel2 = 344 * HeightScreen / HeightImage;
-            var leftPanel2 = 575 * WidthScreen / WidthImage;
+            var topPanel2 = 326 * HeightScreen / HeightImage;
+            var leftPanel2 = 310 * WidthScreen / WidthImage;
 
-            var topPanel1 = 344 * HeightScreen / HeightImage;
-            var leftPanel1 = 820 * WidthScreen / WidthImage;
+            var topPanel1 = 512 * HeightScreen / HeightImage;
+            var leftPanel1 = 310 * WidthScreen / WidthImage;
+
+            var topNick = 4 * HeightScreen / HeightImage;
+            var heightNick = 40 * HeightScreen / HeightImage;
+            var topName = 45 * HeightScreen / HeightImage;
+            var heightName = 64 * HeightScreen / HeightImage;
+            var topDepartment = 110 * HeightScreen / HeightImage;
+            var heightDepartment = 35 * HeightScreen / HeightImage;
+
+            // image
+            var topBoderImage = 1 * HeightScreen / HeightImage;
+            var leftBoderImage = 1 * WidthScreen / WidthImage;
+            var widthBoderImage = 108 * WidthScreen / WidthImage;
+            var heightBoderImage = 148 * HeightScreen / HeightImage;
 
             // info
-            var leftItem = 3 * WidthScreen / WidthImage;
-            var widthItem = 235 * WidthScreen / WidthImage;
+            var leftItem = 112 * WidthScreen / WidthImage;
+            var widthItem = 355 * WidthScreen / WidthImage;
+            var topImage = 5 * HeightScreen / HeightImage;
+            var leftImage = 5 * WidthScreen / WidthImage;
+            var heightImage = 140 * HeightScreen / HeightImage;
+            var widthImage = 101 * WidthScreen / WidthImage;
 
-            var widthImage = 200 * WidthScreen / WidthImage;
-            var leftImage = 12 * WidthScreen / WidthImage;
-            // image
-            var topImage = 3 * HeightScreen / HeightImage;
-            var heightImage = 220 * HeightScreen / HeightImage;
-            
             pictureBoxNumber1.Location = new Point(leftNumber1, topNumber1);
             pictureBoxNumber1.Height = heightNumber;
             pictureBoxNumber1.Width = widthNumber;
@@ -135,82 +146,82 @@ namespace YearEndParty.Presentation
             pnlWinner3.Height = heightPanel;
             pnlWinner3.Width = widthPanel;
 
-            pictureBoxWinner1.Location = new Point(leftImage, topImage);
-            pictureBoxWinner1.Height = heightImage;
-            pictureBoxWinner1.Width = widthImage;
+            bgImage1.Location = new Point(leftBoderImage, topBoderImage);
+            bgImage1.Height = heightBoderImage;
+            bgImage1.Width = widthBoderImage;
 
-            pictureBoxWinner2.Location = new Point(leftImage, topImage);
-            pictureBoxWinner2.Height = heightImage;
-            pictureBoxWinner2.Width = widthImage;
+            bgImage2.Location = new Point(leftBoderImage, topBoderImage);
+            bgImage2.Height = heightBoderImage;
+            bgImage2.Width = widthBoderImage;
 
-            pictureBoxWinner3.Location = new Point(leftImage, topImage);
-            pictureBoxWinner3.Height = heightImage;
-            pictureBoxWinner3.Width = widthImage;
+            bgImage3.Location = new Point(leftBoderImage, topBoderImage);
+            bgImage3.Height = heightBoderImage;
+            bgImage3.Width = widthBoderImage;
 
-            // Nick
-            var topNick = pictureBoxWinner1.Top + pictureBoxWinner1.Height + 11 * HeightScreen / HeightImage;
-            var heightNick = 40 * HeightScreen / HeightImage;
+            imageLucky1.Location = new Point(leftImage, topImage);
+            imageLucky1.Height = heightImage;
+            imageLucky1.Width = widthImage;
 
-            labelNick1.Location = new Point(leftItem, topNick);
-            labelNick1.Height = heightNick;
-            labelNick1.Width = widthItem;
+            imageLucky2.Location = new Point(leftImage, topImage);
+            imageLucky2.Height = heightImage;
+            imageLucky2.Width = widthImage;
 
-            labelNick2.Location = new Point(leftItem, topNick);
-            labelNick2.Height = heightNick;
-            labelNick2.Width = widthItem;
+            imageLucky3.Location = new Point(leftImage, topImage);
+            imageLucky3.Height = heightImage;
+            imageLucky3.Width = widthImage;
 
-            labelNick3.Location = new Point(leftItem, topNick);
-            labelNick3.Height = heightNick;
-            labelNick3.Width = widthItem;
+            nickLucky1.Location = new Point(leftItem, topNick);
+            nickLucky1.Height = heightNick;
+            nickLucky1.Width = widthItem;
 
-            // Name
-            var topName = labelNick1.Top + labelNick1.Height + 11 * HeightScreen / HeightImage;
-            var heightName = 120 * HeightScreen / HeightImage;
+            nickLucky2.Location = new Point(leftItem, topNick);
+            nickLucky2.Height = heightNick;
+            nickLucky2.Width = widthItem;
 
-            labelName1.Location = new Point(leftItem, topName);
-            labelName1.Height = heightName;
-            labelName1.Width = widthItem;
+            nickLucky3.Location = new Point(leftItem, topNick);
+            nickLucky3.Height = heightNick;
+            nickLucky3.Width = widthItem;
 
-            labelName2.Location = new Point(leftItem, topName);
-            labelName2.Height = heightName;
-            labelName2.Width = widthItem;
+            nameLucky1.Location = new Point(leftItem, topName);
+            nameLucky1.Height = heightName;
+            nameLucky1.Width = widthItem;
 
-            labelName3.Location = new Point(leftItem, topName);
-            labelName3.Height = heightName;
-            labelName3.Width = widthItem;
+            nameLucky2.Location = new Point(leftItem, topName);
+            nameLucky2.Height = heightName;
+            nameLucky2.Width = widthItem;
 
-            // Department
-            var topDepartment = labelName1.Top + labelName1.Height + 11 * HeightScreen / HeightImage;
-            var heightDepartment = 50 * HeightScreen / HeightImage;
+            nameLucky3.Location = new Point(leftItem, topName);
+            nameLucky3.Height = heightName;
+            nameLucky3.Width = widthItem;
 
-            labelDept1.Location = new Point(leftItem, topDepartment);
-            labelDept1.Height = heightDepartment;
-            labelDept1.Width = widthItem;
+            deptLucky1.Location = new Point(leftItem, topDepartment);
+            deptLucky1.Height = heightDepartment;
+            deptLucky1.Width = widthItem;
 
-            labelDept2.Location = new Point(leftItem, topDepartment);
-            labelDept2.Height = heightDepartment;
-            labelDept2.Width = widthItem;
+            deptLucky2.Location = new Point(leftItem, topDepartment);
+            deptLucky2.Height = heightDepartment;
+            deptLucky2.Width = widthItem;
 
-            labelDept3.Location = new Point(leftItem, topDepartment);
-            labelDept3.Height = heightDepartment;
-            labelDept3.Width = widthItem;
+            deptLucky3.Location = new Point(leftItem, topDepartment);
+            deptLucky3.Height = heightDepartment;
+            deptLucky3.Width = widthItem;
 
             var nickSize = int.Parse(ConfigurationManager.AppSettings["Super_NickSize"]);
             var nameSize = int.Parse(ConfigurationManager.AppSettings["Super_NameSize"]);
             var deptSize = int.Parse(ConfigurationManager.AppSettings["Super_DeptSize"]);
             isAllowDuplicateGroup = bool.Parse(ConfigurationManager.AppSettings["AllowDuplicateGroup"]);
-            
-            labelNick1.Font = new Font(labelNick1.Font.Name, nickSize, labelNick1.Font.Style);
-            labelNick2.Font = new Font(labelNick2.Font.Name, nickSize, labelNick2.Font.Style);
-            labelNick3.Font = new Font(labelNick3.Font.Name, nickSize, labelNick3.Font.Style);
 
-            labelName1.Font = new Font(labelName1.Font.Name, nameSize, labelName1.Font.Style);
-            labelName2.Font = new Font(labelName2.Font.Name, nameSize, labelName2.Font.Style);
-            labelName3.Font = new Font(labelName3.Font.Name, nameSize, labelName3.Font.Style);
+            nickLucky1.Font = new Font(nickLucky1.Font.Name, nickSize, nickLucky1.Font.Style);
+            nickLucky2.Font = new Font(nickLucky2.Font.Name, nickSize, nickLucky2.Font.Style);
+            nickLucky3.Font = new Font(nickLucky3.Font.Name, nickSize, nickLucky3.Font.Style);
 
-            labelDept1.Font = new Font(labelDept1.Font.Name, deptSize, labelDept1.Font.Style);
-            labelDept2.Font = new Font(labelDept2.Font.Name, deptSize, labelDept2.Font.Style);
-            labelDept3.Font = new Font(labelDept3.Font.Name, deptSize, labelDept3.Font.Style);
+            nameLucky1.Font = new Font(nameLucky1.Font.Name, nameSize, nameLucky1.Font.Style);
+            nameLucky2.Font = new Font(nameLucky2.Font.Name, nameSize, nameLucky2.Font.Style);
+            nameLucky3.Font = new Font(nameLucky3.Font.Name, nameSize, nameLucky3.Font.Style);
+
+            deptLucky1.Font = new Font(deptLucky1.Font.Name, deptSize, deptLucky1.Font.Style);
+            deptLucky2.Font = new Font(deptLucky2.Font.Name, deptSize, deptLucky2.Font.Style);
+            deptLucky3.Font = new Font(deptLucky3.Font.Name, deptSize, deptLucky3.Font.Style);
         }
 
         private void PrizeDetails_Load(object sender, EventArgs e)
@@ -259,8 +270,10 @@ namespace YearEndParty.Presentation
                     var staff = _context.Staffs.FirstOrDefault(t => t.StaffId == winner.StaffId);
                     var dept = _context.Departments.First(t => t.DepartmentId == staff.DepartmentId);
 
-                    FillWinner(staff, dept, i);
+                    var prize = _context.Prizes.FirstOrDefault(t => t.PrizeId == winner.PrizeId);
+                    var prizeIndex = prize == null ? -1 : prize.PriceIndex;
 
+                    FillWinner(staff, dept, i, prizeIndex);
                     _savedWinners.Add(winner.StaffId, staff.StaffCode);
 
                     _prizedIndex--;
@@ -309,7 +322,7 @@ namespace YearEndParty.Presentation
             var superGrandPrize = _context.PrizeSettings.Where(t => t.PrizeType == (int)PrizeTypes.SuperGrand).FirstOrDefault();
             var prizeCurrent = (superGrandPrize.CurrentPrize + 2) % 3;
 
-            FillWinner(staff, dept, prizeCurrent);
+            FillWinner(staff, dept, prizeCurrent, superGrandPrize.CurrentPrize);
             if (superGrandPrize.CurrentPrize > 3)
             {
                 SaveToDatabase(staff.StaffId, prizeCurrent);
@@ -329,75 +342,100 @@ namespace YearEndParty.Presentation
                 case 9:
                 case 8:
                 case 7:
-                    this.BackgroundImage = Properties.Resources.Winner_supergrand_1900x1140_7_8_9;
-                    this.pictureBoxNumber3.BackgroundImage = Properties.Resources._9;
-                    this.pictureBoxNumber2.BackgroundImage = Properties.Resources._8;
-                    this.pictureBoxNumber1.BackgroundImage = Properties.Resources._7;
+                    this.BackgroundImage = Properties.Resources.supergrandprize789;
                     break;
                 case 6:
                 case 5:
                 case 4:
-                    this.BackgroundImage = Properties.Resources.Winner_supergrand_1900x1140_4_5_6;
-                    this.pictureBoxNumber3.BackgroundImage = Properties.Resources._6;
-                    this.pictureBoxNumber2.BackgroundImage = Properties.Resources._5;
-                    this.pictureBoxNumber1.BackgroundImage = Properties.Resources._4;
+                    this.BackgroundImage = Properties.Resources.supergrandprize456;
                     break;
                 case 3:
                 case 2:
                 case 1:
-                    this.BackgroundImage = Properties.Resources.Winner_supergrand_1900x1140_1_2_3;
+                    this.BackgroundImage = Properties.Resources.supergrandprize123;
                     break;
                 default:
-                    this.BackgroundImage = Properties.Resources.Winner_supergrand_1900x1140_7_8_9;
+                    this.BackgroundImage = Properties.Resources.supergrandprize123;
                     break;
             }
         }
 
-        private void FillWinner(Staffs staff, Departments dept, int prizeCurrent)
+        private void FillWinner(Staffs staff, Departments dept, int prizeCurrent, int prizeIndex)
         {
-            var avatar = Utilities.ScaleImage(staff.Avatar, pictureBoxWinner1.Width, pictureBoxWinner1.Height);
+            var avatar = Utilities.ScaleImage(staff.Avatar, imageLucky1.Width, imageLucky1.Height);
             var nick = string.IsNullOrWhiteSpace(staff.Nick) ? staff.FirstName.ToUpper() : staff.Nick.ToUpper();
             string fullName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(staff.FullName.ToLower());
 
             var grade = staff.StaffCode.Substring(0, 2);
             var color = GetColorByGroup(grade);
 
+            var prizeNumber = Properties.Resources._4;
+
+            switch (prizeIndex)
+            {
+                case 4:
+                    prizeNumber = Properties.Resources._4;
+                    break;
+                case 5:
+                    prizeNumber = Properties.Resources._5;
+                    break;
+                case 6:
+                    prizeNumber = Properties.Resources._6;
+                    break;
+                case 7:
+                    prizeNumber = Properties.Resources._7;
+                    break;
+                case 8:
+                    prizeNumber = Properties.Resources._8;
+                    break;
+                case 9:
+                    prizeNumber = Properties.Resources._9;
+                    break;
+                default:
+                    prizeNumber = null;
+                    break;
+            }
+
             switch (prizeCurrent)
             {
                 case 0:
-                    labelWinner1.Text = staff.StaffCode;
-                    labelName1.Text = fullName;
-                    labelNick1.Text = nick;
-                    labelDept1.Text = dept.ShortName.ToUpper();
-                    pictureBoxWinner1.Image = avatar;
+                    nickLucky1.Text = nick;
+                    nameLucky1.Text = fullName;
+                    deptLucky1.Text = dept.ShortName.ToUpper();
+                    imageLucky1.Image = avatar;
+                    imageLucky1.Visible = true;
 
-                    labelNick1.ForeColor = color;
-                    labelName1.ForeColor = color;
-                    labelDept1.ForeColor = color;
+                    nickLucky1.ForeColor = color;
+                    nameLucky1.ForeColor = color;
+                    deptLucky1.ForeColor = color;
+
+                    pictureBoxNumber1.BackgroundImage = prizeNumber;
                     pictureBoxNumber1.Visible = true;
                     break;
                 case 1:
-                    labelWinner2.Text = staff.StaffCode;
-                    labelName2.Text = fullName;
-                    labelNick2.Text = nick;
-                    labelDept2.Text = dept.ShortName.ToUpper();
-                    pictureBoxWinner2.Image = avatar;
+                    nickLucky2.Text = nick;
+                    nameLucky2.Text = fullName;
+                    deptLucky2.Text = dept.ShortName.ToUpper();
+                    imageLucky2.Image = avatar;
+                    imageLucky2.Visible = true;
 
-                    labelNick2.ForeColor = color;
-                    labelName2.ForeColor = color;
-                    labelDept2.ForeColor = color;
+                    nickLucky2.ForeColor = color;
+                    nameLucky2.ForeColor = color;
+                    deptLucky2.ForeColor = color;
+                    pictureBoxNumber2.BackgroundImage = prizeNumber;
                     pictureBoxNumber2.Visible = true;
                     break;
                 case 2:
-                    labelWinner3.Text = staff.StaffCode;
-                    labelName3.Text = fullName;
-                    labelNick3.Text = nick;
-                    labelDept3.Text = dept.ShortName.ToUpper();
-                    pictureBoxWinner3.Image = avatar;
+                    nickLucky3.Text = nick;
+                    nameLucky3.Text = fullName;
+                    deptLucky3.Text = dept.ShortName.ToUpper();
+                    imageLucky3.Image = avatar;
+                    imageLucky3.Visible = true;
 
-                    labelNick3.ForeColor = color;
-                    labelName3.ForeColor = color;
-                    labelDept3.ForeColor = color;
+                    nickLucky3.ForeColor = color;
+                    nameLucky3.ForeColor = color;
+                    deptLucky3.ForeColor = color;
+                    pictureBoxNumber3.BackgroundImage = prizeNumber;
                     pictureBoxNumber3.Visible = true;
                     break;
 
@@ -406,17 +444,17 @@ namespace YearEndParty.Presentation
 
         private Color GetColorByGroup(string grade)
         {
-            var color = Color.FromArgb(254, 126, 209);
+            var color = Color.FromArgb(242, 109, 124);
             switch (grade)
             {
                 case "10":
-                    color = Color.FromArgb(254, 126, 209);
+                    color = Color.FromArgb(242, 109, 124);
                     break;
                 case "11":
-                    color = Color.FromArgb(179, 255, 176);
+                    color = Color.FromArgb(167, 239, 54);
                     break;
                 case "12":
-                    color = Color.FromArgb(155, 156, 255);
+                    color = Color.FromArgb(136, 188, 225);
                     break;
                 default:
                     color = Color.White;
@@ -461,19 +499,19 @@ namespace YearEndParty.Presentation
             switch (index)
             {
                 case 1:
-                    labelWinner1.Text = string.Empty;
                     pictureBoxNumber1.Image = null;
-                    pictureBoxWinner1.Image = null;
+                    imageLucky1.Image = null;
+                    imageLucky1.Visible = false;
                     break;
                 case 2:
-                    labelWinner2.Text = string.Empty;
                     pictureBoxNumber2.Image = null;
-                    pictureBoxWinner2.Image = null;
+                    imageLucky2.Image = null;
+                    imageLucky2.Visible = false;
                     break;
                 case 3:
-                    labelWinner3.Text = string.Empty;
                     pictureBoxNumber3.Image = null;
-                    pictureBoxWinner3.Image = null;
+                    imageLucky3.Image = null;
+                    imageLucky3.Visible = false;
                     break;
             }
         }
@@ -484,7 +522,7 @@ namespace YearEndParty.Presentation
 
             var result = MessageBox.Show(
                 "Are you sure you want to remove all winners?",
-                "Annual Party 2014",
+                "Staff Annual Party",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
                 );

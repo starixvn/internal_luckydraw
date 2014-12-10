@@ -61,6 +61,7 @@ namespace YearEndParty.Presentation
 
         private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
         {
+            var x = System.Windows.Forms.Screen.FromControl(this);
             switch (e.KeyChar)
             { 
                 case (char)49: //1
