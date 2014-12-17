@@ -291,16 +291,16 @@ namespace YearEndParty.Presentation.Controls
                     BackgroundImage = Properties.Resources._21_20_19_before;
                     break;
                 case GrandPrizeIndexEnum.Prize22To24:
-                    BackgroundImage = Properties.Resources._21_20_19_before;
-                    break;
-                case GrandPrizeIndexEnum.Prize25To27:
                     BackgroundImage = Properties.Resources._24_23_22_before;
                     break;
-                case GrandPrizeIndexEnum.Prize28To30:
+                case GrandPrizeIndexEnum.Prize25To27:
                     BackgroundImage = Properties.Resources._27_26_25_before;
                     break;
-                case GrandPrizeIndexEnum.Prize31To33:
+                case GrandPrizeIndexEnum.Prize28To30:
                     BackgroundImage = Properties.Resources._30_2928_before;
+                    break;
+                case GrandPrizeIndexEnum.Prize31To33:
+                    BackgroundImage = Properties.Resources._33_32_31_before;
                     break;
                 case GrandPrizeIndexEnum.Prize34To36:
                     BackgroundImage = Properties.Resources._36_35_34_before;

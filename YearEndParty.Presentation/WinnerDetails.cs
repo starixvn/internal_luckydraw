@@ -362,19 +362,16 @@
                     barcode = labelWinner1.Text;
                     fullName = labelName1.Text;
                     nick = labelNick1.Text;
-                    pictureBox1.Visible = false;
                     break;
                 case 2:
                     barcode = labelWinner2.Text;
                     fullName = labelName2.Text;
                     nick = labelNick2.Text;
-                    pictureBox2.Visible = false;
                     break;
                 case 3:
                     barcode = labelWinner3.Text;
                     fullName = labelName3.Text;
                     nick = labelNick3.Text;
-                    pictureBox3.Visible = false;
                     break;
             }
 
@@ -412,14 +409,17 @@
                 case 1:
                     labelWinner1.Text = string.Empty;
                     pictureBoxWinner1.Image = null;
+                    pictureBoxWinner1.Visible = false;
                     break;
                 case 2:
                     labelWinner2.Text = string.Empty;
                     pictureBoxWinner2.Image = null;
+                    pictureBoxWinner2.Visible = false;
                     break;
                 case 3:
                     labelWinner3.Text = string.Empty;
                     pictureBoxWinner3.Image = null;
+                    pictureBoxWinner3.Visible = false;
                     break;
             }
         }

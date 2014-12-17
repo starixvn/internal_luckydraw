@@ -308,6 +308,7 @@
     <Content Include="Resources\2014\90-89-88-before.png" />
     <None Include="Resources\2014\blank_ticket_a.png" />
     <None Include="Resources\2014\blank_ticket_b.png" />
+    <Content Include="Resources\2014\adhocprize.jpg" />
     <Content Include="Resources\2014\cashprize-bg.jpg" />
     <Content Include="Resources\2014\grandprize-bg.jpg" />
     <Content Include="Resources\2014\iphone6.png" />

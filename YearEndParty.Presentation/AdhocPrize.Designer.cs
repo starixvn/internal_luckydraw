@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdhocPrize));
             this.labelDept = new System.Windows.Forms.Label();
             this.labelNick = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
@@ -185,7 +184,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::YearEndParty.Presentation.Properties.Resources.adhocprize;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1370, 640);
             this.Controls.Add(this.labelDept);

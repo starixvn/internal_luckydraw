@@ -79,27 +79,27 @@ namespace YearEndParty.Presentation
             var heightNumber = 40 * HeightScreen / HeightImage;
             var widthNumber = 30 * WidthScreen / WidthImage;
 
-            var topNumber3 = 115 * HeightScreen / HeightImage;
-            var leftNumber3 = 285 * WidthScreen / WidthImage;
+            var topNumber1 = 115 * HeightScreen / HeightImage;
+            var leftNumber1 = 285 * WidthScreen / WidthImage;
 
             var topNumber2 = 301 * HeightScreen / HeightImage;
             var leftNumber2 = 285 * WidthScreen / WidthImage;
 
-            var topNumber1 = 487 * HeightScreen / HeightImage;
-            var leftNumber1 = 285 * WidthScreen / WidthImage;
+            var topNumber3 = 487 * HeightScreen / HeightImage;
+            var leftNumber3 = 285 * WidthScreen / WidthImage;
 
             // panel
             var heightPanel = 160 * HeightScreen / HeightImage;
             var widthPanel = 500 * WidthScreen / WidthImage;
 
-            var topPanel3 = 140 * HeightScreen / HeightImage;
-            var leftPanel3 = 310 * WidthScreen / WidthImage;
+            var topPanel1 = 140 * HeightScreen / HeightImage;
+            var leftPanel1 = 310 * WidthScreen / WidthImage;
 
             var topPanel2 = 326 * HeightScreen / HeightImage;
             var leftPanel2 = 310 * WidthScreen / WidthImage;
 
-            var topPanel1 = 512 * HeightScreen / HeightImage;
-            var leftPanel1 = 310 * WidthScreen / WidthImage;
+            var topPanel3 = 512 * HeightScreen / HeightImage;
+            var leftPanel3 = 310 * WidthScreen / WidthImage;
 
             var topNick = 4 * HeightScreen / HeightImage;
             var heightNick = 40 * HeightScreen / HeightImage;

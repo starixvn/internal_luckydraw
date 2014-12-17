@@ -103,6 +103,9 @@ namespace YearEndParty.Presentation
                 case (char)57: //9
                     ChoosePrize(9);
                     break;
+                case (char)115: //s
+                    SortPrize();
+                    break;
             }
         }
 
@@ -269,6 +272,41 @@ namespace YearEndParty.Presentation
             deptLucky3.Font = new Font(deptLucky3.Font.Name, deptSize, deptLucky3.Font.Style);
         }
 
+        private void SortPrize()
+        {
+            var beginPrize = (PrizeIndex - 1) / 3;
+
+            _context = new bodb_luckyEntities();
+            var prizes = (from i in _context.Prizes
+                          where i.PrizeType == PrizeType
+                          orderby i.PriceIndex ascending
+                          select i).ToList().Skip((beginPrize) * 3).Take(3);
+
+            //get winner
+            var loadAllWinners = (from i in _context.Winners
+                                  orderby i.CreatedDate descending
+                                  select i).ToList();
+
+            //winners of three prizes
+            var winners = loadAllWinners
+                .Where(i =>
+                       (prizes.Any(j => (j.PrizeId == i.PrizeId || i.PrizeId == -1)))
+                ).OrderByDescending(t => t.PrizeId).ToList();
+
+            var index = 1;
+            foreach (var winner in winners)
+            {
+                var staff = _context.Staffs.FirstOrDefault(i => i.StaffId == winner.StaffId);
+                var dept = _context.Departments.First(i => i.DepartmentId == staff.DepartmentId);
+
+                var prize = _context.Prizes.FirstOrDefault(t => t.PrizeId == winner.PrizeId);
+                var prizeIndex = prize == null ? -1 : prize.PriceIndex;
+
+                FillWinner(staff, dept, index, prizeIndex);
+                index++;
+            }
+        }
+
         private void PrizeDetails_Load(object sender, EventArgs e)
         {
             WidthScreen = Screen.PrimaryScreen.Bounds.Width;
@@ -305,7 +343,7 @@ namespace YearEndParty.Presentation
             var winners = loadAllWinners
                 .Where(i =>
                        (prizes.Any(j => (j.PrizeId == i.PrizeId || i.PrizeId == -1))) 
-                ).ToList();
+                ).OrderByDescending(t=>t.PrizeId).ToList();
 
             var index = 1;
             foreach (var winner in winners)
