@@ -33,6 +33,7 @@ namespace YearEndParty.Presentation
         private int HeightScreen = 0;
 
         private int _prizedIndex = 3;
+        private int _startPrize = 9;
 
         private const int PrizeType = (int)PrizeTypes.SuperGrand;
         private bodb_luckyEntities _context;
@@ -274,7 +275,11 @@ namespace YearEndParty.Presentation
 
         private void SortPrize()
         {
-            var beginPrize = (PrizeIndex - 1) / 3;
+            codeLucky1.Text = string.Empty;
+            codeLucky2.Text = string.Empty;
+            codeLucky3.Text = string.Empty;
+
+            var beginPrize = (_startPrize - 1) / 3;
 
             _context = new bodb_luckyEntities();
             var prizes = (from i in _context.Prizes
@@ -315,8 +320,6 @@ namespace YearEndParty.Presentation
             ResizeControl();
 
             var beginPrize = (PrizeIndex - 1) / 3;
-
-
             IsClosed = false;
             _context = new bodb_luckyEntities();
             var prizes = (from i in _context.Prizes
@@ -325,6 +328,7 @@ namespace YearEndParty.Presentation
                           select i).ToList().Skip((beginPrize) * 3).Take(3);
 
             var superGrandPrize = _context.PrizeSettings.Where(t => t.PrizeType == (int)PrizeType).FirstOrDefault();
+            _startPrize = superGrandPrize.CurrentPrize;
 
             // render background
             RenderBackGround(PrizeIndex);
@@ -464,6 +468,24 @@ namespace YearEndParty.Presentation
                 case 3:
                     prizeNumber = Properties.Resources._3;
                     break;
+                case 4:
+                    prizeNumber = Properties.Resources._4;
+                    break;
+                case 5:
+                    prizeNumber = Properties.Resources._5;
+                    break;
+                case 6:
+                    prizeNumber = Properties.Resources._6;
+                    break;
+                case 7:
+                    prizeNumber = Properties.Resources._7;
+                    break;
+                case 8:
+                    prizeNumber = Properties.Resources._8;
+                    break;
+                case 9:
+                    prizeNumber = Properties.Resources._9;
+                    break;
                 default:
                     prizeNumber = null;
                     break;
@@ -474,48 +496,98 @@ namespace YearEndParty.Presentation
             switch (position)
             {
                 case 1:
-                    codeLucky1.Text = staff.StaffCode;
-                    nameLucky1.Text = fullName;
-                    nickLucky1.Text = nick;
-                    deptLucky1.Text = dept.ShortName.ToUpper();
-                    imageLucky1.Image = avatar;
-                    pictureBoxNumber1.BackgroundImage = prizeNumber;
+                    if (string.IsNullOrWhiteSpace(codeLucky1.Text))
+                    {
+                        FillWinner1(staff.StaffCode, nick, fullName, dept.ShortName.ToUpper(), avatar, prizeNumber, color);
+                    }
+                    else if (string.IsNullOrWhiteSpace(codeLucky2.Text))
+                    {
+                        FillWinner3(staff.StaffCode, nick, fullName, dept.ShortName.ToUpper(), avatar, prizeNumber, color);
+                    }
+                    else
+                    {
+                        FillWinner2(staff.StaffCode, nick, fullName, dept.ShortName.ToUpper(), avatar, prizeNumber, color);
+                    }
 
-                    nickLucky1.ForeColor = color;
-                    nameLucky1.ForeColor = color;
-                    deptLucky1.ForeColor = color;
-                    imageLucky1.Visible = true;
                     break;
                 case 2:
-                    codeLucky2.Text = staff.StaffCode;
-                    nameLucky2.Text = fullName;
-                    nickLucky2.Text = nick;
-                    deptLucky2.Text = dept.ShortName.ToUpper();
-                    imageLucky2.Image = avatar;
-                    pictureBoxNumber2.BackgroundImage = prizeNumber;
+                    if (string.IsNullOrWhiteSpace(codeLucky2.Text))
+                    {
+                        FillWinner2(staff.StaffCode, nick, fullName, dept.ShortName.ToUpper(), avatar, prizeNumber, color);
+                    }
+                    else if (string.IsNullOrWhiteSpace(codeLucky2.Text))
+                    {
+                        FillWinner3(staff.StaffCode, nick, fullName, dept.ShortName.ToUpper(), avatar, prizeNumber, color);
+                    }
+                    else
+                    {
+                        FillWinner1(staff.StaffCode, nick, fullName, dept.ShortName.ToUpper(), avatar, prizeNumber, color);
+                    }
 
-                    nickLucky2.ForeColor = color;
-                    nameLucky2.ForeColor = color;
-                    deptLucky2.ForeColor = color;
-                    imageLucky2.Visible = true;
                     break;
                 case 3:
-                    codeLucky3.Text = staff.StaffCode;
-                    nameLucky3.Text = fullName;
-                    nickLucky3.Text = nick;
-                    deptLucky3.Text = dept.ShortName.ToUpper();
-                    imageLucky3.Image = avatar;
-                    pictureBoxNumber3.BackgroundImage = prizeNumber;
+                    
+                    if (string.IsNullOrWhiteSpace(codeLucky3.Text))
+                    {
+                        FillWinner3(staff.StaffCode, nick, fullName, dept.ShortName.ToUpper(), avatar, prizeNumber, color);
+                    }
+                    else if (string.IsNullOrWhiteSpace(codeLucky2.Text))
+                    {
+                        FillWinner2(staff.StaffCode, nick, fullName, dept.ShortName.ToUpper(), avatar, prizeNumber, color);
+                    }
+                    else
+                    {
+                        FillWinner1(staff.StaffCode, nick, fullName, dept.ShortName.ToUpper(), avatar, prizeNumber, color);
+                    }
 
-                    nickLucky3.ForeColor = color;
-                    nameLucky3.ForeColor = color;
-                    deptLucky3.ForeColor = color;
-                    imageLucky3.Visible = true;
                     break;
 
             }
+        }
 
-            
+        private void FillWinner1(string code, string nickName, string fullName, string dept, Image avatar, Bitmap prizeNumber, Color color)
+        {
+            codeLucky1.Text = code;
+            nameLucky1.Text = fullName;
+            nickLucky1.Text = nickName;
+            deptLucky1.Text = dept;
+            imageLucky1.Image = avatar;
+            pictureBoxNumber1.BackgroundImage = prizeNumber;
+
+            nickLucky1.ForeColor = color;
+            nameLucky1.ForeColor = color;
+            deptLucky1.ForeColor = color;
+            imageLucky1.Visible = true;
+        }
+
+        private void FillWinner2(string code, string nickName, string fullName, string dept, Image avatar, Bitmap prizeNumber, Color color)
+        {
+            codeLucky2.Text = code;
+            nameLucky2.Text = fullName;
+            nickLucky2.Text = nickName;
+            deptLucky2.Text = dept;
+            imageLucky2.Image = avatar;
+            pictureBoxNumber2.BackgroundImage = prizeNumber;
+
+            nickLucky2.ForeColor = color;
+            nameLucky2.ForeColor = color;
+            deptLucky2.ForeColor = color;
+            imageLucky2.Visible = true;
+        }
+
+        private void FillWinner3(string code, string nickName, string fullName, string dept, Image avatar, Bitmap prizeNumber, Color color)
+        {
+            codeLucky3.Text = code;
+            nameLucky3.Text = fullName;
+            nickLucky3.Text = nickName;
+            deptLucky3.Text = dept;
+            imageLucky3.Image = avatar;
+            pictureBoxNumber3.BackgroundImage = prizeNumber;
+
+            nickLucky3.ForeColor = color;
+            nameLucky3.ForeColor = color;
+            deptLucky3.ForeColor = color;
+            imageLucky3.Visible = true;
         }
 
         private Color GetColorByGroup(string grade)
@@ -617,18 +689,21 @@ namespace YearEndParty.Presentation
                     pictureBoxNumber1.BackgroundImage = null;
                     imageLucky1.Image = null;
                     imageLucky1.Visible = false;
+                    bgImage1.BackgroundImage = YearEndParty.Presentation.Properties.Resources.winner_pic;
                     break;
                 case 2:
                     codeLucky2.Text = string.Empty;
                     pictureBoxNumber2.BackgroundImage = null;
                     imageLucky2.Image = null;
                     imageLucky2.Visible = false;
+                    bgImage2.BackgroundImage = YearEndParty.Presentation.Properties.Resources.winner_pic;
                     break;
                 case 3:
                     codeLucky3.Text = string.Empty;
                     pictureBoxNumber3.BackgroundImage = null;
                     imageLucky3.Image = null;
                     imageLucky3.Visible = false;
+                    bgImage3.BackgroundImage = YearEndParty.Presentation.Properties.Resources.winner_pic;
                     break;
             }
         }
@@ -673,7 +748,11 @@ namespace YearEndParty.Presentation
                 _context.Winners.AddObject(entity);
             }
 
+            var setting = _context.PrizeSettings.FirstOrDefault(i => i.PrizeType == (int)PrizeTypes.SuperGrand);
+            setting.CurrentPrize = ((_startPrize - 1) / 3 + 1) * 3;
             _context.SaveChanges();
+
+            _prizedWinners = new List<int>(3);
         }
 
         private void RemoveWinners()
@@ -698,7 +777,7 @@ namespace YearEndParty.Presentation
             }
 
             var setting = _context.PrizeSettings.FirstOrDefault(i => i.PrizeType == (int)PrizeTypes.SuperGrand);
-            setting.CurrentPrize = ((setting.CurrentPrize - 1) / 3 + 1) * 3;
+            setting.CurrentPrize = ((_startPrize - 1) / 3 + 1) * 3;
 
             _context.SaveChanges();
 
@@ -786,14 +865,14 @@ namespace YearEndParty.Presentation
             switch (e.KeyValue)
             {
                 case 38:
-                    if (_focus < 3)
+                    if (_focus < 3 && _savedWinners.Count >= 3)
                     {
                         _focus++;
                         SetFocus();
                     }
                     break;
                 case 40:
-                    if (_focus > 1)
+                    if (_focus > 1 && _savedWinners.Count >= 3)
                     {
                         _focus--;
                         SetFocus();
@@ -809,7 +888,7 @@ namespace YearEndParty.Presentation
 
         private void DeleteSpecial()
         {
-            if (_focus > 0 && _focus < 4)
+            if (_focus > 0 && _focus < 4 && !_prizedWinners.Any())
             {
                 RemoveWinner(_focus);
             }
@@ -855,14 +934,19 @@ namespace YearEndParty.Presentation
         {
             if (_savedWinners.Count >= 3)
             {
-                if (prize > 0 && prize < 4)
+                if (prize > 0 && prize < 10)
                 {
-                    int prizeCurrent = _prizeIds[prize-1];
+                    int prizeCurrent = _prizeIds[(prize-1)%3];
                     //chon giai da dc chon roi
                     var won = (from i in _context.Winners
                                where i.PrizeId == prizeCurrent
                                select i).Any();
                     if (won)
+                    {
+                        return;
+                    }
+
+                    if ((_startPrize - 1) / 3  != (prize - 1) / 3)
                     {
                         return;
                     }
@@ -883,6 +967,24 @@ namespace YearEndParty.Presentation
                             break;
                         case 3:
                             numberImage = Properties.Resources._3;
+                            break;
+                        case 4:
+                            numberImage = Properties.Resources._4;
+                            break;
+                        case 5:
+                            numberImage = Properties.Resources._5;
+                            break;
+                        case 6:
+                            numberImage = Properties.Resources._6;
+                            break;
+                        case 7:
+                            numberImage = Properties.Resources._7;
+                            break;
+                        case 8:
+                            numberImage = Properties.Resources._8;
+                            break;
+                        case 9:
+                            numberImage = Properties.Resources._9;
                             break;
                     }
 
@@ -920,7 +1022,7 @@ namespace YearEndParty.Presentation
                         if (staff == null) return;
 
                         _prizedIndex--;
-                        UpdateWinnerPrize(staff.StaffId, _prizeIds[prize - 1]);
+                        UpdateWinnerPrize(staff.StaffId, prizeCurrent);
                     }
                 }
             }

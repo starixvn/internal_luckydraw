@@ -60,6 +60,14 @@
     @foreach (var item in Model)
     {
         index++;
+		if (item.Barcode == "11790037")
+		{
+			item.Barcode = "12790037";
+		}
+		if (item.Barcode == "11790040")
+		{
+			item.Barcode = "12790040";
+		}
         <div class="barcode">
             <div class="barcode_name color@(item.Barcode.Substring(0, 2))">
                 @item.Name (@item.Nick)

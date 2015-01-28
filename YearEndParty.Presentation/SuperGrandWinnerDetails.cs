@@ -373,6 +373,15 @@ namespace YearEndParty.Presentation
 
             switch (prizeIndex)
             {
+                case 1:
+                    prizeNumber = Properties.Resources._1;
+                    break;
+                case 2:
+                    prizeNumber = Properties.Resources._2;
+                    break;
+                case 3:
+                    prizeNumber = Properties.Resources._3;
+                    break;
                 case 4:
                     prizeNumber = Properties.Resources._4;
                     break;

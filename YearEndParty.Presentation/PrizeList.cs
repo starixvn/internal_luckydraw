@@ -151,24 +151,24 @@
                                 case 1:
                                     pictureBox1.Visible = true;
 
-                                    if (setting.CurrentPrize > 3)
-                                    {
-                                        supergrandDetail = new SuperGrandWinnerDetails
-                                        {
-                                            PrizeIndex = setting.CurrentPrize,
-                                            TalkBack = TalkBackToClient
-                                        };
+                                    //if (setting.CurrentPrize > 3)
+                                    //{
+                                    //    supergrandDetail = new SuperGrandWinnerDetails
+                                    //    {
+                                    //        PrizeIndex = setting.CurrentPrize,
+                                    //        TalkBack = TalkBackToClient
+                                    //    };
 
-                                        supergrandDetail.ShowDialog();
-                                        var settingTemp = context.PrizeSettings.FirstOrDefault(i => i.PrizeType == (int)PrizeTypes.SuperGrand);
+                                    //    supergrandDetail.ShowDialog();
+                                    //    var settingTemp = context.PrizeSettings.FirstOrDefault(i => i.PrizeType == (int)PrizeTypes.SuperGrand);
 
-                                        for (var i = settingTemp.CurrentPrize - 3; i < settingTemp.Quantity; i++)
-                                        {
-                                            _prizeTiles[i].SetBackground(i + 1, true);
-                                        }
-                                    }
-                                    else
-                                    {
+                                    //    for (var i = settingTemp.CurrentPrize - 3; i < settingTemp.Quantity; i++)
+                                    //    {
+                                    //        _prizeTiles[i].SetBackground(i + 1, true);
+                                    //    }
+                                    //}
+                                    //else
+                                    //{
                                         supergrandSpecialDetail = new SuperGrandWinnerSpecialDetails
                                         {
                                             PrizeIndex = setting.CurrentPrize,
@@ -176,14 +176,15 @@
                                         };
                                         supergrandSpecialDetail.ShowDialog();
 
-                                        for (var i = setting.CurrentPrize; i < setting.Quantity; i++)
+                                        context = new bodb_luckyEntities();
+                                        var settingTemp = context.PrizeSettings.FirstOrDefault(i => i.PrizeType == (int)PrizeTypes.SuperGrand);
+
+                                        for (var i = settingTemp.CurrentPrize; i < settingTemp.Quantity; i++)
                                         {
                                             _prizeTiles[i].SetBackground(i + 1, true);
                                         }
-                                        _prizeTiles[0].SetBackground(1, true);
-                                        _prizeTiles[1].SetBackground(2, true);
-                                        _prizeTiles[2].SetBackground(3, true);
-                                    }
+                                       
+                                    //}
 
                                     pictureBox1.Visible = false;
                                     break;
