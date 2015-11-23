@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Fanex.Common, Version=1.0.404.97, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Common.1.0.404.97\lib\net40\Fanex.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Fanex.Data, Version=0.5.404.63, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Data.0.5.404.63\lib\net40\Fanex.Data.dll</HintPath>
       <Private>True</Private>
@@ -67,15 +71,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implements\StaffService.cs" />
+    <Compile Include="Interfaces\IStaffService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Implements\" />
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LuckyDraw.Core\LuckyDraw.Core.csproj">
+      <Project>{384959A7-7C0A-4541-A871-B3E8A5134EA8}</Project>
+      <Name>LuckyDraw.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LuckyDraw.Criteria\LuckyDraw.Criteria.csproj">
+      <Project>{F2661C94-F3EC-4342-A7A7-2327AF75D044}</Project>
+      <Name>LuckyDraw.Criteria</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LuckyDraw.Models\LuckyDraw.Models.csproj">
+      <Project>{B1244060-C77C-4B81-B735-2BEE7FD6CCCB}</Project>
+      <Name>LuckyDraw.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

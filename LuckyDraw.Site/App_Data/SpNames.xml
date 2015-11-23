@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Functions>
-    <Function>
-        
+    <Function Name="Staff">
+        <Setting Key="Staff_GetByCode" SpName="Staff_GetByCode" DbName="LuckyDraw" Plain="0">
+        </Setting>
     </Function>
 </Functions>
