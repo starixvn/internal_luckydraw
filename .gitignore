@@ -17,6 +17,7 @@ Thumbs.db
 *.cache
 *.ilk
 *.log
+*.Logs
 [Bb]in
 [Dd]ebug*/
 *.lib
@@ -27,7 +28,7 @@ _ReSharper*/
 [Tt]est[Rr]esult*
 *.vssscc
 $tf*/
-/Fanex.NexHR.Controllers/bin
-/Fanex.NexHR.Controllers/bin
-/Fanex.NexHR.Controllers/obj
-/Fanex.NexHR.Controllers/bin
+*.Publish.xml
+/NDICT.suo
+OpenCover/
+packages/
