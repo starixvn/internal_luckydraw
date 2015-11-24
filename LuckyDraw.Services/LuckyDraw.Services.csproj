@@ -93,6 +93,10 @@
       <Project>{B1244060-C77C-4B81-B735-2BEE7FD6CCCB}</Project>
       <Name>LuckyDraw.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LuckyDraw.Repositories\LuckyDraw.Repositories.csproj">
+      <Project>{3AC5FC2F-A834-405E-BC29-FBD96BD4C7CF}</Project>
+      <Name>LuckyDraw.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

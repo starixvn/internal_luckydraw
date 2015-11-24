@@ -153,6 +153,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\API\DashboardController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -161,7 +162,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\SpNames.xml" />
-    <Content Include="Content\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Common\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <None Include="Content\Common\_toastr.scss" />
     <Content Include="Content\Site.css">
       <DependentUpon>Site.scss</DependentUpon>
     </Content>
@@ -183,10 +185,16 @@
     <Content Include="Libs\jquery.validate.unobtrusive.js" />
     <Content Include="Libs\jquery.validate.unobtrusive.min.js" />
     <Content Include="Libs\modernizr-2.8.3.js" />
+    <Content Include="Libs\toastr.js" />
+    <Content Include="Libs\ui-bootstrap-tpls-0.13.0.min.js" />
+    <Content Include="SourceApp\Components\Dashboard\dashboard-model.js" />
+    <Content Include="SourceApp\Components\Dashboard\dashboard-factory.js" />
     <Content Include="SourceApp\Components\Dashboard\dashboard-controller.js" />
     <Content Include="SourceApp\Components\Dashboard\Templates\index.html" />
     <Content Include="SourceApp\routes.js" />
     <Content Include="SourceApp\app.js" />
+    <Content Include="SourceApp\Shared\notification-factory.js" />
+    <Content Include="SourceApp\Shared\error-factory.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -202,88 +210,105 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\API\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\bootstrap\mixins\_alerts.scss" />
-    <None Include="Content\bootstrap\mixins\_background-variant.scss" />
-    <None Include="Content\bootstrap\mixins\_border-radius.scss" />
-    <None Include="Content\bootstrap\mixins\_buttons.scss" />
-    <None Include="Content\bootstrap\mixins\_center-block.scss" />
-    <None Include="Content\bootstrap\mixins\_clearfix.scss" />
-    <None Include="Content\bootstrap\mixins\_forms.scss" />
-    <None Include="Content\bootstrap\mixins\_gradients.scss" />
-    <None Include="Content\bootstrap\mixins\_grid-framework.scss" />
-    <None Include="Content\bootstrap\mixins\_grid.scss" />
-    <None Include="Content\bootstrap\mixins\_hide-text.scss" />
-    <None Include="Content\bootstrap\mixins\_image.scss" />
-    <None Include="Content\bootstrap\mixins\_labels.scss" />
-    <None Include="Content\bootstrap\mixins\_list-group.scss" />
-    <None Include="Content\bootstrap\mixins\_nav-divider.scss" />
-    <None Include="Content\bootstrap\mixins\_nav-vertical-align.scss" />
-    <None Include="Content\bootstrap\mixins\_opacity.scss" />
-    <None Include="Content\bootstrap\mixins\_pagination.scss" />
-    <None Include="Content\bootstrap\mixins\_panels.scss" />
-    <None Include="Content\bootstrap\mixins\_progress-bar.scss" />
-    <None Include="Content\bootstrap\mixins\_reset-filter.scss" />
-    <None Include="Content\bootstrap\mixins\_reset-text.scss" />
-    <None Include="Content\bootstrap\mixins\_resize.scss" />
-    <None Include="Content\bootstrap\mixins\_responsive-visibility.scss" />
-    <None Include="Content\bootstrap\mixins\_size.scss" />
-    <None Include="Content\bootstrap\mixins\_tab-focus.scss" />
-    <None Include="Content\bootstrap\mixins\_table-row.scss" />
-    <None Include="Content\bootstrap\mixins\_text-emphasis.scss" />
-    <None Include="Content\bootstrap\mixins\_text-overflow.scss" />
-    <None Include="Content\bootstrap\mixins\_vendor-prefixes.scss" />
-    <None Include="Content\bootstrap\_alerts.scss" />
-    <None Include="Content\bootstrap\_badges.scss" />
-    <None Include="Content\bootstrap\_breadcrumbs.scss" />
-    <None Include="Content\bootstrap\_button-groups.scss" />
-    <None Include="Content\bootstrap\_buttons.scss" />
-    <None Include="Content\bootstrap\_carousel.scss" />
-    <None Include="Content\bootstrap\_close.scss" />
-    <None Include="Content\bootstrap\_code.scss" />
-    <None Include="Content\bootstrap\_component-animations.scss" />
-    <None Include="Content\bootstrap\_dropdowns.scss" />
-    <None Include="Content\bootstrap\_forms.scss" />
-    <None Include="Content\bootstrap\_glyphicons.scss" />
-    <None Include="Content\bootstrap\_grid.scss" />
-    <None Include="Content\bootstrap\_input-groups.scss" />
-    <None Include="Content\bootstrap\_jumbotron.scss" />
-    <None Include="Content\bootstrap\_labels.scss" />
-    <None Include="Content\bootstrap\_list-group.scss" />
-    <None Include="Content\bootstrap\_media.scss" />
-    <None Include="Content\bootstrap\_mixins.scss" />
-    <None Include="Content\bootstrap\_modals.scss" />
-    <None Include="Content\bootstrap\_navbar.scss" />
-    <None Include="Content\bootstrap\_navs.scss" />
-    <None Include="Content\bootstrap\_normalize.scss" />
-    <None Include="Content\bootstrap\_pager.scss" />
-    <None Include="Content\bootstrap\_pagination.scss" />
-    <None Include="Content\bootstrap\_panels.scss" />
-    <None Include="Content\bootstrap\_popovers.scss" />
-    <None Include="Content\bootstrap\_print.scss" />
-    <None Include="Content\bootstrap\_progress-bars.scss" />
-    <None Include="Content\bootstrap\_responsive-embed.scss" />
-    <None Include="Content\bootstrap\_responsive-utilities.scss" />
-    <None Include="Content\bootstrap\_scaffolding.scss" />
-    <None Include="Content\bootstrap\_tables.scss" />
-    <None Include="Content\bootstrap\_theme.scss" />
-    <None Include="Content\bootstrap\_thumbnails.scss" />
-    <None Include="Content\bootstrap\_tooltip.scss" />
-    <None Include="Content\bootstrap\_type.scss" />
-    <None Include="Content\bootstrap\_utilities.scss" />
-    <None Include="Content\bootstrap\_variables.scss" />
-    <None Include="Content\bootstrap\_wells.scss" />
-    <None Include="Content\fonts\bootstrap\glyphicons-halflings-regular.eot" />
-    <None Include="Content\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
-    <None Include="Content\fonts\bootstrap\glyphicons-halflings-regular.woff" />
-    <None Include="Content\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
-    <None Include="Content\_bootstrap.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_alerts.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_background-variant.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_border-radius.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_buttons.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_center-block.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_clearfix.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_forms.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_gradients.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_grid-framework.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_grid.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_hide-text.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_image.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_labels.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_list-group.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_nav-divider.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_nav-vertical-align.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_opacity.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_pagination.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_panels.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_progress-bar.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_reset-filter.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_reset-text.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_resize.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_responsive-visibility.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_size.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_tab-focus.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_table-row.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_text-emphasis.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_text-overflow.scss" />
+    <None Include="Content\Common\bootstrap\mixins\_vendor-prefixes.scss" />
+    <None Include="Content\Common\bootstrap\_alerts.scss" />
+    <None Include="Content\Common\bootstrap\_badges.scss" />
+    <None Include="Content\Common\bootstrap\_breadcrumbs.scss" />
+    <None Include="Content\Common\bootstrap\_button-groups.scss" />
+    <None Include="Content\Common\bootstrap\_buttons.scss" />
+    <None Include="Content\Common\bootstrap\_carousel.scss" />
+    <None Include="Content\Common\bootstrap\_close.scss" />
+    <None Include="Content\Common\bootstrap\_code.scss" />
+    <None Include="Content\Common\bootstrap\_component-animations.scss" />
+    <None Include="Content\Common\bootstrap\_dropdowns.scss" />
+    <None Include="Content\Common\bootstrap\_forms.scss" />
+    <None Include="Content\Common\bootstrap\_glyphicons.scss" />
+    <None Include="Content\Common\bootstrap\_grid.scss" />
+    <None Include="Content\Common\bootstrap\_input-groups.scss" />
+    <None Include="Content\Common\bootstrap\_jumbotron.scss" />
+    <None Include="Content\Common\bootstrap\_labels.scss" />
+    <None Include="Content\Common\bootstrap\_list-group.scss" />
+    <None Include="Content\Common\bootstrap\_media.scss" />
+    <None Include="Content\Common\bootstrap\_mixins.scss" />
+    <None Include="Content\Common\bootstrap\_modals.scss" />
+    <None Include="Content\Common\bootstrap\_navbar.scss" />
+    <None Include="Content\Common\bootstrap\_navs.scss" />
+    <None Include="Content\Common\bootstrap\_normalize.scss" />
+    <None Include="Content\Common\bootstrap\_pager.scss" />
+    <None Include="Content\Common\bootstrap\_pagination.scss" />
+    <None Include="Content\Common\bootstrap\_panels.scss" />
+    <None Include="Content\Common\bootstrap\_popovers.scss" />
+    <None Include="Content\Common\bootstrap\_print.scss" />
+    <None Include="Content\Common\bootstrap\_progress-bars.scss" />
+    <None Include="Content\Common\bootstrap\_responsive-embed.scss" />
+    <None Include="Content\Common\bootstrap\_responsive-utilities.scss" />
+    <None Include="Content\Common\bootstrap\_scaffolding.scss" />
+    <None Include="Content\Common\bootstrap\_tables.scss" />
+    <None Include="Content\Common\bootstrap\_theme.scss" />
+    <None Include="Content\Common\bootstrap\_thumbnails.scss" />
+    <None Include="Content\Common\bootstrap\_tooltip.scss" />
+    <None Include="Content\Common\bootstrap\_type.scss" />
+    <None Include="Content\Common\bootstrap\_utilities.scss" />
+    <None Include="Content\Common\bootstrap\_variables.scss" />
+    <None Include="Content\Common\bootstrap\_wells.scss" />
+    <None Include="Content\Common\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <None Include="Content\Common\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <None Include="Content\Common\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <None Include="Content\Common\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <None Include="Content\Common\_bootstrap.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LuckyDraw.Core\LuckyDraw.Core.csproj">
+      <Project>{384959A7-7C0A-4541-A871-B3E8A5134EA8}</Project>
+      <Name>LuckyDraw.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LuckyDraw.Criteria\LuckyDraw.Criteria.csproj">
+      <Project>{F2661C94-F3EC-4342-A7A7-2327AF75D044}</Project>
+      <Name>LuckyDraw.Criteria</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LuckyDraw.Models\LuckyDraw.Models.csproj">
+      <Project>{B1244060-C77C-4B81-B735-2BEE7FD6CCCB}</Project>
+      <Name>LuckyDraw.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LuckyDraw.Services\LuckyDraw.Services.csproj">
+      <Project>{95B1FF1F-320A-4553-97C4-9EE53BAF9F74}</Project>
+      <Name>LuckyDraw.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

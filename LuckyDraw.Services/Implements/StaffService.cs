@@ -13,18 +13,32 @@ namespace LuckyDraw.Services.Implements
     using LuckyDraw.Core.Services;
     using LuckyDraw.Criteria.Staff;
     using LuckyDraw.Models.Staff;
+    using LuckyDraw.Repositories.Implements;
+    using LuckyDraw.Repositories.Interfaces;
     using LuckyDraw.Services.Interfaces;
 
     public class StaffService : BaseService, IStaffService
     {
-        public StaffModel GetEmployeeByCode(GetStaffByCodeCriteria criteria)
+        private readonly IStaffRepository _staffRepository;
+
+        public StaffService()
+            : this(null)
+        {
+        }
+
+        public StaffService(IStaffRepository staffRepository)
+        {
+            _staffRepository = staffRepository ?? new StaffRepository();
+        }
+
+        public StaffModel GetStaffByCode(GetStaffByCodeCriteria criteria)
         {
             Check.Argument.IsNotNull(criteria, "criteria");
             StaffModel staff = new StaffModel();
 
             if (criteria.IsValid())
             {
-                staff = GetDataEntity<StaffModel>(criteria);
+                staff = _staffRepository.GetStaffByCode(criteria);
             }
 
             return staff;

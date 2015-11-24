@@ -67,15 +67,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implements\StaffRepository.cs" />
+    <Compile Include="Interfaces\IStaffRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Implements\" />
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LuckyDraw.Core\LuckyDraw.Core.csproj">
+      <Project>{384959A7-7C0A-4541-A871-B3E8A5134EA8}</Project>
+      <Name>LuckyDraw.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LuckyDraw.Models\LuckyDraw.Models.csproj">
+      <Project>{B1244060-C77C-4B81-B735-2BEE7FD6CCCB}</Project>
+      <Name>LuckyDraw.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

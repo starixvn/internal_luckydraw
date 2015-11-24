@@ -21,15 +21,23 @@ namespace LuckyDraw.Site
                         "~/Libs/angular.min.js",
                         "~/Libs/angular-resource.min.js",
                         "~/Libs/angular-route.min.js",
-                        "~/Libs/angular-translate.js"));
+                        "~/Libs/angular-translate.js",
+                        "~/Libs/ui-bootstrap-tpls-0.13.0.min.js",
+                        "~/Libs/toastr.js"));
 
             bundles.AddAndInclude(
                         "~/Content/css",
                         "~/Content/site.css");
 
+            bundles.Add(new ScriptBundle("~/bundles/common/js").Include(
+                            "~/SourceApp/Shared/error-factory.js",
+                            "~/SourceApp/Shared/notification-factory.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                         "~/SourceApp/app.js",
                         "~/SourceApp/routes.js",
+                        "~/SourceApp/Components/Dashboard/dashboard-factory.js",
+                        "~/SourceApp/Components/Dashboard/dashboard-model.js",
                         "~/SourceApp/Components/Dashboard/dashboard-controller.js"));
         }
     }

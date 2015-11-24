@@ -10,6 +10,7 @@
 namespace LuckyDraw.Models.Staff
 {
     using System;
+    using LuckyDraw.Models.Department;
 
     public class StaffModel
     {
@@ -24,5 +25,7 @@ namespace LuckyDraw.Models.Staff
         public string BarCode { get; set; }
 
         public Byte[] Avatar { get; set; }
+
+        public DepartmentModel Department { get; set; }
     }
 }

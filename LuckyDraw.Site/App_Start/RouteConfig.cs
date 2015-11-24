@@ -11,12 +11,27 @@ namespace LuckyDraw.Site
 {
     using System.Web.Mvc;
     using System.Web.Routing;
+    using System.Collections.Generic;
 
     public static class RouteConfig
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            var homeRouteUrls = new List<string>
+            {
+                "Home"
+            };
+
+            homeRouteUrls.ForEach(url => routes.MapRoute(
+                name: url,
+                url: url,
+                defaults: new
+                {
+                    controller = "Home",
+                    action = "Index"
+                }));
 
             routes.MapRoute(
                 name: "Default",
