@@ -1,5 +1,5 @@
 ﻿// ----------------------------------------------------------------------
-// <copyright file="DashboardController.cs" company="Nexcel Solutions Viet Nam">
+// <copyright file="CommonController.cs" company="Nexcel Solutions Viet Nam">
 // Copyright (c) Nexcel Solutions Vietnam. All rights reserved.
 // </copyright>
 // ------------------------------------------------------------------------
@@ -15,26 +15,26 @@ namespace LuckyDraw.Site.Controllers.API
     using LuckyDraw.Services.Implements;
     using LuckyDraw.Services.Interfaces;
 
-    public class DashboardController : ApiController
+    public class CommonController : ApiController
     {
         private readonly IStaffService _staffService;
 
-        public DashboardController()
+        public CommonController()
             : this(null)
         {
         }
 
-        public DashboardController(IStaffService staffService)
+        public CommonController(IStaffService staffService)
         {
             _staffService = staffService ?? new StaffService();
         }
 
         [HttpGet]
-        public StaffModel GetStaffByCode(string code)
+        public StaffModel GetStaffByCode(string staffCode)
         {
             var criteria = new GetStaffByCodeCriteria()
             {
-                Code = code
+                StaffCode = staffCode
             };
 
             return _staffService.GetStaffByCode(criteria);

@@ -21,7 +21,8 @@ namespace LuckyDraw.Site
 
             var homeRouteUrls = new List<string>
             {
-                "Home"
+                "Home",
+                "Server/Index"
             };
 
             homeRouteUrls.ForEach(url => routes.MapRoute(

@@ -30,15 +30,21 @@ namespace LuckyDraw.Site
                         "~/Content/site.css");
 
             bundles.Add(new ScriptBundle("~/bundles/common/js").Include(
-                            "~/SourceApp/Shared/error-factory.js",
-                            "~/SourceApp/Shared/notification-factory.js"));
+                        "~/SourceApp/Shared/error-factory.js",
+                        "~/SourceApp/Shared/notification-factory.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/signalr").Include(
+                        "~/Libs/jquery.signalR-1.2.2.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include(
                         "~/SourceApp/app.js",
                         "~/SourceApp/routes.js",
-                        "~/SourceApp/Components/Dashboard/dashboard-factory.js",
-                        "~/SourceApp/Components/Dashboard/dashboard-model.js",
-                        "~/SourceApp/Components/Dashboard/dashboard-controller.js"));
+                        "~/SourceApp/Components/Resources/resources-factory.js",
+                        "~/SourceApp/Components/Resources/resources-controller.js",
+                        "~/SourceApp/Components/Common/common-factory.js",
+                        "~/SourceApp/Components/Common/common-model.js",
+                        "~/SourceApp/Components/Server/server-controller.js",
+                        "~/SourceApp/Components/Client/client-controller.js"));
         }
     }
 }

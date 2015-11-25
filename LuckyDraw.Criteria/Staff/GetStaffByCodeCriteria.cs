@@ -13,7 +13,7 @@ namespace LuckyDraw.Criteria.Staff
 
     public class GetStaffByCodeCriteria : CriteriaBase
     {
-        public string Code { get; set; }
+        public string StaffCode { get; set; }
 
         public override string GetSettingKey()
         {
@@ -22,7 +22,7 @@ namespace LuckyDraw.Criteria.Staff
 
         public override bool IsValid()
         {
-            return !string.IsNullOrEmpty(Code);
+            return !string.IsNullOrEmpty(StaffCode);
         }
     }
 }

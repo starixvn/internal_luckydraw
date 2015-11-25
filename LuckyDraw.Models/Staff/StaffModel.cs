@@ -20,7 +20,7 @@ namespace LuckyDraw.Models.Staff
 
         public string NickName { get; set; }
 
-        public string Code { get; set; }
+        public string StaffCode { get; set; }
 
         public string BarCode { get; set; }
 

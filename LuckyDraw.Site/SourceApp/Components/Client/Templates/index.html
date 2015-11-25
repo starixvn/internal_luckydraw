@@ -1,0 +1,23 @@
+﻿<div class="row client-site" ng-controller="ClientController as clientCtrl" keyboard-event>
+    <div class="col-sm-3">
+        <img style="width: 150px" ng-src="data:image/jpeg;base64,{{clientCtrl.staff.Avatar}}" src="" alt="" />
+    </div>
+    <div class="col-sm-6">
+        <div class="row line">
+            <div class="col-sm-4" data-translate="FullName"></div>
+            <div class="col-sm-8" ng-bind="clientCtrl.staff.FullName"></div>
+        </div>
+        <div class="row line">
+            <div class="col-sm-4" data-translate="Code"></div>
+            <div class="col-sm-8" ng-bind="clientCtrl.staff.BarCode"></div>
+        </div>
+        <div class="row line">
+            <div class="col-sm-4" data-translate="NickName"></div>
+            <div class="col-sm-8" ng-bind="clientCtrl.staff.NickName"></div>
+        </div>
+        <div class="row line">
+            <div class="col-sm-4" data-translate="Department"></div>
+            <div class="col-sm-8" ng-bind="clientCtrl.staff.Department.Name"></div>
+        </div>
+    </div>
+</div>

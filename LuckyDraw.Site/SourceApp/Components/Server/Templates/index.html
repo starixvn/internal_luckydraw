@@ -1,0 +1,71 @@
+﻿<div class="row server-site" ng-controller="ServerController as serverCtrl">
+    <div class="row staff-info blue-staff">
+        <div class="col-sm-4">
+            <img style="width: 150px" ng-src="data:image/jpeg;base64,{{serverCtrl.blueStaff.Avatar}}" src="" alt="" />
+        </div>
+        <div class="col-sm-6">
+            <div class="row line">
+                <div class="col-sm-4" data-translate="FullName"></div>
+                <div class="col-sm-8" ng-bind="serverCtrl.blueStaff.FullName"></div>
+            </div>
+            <div class="row line">
+                <div class="col-sm-4" data-translate="Code""></div>
+                <div class="col-sm-8" ng-bind="serverCtrl.blueStaff.BarCode"></div>
+            </div>
+            <div class="row line">
+                <div class="col-sm-4" data-translate="NickName"></div>
+                <div class="col-sm-8" ng-bind="serverCtrl.blueStaff.NickName"></div>
+            </div>
+            <div class="row line">
+                <div class="col-sm-4" data-translate="Department"></div>
+                <div class="col-sm-8" ng-bind="serverCtrl.blueStaff.Department.Name"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row staff-info green-staff">
+        <div class="col-sm-4">
+            <img style="width: 150px" ng-src="data:image/jpeg;base64,{{serverCtrl.greenStaff.Avatar}}" src="" alt="" />
+        </div>
+        <div class="col-sm-6">
+            <div class="row line">
+                <div class="col-sm-4" data-translate="FullName"></div>
+                <div class="col-sm-8" ng-bind="serverCtrl.greenStaff.FullName"></div>
+            </div>
+            <div class="row line">
+                <div class="col-sm-4" data-translate="Code"></div>
+                <div class="col-sm-8" ng-bind="serverCtrl.greenStaff.BarCode"></div>
+            </div>
+            <div class="row line">
+                <div class="col-sm-4" data-translate="NickName"></div>
+                <div class="col-sm-8" ng-bind="serverCtrl.greenStaff.NickName"></div>
+            </div>
+            <div class="row line">
+                <div class="col-sm-4" data-translate="Department"></div>
+                <div class="col-sm-8" ng-bind="serverCtrl.greenStaff.Department.Name"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row staff-info pink-staff">
+        <div class="col-sm-4">
+            <img style="width: 150px" ng-src="data:image/jpeg;base64,{{serverCtrl.pinkStaff.Avatar}}" src="" alt="" />
+        </div>
+        <div class="col-sm-6">
+            <div class="row line">
+                <div class="col-sm-4" data-translate="FullName"></div>
+                <div class="col-sm-8" ng-bind="serverCtrl.pinkStaff.FullName"></div>
+            </div>
+            <div class="row line">
+                <div class="col-sm-4" data-translate="Code"></div>
+                <div class="col-sm-8" ng-bind="serverCtrl.pinkStaff.BarCode"></div>
+            </div>
+            <div class="row line">
+                <div class="col-sm-4" data-translate="NickName"></div>
+                <div class="col-sm-8" ng-bind="serverCtrl.pinkStaff.NickName"></div>
+            </div>
+            <div class="row line">
+                <div class="col-sm-4" data-translate="Department"></div>
+                <div class="col-sm-8" ng-bind="serverCtrl.pinkStaff.Department.Name"></div>
+            </div>
+        </div>
+    </div>
+</div>

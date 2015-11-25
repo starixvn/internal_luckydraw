@@ -50,7 +50,23 @@
       <HintPath>..\packages\Fanex.Data.0.5.404.63\lib\net40\Fanex.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=1.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.1.2.2\lib\net40\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Owin, Version=1.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Owin.1.2.2\lib\net40\Microsoft.AspNet.SignalR.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=1.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.1.2.2\lib\net40\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.1.0.1\lib\net40\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\EnterpriseLibrary.Common.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
       <Private>True</Private>
@@ -71,8 +87,12 @@
       <HintPath>..\packages\EnterpriseLibrary.Unity.5.0.414.0\lib\net40\Microsoft.Practices.Unity.Interception.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -153,7 +173,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\API\DashboardController.cs" />
+    <Compile Include="Controllers\API\CommonController.cs" />
+    <Compile Include="Controllers\API\ResourcesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -173,6 +194,8 @@
     <Content Include="Libs\angular-resource.min.js" />
     <Content Include="Libs\angular-route.js" />
     <Content Include="Libs\angular-route.min.js" />
+    <Content Include="Libs\angular-signalr-hub.js" />
+    <Content Include="Libs\angular-signalr-hub.min.js" />
     <Content Include="Libs\angular-translate.js" />
     <Content Include="Libs\angular.js" />
     <Content Include="Libs\angular.min.js" />
@@ -180,6 +203,8 @@
     <Content Include="Libs\bootstrap.min.js" />
     <Content Include="Libs\jquery-2.1.4.js" />
     <Content Include="Libs\jquery-2.1.4.min.js" />
+    <Content Include="Libs\jquery.signalR-1.2.2.js" />
+    <Content Include="Libs\jquery.signalR-1.2.2.min.js" />
     <Content Include="Libs\jquery.validate.js" />
     <Content Include="Libs\jquery.validate.min.js" />
     <Content Include="Libs\jquery.validate.unobtrusive.js" />
@@ -187,10 +212,14 @@
     <Content Include="Libs\modernizr-2.8.3.js" />
     <Content Include="Libs\toastr.js" />
     <Content Include="Libs\ui-bootstrap-tpls-0.13.0.min.js" />
-    <Content Include="SourceApp\Components\Dashboard\dashboard-model.js" />
-    <Content Include="SourceApp\Components\Dashboard\dashboard-factory.js" />
-    <Content Include="SourceApp\Components\Dashboard\dashboard-controller.js" />
-    <Content Include="SourceApp\Components\Dashboard\Templates\index.html" />
+    <Content Include="SourceApp\Components\Client\client-controller.js" />
+    <Content Include="SourceApp\Components\Client\Templates\index.html" />
+    <Content Include="SourceApp\Components\Common\common-model.js" />
+    <Content Include="SourceApp\Components\Common\common-factory.js" />
+    <Content Include="SourceApp\Components\Resources\resources-controller.js" />
+    <Content Include="SourceApp\Components\Resources\resources-factory.js" />
+    <Content Include="SourceApp\Components\Server\server-controller.js" />
+    <Content Include="SourceApp\Components\Server\Templates\index.html" />
     <Content Include="SourceApp\routes.js" />
     <Content Include="SourceApp\app.js" />
     <Content Include="SourceApp\Shared\notification-factory.js" />
@@ -202,6 +231,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <None Include="Content\_client-site.scss" />
+    <None Include="Content\_server-site.scss" />
     <None Include="Content\Site.scss" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -301,9 +332,17 @@
       <Project>{F2661C94-F3EC-4342-A7A7-2327AF75D044}</Project>
       <Name>LuckyDraw.Criteria</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LuckyDraw.Hubs\LuckyDraw.Hubs.csproj">
+      <Project>{AC4BF11F-9427-4E7D-BBBE-B5BB8C2BF443}</Project>
+      <Name>LuckyDraw.Hubs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LuckyDraw.Models\LuckyDraw.Models.csproj">
       <Project>{B1244060-C77C-4B81-B735-2BEE7FD6CCCB}</Project>
       <Name>LuckyDraw.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LuckyDraw.Resources\LuckyDraw.Resources.csproj">
+      <Project>{C8805585-6312-44A1-ADC7-9A30215720E5}</Project>
+      <Name>LuckyDraw.Resources</Name>
     </ProjectReference>
     <ProjectReference Include="..\LuckyDraw.Services\LuckyDraw.Services.csproj">
       <Project>{95B1FF1F-320A-4553-97C4-9EE53BAF9F74}</Project>
