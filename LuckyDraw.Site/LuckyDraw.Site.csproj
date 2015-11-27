@@ -190,6 +190,16 @@
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\cashprize-bg.jpg" />
+    <Content Include="Images\grandprize-bg.jpg" />
+    <Content Include="Images\luckdraw-opening-bg.jpg" />
+    <Content Include="Images\majorprize-bg.jpg" />
+    <Content Include="Images\supergrandprize-bg.jpg" />
+    <Content Include="Images\winner-bg.jpg" />
+    <Content Include="Images\Winner\winner-pic.jpg" />
+    <Content Include="Images\Winner\winnerimage-blue.jpg" />
+    <Content Include="Images\Winner\winnerimage-green.jpg" />
+    <Content Include="Images\Winner\winnerimage-pink.jpg" />
     <Content Include="Libs\angular-resource.js" />
     <Content Include="Libs\angular-resource.min.js" />
     <Content Include="Libs\angular-route.js" />
@@ -212,18 +222,30 @@
     <Content Include="Libs\modernizr-2.8.3.js" />
     <Content Include="Libs\toastr.js" />
     <Content Include="Libs\ui-bootstrap-tpls-0.13.0.min.js" />
+    <Content Include="SourceApp\Components\Client\client-directive.js" />
     <Content Include="SourceApp\Components\Client\client-controller.js" />
     <Content Include="SourceApp\Components\Client\Templates\index.html" />
     <Content Include="SourceApp\Components\Common\common-model.js" />
     <Content Include="SourceApp\Components\Common\common-factory.js" />
     <Content Include="SourceApp\Components\Resources\resources-controller.js" />
     <Content Include="SourceApp\Components\Resources\resources-factory.js" />
+    <Content Include="SourceApp\Components\Server\server-winner-details-controller.js" />
+    <Content Include="SourceApp\Components\Server\server-cash-controller.js" />
+    <Content Include="SourceApp\Components\Server\server-major-controller.js" />
+    <Content Include="SourceApp\Components\Server\server-grand-controller.js" />
+    <Content Include="SourceApp\Components\Server\server-super-grand-controller.js" />
     <Content Include="SourceApp\Components\Server\server-controller.js" />
+    <Content Include="SourceApp\Components\Server\Templates\cash.html" />
+    <Content Include="SourceApp\Components\Server\Templates\grand.html" />
     <Content Include="SourceApp\Components\Server\Templates\index.html" />
+    <Content Include="SourceApp\Components\Server\Templates\major.html" />
+    <Content Include="SourceApp\Components\Server\Templates\superGrand.html" />
+    <Content Include="SourceApp\Components\Server\Templates\winnerDetails.html" />
     <Content Include="SourceApp\routes.js" />
     <Content Include="SourceApp\app.js" />
     <Content Include="SourceApp\Shared\notification-factory.js" />
     <Content Include="SourceApp\Shared\error-factory.js" />
+    <Content Include="SourceApp\Shared\Templates\accessDenied.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

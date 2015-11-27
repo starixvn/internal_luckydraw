@@ -1,6 +1,11 @@
 ﻿@import "Common/bootstrap";
 @import "Common/toastr";
 
+.container-fluid {
+    margin: 0;
+    padding: 0;
+}
+
 .row {
     margin: 0;
     padding: 0;

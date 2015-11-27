@@ -21,8 +21,15 @@ namespace LuckyDraw.Site
 
             var homeRouteUrls = new List<string>
             {
-                "Home",
-                "Server/Index"
+                "Home/AccessDenied",
+                "Client/Index",
+                "Client/Index/{grade}",
+                "Server/Index",
+                "Server/SuperGrand/Index",
+                "Server/Grand/Index",
+                "Server/Major/Index",
+                "Server/Cash/Index",
+                "Server/WinnerDetails/Index"
             };
 
             homeRouteUrls.ForEach(url => routes.MapRoute(

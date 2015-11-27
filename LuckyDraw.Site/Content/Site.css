@@ -5981,11 +5981,66 @@ button.toast-close-button {
   #toast-container > div {
     padding: 15px 15px 15px 50px;
     width: 25em; } }
+.container-fluid {
+  margin: 0;
+  padding: 0; }
+
 .row {
   margin: 0;
   padding: 0; }
 
-.server-site .staff-info {
-  margin-bottom: 20px; }
+.client-site .staff-info {
+  margin-bottom: 2rem; }
+.client-site.default-client .status, .client-site.pink-client .status, .client-site.green-client .status, .client-site.blue-client .status {
+  height: 3rem; }
+.client-site.default-client .status {
+  background: #9e9e9e; }
+.client-site.pink-client .status {
+  background: #f48fb1; }
+.client-site.green-client .status {
+  background: #a5d6a7; }
+.client-site.blue-client .status {
+  background: #90caf9; }
+
+.server-site {
+  background: url(../Images/luckdraw-opening-bg.jpg) no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh; }
+  .server-site .staff-info {
+    margin-bottom: 2rem; }
+    .server-site .staff-info .avatar {
+      width: 20rem;
+      height: 20rem;
+      border: .2rem solid; }
+      .server-site .staff-info .avatar img {
+        height: inherit; }
+    .server-site .staff-info.pink-staff {
+      color: #f48fb1; }
+      .server-site .staff-info.pink-staff .avatar {
+        border-color: #f48fb1; }
+    .server-site .staff-info.green-staff {
+      color: #a5d6a7; }
+      .server-site .staff-info.green-staff .avatar {
+        border-color: #a5d6a7; }
+    .server-site .staff-info.blue-staff {
+      color: #90caf9; }
+      .server-site .staff-info.blue-staff .avatar {
+        border-color: #90caf9; }
+  .server-site.super-grand {
+    background: url(../Images/supergrandprize-bg.jpg) no-repeat;
+    background-size: cover; }
+  .server-site.grand {
+    background: url(../Images/grandprize-bg.jpg) no-repeat;
+    background-size: cover; }
+  .server-site.major {
+    background: url(../Images/majorprize-bg.jpg) no-repeat;
+    background-size: cover; }
+  .server-site.cash {
+    background: url(../Images/cashprize-bg.jpg) no-repeat;
+    background-size: cover; }
+  .server-site.winner-details {
+    background: url(../Images/winner-bg.jpg) no-repeat;
+    background-size: cover; }
 
 /*# sourceMappingURL=Site.css.map */

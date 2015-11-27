@@ -1,14 +1,69 @@
 .server-site {
+    background: url(../Images/luckdraw-opening-bg.jpg) no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+
     .staff-info {
-        margin-bottom: 20px;
+        margin-bottom: 2rem;
 
-        &.blue-staff {
-        }
+        .avatar {
+            width: 20rem;
+            height : 20rem;
+            border: .2rem solid;
 
-        &.green-staff {
+            img {
+                height: inherit;
+            }
         }
 
         &.pink-staff {
+            color: #f48fb1;
+
+            .avatar {
+                border-color: #f48fb1;
+            }
         }
+
+        &.green-staff {
+            color: #a5d6a7;
+
+            .avatar {
+                border-color: #a5d6a7;
+            }
+        }
+
+        &.blue-staff {
+            color: #90caf9;
+
+            .avatar {
+                border-color: #90caf9;
+            }
+        }
+    }
+
+    &.super-grand {
+        background: url(../Images/supergrandprize-bg.jpg) no-repeat;
+        background-size: cover;
+    }
+
+    &.grand {
+        background: url(../Images/grandprize-bg.jpg) no-repeat;
+        background-size: cover;
+    }
+
+    &.major {
+        background: url(../Images/majorprize-bg.jpg) no-repeat;
+        background-size: cover;
+    }
+
+    &.cash {
+        background: url(../Images/cashprize-bg.jpg) no-repeat;
+        background-size: cover;
+    }
+
+    &.winner-details {
+        background: url(../Images/winner-bg.jpg) no-repeat;
+        background-size: cover;
     }
 }

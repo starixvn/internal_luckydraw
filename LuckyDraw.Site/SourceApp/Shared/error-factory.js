@@ -6,7 +6,11 @@ appModule.factory("errorFactory",
 function ($location, $window, notificationFactory, baseUrl) {
     return {
         errorHandle: function (status) {
-            notificationFactory.error("ErrorMessage");
+            if (status === 405) {
+                $location.path(baseUrl + 'Home/AccessDenied');
+            } else {
+                notificationFactory.error("ErrorMessage");
+            }
         }
     };
 } ]);

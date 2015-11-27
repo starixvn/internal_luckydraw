@@ -1,4 +1,35 @@
 .client-site {
     .staff-info {
+        margin-bottom: 2rem;
+    }
+
+    &.default-client, &.pink-client, &.green-client, &.blue-client {
+        .status {
+            height: 3rem;
+        }
+    }
+
+    &.default-client {
+        .status {
+            background: #9e9e9e;
+        }
+    }
+
+    &.pink-client {
+        .status {
+            background: #f48fb1;
+        }
+    }
+
+    &.green-client {
+        .status {
+            background: #a5d6a7;
+        }
+    }
+
+    &.blue-client {
+        .status {
+            background: #90caf9;
+        }
     }
 }

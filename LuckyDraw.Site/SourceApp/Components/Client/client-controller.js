@@ -2,12 +2,26 @@
 /*global clientModule*/
 
 clientModule.controller('ClientController',
-['CommonModel', function (CommonModel) {
+['$location', '$routeParams', 'CommonModel', 'baseUrl',
+function ($location, $routeParams, CommonModel, baseUrl) {
     var vm = this;
 
-    var hubProxy = $.connection.hubs;
+    vm.grade = parseInt($routeParams.grade);
+
+    if ($routeParams.grade && vm.grade) {
+        switch (vm.grade) {
+            case CommonModel.grade.pink:
+            case CommonModel.grade.green:
+            case CommonModel.grade.blue:
+                break;
+            default:
+                $location.path(baseUrl + 'Home/AccessDenied');
+        }
+    }
 
     vm.staffCode = '';
+
+    var hubProxy = $.connection.hubs;
 
     CommonModel.getStaffByCode('11402249').then(function () {
         if (CommonModel.staff) {
@@ -15,45 +29,55 @@ clientModule.controller('ClientController',
         }
     });
 
-    vm.getStaffByCode = function (staffCode) {
-        CommonModel.getStaffByCode(staffCode).then(function () {
-            vm.staffCode = '';
+    vm.getClient = function () {
+        var client = 'default-client';
 
-            if (CommonModel.staff) {
-                vm.staff = CommonModel.staff;
-
-                hubProxy.server.sendStaffCode(staffCode);
+        if (vm.grade) {
+            switch (vm.grade) {
+                case CommonModel.grade.pink:
+                    client = 'pink-client';
+                    break;
+                case CommonModel.grade.green:
+                    client = 'green-client';
+                    break;
+                case CommonModel.grade.blue:
+                    client = 'blue-client';
+                    break;
             }
-        });
+        }
+
+        return client;
+    };
+
+    vm.checkStaffCodeByGrade = function (staffCode) {
+        var isValid = false;
+
+        if (!vm.grade) {
+            isValid = true;
+        } else if (parseInt(staffCode.substring(0, 2)) === vm.grade) {
+            isValid = true;
+        }
+
+        return isValid;
+    };
+
+    vm.getStaffByCode = function (staffCode) {
+        if (vm.checkStaffCodeByGrade(staffCode)) {
+            CommonModel.getStaffByCode(staffCode).then(function () {
+                vm.staffCode = '';
+
+                if (CommonModel.staff) {
+                    vm.staff = CommonModel.staff;
+
+                    hubProxy.server.sendStaffCode(staffCode);
+                }
+            });
+        } else {
+            vm.staffCode = '';
+        }
     };
 
     $.connection.hub.start().done(function () {
         console.log('Now connected, connection ID =' + $.connection.hub.id);
     });
 } ]);
-
-clientModule.directive('keyboardEvent', function () {
-    return {
-        link: function (scope, element, attrs) {
-            jQuery(document).on('keydown keypress', function (event) {
-                var charCode = '';
-
-                if (event.keyCode >= 48 && event.keyCode <= 57) {
-                    charCode = String.fromCharCode(event.keyCode);
-                } else if (event.keyCode >= 96 && event.keyCode <= 105) {
-                    charCode = String.fromCharCode(event.keyCode - 48);
-                }
-                
-                if (scope.clientCtrl.staffCode.length < 8 && charCode.length === 1) {
-                    scope.clientCtrl.staffCode += charCode;
-
-                    if (scope.clientCtrl.staffCode.length === 8) {
-                        scope.clientCtrl.getStaffByCode(scope.clientCtrl.staffCode);
-                    }
-                }
-
-                event.preventDefault();
-            });
-        }
-    };
-});
