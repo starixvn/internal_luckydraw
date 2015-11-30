@@ -1,8 +1,9 @@
 .server-site {
-    background: url(../Images/luckdraw-opening-bg.jpg) no-repeat;
-    background-size: cover;
+    background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;
+	@include background-size('cover');
     width: 100vw;
     height: 100vh;
+	
 
     .staff-info {
         margin-bottom: 2rem;
@@ -43,27 +44,27 @@
     }
 
     &.super-grand-prize {
-        background: url(../Images/supergrandprize-bg.jpg) no-repeat;
-        background-size: cover;
+        background: url(../Images/supergrandprize-bg.jpg) no-repeat center center fixed;
+        @include background-size('cover');
     }
 
     &.grand-prize {
-        background: url(../Images/grandprize-bg.jpg) no-repeat;
-        background-size: cover;
+        background: url(../Images/grandprize-bg.jpg) no-repeat center center fixed;
+        @include background-size('cover');
     }
 
     &.major-prize {
-        background: url(../Images/majorprize-bg.jpg) no-repeat;
-        background-size: cover;
+        background: url(../Images/majorprize-bg.jpg) no-repeat center center fixed;
+        @include background-size('cover');
     }
 
     &.cash-prize {
-        background: url(../Images/cashprize-bg.jpg) no-repeat;
-        background-size: cover;
+        background: url(../Images/cashprize-bg.jpg) no-repeat center center fixed;
+        @include background-size('cover');
     }
 
     &.winner-details {
-        background: url(../Images/winner-bg.jpg) no-repeat;
-        background-size: cover;
+        background: url(../Images/winner-bg.jpg) no-repeat center center fixed;
+        @include background-size('cover');
     }
 }
