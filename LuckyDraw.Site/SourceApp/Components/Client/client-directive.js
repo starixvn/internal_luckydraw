@@ -9,8 +9,6 @@ clientModule.directive('clientKeyboardEvent', function () {
 
                 if (event.keyCode >= 48 && event.keyCode <= 57) {
                     charCode = String.fromCharCode(event.keyCode);
-                } else if (event.keyCode >= 96 && event.keyCode <= 105) {
-                    charCode = String.fromCharCode(event.keyCode - 48);
                 }
 
                 if (scope.clientCtrl.staffCode.length < 8 && charCode.length === 1) {

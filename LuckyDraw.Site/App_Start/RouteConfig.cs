@@ -29,7 +29,9 @@ namespace LuckyDraw.Site
                 "Server/Grand/Index",
                 "Server/Major/Index",
                 "Server/Cash/Index",
-                "Server/WinnerDetails/Index"
+                "Server/PrizeList/{prizeType}",
+                "Server/WinnerDetails/Index",
+                "Server/LuckyList/Index"
             };
 
             homeRouteUrls.ForEach(url => routes.MapRoute(

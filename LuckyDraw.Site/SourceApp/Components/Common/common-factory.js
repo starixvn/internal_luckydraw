@@ -5,6 +5,18 @@ commonModule.factory('commonFactory', ['$http', 'baseUrl', function ($http, base
     return {
         getStaffByCode: function (staffCode) {
             return $http.get(baseUrl + 'api/Common/GetStaffByCode', { params: { staffCode: staffCode} });
+        },
+        getPrizeSettingByPrizeType: function (prizeTypeId) {
+            return $http.get(baseUrl + 'api/Common/GetPrizeSettingByPrizeType', { params: { prizeTypeId: prizeTypeId} });
+        },
+        getPrizeByPrizeType: function (prizeTypeId) {
+            return $http.get(baseUrl + 'api/Common/GetPrizeByPrizeType', { params: { prizeTypeId: prizeTypeId} });
+        },
+        getGrade: function () {
+            return $http.get(baseUrl + 'api/Common/GetGrade');
+        },
+        getPrizeType: function () {
+            return $http.get(baseUrl + 'api/Common/GetPrizeType');
         }
     };
 } ]);

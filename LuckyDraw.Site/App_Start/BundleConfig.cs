@@ -43,14 +43,14 @@ namespace LuckyDraw.Site
                         "~/SourceApp/Components/Resources/resources-controller.js",
                         "~/SourceApp/Components/Common/common-factory.js",
                         "~/SourceApp/Components/Common/common-model.js",
+                        "~/SourceApp/Components/Prize/prize-factory.js",
+                        "~/SourceApp/Components/Prize/prize-model.js",
                         "~/SourceApp/Components/Client/client-controller.js",
                         "~/SourceApp/Components/Client/client-directive.js",
                         "~/SourceApp/Components/Server/server-controller.js",
-                        "~/SourceApp/Components/Server/server-super-grand-controller.js",
-                        "~/SourceApp/Components/Server/server-grand-controller.js",
-                        "~/SourceApp/Components/Server/server-major-controller.js",
-                        "~/SourceApp/Components/Server/server-cash-controller.js",
-                        "~/SourceApp/Components/Server/server-winner-details-controller.js"));
+                        "~/SourceApp/Components/Server/server-prizeList-controller.js",
+                        "~/SourceApp/Components/Server/server-winner-details-controller.js",
+                        "~/SourceApp/Components/Server/server-luckyList-controller.js"));
         }
     }
 }

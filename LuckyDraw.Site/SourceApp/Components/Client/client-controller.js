@@ -7,27 +7,31 @@ function ($location, $routeParams, CommonModel, baseUrl) {
     var vm = this;
 
     vm.grade = parseInt($routeParams.grade);
-
-    if ($routeParams.grade && vm.grade) {
-        switch (vm.grade) {
-            case CommonModel.grade.pink:
-            case CommonModel.grade.green:
-            case CommonModel.grade.blue:
-                break;
-            default:
-                $location.path(baseUrl + 'Home/AccessDenied');
-        }
-    }
-
     vm.staffCode = '';
 
-    var hubProxy = $.connection.hubs;
+    vm.initialize = function () {
+        CommonModel.getGrade().then(function () {
+            vm.grades = CommonModel.grades;
 
-    CommonModel.getStaffByCode('11402249').then(function () {
-        if (CommonModel.staff) {
-            vm.staff = CommonModel.staff;
-        }
-    });
+            if ($routeParams.grade && vm.grade) {
+                var index = vm.grades.map(function (e) { return e.GradeId; }).indexOf(vm.grade);
+
+                if (index === -1) {
+                    $location.path(baseUrl + 'Home/AccessDenied');
+                }
+            }
+        });
+
+        CommonModel.getStaffByCode('11402249').then(function () {
+            if (CommonModel.staff) {
+                vm.staff = CommonModel.staff;
+            }
+        });
+    };
+
+    vm.initialize();
+
+    var hubProxy = $.connection.hubs;
 
     vm.getClient = function () {
         var client = 'default-client';

@@ -6,24 +6,52 @@ commonModule.factory('CommonModel',
 function (commonFactory, errorFactory) {
     var commonModel = {};
 
-    commonModel.grade = {
-        pink: 10,
-        green: 11,
-        blue: 12
-    };
-    commonModel.priceTypes = {
-        superGrand: 1,
-        grand: 2,
-        major: 3,
-        cash: 4
-    };
+    commonModel.staff = null;
+    commonModel.prizeSetting = null;
+    commonModel.prizes = [];
+    commonModel.grades = [];
+    commonModel.prizeTypes = [];
 
-    commonModel.staff = {};
-
-    commonModel.getStaffByCode = function (staffcode) {
-        return commonFactory.getStaffByCode(staffcode)
+    commonModel.getStaffByCode = function (staffCode) {
+        return commonFactory.getStaffByCode(staffCode)
         .success(function (staff) {
             commonModel.staff = staff;
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
+
+    commonModel.getPrizeSettingByPrizeType = function (prizeTypeId) {
+        return commonFactory.getPrizeSettingByPrizeType(prizeTypeId)
+        .success(function (prizeSetting) {
+            commonModel.prizeSetting = prizeSetting;
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
+
+    commonModel.getPrizeByPrizeType = function (prizeTypeId) {
+        return commonFactory.getPrizeByPrizeType(prizeTypeId)
+        .success(function (prizes) {
+            commonModel.prizes = prizes;
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
+
+    commonModel.getGrade = function () {
+        return commonFactory.getGrade()
+        .success(function (grades) {
+            commonModel.grades = grades;
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
+
+    commonModel.getPrizeType = function () {
+        return commonFactory.getPrizeType()
+        .success(function (prizeTypes) {
+            commonModel.prizeTypes = prizeTypes;
         }).error(function (response, status) {
             errorFactory.errorHandle(status);
         });

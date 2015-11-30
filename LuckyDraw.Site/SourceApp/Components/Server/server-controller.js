@@ -5,15 +5,13 @@ serverModule.controller('ServerController',
 ['CommonModel', function (CommonModel) {
     var vm = this;
 
-    vm.blueStaff = null;
-    vm.greenStaff = null;
-    vm.pinkStaff = null;
+    vm.initialize = function () {
+        CommonModel.getPrizeType().then(function () {
+            vm.prizeTypes = CommonModel.prizeTypes;
+        });
+    };
 
-    var hubProxy = $.connection.hubs;
-
-    $.connection.hub.start().done(function () {
-        console.log('Now connected, connection ID =' + $.connection.hub.id);
-    });
+    vm.initialize();
 } ]);
 
 serverModule.directive('serverKeyboardEvent',
@@ -25,20 +23,28 @@ serverModule.directive('serverKeyboardEvent',
 
                 switch (event.keyCode) {
                     case 49: // 1
-                    case 97: // numpad 1
-                        path = baseUrl + 'Server/SuperGrand/Index';
+                        path = baseUrl + 'Server/PrizeList/2';
                         break;
                     case 50: // 2
-                    case 98: // numpad 2
-                        path = baseUrl + 'Server/Grand/Index';
+                        path = baseUrl + 'Server/PrizeList/3';
                         break;
                     case 51: // 3
-                    case 99: // numpad 3
-                        path = baseUrl + 'Server/Major/Index';
+                        path = baseUrl + 'Server/PrizeList/4';
                         break;
                     case 52: // 4
-                    case 100: // numpad 4
-                        path = baseUrl + 'Server/Cash/Index';
+                        path = baseUrl + 'Server/PrizeList/5';
+                        break;
+                    case 65: // a
+                        path = baseUrl + 'Server/LuckyList/Index?priceType=2';
+                        break;
+                    case 66: // b
+                        path = baseUrl + 'Server/LuckyList/Index?priceType=3';
+                        break;
+                    case 67: // c
+                        path = baseUrl + 'Server/LuckyList/Index?priceType=4';
+                        break;
+                    case 68: // d
+                        path = baseUrl + 'Server/LuckyList/Index?priceType=5';
                         break;
                 }
 

@@ -67,6 +67,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Prize\GetPrizeByPrizeTypeCriteria.cs" />
+    <Compile Include="Prize\GetPrizeSettingByPrizeTypeCriteria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Staff\GetStaffByCodeCriteria.cs" />
   </ItemGroup>

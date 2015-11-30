@@ -67,7 +67,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implements\PrizeRepository.cs" />
     <Compile Include="Implements\StaffRepository.cs" />
+    <Compile Include="Interfaces\IPrizeRepository.cs" />
     <Compile Include="Interfaces\IStaffRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

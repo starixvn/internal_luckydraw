@@ -71,8 +71,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implements\PrizeService.cs" />
     <Compile Include="Implements\StaffService.cs" />
     <Compile Include="Interfaces\IStaffService.cs" />
+    <Compile Include="Interfaces\IPrizeService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

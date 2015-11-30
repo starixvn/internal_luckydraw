@@ -6027,16 +6027,16 @@ button.toast-close-button {
       color: #90caf9; }
       .server-site .staff-info.blue-staff .avatar {
         border-color: #90caf9; }
-  .server-site.super-grand {
+  .server-site.super-grand-prize {
     background: url(../Images/supergrandprize-bg.jpg) no-repeat;
     background-size: cover; }
-  .server-site.grand {
+  .server-site.grand-prize {
     background: url(../Images/grandprize-bg.jpg) no-repeat;
     background-size: cover; }
-  .server-site.major {
+  .server-site.major-prize {
     background: url(../Images/majorprize-bg.jpg) no-repeat;
     background-size: cover; }
-  .server-site.cash {
+  .server-site.cash-prize {
     background: url(../Images/cashprize-bg.jpg) no-repeat;
     background-size: cover; }
   .server-site.winner-details {

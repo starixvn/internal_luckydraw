@@ -42,8 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Department\DepartmentModel.cs" />
+    <Compile Include="Prize\PrizeModel.cs" />
+    <Compile Include="Prize\PrizeSettingModel.cs" />
+    <Compile Include="Prize\PrizeTypeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Staff\StaffModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LuckyDraw.Core\LuckyDraw.Core.csproj">
+      <Project>{384959A7-7C0A-4541-A871-B3E8A5134EA8}</Project>
+      <Name>LuckyDraw.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
