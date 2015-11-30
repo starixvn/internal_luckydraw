@@ -35,7 +35,7 @@ namespace LuckyDraw.Site.Controllers.API
             PrizeSettingModel prizeSetting = _commonController.GetPrizeSettingByPrizeType(prizeType);
             int total = prizeSetting.Quantity / prizeSetting.Multiply,
                 currentPrize = prizeSetting.CurrentPrize,
-                numColumn = (total % _NUMROW).Equals(1) ? ((total / _NUMROW) + 1) : (total / _NUMROW);
+                numColumn = (total % _NUMROW).Equals(0) ? (total / _NUMROW) : ((total / _NUMROW) + 1);
 
             return RenderPrize(prizeType, total, currentPrize, numColumn);
         }
