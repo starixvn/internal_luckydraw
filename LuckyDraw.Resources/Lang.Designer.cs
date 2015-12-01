@@ -95,5 +95,23 @@ namespace LuckyDraw.Resources {
                 return ResourceManager.GetString("NickName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Staff Annual Party.
+        /// </summary>
+        public static string StaffAnnualParty {
+            get {
+                return ResourceManager.GetString("StaffAnnualParty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updated successfully!.
+        /// </summary>
+        public static string UpdatedSuccessfully {
+            get {
+                return ResourceManager.GetString("UpdatedSuccessfully", resourceCulture);
+            }
+        }
     }
 }

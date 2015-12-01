@@ -1,0 +1,15 @@
+﻿<div id="confirmPopup">
+    <div class="modal-header">
+        <div class="popup-header">
+            {{"Confirm" | translate}}
+            <span class="close-popup" ng-click="removeWinnerCtrl.cancel()"></span>
+        </div>
+    </div>
+    <div class="modal-body">
+        Are you sure you want to remove <b>{{removeWinnerCtrl.staff.FullName}}</b> from winner list?
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" ng-click="removeWinnerCtrl.ok()" data-translate="OK"></button>
+        <button class="btn btn-default" ng-click="removeWinnerCtrl.cancel()" data-translate="Cancel"></button>
+    </div>
+</div>

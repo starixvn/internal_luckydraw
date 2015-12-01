@@ -10,6 +10,7 @@
 namespace LuckyDraw.Services.Interfaces
 {
     using System.Collections.Generic;
+    using LuckyDraw.Core.Model;
     using LuckyDraw.Criteria.Prize;
     using LuckyDraw.Models.Prize;
 
@@ -18,5 +19,7 @@ namespace LuckyDraw.Services.Interfaces
         PrizeSettingModel GetPrizeSettingByPrizeType(GetPrizeSettingByPrizeTypeCriteria criteria);
 
         IEnumerable<PrizeModel> GetPrizeByPrizeType(GetPrizeByPrizeTypeCriteria criteria);
+
+        CommandResult UpdateCurrentPrize(UpdateCurrentPrizeCriteria criteria);
     }
 }

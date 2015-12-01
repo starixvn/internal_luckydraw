@@ -1,7 +1,8 @@
 ﻿'use strict';
 /*exported appModule*/
 
-var appModule = angular.module("appModule", ['commonModule', 'prizeModule', 'serverModule', 'clientModule', 'prizeModule', 'pascalprecht.translate', 'ngRoute'])
+var appModule = angular.module("appModule", ['commonModule', 'prizeModule', 'serverModule', 'clientModule', 'prizeModule',
+'pascalprecht.translate', 'ui.bootstrap', 'ngRoute'])
 .config(['$translateProvider', '$locationProvider', '$routeProvider', '$provide',
 function ($translateProvider, $locationProvider, $routeProvider, $provide) {
     $translateProvider.useLoader('resourceFactory', {});

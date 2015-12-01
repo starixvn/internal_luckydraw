@@ -11,6 +11,7 @@ namespace LuckyDraw.Services.Implements
 {
     using System.Collections.Generic;
     using Fanex.Common.Helper;
+    using LuckyDraw.Core.Model;
     using LuckyDraw.Core.Services;
     using LuckyDraw.Criteria.Prize;
     using LuckyDraw.Models.Prize;
@@ -56,6 +57,19 @@ namespace LuckyDraw.Services.Implements
             }
 
             return prizes;
+        }
+
+        public CommandResult UpdateCurrentPrize(UpdateCurrentPrizeCriteria criteria)
+        {
+            CommandResult commandResult = new CommandResult();
+            Check.Argument.IsNotNull(criteria, "criteria");
+
+            if (criteria.IsValid())
+            {
+                commandResult = Repository.Update(criteria);
+            }
+
+            return commandResult;
         }
     }
 }

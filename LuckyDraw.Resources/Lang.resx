@@ -129,4 +129,10 @@
   <data name="NickName" xml:space="preserve">
     <value>Nick Name</value>
   </data>
+  <data name="StaffAnnualParty" xml:space="preserve">
+    <value>Staff Annual Party</value>
+  </data>
+  <data name="UpdatedSuccessfully" xml:space="preserve">
+    <value>Updated successfully!</value>
+  </data>
 </root>

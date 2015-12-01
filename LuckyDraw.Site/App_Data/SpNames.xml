@@ -9,5 +9,7 @@
         </Setting>
         <Setting Key="Prize_GetByPrizeType" SpName="Prize_GetByPrizeType" DbName="LuckyDraw" Plain="0">
         </Setting>
+        <Setting Key="PrizeSetting_UpdateCurrentPrize" SpName="PrizeSetting_UpdateCurrentPrize" DbName="LuckyDraw" Plain="0">
+        </Setting>
     </Function>
 </Functions>

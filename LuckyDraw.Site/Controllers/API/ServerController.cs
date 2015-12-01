@@ -1,5 +1,5 @@
 ﻿// ----------------------------------------------------------------------
-// <copyright file="PrizeController.cs" company="Nexcel Solutions Viet Nam">
+// <copyright file="ServerController.cs" company="Nexcel Solutions Viet Nam">
 // Copyright (c) Nexcel Solutions Vietnam. All rights reserved.
 // </copyright>
 // ------------------------------------------------------------------------
@@ -12,21 +12,35 @@ namespace LuckyDraw.Site.Controllers.API
     using System.Collections.Generic;
     using System.Web.Http;
     using LuckyDraw.Core.Enumerations;
+    using LuckyDraw.Core.Model;
+    using LuckyDraw.Criteria.Prize;
     using LuckyDraw.Models.Prize;
+    using LuckyDraw.Services.Implements;
+    using LuckyDraw.Services.Interfaces;
 
-    public class PrizeController : ApiController
+    public class ServerController : ApiController
     {
-        private const int _NUMROW = 3;
+        private const int NumRow = 3;
+        private readonly IPrizeService _prizeService;
         private readonly CommonController _commonController;
 
-        public PrizeController()
-            : this(null)
+        public ServerController()
+            : this(null, null)
         {
         }
 
-        public PrizeController(CommonController commonController)
+        public ServerController(
+            CommonController commonController,
+            IPrizeService prizeService)
         {
             _commonController = commonController ?? new CommonController();
+            _prizeService = prizeService ?? new PrizeService();
+        }
+
+        [HttpPut]
+        public CommandResult UpdateCurrentPrize(UpdateCurrentPrizeCriteria criteria)
+        {
+            return _prizeService.UpdateCurrentPrize(criteria);
         }
 
         [HttpGet]
@@ -35,7 +49,7 @@ namespace LuckyDraw.Site.Controllers.API
             PrizeSettingModel prizeSetting = _commonController.GetPrizeSettingByPrizeType(prizeType);
             int total = prizeSetting.Quantity / prizeSetting.Multiply,
                 currentPrize = prizeSetting.CurrentPrize,
-                numColumn = (total % _NUMROW).Equals(0) ? (total / _NUMROW) : ((total / _NUMROW) + 1);
+                numColumn = (total % NumRow).Equals(0) ? (total / NumRow) : ((total / NumRow) + 1);
 
             return RenderPrize(prizeType, total, currentPrize, numColumn);
         }
@@ -44,7 +58,7 @@ namespace LuckyDraw.Site.Controllers.API
         {
             var result = new List<object>();
 
-            for (int i = 0; i < _NUMROW; i++)
+            for (int i = 0; i < NumRow; i++)
             {
                 var itemRows = new List<object>();
 
@@ -77,7 +91,8 @@ namespace LuckyDraw.Site.Controllers.API
 
                         var itemRow = new
                         {
-                            ImagePath = imagePath
+                            ImagePath = imagePath,
+                            IsDone = isDone
                         };
 
                         itemRows.Add(itemRow);

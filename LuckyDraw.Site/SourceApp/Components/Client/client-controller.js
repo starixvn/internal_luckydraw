@@ -38,13 +38,13 @@ function ($location, $routeParams, CommonModel, baseUrl) {
 
         if (vm.grade) {
             switch (vm.grade) {
-                case CommonModel.grade.pink:
+                case 10:
                     client = 'pink-client';
                     break;
-                case CommonModel.grade.green:
+                case 11:
                     client = 'green-client';
                     break;
-                case CommonModel.grade.blue:
+                case 12:
                     client = 'blue-client';
                     break;
             }

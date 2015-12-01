@@ -18,7 +18,7 @@ serverModule.directive('serverKeyboardEvent',
 ['$window', 'baseUrl', function ($window, baseUrl) {
     return {
         link: function (scope, element, attrs) {
-            jQuery(document).on('keydown keypress', function (event) {
+            jQuery(document).on('keypress', function (event) {
                 var path = '';
 
                 switch (event.keyCode) {

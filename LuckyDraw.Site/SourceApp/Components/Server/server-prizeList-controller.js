@@ -2,34 +2,12 @@
 /*global serverModule*/
 
 serverModule.controller('PrizeListController',
-['$scope', '$window', '$document', '$location', '$routeParams', 'CommonModel', 'PrizeModel', 'baseUrl',
-function ($scope, $window, $document, $location, $routeParams, CommonModel, PrizeModel, baseUrl) {
+['$scope', '$window', '$document', '$location', '$routeParams', 'CommonModel', 'ServerModel', 'baseUrl',
+function ($scope, $window, $document, $location, $routeParams, CommonModel, ServerModel, baseUrl) {
     var vm = this;
 
     vm.baseUrl = baseUrl;
-    vm.screenWidth = 0;
-    vm.screenHeight = 0;
-    vm.numRow = 3;
-
-    var getWindowSize = function () {
-        //IE
-        if (!$window.innerWidth) {
-            if (!($document.documentElement.clientWidth == 0)) {
-                //strict mode
-                vm.screenWidth = $document.documentElement.clientWidth;
-                vm.screenHeight = $document.documentElement.clientHeight;
-            } else {
-                //quirks mode
-                vm.screenWidth = $document.body.clientWidth;
-                vm.screenHeight = $document.body.clientHeight;
-            }
-        } else {
-            //w3c
-            vm.screenWidth = $window.innerWidth;
-            vm.screenHeight = $window.innerHeight;
-        }
-    };
-
+    vm.isOpeningPrize = false;
     vm.prizeType = parseInt($routeParams.prizeType);
 
     vm.getClassByPrizeType = function (prizeType) {
@@ -54,14 +32,15 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Priz
     };
 
     vm.renderListPrize = function () {
-        PrizeModel.renderListPrize(vm.prizeType).then(function () {
-            vm.listPrize = PrizeModel.listPrize;
+        ServerModel.renderListPrize(vm.prizeType).then(function () {
+            vm.prizeList = ServerModel.prizeList;
         });
     };
 
-    vm.initialize = function () {
-        getWindowSize();
+    vm.updateCurrentPrize = function (currentPrize) {
+    };
 
+    vm.initialize = function () {
         CommonModel.getPrizeType().then(function () {
             vm.prizeTypes = CommonModel.prizeTypes;
 
@@ -73,7 +52,6 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Priz
                 } else {
                     CommonModel.getPrizeSettingByPrizeType(vm.prizeType).then(function () {
                         vm.prizeSetting = CommonModel.prizeSetting;
-                        vm.total = vm.prizeSetting.Quantity / vm.prizeSetting.Multiply;
                         vm.currentPrize = vm.prizeSetting.CurrentPrize;
                     });
                 }
@@ -90,12 +68,35 @@ serverModule.directive('prizeListKeyboardEvent',
 ['$window', 'baseUrl', function ($window, baseUrl) {
     return {
         link: function (scope, element, attrs) {
-            jQuery(document).on('keydown keypress', function (event) {
-                var path = '';
+            jQuery(document).on('keypress', function (event) {
+                var path = '', currentPrize;
 
                 switch (event.keyCode) {
-                    case 13: //enter
-                        scope.prizeListCtrl.renderListPrize();
+                    case 13: // enter
+                        if (scope.prizeListCtrl.isOpeningPrize && scope.prizeListCtrl.currentPrize) {
+                            path = baseUrl + 'Server/WinnerDetails/' + scope.prizeListCtrl.prizeType + '?currentPrize=' + scope.prizeListCtrl.currentPrize;
+                        } else {
+                            scope.prizeListCtrl.renderListPrize();
+                            scope.prizeListCtrl.isOpeningPrize = true;
+                        }
+                        break;
+                    case 25: // ctrl+y to next
+
+                        break;
+                    case 26: // ctrl+z to back
+                        if (scope.prizeListCtrl.isOpeningPrize) {
+                            if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
+                                if (scope.prizeListCtrl.prizeSetting.Quantity > (scope.prizeListCtrl.prizeSetting.CurrentPrize * 3)) {
+                                    currentPrize = scope.prizeListCtrl.prizeSetting.CurrentPrize++;
+                                    scope.prizeListCtrl.updateCurrentPrize(currentPrize);
+                                }
+                            } else {
+                                if (scope.prizeListCtrl.prizeSetting.Quantity > scope.prizeListCtrl.prizeSetting.CurrentPrize) {
+                                    currentPrize = scope.prizeListCtrl.prizeSetting.CurrentPrize + 3;
+                                    scope.prizeListCtrl.updateCurrentPrize(currentPrize);
+                                }
+                            }
+                        }
                         break;
                     case 27: // asc
                         path = baseUrl + 'Server/Index';
