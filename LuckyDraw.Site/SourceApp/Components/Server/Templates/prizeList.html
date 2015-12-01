@@ -1,10 +1,8 @@
 ﻿<div class="row server-site" ng-controller="PrizeListController as prizeListCtrl" 
     ng-class="prizeListCtrl.getClassByPrizeType(prizeListCtrl.prizeType)" prize-list-keyboard-event>
-    <div class="row" ng-repeat="listPrize in prizeListCtrl.listPrize">
-        <div ng-repeat="prize in listPrize">
-            <div class="col-sm-3">
-                <img src='' ng-src="{{prizeListCtrl.baseUrl}}{{prize.ImagePath}}" alt='' />
-            </div>
+    <div class="col-sm-12 col-md-8 col-lg-7 listPrize" ng-repeat="listPrize in prizeListCtrl.listPrize">
+        <div class="prize" ng-repeat="prize in listPrize">
+            <img src='' ng-src="{{prizeListCtrl.baseUrl}}{{prize.ImagePath}}" alt='' class="img-responsive" />
         </div>
     </div>
 </div>

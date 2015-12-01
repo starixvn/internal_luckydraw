@@ -3,7 +3,6 @@
 	@include background-size('cover');
     width: 100vw;
     height: 100vh;
-	
 
     .staff-info {
         margin-bottom: 2rem;
@@ -61,10 +60,41 @@
     &.cash-prize {
         background: url(../Images/cashprize-bg.jpg) no-repeat center center fixed;
         @include background-size('cover');
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-direction: row;
+		-ms-flex-direction: row;
+		flex-direction: row;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap;
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		-webkit-align-content: center;
+		-ms-flex-line-pack: center;
+		align-content: center;
+		-webkit-align-items: center;
+		-ms-flex-align: center;
+		align-items: center;
     }
 
     &.winner-details {
         background: url(../Images/winner-bg.jpg) no-repeat center center fixed;
         @include background-size('cover');
     }
+
+	.listPrize {
+		display: flex;
+		justify-content: center;		
+		float: none;
+		align-content: center;
+	}
 }
+   
+ @media (max-device-height: 400px) {   
+       .prize {
+		width: 26%;	
+	}
+}   
