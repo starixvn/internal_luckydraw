@@ -1,8 +1,8 @@
-.server-site {
-    background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;
-	@include background-size('cover');
+.server-site {	
+    background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;	
     width: 100vw;
     height: 100vh;
+	@include background-size('cover');
 
     .staff-info {
         margin-bottom: 2rem;
@@ -44,52 +44,42 @@
 
     &.super-grand-prize, &.super-grand-winner-details {
         background: url(../Images/supergrandprize-bg.jpg) no-repeat center center fixed;
-        @include background-size('cover');
+		@include background-size('cover');     
     }
 
-    &.grand-prize {
+    &.grand-prize {		
         background: url(../Images/grandprize-bg.jpg) no-repeat center center fixed;
-        @include background-size('cover');
+		@include background-size('cover');
     }
 
-    &.major-prize {
+    &.major-prize {		
         background: url(../Images/majorprize-bg.jpg) no-repeat center center fixed;
-        @include background-size('cover');
+		@include background-size('cover');     
     }
 
-    &.cash-prize {
-        background: url(../Images/cashprize-bg.jpg) no-repeat center center fixed;
-        @include background-size('cover');
-		display: -ms-flexbox;
-		display: -webkit-flex;
-		display: flex;
-		-webkit-flex-direction: row;
-		-ms-flex-direction: row;
-		flex-direction: row;
-		-webkit-flex-wrap: wrap;
-		-ms-flex-wrap: wrap;
-		flex-wrap: wrap;
-		-webkit-justify-content: center;
-		-ms-flex-pack: center;
-		justify-content: center;
-		-webkit-align-content: center;
-		-ms-flex-line-pack: center;
-		align-content: center;
-		-webkit-align-items: center;
-		-ms-flex-align: center;
-		align-items: center;
+    &.cash-prize {		
+		background: url(../Images/cashprize-bg.jpg) no-repeat center center fixed;
+		@include align-items(center);
+		@include align-content(center);  
+		@include background-size(cover);
+		@include flexbox;
+		@include flex-direction(row);
+		@include flex-wrap(wrap);
+		@include justify-content(center);
+		              
     }
 
-    &.winner-details {
+    &.winner-details {		
         background: url(../Images/winner-bg.jpg) no-repeat center center fixed;
-        @include background-size('cover');
+		@include background-size('cover');      
     }
 
-	.listPrize {
-		display: flex;
+	.listPrize {		
 		justify-content: center;
 		float: none;
-		align-content: center;
+		@include align-content(center);
+		@include flexbox;
+		@include justify-content(center);			
 	}
 
     .super-grand-winner-details {
@@ -105,6 +95,6 @@
    
  @media (max-device-height: 400px) {   
        .prize {
-		width: 26%;	
+		width: 26%;
 	}
 }   
