@@ -43,6 +43,32 @@ function ($routeParams, ServerModel, CommonModel, baseUrl) {
 
                 if (index === -1) {
                     $location.path(baseUrl + 'Home/AccessDenied');
+                } else {
+                    ServerModel.getPrizeDetail(vm.prizeType, vm.currentPrize).then(function () {
+                        vm.prizeDetail = ServerModel.prizeDetail;
+
+                        if (vm.prizeDetail.Winners.length > 0) {
+                            angular.forEach(vm.prizeDetail.Winners, function (winner) {
+                                switch (winner.StaffCode.substring(0, 2)) {
+                                    case '10':
+                                        if (!vm.pinkStaff) {
+                                            vm.pinkStaff = winner;
+                                        }
+                                        break;
+                                    case '11':
+                                        if (!vm.greenStaff) {
+                                            vm.greenStaff = winner;
+                                        }
+                                        break;
+                                    case '12':
+                                        if (!vm.blueStaff) {
+                                            vm.blueStaff = winner;
+                                        }
+                                        break;
+                                }
+                            });
+                        }
+                    });
                 }
             } else {
                 $location.path(baseUrl + 'Home/AccessDenied');
@@ -105,10 +131,12 @@ serverModule.directive('prizeDetailKeyboardEvent',
 ['$window', 'baseUrl', function ($window, baseUrl) {
     return {
         link: function (scope, element, attrs) {
-            jQuery(document).on('keypress', function (event) {
-                switch (event.keyCode) {
-                    case 13: // enter
+            jQuery(document).on('keydown', function (event) {
+                var path = '';
+
+                switch (event.which) {
                     case 27: // asc
+                        path = baseUrl + 'Server/PrizeList/' + scope.prizeDetailCtrl.prizeType;
                         break;
                     case 49: // 1
                         scope.prizeDetailCtrl.removeWinner(1);
@@ -119,6 +147,10 @@ serverModule.directive('prizeDetailKeyboardEvent',
                     case 51: // 3
                         scope.prizeDetailCtrl.removeWinner(3);
                         break;
+                }
+
+                if (path.length > 0) {
+                    $window.location.href = path;
                 }
             });
         }

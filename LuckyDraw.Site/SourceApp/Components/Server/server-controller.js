@@ -21,7 +21,7 @@ serverModule.directive('serverKeyboardEvent',
             jQuery(document).on('keypress', function (event) {
                 var path = '';
 
-                switch (event.keyCode) {
+                switch (event.which) {
                     case 49: // 1
                         path = baseUrl + 'Server/PrizeList/2';
                         break;

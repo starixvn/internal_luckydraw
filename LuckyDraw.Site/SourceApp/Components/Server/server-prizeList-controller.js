@@ -38,6 +38,12 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Serv
     };
 
     vm.updateCurrentPrize = function (currentPrize) {
+        var criteria = {
+            PrizeTypeId: vm.prizeType,
+            CurrentPrize: currentPrize
+        };
+
+        ServerModel.updateCurrentPrize(vm, criteria);
     };
 
     vm.initialize = function () {
@@ -68,10 +74,24 @@ serverModule.directive('prizeListKeyboardEvent',
 ['$window', 'baseUrl', function ($window, baseUrl) {
     return {
         link: function (scope, element, attrs) {
+            jQuery(document).on('keydown', function (event) {
+                var path = '';
+
+                switch (event.which) {
+                    case 27: // asc
+                        path = baseUrl + 'Server/Index';
+                        break;
+                }
+
+                if (path.length > 0) {
+                    $window.location.href = path;
+                }
+            });
+
             jQuery(document).on('keypress', function (event) {
                 var path = '', currentPrize;
 
-                switch (event.keyCode) {
+                switch (event.which) {
                     case 13: // enter
                         if (scope.prizeListCtrl.isOpeningPrize && scope.prizeListCtrl.currentPrize) {
                             path = baseUrl + 'Server/WinnerDetails/' + scope.prizeListCtrl.prizeType + '?currentPrize=' + scope.prizeListCtrl.currentPrize;
@@ -81,13 +101,25 @@ serverModule.directive('prizeListKeyboardEvent',
                         }
                         break;
                     case 25: // ctrl+y to next
-
+                        if (scope.prizeListCtrl.isOpeningPrize) {
+                            if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
+                                if (scope.prizeListCtrl.prizeSetting.Quantity > (scope.prizeListCtrl.prizeSetting.CurrentPrize * 3)) {
+                                    currentPrize = scope.prizeListCtrl.prizeSetting.CurrentPrize - 1;
+                                    scope.prizeListCtrl.updateCurrentPrize(currentPrize);
+                                }
+                            } else {
+                                if (scope.prizeListCtrl.prizeSetting.Quantity > scope.prizeListCtrl.prizeSetting.CurrentPrize) {
+                                    currentPrize = scope.prizeListCtrl.prizeSetting.CurrentPrize - 3;
+                                    scope.prizeListCtrl.updateCurrentPrize(currentPrize);
+                                }
+                            }
+                        }
                         break;
                     case 26: // ctrl+z to back
                         if (scope.prizeListCtrl.isOpeningPrize) {
                             if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
                                 if (scope.prizeListCtrl.prizeSetting.Quantity > (scope.prizeListCtrl.prizeSetting.CurrentPrize * 3)) {
-                                    currentPrize = scope.prizeListCtrl.prizeSetting.CurrentPrize++;
+                                    currentPrize = scope.prizeListCtrl.prizeSetting.CurrentPrize + 1;
                                     scope.prizeListCtrl.updateCurrentPrize(currentPrize);
                                 }
                             } else {
@@ -97,9 +129,6 @@ serverModule.directive('prizeListKeyboardEvent',
                                 }
                             }
                         }
-                        break;
-                    case 27: // asc
-                        path = baseUrl + 'Server/Index';
                         break;
                 }
 

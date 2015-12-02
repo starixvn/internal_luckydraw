@@ -3,6 +3,8 @@
     <Function Name="Staff">
         <Setting Key="Staff_GetByCode" SpName="Staff_GetByCode" DbName="LuckyDraw" Plain="0">
         </Setting>
+        <Setting Key="Winner_GetByPrizeId" SpName="Winner_GetByPrizeId" DbName="LuckyDraw" Plain="0">
+        </Setting>
     </Function>
     <Function Name="Prize">
         <Setting Key="PrizeSetting_GetByPrizeType" SpName="PrizeSetting_GetByPrizeType" DbName="LuckyDraw" Plain="0">

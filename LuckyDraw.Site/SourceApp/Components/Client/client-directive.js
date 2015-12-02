@@ -4,11 +4,11 @@
 clientModule.directive('clientKeyboardEvent', function () {
     return {
         link: function (scope, element, attrs) {
-            jQuery(document).on('keydown keypress', function (event) {
+            jQuery(document).on('keydown', function (event) {
                 var charCode = '';
 
-                if (event.keyCode >= 48 && event.keyCode <= 57) {
-                    charCode = String.fromCharCode(event.keyCode);
+                if (event.which >= 48 && event.which <= 57) {
+                    charCode = String.fromCharCode(event.which);
                 }
 
                 if (scope.clientCtrl.staffCode.length < 8 && charCode.length === 1) {

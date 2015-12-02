@@ -72,6 +72,7 @@
     <Compile Include="Prize\UpdateCurrentPrizeCriteria.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Staff\GetStaffByCodeCriteria.cs" />
+    <Compile Include="Staff\GetWinnerByPrizeIdCriteria.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

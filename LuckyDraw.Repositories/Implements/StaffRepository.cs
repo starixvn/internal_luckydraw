@@ -9,6 +9,8 @@
 
 namespace LuckyDraw.Repositories.Implements
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using Fanex.Data;
     using Fanex.Data.Repository;
     using LuckyDraw.Models.Department;
@@ -30,6 +32,22 @@ namespace LuckyDraw.Repositories.Implements
                     },
                     "DepartmentId",
                     criteria.GetSpParams());
+            }
+        }
+
+        public IList<StaffModel> GetWinnerByPrizeId(ICriteria criteria)
+        {
+            using (var db = new ObjectDb(criteria.GetSettingKey()))
+            {
+                return db.Query<StaffModel, DepartmentModel, StaffModel>(
+                    (winner, dept) =>
+                    {
+                        winner.Department = dept;
+
+                        return winner;
+                    },
+                    "DepartmentId",
+                    criteria.GetSpParams()).ToList();
             }
         }
     }

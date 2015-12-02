@@ -9,6 +9,7 @@
 
 namespace LuckyDraw.Services.Implements
 {
+    using System.Collections.Generic;
     using Fanex.Common.Helper;
     using LuckyDraw.Core.Services;
     using LuckyDraw.Criteria.Staff;
@@ -42,6 +43,19 @@ namespace LuckyDraw.Services.Implements
             }
 
             return staff;
+        }
+
+        public IList<StaffModel> GetWinnerByPrizeId(GetWinnerByPrizeIdCriteria criteria)
+        {
+            Check.Argument.IsNotNull(criteria, "criteria");
+            IList<StaffModel> winners = new List<StaffModel>();
+
+            if (criteria.IsValid())
+            {
+                winners = _staffRepository.GetWinnerByPrizeId(criteria);
+            }
+
+            return winners;
         }
     }
 }

@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Department\DepartmentModel.cs" />
+    <Compile Include="Prize\PrizeDetailModel.cs" />
     <Compile Include="Prize\PrizeModel.cs" />
     <Compile Include="Prize\PrizeSettingModel.cs" />
     <Compile Include="Prize\PrizeTypeModel.cs" />

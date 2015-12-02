@@ -10,10 +10,12 @@
 namespace LuckyDraw.Site.Controllers.API
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Http;
     using LuckyDraw.Core.Enumerations;
     using LuckyDraw.Core.Model;
     using LuckyDraw.Criteria.Prize;
+    using LuckyDraw.Criteria.Staff;
     using LuckyDraw.Models.Prize;
     using LuckyDraw.Services.Implements;
     using LuckyDraw.Services.Interfaces;
@@ -22,19 +24,71 @@ namespace LuckyDraw.Site.Controllers.API
     {
         private const int NumRow = 3;
         private readonly IPrizeService _prizeService;
+        private readonly IStaffService _staffService;
         private readonly CommonController _commonController;
 
         public ServerController()
-            : this(null, null)
+            : this(null, null, null)
         {
         }
 
         public ServerController(
             CommonController commonController,
-            IPrizeService prizeService)
+            IPrizeService prizeService,
+            IStaffService staffService)
         {
             _commonController = commonController ?? new CommonController();
             _prizeService = prizeService ?? new PrizeService();
+            _staffService = staffService ?? new StaffService();
+        }
+
+        [HttpGet]
+        public PrizeDetailModel GetPrizeDetail(int prizeType, int currentPrize)
+        {
+            PrizeDetailModel prizeDetail = new PrizeDetailModel();
+
+            GetPrizeByPrizeTypeCriteria prizeCriteria = new GetPrizeByPrizeTypeCriteria()
+            {
+                PrizeTypeId = prizeType
+            };
+
+            prizeDetail.Prize = _prizeService.GetPrizeByPrizeType(prizeCriteria).Skip(currentPrize - 1).Take(1).First();
+
+            if (prizeDetail.Prize.PrizeId > 0)
+            {
+                GetWinnerByPrizeIdCriteria winnerCriteria = new GetWinnerByPrizeIdCriteria()
+                {
+                    PrizeIds = prizeDetail.Prize.PrizeId.ToString()
+                };
+
+                prizeDetail.Winners = _staffService.GetWinnerByPrizeId(winnerCriteria);
+            }
+
+            return prizeDetail;
+        }
+
+        [HttpGet]
+        public PrizeModel GetPrizeByPrizeType(int prizeType, int currentPrize)
+        {
+            GetPrizeByPrizeTypeCriteria criteria = new GetPrizeByPrizeTypeCriteria()
+            {
+                PrizeTypeId = prizeType
+            };
+
+            return _prizeService.GetPrizeByPrizeType(criteria).ToList().Skip(currentPrize - 1).Take(1).First();
+        }
+
+        [HttpGet]
+        public IList<PrizeModel> GetSuperGrandPrizeByPrizeType(int prizeType, int currentPrize)
+        {
+            int beginPrize = (currentPrize - 1) / 3;
+
+            GetPrizeByPrizeTypeCriteria criteria = new GetPrizeByPrizeTypeCriteria()
+            {
+                PrizeTypeId = prizeType
+            };
+
+            return _prizeService.GetPrizeByPrizeType(criteria).Skip((beginPrize) * 3).Take(3).ToList();
         }
 
         [HttpPut]

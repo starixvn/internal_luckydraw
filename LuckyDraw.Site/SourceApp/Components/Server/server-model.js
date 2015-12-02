@@ -7,6 +7,8 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
     var serverModel = {};
 
     serverModel.prizeList = [];
+    serverModel.prizeDetail = null;
+    serverModel.prizes = [];
 
     serverModel.renderListPrize = function (prizeType) {
         return serverFactory.renderListPrize(prizeType)
@@ -47,12 +49,31 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
     };
 
-    serverModel.updateCurrentPrize = function (criteria) {
+    serverModel.getPrizeDetail = function (prizeType, currentPrize) {
+        return serverFactory.getPrizeDetail(prizeType, currentPrize)
+        .success(function (prizeDetail) {
+            serverModel.prizeDetail = prizeDetail;
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
+
+    serverModel.getSuperGrandPrizeByPrizeType = function (prizeType, currentPrize) {
+        return serverFactory.getSuperGrandPrizeByPrizeType(prizeType, currentPrize)
+        .success(function (prizes) {
+            serverModel.prizes = prizes;
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
+
+    serverModel.updateCurrentPrize = function (vm, criteria) {
         return serverFactory.updateCurrentPrize(criteria)
         .success(function (response) {
             if (response.IsSuccessful) {
                 notificationFactory.success("UpdatedSuccessfully");
-                modalInstance.close(kpi);
+
+                vm.renderListPrize();
             }
             else {
                 notificationFactory.error("", response.Message);

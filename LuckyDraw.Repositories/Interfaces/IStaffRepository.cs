@@ -9,11 +9,14 @@
 
 namespace LuckyDraw.Repositories.Interfaces
 {
+    using System.Collections.Generic;
     using Fanex.Data.Repository;
     using LuckyDraw.Models.Staff;
 
     public interface IStaffRepository
     {
         StaffModel GetStaffByCode(ICriteria criteria);
+
+        IList<StaffModel> GetWinnerByPrizeId(ICriteria criteria);
     }
 }

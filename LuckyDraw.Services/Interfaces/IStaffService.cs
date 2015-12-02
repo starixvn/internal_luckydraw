@@ -9,11 +9,14 @@
 
 namespace LuckyDraw.Services.Interfaces
 {
+    using System.Collections.Generic;
     using LuckyDraw.Criteria.Staff;
     using LuckyDraw.Models.Staff;
 
     public interface IStaffService
     {
         StaffModel GetStaffByCode(GetStaffByCodeCriteria criteria);
+
+        IList<StaffModel> GetWinnerByPrizeId(GetWinnerByPrizeIdCriteria criteria);
     }
 }
