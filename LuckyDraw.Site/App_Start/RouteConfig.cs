@@ -30,7 +30,8 @@ namespace LuckyDraw.Site
                 "Server/Major/Index",
                 "Server/Cash/Index",
                 "Server/PrizeList/{prizeType}",
-                "Server/WinnerDetails/{prizeType}",
+                "Server/WinnerDetail/{prizeType}",
+                "Server/SuperGrandWinnerDetail/{prizeType}",
                 "Server/LuckyList/Index"
             };
 

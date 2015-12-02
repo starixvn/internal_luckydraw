@@ -71,8 +71,6 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         return serverFactory.updateCurrentPrize(criteria)
         .success(function (response) {
             if (response.IsSuccessful) {
-                notificationFactory.success("UpdatedSuccessfully");
-
                 vm.renderListPrize();
             }
             else {

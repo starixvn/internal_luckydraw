@@ -12,8 +12,10 @@ var serverModule = angular.module("serverModule", ['ngRoute'])
     { templateUrl: baseUrl + 'SourceApp/Components/Server/Templates/index.html' });
     $routeProvider.when(baseUrl + 'Server/PrizeList/:prizeType',
     { templateUrl: baseUrl + 'SourceApp/Components/Server/Templates/prizeList.html' });
-    $routeProvider.when(baseUrl + 'Server/WinnerDetails/:prizeType',
-    { templateUrl: baseUrl + 'SourceApp/Components/Server/Templates/prizeDetail.html' });
+    $routeProvider.when(baseUrl + 'Server/WinnerDetail/:prizeType',
+    { templateUrl: baseUrl + 'SourceApp/Components/Server/Templates/winnerDetail.html' });
+    $routeProvider.when(baseUrl + 'Server/SuperGrandWinnerDetail/:prizeType',
+    { templateUrl: baseUrl + 'SourceApp/Components/Server/Templates/superGrandWinnerDetail.html' });
     $routeProvider.when(baseUrl + 'Server/LuckyList/Index',
     { templateUrl: baseUrl + 'SourceApp/Components/Server/Templates/luckyList.html' });
 } ]);

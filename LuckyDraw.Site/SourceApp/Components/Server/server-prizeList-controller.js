@@ -7,7 +7,7 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Serv
     var vm = this;
 
     vm.baseUrl = baseUrl;
-    vm.isOpeningPrize = false;
+    vm.isOpeningPrize = $routeParams.isOpeningPrize ? true : false;
     vm.prizeType = parseInt($routeParams.prizeType);
 
     vm.getClassByPrizeType = function (prizeType) {
@@ -47,6 +47,10 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Serv
     };
 
     vm.initialize = function () {
+        if (vm.isOpeningPrize) {
+            vm.renderListPrize();
+        };
+
         CommonModel.getPrizeType().then(function () {
             vm.prizeTypes = CommonModel.prizeTypes;
 
@@ -89,12 +93,21 @@ serverModule.directive('prizeListKeyboardEvent',
             });
 
             jQuery(document).on('keypress', function (event) {
-                var path = '', currentPrize;
+                var path = '';
 
                 switch (event.which) {
                     case 13: // enter
                         if (scope.prizeListCtrl.isOpeningPrize && scope.prizeListCtrl.currentPrize) {
-                            path = baseUrl + 'Server/WinnerDetails/' + scope.prizeListCtrl.prizeType + '?currentPrize=' + scope.prizeListCtrl.currentPrize;
+                            switch (scope.prizeListCtrl.prizeType) {
+                                case 2:
+                                    path = baseUrl + 'Server/SuperGrandWinnerDetail/' + scope.prizeListCtrl.prizeType + '?currentPrize=' + scope.prizeListCtrl.currentPrize;
+                                    break;
+                                case 3:
+                                case 4:
+                                case 5:
+                                    path = baseUrl + 'Server/WinnerDetail/' + scope.prizeListCtrl.prizeType + '?currentPrize=' + scope.prizeListCtrl.currentPrize;
+                                    break;
+                            }
                         } else {
                             scope.prizeListCtrl.renderListPrize();
                             scope.prizeListCtrl.isOpeningPrize = true;
@@ -104,13 +117,15 @@ serverModule.directive('prizeListKeyboardEvent',
                         if (scope.prizeListCtrl.isOpeningPrize) {
                             if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
                                 if (scope.prizeListCtrl.prizeSetting.Quantity > (scope.prizeListCtrl.prizeSetting.CurrentPrize * 3)) {
-                                    currentPrize = scope.prizeListCtrl.prizeSetting.CurrentPrize - 1;
-                                    scope.prizeListCtrl.updateCurrentPrize(currentPrize);
+                                    scope.prizeListCtrl.prizeSetting.CurrentPrize -= 1;
+                                    scope.prizeListCtrl.currentPrize -= 1;
+                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
                                 }
                             } else {
                                 if (scope.prizeListCtrl.prizeSetting.Quantity > scope.prizeListCtrl.prizeSetting.CurrentPrize) {
-                                    currentPrize = scope.prizeListCtrl.prizeSetting.CurrentPrize - 3;
-                                    scope.prizeListCtrl.updateCurrentPrize(currentPrize);
+                                    scope.prizeListCtrl.prizeSetting.CurrentPrize -= 3;
+                                    scope.prizeListCtrl.currentPrize -= 3;
+                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
                                 }
                             }
                         }
@@ -119,13 +134,15 @@ serverModule.directive('prizeListKeyboardEvent',
                         if (scope.prizeListCtrl.isOpeningPrize) {
                             if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
                                 if (scope.prizeListCtrl.prizeSetting.Quantity > (scope.prizeListCtrl.prizeSetting.CurrentPrize * 3)) {
-                                    currentPrize = scope.prizeListCtrl.prizeSetting.CurrentPrize + 1;
-                                    scope.prizeListCtrl.updateCurrentPrize(currentPrize);
+                                    scope.prizeListCtrl.prizeSetting.CurrentPrize += 1;
+                                    scope.prizeListCtrl.currentPrize += 1;
+                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
                                 }
                             } else {
                                 if (scope.prizeListCtrl.prizeSetting.Quantity > scope.prizeListCtrl.prizeSetting.CurrentPrize) {
-                                    currentPrize = scope.prizeListCtrl.prizeSetting.CurrentPrize + 3;
-                                    scope.prizeListCtrl.updateCurrentPrize(currentPrize);
+                                    scope.prizeListCtrl.prizeSetting.CurrentPrize += 3;
+                                    scope.prizeListCtrl.currentPrize += 3;
+                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
                                 }
                             }
                         }

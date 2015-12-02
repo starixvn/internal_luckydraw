@@ -1,7 +1,7 @@
 ﻿'use strict';
 /*global serverModule*/
 
-serverModule.controller('PrizeDetailController',
+serverModule.controller('WinnerDetailController',
 ['$routeParams', 'ServerModel', 'CommonModel', 'baseUrl',
 function ($routeParams, ServerModel, CommonModel, baseUrl) {
     var vm = this;
@@ -127,7 +127,7 @@ function ($modalInstance, staff) {
     };
 } ]);
 
-serverModule.directive('prizeDetailKeyboardEvent',
+serverModule.directive('winnerDetailKeyboardEvent',
 ['$window', 'baseUrl', function ($window, baseUrl) {
     return {
         link: function (scope, element, attrs) {
@@ -136,16 +136,16 @@ serverModule.directive('prizeDetailKeyboardEvent',
 
                 switch (event.which) {
                     case 27: // asc
-                        path = baseUrl + 'Server/PrizeList/' + scope.prizeDetailCtrl.prizeType;
+                        path = baseUrl + 'Server/PrizeList/' + scope.winnerDetailCtrl.prizeType + '?isOpeningPrize';
                         break;
                     case 49: // 1
-                        scope.prizeDetailCtrl.removeWinner(1);
+                        scope.winnerDetailCtrl.removeWinner(1);
                         break;
                     case 50: // 2
-                        scope.prizeDetailCtrl.removeWinner(2);
+                        scope.winnerDetailCtrl.removeWinner(2);
                         break;
                     case 51: // 3
-                        scope.prizeDetailCtrl.removeWinner(3);
+                        scope.winnerDetailCtrl.removeWinner(3);
                         break;
                 }
 
