@@ -199,6 +199,7 @@
     <Content Include="Images\supergrandprize-bg.jpg" />
     <Content Include="Images\Title\1-after.png" />
     <Content Include="Images\Title\1-before.png" />
+    <Content Include="Images\Title\1.png" />
     <Content Include="Images\Title\12-11-10-after.png" />
     <Content Include="Images\Title\12-11-10-before.png" />
     <Content Include="Images\Title\15-14-13-after.png" />
@@ -207,6 +208,7 @@
     <Content Include="Images\Title\18-17-16-before.png" />
     <Content Include="Images\Title\2-after.png" />
     <Content Include="Images\Title\2-before.png" />
+    <Content Include="Images\Title\2.png" />
     <Content Include="Images\Title\21-20-19-after.png" />
     <Content Include="Images\Title\21-20-19-before.png" />
     <Content Include="Images\Title\24-23-22-after.png" />
@@ -215,6 +217,7 @@
     <Content Include="Images\Title\27-26-25-before.png" />
     <Content Include="Images\Title\3-after.png" />
     <Content Include="Images\Title\3-before.png" />
+    <Content Include="Images\Title\3.png" />
     <Content Include="Images\Title\30-29-28-after.png" />
     <Content Include="Images\Title\30-29-28-before.png" />
     <Content Include="Images\Title\33-32-31-after.png" />
@@ -225,6 +228,7 @@
     <Content Include="Images\Title\39-38-37-before.png" />
     <Content Include="Images\Title\4-after.png" />
     <Content Include="Images\Title\4-before.png" />
+    <Content Include="Images\Title\4.png" />
     <Content Include="Images\Title\42-41-40-after.png" />
     <Content Include="Images\Title\42-41-40-before.png" />
     <Content Include="Images\Title\45-44-43-after.png" />
@@ -233,6 +237,7 @@
     <Content Include="Images\Title\48-47-46-before.png" />
     <Content Include="Images\Title\5-after.png" />
     <Content Include="Images\Title\5-before.png" />
+    <Content Include="Images\Title\5.png" />
     <Content Include="Images\Title\51-50-49-after.png" />
     <Content Include="Images\Title\51-50-49-before.png" />
     <Content Include="Images\Title\54-53-52-after.png" />
@@ -241,6 +246,7 @@
     <Content Include="Images\Title\57-56-55-before.png" />
     <Content Include="Images\Title\6-after.png" />
     <Content Include="Images\Title\6-before.png" />
+    <Content Include="Images\Title\6.png" />
     <Content Include="Images\Title\60-59-58-after.png" />
     <Content Include="Images\Title\60-59-58-before.png" />
     <Content Include="Images\Title\63-62-61-after.png" />
@@ -251,6 +257,7 @@
     <Content Include="Images\Title\69-68-67-before.png" />
     <Content Include="Images\Title\7-after.png" />
     <Content Include="Images\Title\7-before.png" />
+    <Content Include="Images\Title\7.png" />
     <Content Include="Images\Title\72-71-70-after.png" />
     <Content Include="Images\Title\72-71-70-before.png" />
     <Content Include="Images\Title\75-74-73-after.png" />
@@ -259,6 +266,7 @@
     <Content Include="Images\Title\78-77-76-before.png" />
     <Content Include="Images\Title\8-after.png" />
     <Content Include="Images\Title\8-before.png" />
+    <Content Include="Images\Title\8.png" />
     <Content Include="Images\Title\81-80-79-after.png" />
     <Content Include="Images\Title\81-80-79-before.png" />
     <Content Include="Images\Title\84-83-82-after.png" />
@@ -267,6 +275,7 @@
     <Content Include="Images\Title\87-86-85-before.png" />
     <Content Include="Images\Title\9-after.png" />
     <Content Include="Images\Title\9-before.png" />
+    <Content Include="Images\Title\9.png" />
     <Content Include="Images\Title\90-89-88-after.png" />
     <Content Include="Images\Title\90-89-88-before.png" />
     <Content Include="Images\Title\blank_ticket_a.png" />

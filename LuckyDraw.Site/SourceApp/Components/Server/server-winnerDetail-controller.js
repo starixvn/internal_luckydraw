@@ -44,11 +44,11 @@ function ($routeParams, ServerModel, CommonModel, baseUrl) {
                 if (index === -1) {
                     $location.path(baseUrl + 'Home/AccessDenied');
                 } else {
-                    ServerModel.getPrizeDetail(vm.prizeType, vm.currentPrize).then(function () {
-                        vm.prizeDetail = ServerModel.prizeDetail;
+                    ServerModel.getWinnerDetail(vm.prizeType, vm.currentPrize).then(function () {
+                        vm.winnerDetail = ServerModel.winnerDetail;
 
-                        if (vm.prizeDetail.Winners.length > 0) {
-                            angular.forEach(vm.prizeDetail.Winners, function (winner) {
+                        if (vm.winnerDetail && vm.winnerDetail.Winners.length > 0) {
+                            angular.forEach(vm.winnerDetail.Winners, function (winner) {
                                 switch (winner.StaffCode.substring(0, 2)) {
                                     case '10':
                                         if (!vm.pinkStaff) {
@@ -112,11 +112,12 @@ function ($routeParams, ServerModel, CommonModel, baseUrl) {
 } ]);
 
 serverModule.controller('RemoveWinnerController',
-['$modalInstance', 'staff',
-function ($modalInstance, staff) {
+['$modalInstance', 'staff', 'isRemoveAll',
+function ($modalInstance, staff, isRemoveAll) {
     var vm = this;
 
     vm.staff = staff;
+    vm.isRemoveAll = isRemoveAll;
 
     vm.ok = function () {
         $modalInstance.close();

@@ -116,13 +116,13 @@ serverModule.directive('prizeListKeyboardEvent',
                     case 25: // ctrl+y to next
                         if (scope.prizeListCtrl.isOpeningPrize) {
                             if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
-                                if (scope.prizeListCtrl.prizeSetting.Quantity > (scope.prizeListCtrl.prizeSetting.CurrentPrize * 3)) {
+                                if (scope.prizeListCtrl.prizeSetting.CurrentPrize > 0) {
                                     scope.prizeListCtrl.prizeSetting.CurrentPrize -= 1;
                                     scope.prizeListCtrl.currentPrize -= 1;
                                     scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
                                 }
                             } else {
-                                if (scope.prizeListCtrl.prizeSetting.Quantity > scope.prizeListCtrl.prizeSetting.CurrentPrize) {
+                                if (scope.prizeListCtrl.prizeSetting.CurrentPrize > 0) {
                                     scope.prizeListCtrl.prizeSetting.CurrentPrize -= 3;
                                     scope.prizeListCtrl.currentPrize -= 3;
                                     scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);

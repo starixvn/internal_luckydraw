@@ -6,24 +6,30 @@ serverModule.factory('serverFactory', ['$http', 'baseUrl', function ($http, base
         renderListPrize: function (prizeType) {
             return $http.get(baseUrl + 'api/Server/RenderListPrize', { params: { prizeType: prizeType } });
         },
-        getPrizeDetail: function (prizeType, currentPrize) {
-            return $http.get(baseUrl + 'api/Server/GetPrizeDetail', {
+        getWinnerDetail: function (prizeType, currentPrize) {
+            return $http.get(baseUrl + 'api/Server/GetWinnerDetail', {
                 params: {
                     prizeType: prizeType,
                     currentPrize: currentPrize
                 }
             });
         },
-        getSuperGrandPrizeByPrizeType: function (prizeType, currentPrize) {
-            return $http.get(baseUrl + 'api/Server/GetSuperGrandPrize', {
+        getSuperGrandWinnerDetail: function (prizeType, currentPrize) {
+            return $http.get(baseUrl + 'api/Server/GetSuperGrandWinnerDetail', {
                 params: {
                     prizeType: prizeType,
                     currentPrize: currentPrize
                 }
             });
+        },
+        getPrizeNumber: function (prizeIndex) {
+            return $http.get(baseUrl + 'api/Server/GetPrizeNumber', { params: { prizeIndex: prizeIndex } });
         },
         updateCurrentPrize: function (criteria) {
             return $http.put(baseUrl + 'api/Server/UpdateCurrentPrize', criteria);
+        },
+        deleteWinner: function (staffIds) {
+            return $http['delete'](baseUrl + 'api/Server/DeleteWinner', { params: { staffIds: staffIds } });
         }
     };
 } ]);

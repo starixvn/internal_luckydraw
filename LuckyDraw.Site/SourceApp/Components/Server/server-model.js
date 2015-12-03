@@ -7,13 +7,53 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
     var serverModel = {};
 
     serverModel.prizeList = [];
-    serverModel.prizeDetail = null;
-    serverModel.prizes = [];
+    serverModel.winnerDetail = null;
+    serverModel.prizeNumber = null;
 
     serverModel.renderListPrize = function (prizeType) {
         return serverFactory.renderListPrize(prizeType)
         .success(function (prizeList) {
             serverModel.prizeList = prizeList;
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
+
+    serverModel.getWinnerDetail = function (prizeType, currentPrize) {
+        return serverFactory.getWinnerDetail(prizeType, currentPrize)
+        .success(function (winnerDetail) {
+            serverModel.winnerDetail = winnerDetail;
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
+
+    serverModel.getSuperGrandWinnerDetail = function (prizeType, currentPrize) {
+        return serverFactory.getSuperGrandWinnerDetail(prizeType, currentPrize)
+        .success(function (winnerDetail) {
+            serverModel.winnerDetail = winnerDetail;
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
+
+    serverModel.getPrizeNumber = function (prizeIndex) {
+        return serverFactory.getPrizeNumber(prizeIndex)
+        .success(function (prizeNumber) {
+            serverModel.prizeNumber = prizeNumber;
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
+
+    serverModel.updateCurrentPrize = function (vm, criteria) {
+        return serverFactory.updateCurrentPrize(criteria)
+        .success(function (response) {
+            if (response.IsSuccessful) {
+                vm.renderListPrize();
+            } else {
+                notificationFactory.error("", response.Message);
+            }
         }).error(function (response, status) {
             errorFactory.errorHandle(status);
         });
@@ -33,51 +73,58 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
 
         modalInstance.result.then(function () {
-            switch (index) {
-                case 1:
-                    vm.pinkStaff = null;
-                    break;
-                case 2:
-                    vm.greenStaff = null;
-                    break;
-                case 3:
-                    vm.blueStaff = null;
-                    break;
-            }
+            serverFactory.deleteWinner(staff.StaffId)
+            .success(function (response) {
+                if (response.IsSuccessful) {
+                    switch (index) {
+                        case 1:
+                            vm.pinkStaff = null;
+                            break;
+                        case 2:
+                            vm.greenStaff = null;
+                            break;
+                        case 3:
+                            vm.blueStaff = null;
+                            break;
+                    }
+                } else {
+                    notificationFactory.error("", response.Message);
+                }
+            }).error(function (response, status) {
+                errorFactory.errorHandle(status);
+            });
         })['finally'](function () {
             modalInstance = '';
         });
     };
 
-    serverModel.getPrizeDetail = function (prizeType, currentPrize) {
-        return serverFactory.getPrizeDetail(prizeType, currentPrize)
-        .success(function (prizeDetail) {
-            serverModel.prizeDetail = prizeDetail;
-        }).error(function (response, status) {
-            errorFactory.errorHandle(status);
+    serverModel.openPopupConfirmRemoveAllWinner = function (vm) {
+        var modalInstance = $modal.open({
+            templateUrl: 'SourceApp/Components/Server/Templates/modalConfirmRemoveWinner.html',
+            controller: "RemoveWinnerController as removeWinnerCtrl",
+            backdrop: 'static',
+            resolve: {
+                isRemoveAll: function () {
+                    return true;
+                }
+            },
+            windowClass: "modal-confirm-center"
         });
-    };
 
-    serverModel.getSuperGrandPrizeByPrizeType = function (prizeType, currentPrize) {
-        return serverFactory.getSuperGrandPrizeByPrizeType(prizeType, currentPrize)
-        .success(function (prizes) {
-            serverModel.prizes = prizes;
-        }).error(function (response, status) {
-            errorFactory.errorHandle(status);
-        });
-    };
-
-    serverModel.updateCurrentPrize = function (vm, criteria) {
-        return serverFactory.updateCurrentPrize(criteria)
-        .success(function (response) {
-            if (response.IsSuccessful) {
-                vm.renderListPrize();
-            }
-            else {
-                notificationFactory.error("", response.Message);
-            }
-        }).error(function (response, status) {
-            errorFactory.errorHandle(status);
+        modalInstance.result.then(function () {
+            var staffIds = vm.saveWinner.map(function (e) { return e.StaffId; }).join(',');
+            serverFactory.deleteWinner(staffIds)
+            .success(function (response) {
+                if (response.IsSuccessful) {
+                    vm.saveWinner = [];
+                } else {
+                    notificationFactory.error("", response.Message);
+                }
+            }).error(function (response, status) {
+                errorFactory.errorHandle(status);
+            });
+        })['finally'](function () {
+            modalInstance = '';
         });
     };
 

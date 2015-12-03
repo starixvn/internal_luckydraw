@@ -42,7 +42,7 @@
         }
     }
 
-    &.super-grand-prize {
+    &.super-grand-prize, &.super-grand-winner-details {
         background: url(../Images/supergrandprize-bg.jpg) no-repeat center center fixed;
         @include background-size('cover');
     }

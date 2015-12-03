@@ -6032,7 +6032,7 @@ button.toast-close-button {
       color: #90caf9; }
       .server-site .staff-info.blue-staff .avatar {
         border-color: #90caf9; }
-  .server-site.super-grand-prize {
+  .server-site.super-grand-prize, .server-site.super-grand-winner-details {
     background: url(../Images/supergrandprize-bg.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -khtml-background-size: cover;

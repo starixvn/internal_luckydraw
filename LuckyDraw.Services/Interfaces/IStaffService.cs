@@ -10,6 +10,7 @@
 namespace LuckyDraw.Services.Interfaces
 {
     using System.Collections.Generic;
+    using LuckyDraw.Core.Model;
     using LuckyDraw.Criteria.Staff;
     using LuckyDraw.Models.Staff;
 
@@ -18,5 +19,7 @@ namespace LuckyDraw.Services.Interfaces
         StaffModel GetStaffByCode(GetStaffByCodeCriteria criteria);
 
         IList<StaffModel> GetWinnerByPrizeId(GetWinnerByPrizeIdCriteria criteria);
+
+        CommandResult DeleteWinner(DeleteWinnerCriteria criteria);
     }
 }

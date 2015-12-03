@@ -16,6 +16,7 @@ namespace LuckyDraw.Repositories.Implements
     using LuckyDraw.Models.Department;
     using LuckyDraw.Models.Staff;
     using LuckyDraw.Repositories.Interfaces;
+    using LuckyDraw.Models.Prize;
 
     public class StaffRepository : IStaffRepository
     {
@@ -39,14 +40,15 @@ namespace LuckyDraw.Repositories.Implements
         {
             using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
-                return db.Query<StaffModel, DepartmentModel, StaffModel>(
-                    (winner, dept) =>
+                return db.Query<StaffModel, DepartmentModel, PrizeModel, StaffModel>(
+                    (winner, dept, prize) =>
                     {
                         winner.Department = dept;
+                        winner.Prize = prize;
 
                         return winner;
                     },
-                    "DepartmentId",
+                    "DepartmentId, PrizeId",
                     criteria.GetSpParams()).ToList();
             }
         }

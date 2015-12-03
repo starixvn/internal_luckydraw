@@ -6,7 +6,12 @@
         </div>
     </div>
     <div class="modal-body">
-        Are you sure you want to remove <b>{{removeWinnerCtrl.staff.FullName}}</b> from winner list?
+        <div ng-if="!removeWinnerCtrl.isRemoveAll">
+            Are you sure you want to remove <b>{{removeWinnerCtrl.staff.FullName}}</b> from winner list?
+        </div>
+        <div ng-if="!removeWinnerCtrl.isRemoveAll">
+            Are you sure you want to remove all winners?
+        </div>
     </div>
     <div class="modal-footer">
         <button class="btn btn-primary" ng-click="removeWinnerCtrl.ok()" data-translate="OK"></button>

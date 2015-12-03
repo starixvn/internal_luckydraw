@@ -8,22 +8,9 @@
                 </div>
             </div>
             <div class="col-sm-6" ng-show="winnerDetailCtrl.pinkStaff">
-                <div class="row line">
-                    <div class="col-sm-4" data-translate="FullName"></div>
-                    <div class="col-sm-8" ng-bind="winnerDetailCtrl.pinkStaff.FullName"></div>
-                </div>
-                <div class="row line">
-                    <div class="col-sm-4" data-translate="Code"></div>
-                    <div class="col-sm-8" ng-bind="winnerDetailCtrl.pinkStaff.BarCode"></div>
-                </div>
-                <div class="row line">
-                    <div class="col-sm-4" data-translate="NickName"></div>
-                    <div class="col-sm-8" ng-bind="winnerDetailCtrl.pinkStaff.NickName"></div>
-                </div>
-                <div class="row line">
-                    <div class="col-sm-4" data-translate="Department"></div>
-                    <div class="col-sm-8" ng-bind="winnerDetailCtrl.pinkStaff.Department.Name"></div>
-                </div>
+                <div class="row line" ng-bind="winnerDetailCtrl.pinkStaff.FullName"></div>
+                <div class="row line" ng-bind="winnerDetailCtrl.pinkStaff.NickName"></div>
+                <div class="row line" ng-bind="winnerDetailCtrl.pinkStaff.Department.Name"></div>
             </div>
         </div>
         <div class="row staff-info green-staff">
@@ -34,22 +21,9 @@
                 </div>
             </div>
             <div class="col-sm-6" ng-show="winnerDetailCtrl.greenStaff">
-                <div class="row line">
-                    <div class="col-sm-4" data-translate="FullName"></div>
-                    <div class="col-sm-8" ng-bind="winnerDetailCtrl.greenStaff.FullName"></div>
-                </div>
-                <div class="row line">
-                    <div class="col-sm-4" data-translate="Code"></div>
-                    <div class="col-sm-8" ng-bind="winnerDetailCtrl.greenStaff.BarCode"></div>
-                </div>
-                <div class="row line">
-                    <div class="col-sm-4" data-translate="NickName"></div>
-                    <div class="col-sm-8" ng-bind="winnerDetailCtrl.greenStaff.NickName"></div>
-                </div>
-                <div class="row line">
-                    <div class="col-sm-4" data-translate="Department"></div>
-                    <div class="col-sm-8" ng-bind="winnerDetailCtrl.greenStaff.Department.Name"></div>
-                </div>
+                <div class="row line" ng-bind="winnerDetailCtrl.greenStaff.FullName"></div>
+                <div class="row line" ng-bind="winnerDetailCtrl.greenStaff.NickName"></div>
+                <div class="row line" ng-bind="winnerDetailCtrl.greenStaff.Department.Name"></div>
             </div>
         </div>
         <div class="row staff-info blue-staff">
@@ -60,26 +34,13 @@
                 </div>
             </div>
             <div class="col-sm-6" ng-show="winnerDetailCtrl.blueStaff">
-                <div class="row line">
-                    <div class="col-sm-4" data-translate="FullName"></div>
-                    <div class="col-sm-8" ng-bind="winnerDetailCtrl.blueStaff.FullName"></div>
-                </div>
-                <div class="row line">
-                    <div class="col-sm-4" data-translate="Code""></div>
-                    <div class="col-sm-8" ng-bind="winnerDetailCtrl.blueStaff.BarCode"></div>
-                </div>
-                <div class="row line">
-                    <div class="col-sm-4" data-translate="NickName"></div>
-                    <div class="col-sm-8" ng-bind="winnerDetailCtrl.blueStaff.NickName"></div>
-                </div>
-                <div class="row line">
-                    <div class="col-sm-4" data-translate="Department"></div>
-                    <div class="col-sm-8" ng-bind="winnerDetailCtrl.blueStaff.Department.Name"></div>
-                </div>
+                <div class="row line" ng-bind="winnerDetailCtrl.blueStaff.FullName"></div>
+                <div class="row line" ng-bind="winnerDetailCtrl.blueStaff.NickName"></div>
+                <div class="row line" ng-bind="winnerDetailCtrl.blueStaff.Department.Name"></div>
             </div>
         </div>
     </div>
     <div class="col-sm-5">
-        <img ng-if="winnerDetailCtrl.prizeDetail.Prize" ng-src="data:image/png;base64,{{winnerDetailCtrl.prizeDetail.Prize.Image}}" src="" alt="" />
+        <img ng-if="winnerDetailCtrl.winnerDetail.Prize" ng-src="data:image/png;base64,{{winnerDetailCtrl.winnerDetail.Prize.Image}}" src="" alt="" />
     </div>
 </div>

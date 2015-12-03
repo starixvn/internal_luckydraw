@@ -1,5 +1,5 @@
 ﻿// ----------------------------------------------------------------------
-// <copyright file="PrizeDetailModel.cs" company="Nexcel Solutions Viet Nam">
+// <copyright file="WinnerDetailModel.cs" company="Nexcel Solutions Viet Nam">
 // Copyright (c) Nexcel Solutions Vietnam. All rights reserved.
 // </copyright>
 // ------------------------------------------------------------------------
@@ -7,14 +7,14 @@
 //   <change who="Tim.Trinh" date="2015.12.02">Created.</change>
 // </history>
 
-namespace LuckyDraw.Models.Prize
+namespace LuckyDraw.Models.Staff
 {
     using System.Collections.Generic;
-    using LuckyDraw.Models.Staff;
+    using LuckyDraw.Models.Prize;
 
-    public class PrizeDetailModel
+    public class WinnerDetailModel
     {
-        public PrizeDetailModel()
+        public WinnerDetailModel()
         {
             Prizes = new List<PrizeModel>();
             Winners = new List<StaffModel>();
