@@ -6199,8 +6199,8 @@ button.toast-close-button {
       .server-site .staff-info .info li {
         font-family: Roboto, arial;
         line-height: 3.5rem; }
-  .server-site .super-grand-winner-details .staff-info .focus .avatar {
-    border: .2rem #f5f5f5; }
+  .server-site.super-grand-winner-details .staff-info.focus .avatar {
+    border: .3rem solid #f5f5f5; }
 
 @media (max-device-height: 400px) {
   .prize {

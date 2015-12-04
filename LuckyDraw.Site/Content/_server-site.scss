@@ -121,11 +121,11 @@
 		}
     }
 
-    .super-grand-winner-details {
+    &.super-grand-winner-details {
         .staff-info {
-            .focus {
+            &.focus {
                 .avatar {
-                    border: .2rem #f5f5f5;
+                    border: .3rem solid #f5f5f5;
                 }
             }
         }

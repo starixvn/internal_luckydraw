@@ -2,8 +2,8 @@
 /*global serverModule*/
 
 serverModule.controller('SuperGrandWinnerDetailController',
-['$routeParams', 'ServerModel', 'CommonModel', 'baseUrl',
-function ($routeParams, ServerModel, CommonModel, baseUrl) {
+['$scope', '$routeParams', 'ServerModel', 'CommonModel', 'baseUrl',
+function ($scope, $routeParams, ServerModel, CommonModel, baseUrl) {
     var vm = this;
 
     vm.baseUrl = baseUrl;
@@ -78,16 +78,22 @@ function ($routeParams, ServerModel, CommonModel, baseUrl) {
     vm.setFocusWinner = function (focusWinner) {
         switch (focusWinner) {
             case 1:
-                if (vm.winner1) {
-                }
+                vm.winner3.IsFocus = true;
+                vm.winner1.IsFocus = false;
+                vm.winner2.IsFocus = false;
+                $scope.$apply();
                 break;
             case 2:
-                if (vm.winner2) {
-                }
+                vm.winner2.IsFocus = true;
+                vm.winner1.IsFocus = false;
+                vm.winner3.IsFocus = false;
+                $scope.$apply();
                 break;
             case 3:
-                if (vm.winner3) {
-                }
+                vm.winner1.IsFocus = true;
+                vm.winner2.IsFocus = false;
+                vm.winner3.IsFocus = false;
+                $scope.$apply();
                 break;
         }
     };
@@ -285,6 +291,21 @@ serverModule.directive('superGrandWinnerDetailKeyboardEvent',
 
                 if (path.length > 0) {
                     $window.location.href = path;
+                }
+            });
+        }
+    };
+} ]);
+
+serverModule.directive('focusEvent',
+[function () {
+    return {
+        link: function (scope, element, attrs) {
+            attrs.$observe('isFocus', function (value) {
+                if (value === 'true') {
+                    $(element).addClass('focus');
+                } else {
+                    $(element).removeClass('focus');
                 }
             });
         }
