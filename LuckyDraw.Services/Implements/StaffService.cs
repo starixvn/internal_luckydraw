@@ -59,6 +59,32 @@ namespace LuckyDraw.Services.Implements
             return winners;
         }
 
+        public CommandResult InsertWinner(InsertWinnerCriteria criteria)
+        {
+            CommandResult commandResult = new CommandResult();
+            Check.Argument.IsNotNull(criteria, "criteria");
+
+            if (criteria.IsValid())
+            {
+                commandResult = Repository.Insert(criteria);
+            }
+
+            return commandResult;
+        }
+
+        public CommandResult UpdateWinner(UpdateWinnerCriteria criteria)
+        {
+            CommandResult commandResult = new CommandResult();
+            Check.Argument.IsNotNull(criteria, "criteria");
+
+            if (criteria.IsValid())
+            {
+                commandResult = Repository.Update(criteria);
+            }
+
+            return commandResult;
+        }
+
         public CommandResult DeleteWinner(DeleteWinnerCriteria criteria)
         {
             CommandResult commandResult = new CommandResult();

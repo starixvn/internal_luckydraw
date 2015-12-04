@@ -20,6 +20,10 @@ namespace LuckyDraw.Services.Interfaces
 
         IList<StaffModel> GetWinnerByPrizeId(GetWinnerByPrizeIdCriteria criteria);
 
+        CommandResult InsertWinner(InsertWinnerCriteria criteria);
+
+        CommandResult UpdateWinner(UpdateWinnerCriteria criteria);
+
         CommandResult DeleteWinner(DeleteWinnerCriteria criteria);
     }
 }

@@ -87,10 +87,20 @@
 
 	.listPrize {
 		display: flex;
-		justify-content: center;		
+		justify-content: center;
 		float: none;
 		align-content: center;
 	}
+
+    .super-grand-winner-details {
+        .staff-info {
+            .focus {
+                .avatar {
+                    border: .2rem #f5f5f5;
+                }
+            }
+        }
+    }
 }
    
  @media (max-device-height: 400px) {   

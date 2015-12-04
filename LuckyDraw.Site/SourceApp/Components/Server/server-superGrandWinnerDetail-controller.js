@@ -10,8 +10,10 @@ function ($routeParams, ServerModel, CommonModel, baseUrl) {
     vm.prizeType = parseInt($routeParams.prizeType);
     vm.currentPrize = parseInt($routeParams.currentPrize);
 
-    vm.prizeIndex = 3;
-    vm.saveWinner = [];
+    vm.focusWinner = 4;
+    vm.prizedIndex = 3;
+    vm.prizedWinners = [];
+    vm.savedWinners = [];
 
     vm.winner1 = null;
     vm.winner2 = null;
@@ -32,7 +34,15 @@ function ($routeParams, ServerModel, CommonModel, baseUrl) {
 
                         if (vm.winnerDetail && vm.winnerDetail.Winners.length > 0) {
                             angular.forEach(vm.winnerDetail.Winners, function (winner, index) {
-                                vm.fillWinner(winner, index + 1, winner.Prize.PrizeIndex);
+                                var prizeIndex = winner.Prize.PrizeId < 0 ? -1 : winner.Prize.PrizeIndex;
+
+                                vm.fillWinner(winner, index + 1, prizeIndex);
+                                vm.savedWinners.push(winner);
+
+                                if (prizeIndex !== -1) {
+                                    vm.prizedIndex -= 1;
+                                    vm.prizedWinners.push(winner);
+                                }
                             });
                         }
                     });
@@ -65,32 +75,107 @@ function ($routeParams, ServerModel, CommonModel, baseUrl) {
         return result;
     };
 
+    vm.setFocusWinner = function (focusWinner) {
+        switch (focusWinner) {
+            case 1:
+                if (vm.winner1) {
+                }
+                break;
+            case 2:
+                if (vm.winner2) {
+                }
+                break;
+            case 3:
+                if (vm.winner3) {
+                }
+                break;
+        }
+    };
+
+    vm.sortPrize = function () {
+        ServerModel.getSuperGrandWinnerDetail(vm.prizeType, vm.currentPrize).then(function () {
+            vm.winnerDetail = ServerModel.winnerDetail;
+
+            if (vm.winnerDetail && vm.winnerDetail.Winners.length > 0) {
+                angular.forEach(vm.winnerDetail.Winners, function (winner, index) {
+                    var prizeIndex = winner.Prize.PrizeId < 0 ? -1 : winner.Prize.PrizeIndex;
+
+                    vm.fillWinner(winner, index + 1, prizeIndex);
+                });
+            }
+        });
+    };
+
     vm.fillWinner = function (winner, position, prizeIndex) {
         ServerModel.getPrizeNumber(prizeIndex).then(function () {
-            winner.PrizeNumber = baseUrl + ServerModel.prizeNumber;
+            if (ServerModel.prizeNumber) {
+                winner.PrizeNumber = baseUrl + ServerModel.prizeNumber;
+            }
 
             switch (position) {
                 case 1:
-                    vm.winner1 = winner;
+                    vm.winner3 = winner;
                     break;
                 case 2:
                     vm.winner2 = winner;
                     break;
                 case 3:
-                    vm.winner3 = winner;
+                    vm.winner1 = winner;
                     break;
             }
         });
     };
 
     vm.choosePrize = function (prize) {
-        if (saveWinner.length >= 3 && prize > 0 && prize < 10) {
+        var prizeId = vm.winnerDetail.Prizes[(prize - 1) % 3].PrizeId,
+            index = vm.winnerDetail.Winners.map(function (e) { return e.Prize.PrizeId; }).indexOf(prizeId);
+
+        if (vm.savedWinners.length >= 3
+                && (prize > 0 && prize < 10)
+                && index === -1
+                && ((vm.currentPrize - 1) / 3 === (prize - 1) / 3)) {
+            ServerModel.getPrizeNumber(prizeIndex).then(function () {
+                if (ServerModel.prizeNumber) {
+                    switch (vm.focusWinner) {
+                        case 1:
+                            if (vm.winner3) {
+                                vm.winner3.PrizeNumber = baseUrl + ServerModel.prizeNumber;
+                                vm.winner3.Prize = vm.winnerDetail.Prizes[(prize - 1) % 3];
+                                ServerModel.updateWinner(new Array(vm.winner3));
+                                vm.prizedIndex -= 1;
+                            }
+                            break;
+                        case 2:
+                            if (vm.winner2) {
+                                vm.winner2.PrizeNumber = baseUrl + ServerModel.prizeNumber;
+                                vm.winner2.Prize = vm.winnerDetail.Prizes[(prize - 1) % 3];
+                                ServerModel.updateWinner(new Array(vm.winner2));
+                                vm.prizedIndex -= 1;
+                            }
+                            break;
+                        case 3:
+                            if (vm.winner1) {
+                                vm.winner1.PrizeNumber = baseUrl + ServerModel.prizeNumber;
+                                vm.winner1.Prize = vm.winnerDetail.Prizes[(prize - 1) % 3];
+                                ServerModel.updateWinner(new Array(vm.winner1));
+                                vm.prizedIndex -= 1;
+                            }
+                            break;
+                    }
+                }
+            });
         }
     };
 
     vm.removeAllWinner = function () {
-        if (vm.saveWinner.length > 0) {
+        if (vm.savedWinners.length > 0) {
             ServerModel.openPopupConfirmRemoveAllWinner(vm);
+        }
+    };
+
+    vm.resetPrizeWinners = function () {
+        if (vm.savedWinners.length > 0) {
+            ServerModel.openPopupConfirmResetPrize(vm);
         }
     };
 
@@ -132,29 +217,29 @@ serverModule.directive('superGrandWinnerDetailKeyboardEvent',
     return {
         link: function (scope, element, attrs) {
             jQuery(document).on('keydown', function (event) {
+                event.preventDefault();
                 var path = '';
 
                 switch (event.which) {
+                    case 13: // enter
                     case 27: // asc
                         path = baseUrl + 'Server/PrizeList/' + scope.winnerDetailCtrl.prizeType + '?isOpeningPrize';
                         break;
-                }
+                    case 38: // up arrow
+                        if (scope.winnerDetailCtrl.focusWinner < 3 && scope.winnerDetailCtrl.savedWinners.length >= 3) {
+                            scope.winnerDetailCtrl.focusWinner += 1;
 
-                if (path.length > 0) {
-                    $window.location.href = path;
-                }
-            });
-
-            jQuery(document).on('keypress', function (event) {
-                var path = '';
-
-                switch (event.which) {
-                    case 4: // press ctrl+d to remove winners
+                            scope.winnerDetailCtrl.setFocusWinner(scope.winnerDetailCtrl.focusWinner);
+                        }
                         break;
-                    case 5: // press ctrl+e to close
+                    case 40: // down arrow
+                        if (scope.winnerDetailCtrl.focusWinner > 1 && scope.winnerDetailCtrl.savedWinners.length >= 3) {
+                            scope.winnerDetailCtrl.focusWinner -= 1;
+                            scope.winnerDetailCtrl.setFocusWinner(scope.winnerDetailCtrl.focusWinner);
+                        }
                         break;
-                    case 13: // enter
-                        path = baseUrl + 'Server/PrizeList/' + scope.winnerDetailCtrl.prizeType + '?isOpeningPrize';
+                    case 46: // delete
+                        alert('delete');
                         break;
                     case 49: // 1
                         scope.winnerDetailCtrl.choosePrize(1);
@@ -182,6 +267,19 @@ serverModule.directive('superGrandWinnerDetailKeyboardEvent',
                         break;
                     case 57: // 9
                         scope.winnerDetailCtrl.choosePrize(9);
+                        break;
+                    case 68: // press ctrl+d to remove winners
+                        if (event.ctrlKey) {
+                            scope.winnerDetailCtrl.removeAllWinner();
+                        }
+                        break;
+                    case 69: // press ctrl+e to reset prize
+                        if (event.ctrlKey) {
+                            scope.winnerDetailCtrl.resetPrizeWinners();
+                        }
+                        break;
+                    case 115: // s
+                        scope.winnerDetailCtrl.sortPrize();
                         break;
                 }
 

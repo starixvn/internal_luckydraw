@@ -112,12 +112,13 @@ function ($routeParams, ServerModel, CommonModel, baseUrl) {
 } ]);
 
 serverModule.controller('RemoveWinnerController',
-['$modalInstance', 'staff', 'isRemoveAll',
-function ($modalInstance, staff, isRemoveAll) {
+['$modalInstance', 'staff', 'isRemoveAll', 'isReset',
+function ($modalInstance, staff, isRemoveAll, isReset) {
     var vm = this;
 
     vm.staff = staff;
     vm.isRemoveAll = isRemoveAll;
+    vm.isReset = isReset;
 
     vm.ok = function () {
         $modalInstance.close();
@@ -133,6 +134,7 @@ serverModule.directive('winnerDetailKeyboardEvent',
     return {
         link: function (scope, element, attrs) {
             jQuery(document).on('keydown', function (event) {
+                event.preventDefault();
                 var path = '';
 
                 switch (event.which) {

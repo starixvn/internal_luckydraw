@@ -59,6 +59,30 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
     };
 
+    serverModel.insertWinner = function (winners) {
+        return serverFactory.insertWinner(winners)
+        .success(function (response) {
+            if (response.IsSuccessful) {
+            } else {
+                notificationFactory.error("", response.Message);
+            }
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
+
+    serverModel.updateWinner = function (winners) {
+        return serverFactory.updateWinner(winners)
+        .success(function (response) {
+            if (response.IsSuccessful) {
+            } else {
+                notificationFactory.error("", response.Message);
+            }
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
+
     serverModel.openPopupConfirmRemoveWinner = function (vm, staff, index) {
         var modalInstance = $modal.open({
             templateUrl: 'SourceApp/Components/Server/Templates/modalConfirmRemoveWinner.html',
@@ -67,6 +91,12 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
             resolve: {
                 staff: function () {
                     return angular.copy(staff);
+                },
+                isRemoveAll: function () {
+                    return false;
+                },
+                isReset: function () {
+                    return false;
                 }
             },
             windowClass: "modal-confirm-center"
@@ -104,7 +134,49 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
             controller: "RemoveWinnerController as removeWinnerCtrl",
             backdrop: 'static',
             resolve: {
+                staff: function () {
+                    return null;
+                },
                 isRemoveAll: function () {
+                    return true;
+                },
+                isReset: function () {
+                    return false;
+                }
+            },
+            windowClass: "modal-confirm-center"
+        });
+
+        modalInstance.result.then(function () {
+            var staffIds = vm.savedWinners.map(function (e) { return e.StaffId; }).join(',');
+            serverFactory.deleteWinner(staffIds)
+            .success(function (response) {
+                if (response.IsSuccessful) {
+                    vm.savedWinners = [];
+                } else {
+                    notificationFactory.error("", response.Message);
+                }
+            }).error(function (response, status) {
+                errorFactory.errorHandle(status);
+            });
+        })['finally'](function () {
+            modalInstance = '';
+        });
+    };
+
+    serverModel.openPopupConfirmResetPrize = function (vm) {
+        var modalInstance = $modal.open({
+            templateUrl: 'SourceApp/Components/Server/Templates/modalConfirmRemoveWinner.html',
+            controller: "RemoveWinnerController as removeWinnerCtrl",
+            backdrop: 'static',
+            resolve: {
+                staff: function () {
+                    return null;
+                },
+                isRemoveAll: function () {
+                    return false;
+                },
+                isReset: function () {
                     return true;
                 }
             },
@@ -112,11 +184,28 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
 
         modalInstance.result.then(function () {
-            var staffIds = vm.saveWinner.map(function (e) { return e.StaffId; }).join(',');
-            serverFactory.deleteWinner(staffIds)
+            var winners = [];
+            if (vm.winner1) {
+                vm.winner1.Prize.PrizeId = -1;
+                winners.push(vm.winner1);
+            }
+
+            if (vm.winner2) {
+                vm.winner2.Prize.PrizeId = -1;
+                winners.push(vm.winner2);
+            }
+
+            if (vm.winner3) {
+                vm.winner3.Prize.PrizeId = -1;
+                winners.push(vm.winner3);
+            }
+
+            serverFactory.updateWinner(winners)
             .success(function (response) {
                 if (response.IsSuccessful) {
-                    vm.saveWinner = [];
+                    vm.winner1.PrizeNumber = null;
+                    vm.winner2.PrizeNumber = null;
+                    vm.winner3.PrizeNumber = null;
                 } else {
                     notificationFactory.error("", response.Message);
                 }

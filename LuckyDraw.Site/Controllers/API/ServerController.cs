@@ -96,7 +96,7 @@ namespace LuckyDraw.Site.Controllers.API
             {
                 GetWinnerByPrizeIdCriteria winnerCriteria = new GetWinnerByPrizeIdCriteria()
                 {
-                    PrizeIds = string.Join("-1,", winnerDetail.Prizes.Select(x => x.PrizeId))
+                    PrizeIds = string.Join(",", winnerDetail.Prizes.Select(x => x.PrizeId)) + ",-1"
                 };
 
                 winnerDetail.Winners = _staffService.GetWinnerByPrizeId(winnerCriteria);
@@ -147,10 +147,6 @@ namespace LuckyDraw.Site.Controllers.API
                 case 9:
                     imagePath = "Images/Title/9.png";
                     break;
-
-                default:
-                    imagePath = "Images/Title/1.png";
-                    break;
             }
 
             return imagePath;
@@ -160,6 +156,28 @@ namespace LuckyDraw.Site.Controllers.API
         public CommandResult UpdateCurrentPrize(UpdateCurrentPrizeCriteria criteria)
         {
             return _prizeService.UpdateCurrentPrize(criteria);
+        }
+
+        [HttpPost]
+        public CommandResult InsertWinner(IEnumerable<StaffModel> winners)
+        {
+            InsertWinnerCriteria criteria = new InsertWinnerCriteria()
+            {
+                Winners = winners
+            };
+
+            return _staffService.InsertWinner(criteria);
+        }
+
+        [HttpPut]
+        public CommandResult UpdateWinner(IEnumerable<StaffModel> winners)
+        {
+            UpdateWinnerCriteria criteria = new UpdateWinnerCriteria()
+            {
+                Winners = winners
+            };
+
+            return _staffService.UpdateWinner(criteria);
         }
 
         [HttpDelete]

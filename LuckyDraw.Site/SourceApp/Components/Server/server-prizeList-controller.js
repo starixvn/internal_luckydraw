@@ -79,20 +79,7 @@ serverModule.directive('prizeListKeyboardEvent',
     return {
         link: function (scope, element, attrs) {
             jQuery(document).on('keydown', function (event) {
-                var path = '';
-
-                switch (event.which) {
-                    case 27: // asc
-                        path = baseUrl + 'Server/Index';
-                        break;
-                }
-
-                if (path.length > 0) {
-                    $window.location.href = path;
-                }
-            });
-
-            jQuery(document).on('keypress', function (event) {
+                event.preventDefault();
                 var path = '';
 
                 switch (event.which) {
@@ -113,39 +100,46 @@ serverModule.directive('prizeListKeyboardEvent',
                             scope.prizeListCtrl.isOpeningPrize = true;
                         }
                         break;
-                    case 25: // ctrl+y to next
-                        if (scope.prizeListCtrl.isOpeningPrize) {
-                            if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
-                                if (scope.prizeListCtrl.prizeSetting.CurrentPrize > 0) {
-                                    scope.prizeListCtrl.prizeSetting.CurrentPrize -= 1;
-                                    scope.prizeListCtrl.currentPrize -= 1;
-                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
-                                }
-                            } else {
-                                if (scope.prizeListCtrl.prizeSetting.CurrentPrize > 0) {
-                                    scope.prizeListCtrl.prizeSetting.CurrentPrize -= 3;
-                                    scope.prizeListCtrl.currentPrize -= 3;
-                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
+                    case 89: // ctrl+y to next
+                        if (event.ctrlKey) {
+                            if (scope.prizeListCtrl.isOpeningPrize) {
+                                if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
+                                    if (scope.prizeListCtrl.prizeSetting.CurrentPrize > 0) {
+                                        scope.prizeListCtrl.prizeSetting.CurrentPrize -= 1;
+                                        scope.prizeListCtrl.currentPrize -= 1;
+                                        scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
+                                    }
+                                } else {
+                                    if (scope.prizeListCtrl.prizeSetting.CurrentPrize > 0) {
+                                        scope.prizeListCtrl.prizeSetting.CurrentPrize -= 3;
+                                        scope.prizeListCtrl.currentPrize -= 3;
+                                        scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
+                                    }
                                 }
                             }
                         }
                         break;
-                    case 26: // ctrl+z to back
-                        if (scope.prizeListCtrl.isOpeningPrize) {
-                            if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
-                                if (scope.prizeListCtrl.prizeSetting.Quantity > (scope.prizeListCtrl.prizeSetting.CurrentPrize * 3)) {
-                                    scope.prizeListCtrl.prizeSetting.CurrentPrize += 1;
-                                    scope.prizeListCtrl.currentPrize += 1;
-                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
-                                }
-                            } else {
-                                if (scope.prizeListCtrl.prizeSetting.Quantity > scope.prizeListCtrl.prizeSetting.CurrentPrize) {
-                                    scope.prizeListCtrl.prizeSetting.CurrentPrize += 3;
-                                    scope.prizeListCtrl.currentPrize += 3;
-                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
+                    case 90: // ctrl+z to back
+                        if (event.ctrlKey) {
+                            if (scope.prizeListCtrl.isOpeningPrize) {
+                                if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
+                                    if (scope.prizeListCtrl.prizeSetting.Quantity > (scope.prizeListCtrl.prizeSetting.CurrentPrize * 3)) {
+                                        scope.prizeListCtrl.prizeSetting.CurrentPrize += 1;
+                                        scope.prizeListCtrl.currentPrize += 1;
+                                        scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
+                                    }
+                                } else {
+                                    if (scope.prizeListCtrl.prizeSetting.Quantity > scope.prizeListCtrl.prizeSetting.CurrentPrize) {
+                                        scope.prizeListCtrl.prizeSetting.CurrentPrize += 3;
+                                        scope.prizeListCtrl.currentPrize += 3;
+                                        scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
+                                    }
                                 }
                             }
                         }
+                        break;
+                    case 27: // asc
+                        path = baseUrl + 'Server/Index';
                         break;
                 }
 

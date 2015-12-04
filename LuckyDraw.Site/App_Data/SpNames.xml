@@ -5,6 +5,10 @@
         </Setting>
         <Setting Key="Winner_GetByPrizeId" SpName="Winner_GetByPrizeId" DbName="LuckyDraw" Plain="0">
         </Setting>
+        <Setting Key="Winner_Insert" SpName="Winner_Insert" DbName="LuckyDraw" Plain="0">
+        </Setting>
+        <Setting Key="Winner_Update" SpName="Winner_Update" DbName="LuckyDraw" Plain="0">
+        </Setting>
         <Setting Key="Winner_Delete" SpName="Winner_Delete" DbName="LuckyDraw" Plain="0">
         </Setting>
     </Function>

@@ -4,7 +4,7 @@
 serverModule.factory('serverFactory', ['$http', 'baseUrl', function ($http, baseUrl) {
     return {
         renderListPrize: function (prizeType) {
-            return $http.get(baseUrl + 'api/Server/RenderListPrize', { params: { prizeType: prizeType } });
+            return $http.get(baseUrl + 'api/Server/RenderListPrize', { params: { prizeType: prizeType} });
         },
         getWinnerDetail: function (prizeType, currentPrize) {
             return $http.get(baseUrl + 'api/Server/GetWinnerDetail', {
@@ -23,13 +23,19 @@ serverModule.factory('serverFactory', ['$http', 'baseUrl', function ($http, base
             });
         },
         getPrizeNumber: function (prizeIndex) {
-            return $http.get(baseUrl + 'api/Server/GetPrizeNumber', { params: { prizeIndex: prizeIndex } });
+            return $http.get(baseUrl + 'api/Server/GetPrizeNumber', { params: { prizeIndex: prizeIndex} });
         },
         updateCurrentPrize: function (criteria) {
             return $http.put(baseUrl + 'api/Server/UpdateCurrentPrize', criteria);
         },
+        insertWinner: function (winners) {
+            return $http.post(baseUrl + 'api/Server/InsertWinner', winners);
+        },
+        updateWinner: function (winners) {
+            return $http.put(baseUrl + 'api/Server/UpdateWinner', winners);
+        },
         deleteWinner: function (staffIds) {
-            return $http['delete'](baseUrl + 'api/Server/DeleteWinner', { params: { staffIds: staffIds } });
+            return $http['delete'](baseUrl + 'api/Server/DeleteWinner', { params: { staffIds: staffIds} });
         }
     };
 } ]);
