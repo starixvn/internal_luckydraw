@@ -1,20 +1,80 @@
-.server-site {	
-    background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;	
-    width: 100vw;
+.server-site {
+    background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;
+	border: 4.4rem solid transparent;
+    -webkit-border-image: url(../Images/border.png) 51 repeat; /* Safari 3.1-5 */
+    -o-border-image: url(../Images/border.png) 51 repeat; /* Opera 11-12.1 */
+    border-image: url(../Images/border.png) 51 repeat;
     height: 100vh;
+	width: 100vw;
 	@include background-size('cover');
 
-    .staff-info {
-        margin-bottom: 2rem;
+	&.opening {
+		.logo-opening, .list-prize-opening {
+			left: 0;
+			right: 0;
+			position: absolute;
+			text-align: center;
+		}
+
+		.logo-opening {			
+			top: 6rem;
+		}
+
+		.list-prize-opening {
+			bottom: 10.1rem;
+		}
+	}
+
+	.listPrize {		
+		float: none;
+		@include align-with-flex(center, center, row, center);
+	}
+
+    &.super-grand-prize {		
+        background: url(../Images/supergrandprize-bg.jpg) no-repeat center center fixed;
+    }
+
+    &.grand-prize {		
+        background: url(../Images/grandprize-bg.jpg) no-repeat center center fixed;
+    }
+
+    &.major-prize {		
+        background: url(../Images/majorprize-bg.jpg) no-repeat center center fixed;     
+    }
+
+    &.cash-prize {		
+		background: url(../Images/cashprize-bg.jpg) no-repeat center center fixed;
+    }
+	
+    &.winner-details {		
+        background: url(../Images/winner-bg.jpg) no-repeat center center fixed;
+		padding: 0 15%;
+		
+		.winnerList, .prizePhoto {
+			@include align-with-flex(flex-start, flex-start, column, flex-start);
+		}
+    }
+
+	&.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize, &.winner-details {
+		@include align-with-flex(center, center, row, center);
+		@include background-size(cover);
+	}
+
+	.staff-info {
+        margin: 2rem;
+		@include align-with-flex(center, center, row, center);
 
         .avatar {
-            width: 20rem;
-            height : 20rem;
-            border: .2rem solid;
+            border: .4rem solid;
+			background-color: #333;
+			height: 20rem;
+			text-align: center;
+			width: 15rem;
 
-            img {
-                height: inherit;
-            }
+			img {
+				height: 100%;
+				width: 100%;
+			}
         }
 
         &.pink-staff {
@@ -40,47 +100,27 @@
                 border-color: #90caf9;
             }
         }
-    }
 
-    &.super-grand-prize, &.super-grand-winner-details {
-        background: url(../Images/supergrandprize-bg.jpg) no-repeat center center fixed;
-		@include background-size('cover');     
-    }
+		.info {
+			font: {
+				weight: 500;
+				size: 2rem;
+			}
+			margin: 0;
+			padding-left: 2rem;
+			text-shadow: 1px 1px 0 rgba(255,255,255,0.2) ;
 
-    &.grand-prize {		
-        background: url(../Images/grandprize-bg.jpg) no-repeat center center fixed;
-		@include background-size('cover');
-    }
+			.txtNickname {
+				font-size: 2.4rem;
+			}
 
-    &.major-prize {		
-        background: url(../Images/majorprize-bg.jpg) no-repeat center center fixed;
-		@include background-size('cover');     
-    }
-
-    &.cash-prize {		
-		background: url(../Images/cashprize-bg.jpg) no-repeat center center fixed;
-		@include align-items(center);
-		@include align-content(center);  
-		@include background-size(cover);
-		@include flexbox;
-		@include flex-direction(row);
-		@include flex-wrap(wrap);
-		@include justify-content(center);
-		              
-    }
-
-    &.winner-details {		
-        background: url(../Images/winner-bg.jpg) no-repeat center center fixed;
-		@include background-size('cover');      
-    }
-
-	.listPrize {		
+			li {
+				font-family: Roboto, arial;
+				line-height: 3.5rem;
+			}
+		}
 		justify-content: center;
-		float: none;
-		@include align-content(center);
-		@include flexbox;
-		@include justify-content(center);			
-	}
+    }
 
     .super-grand-winner-details {
         .staff-info {
@@ -92,9 +132,9 @@
         }
     }
 }
-   
+
  @media (max-device-height: 400px) {   
-       .prize {
+	.prize {
 		width: 26%;
 	}
 }   

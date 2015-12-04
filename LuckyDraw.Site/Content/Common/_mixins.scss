@@ -190,3 +190,37 @@
 	}
 	align-content: $value;
 }
+
+/// Box Shadow
+/// @param {Size} $x [2px] - X
+/// @param {Size} $y [2px] - Y
+/// @param {Size} $blur [5px] - Blur
+/// @param {Color} $color [rgba(0,0,0,.4)] - Color
+/// @param {Boolean} $inset - Inset
+
+@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: "") {
+  @if ($inset != "") {
+    @include css3-prefix('box-shadow', $inset $x $y $blur $color);
+  } @else {
+    @include css3-prefix('box-shadow', $x $y $blur $color);
+  }
+}
+
+/// Align item with flexbox
+
+@mixin align-with-flex ($align-items, $align-content, $position, $justify-content, $wrap: wrap){
+	@include align-items($align-items);
+	@include align-content($align-content);
+	@include flexbox;
+	@include flex-direction($position);
+	@include flex-wrap($wrap);
+	@include justify-content($justify-content);
+}
+
+/// Box Sizing
+/// @param {*} $type [border-box] - Type
+/// @require {mixin} css3-prefix
+
+@mixin box-sizing($type: border-box) {
+  @include css3-prefix('box-sizing', $type);
+}

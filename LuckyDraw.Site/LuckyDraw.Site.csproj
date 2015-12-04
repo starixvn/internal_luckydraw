@@ -192,10 +192,13 @@
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\border.png" />
     <Content Include="Images\cashprize-bg.jpg" />
     <Content Include="Images\grandprize-bg.jpg" />
+    <Content Include="Images\logo-Luckydraw.png" />
     <Content Include="Images\luckdraw-opening-bg.jpg" />
     <Content Include="Images\majorprize-bg.jpg" />
+    <Content Include="Images\prizeListMain.png" />
     <Content Include="Images\supergrandprize-bg.jpg" />
     <Content Include="Images\Title\1-after.png" />
     <Content Include="Images\Title\1-before.png" />
