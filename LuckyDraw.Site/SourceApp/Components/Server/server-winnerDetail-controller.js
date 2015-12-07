@@ -9,29 +9,11 @@ function ($routeParams, ServerModel, CommonModel, baseUrl) {
     vm.baseUrl = baseUrl;
     vm.prizeType = parseInt($routeParams.prizeType);
 
+    vm.nextPrize = false;
+
     vm.greenStaff = null;
     vm.pinkStaff = null;
     vm.blueStaff = null;
-
-    vm.removeWinner = function (index) {
-        switch (index) {
-            case 1:
-                if (vm.pinkStaff) {
-                    ServerModel.openPopupConfirmRemoveWinner(vm, vm.pinkStaff, index);
-                }
-                break;
-            case 2:
-                if (vm.greenStaff) {
-                    ServerModel.openPopupConfirmRemoveWinner(vm, vm.greenStaff, index);
-                }
-                break;
-            case 3:
-                if (vm.blueStaff) {
-                    ServerModel.openPopupConfirmRemoveWinner(vm, vm.blueStaff, index);
-                }
-                break;
-        }
-    };
 
     vm.initialize = function () {
         CommonModel.getPrizeType().then(function () {
@@ -53,23 +35,7 @@ function ($routeParams, ServerModel, CommonModel, baseUrl) {
 
                                 if (vm.winnerDetail && vm.winnerDetail.Winners.length > 0) {
                                     angular.forEach(vm.winnerDetail.Winners, function (winner) {
-                                        switch (winner.StaffCode.substring(0, 2)) {
-                                            case '10':
-                                                if (!vm.pinkStaff) {
-                                                    vm.pinkStaff = winner;
-                                                }
-                                                break;
-                                            case '11':
-                                                if (!vm.greenStaff) {
-                                                    vm.greenStaff = winner;
-                                                }
-                                                break;
-                                            case '12':
-                                                if (!vm.blueStaff) {
-                                                    vm.blueStaff = winner;
-                                                }
-                                                break;
-                                        }
+                                        vm.fillWinner(winner);
                                     });
                                 }
                             });
@@ -84,37 +50,86 @@ function ($routeParams, ServerModel, CommonModel, baseUrl) {
 
     vm.initialize();
 
+    vm.removeWinner = function (index) {
+        switch (index) {
+            case 1:
+                if (vm.pinkStaff) {
+                    ServerModel.openPopupConfirmRemoveWinner(vm, vm.pinkStaff, index);
+                }
+                break;
+            case 2:
+                if (vm.greenStaff) {
+                    ServerModel.openPopupConfirmRemoveWinner(vm, vm.greenStaff, index);
+                }
+                break;
+            case 3:
+                if (vm.blueStaff) {
+                    ServerModel.openPopupConfirmRemoveWinner(vm, vm.blueStaff, index);
+                }
+                break;
+        }
+    };
+
     var hubProxy = $.connection.hubs;
+
+    vm.fillWinner = function (winner) {
+        var grade = parseInt(winner.StaffCode.substring(0, 2)),
+            message = '';
+
+        switch (grade) {
+            case 10:
+                if (!vm.pinkStaff) {
+                    vm.pinkStaff = winner;
+                } else {
+                    if (winner.StaffCode === vm.pinkStaff.StaffCode) {
+                        message = 'Barcode duplicated, barcode: ' + winner.StaffCode;
+                        hubProxy.server.sendResponse(grade, message);
+                    } else {
+                        message = 'Wrong group, barcode: ' + winner.StaffCode;
+                        hubProxy.server.sendResponse(grade, message);
+                    }
+                }
+                break;
+            case 11:
+                if (!vm.greenStaff) {
+                    vm.greenStaff = winner;
+                } else {
+                    if (winner.StaffCode === vm.greenStaff.StaffCode) {
+                        message = 'Barcode duplicated, barcode: ' + winner.StaffCode;
+                        hubProxy.server.sendResponse(grade, message);
+                    } else {
+                        message = 'Wrong group, barcode: ' + winner.StaffCode;
+                        hubProxy.server.sendResponse(grade, message);
+                    }
+                }
+                break;
+            case 12:
+                if (!vm.blueStaff) {
+                    vm.blueStaff = winner;
+                } else {
+                    if (winner.StaffCode === vm.blueStaff.StaffCode) {
+                        message = 'Barcode duplicated, barcode: ' + winner.StaffCode;
+                        hubProxy.server.sendResponse(grade, message);
+                    } else {
+                        message = 'Wrong group, barcode: ' + winner.StaffCode;
+                        hubProxy.server.sendResponse(grade, message);
+                    }
+                }
+                break;
+        }
+    };
 
     hubProxy.client.getStaffCode = function (staffCode) {
         CommonModel.getStaffByCode(staffCode).then(function () {
             var staff = CommonModel.staff;
 
             if (staff && staff.StaffCode) {
-                switch (staff.StaffCode.substring(0, 2)) {
-                    case '10':
-                        if (!vm.pinkStaff) {
-                            vm.pinkStaff = staff;
-                        }
-                        break;
-                    case '11':
-                        if (!vm.greenStaff) {
-                            vm.greenStaff = staff;
-                        }
-                        break;
-                    case '12':
-                        if (!vm.blueStaff) {
-                            vm.blueStaff = staff;
-                        }
-                        break;
-                }
+                vm.fillWinner(staff);
             }
         });
     };
 
-    $.connection.hub.start().done(function () {
-        console.log('Now connected, connection ID =' + $.connection.hub.id);
-    });
+    $.connection.hub.start();
 } ]);
 
 serverModule.controller('RemoveWinnerController',
@@ -144,6 +159,7 @@ serverModule.directive('winnerDetailKeyboardEvent',
                 var path = '';
 
                 switch (event.which) {
+                    case 13: // enter
                     case 27: // asc
                         path = baseUrl + 'Server/PrizeList/' + scope.winnerDetailCtrl.prizeType + '?isOpeningPrize';
                         break;

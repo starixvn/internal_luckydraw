@@ -114,9 +114,18 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
 
         modalInstance.result.then(function () {
-            serverFactory.deleteWinner(staff.StaffId, vm.prizeType)
+            var currentPrize = vm.prizeSetting.CurrentPrize + 1;
+
+            if (currentPrize > (vm.prizeSetting.Quantity / vm.prizeSetting.Multiply)) {
+                currentPrize = parseInt(vm.prizeSetting.Quantity / vm.prizeSetting.Multiply);
+            }
+
+            serverFactory.deleteWinner(staff.StaffId, vm.prizeType, currentPrize)
             .success(function (response) {
                 if (response.IsSuccessful) {
+                    vm.currentPrize = currentPrize;
+                    vm.prizeSetting.CurrentPrize = currentPrize;
+
                     switch (index) {
                         case 1:
                             vm.pinkStaff = null;

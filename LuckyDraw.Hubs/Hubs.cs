@@ -17,5 +17,10 @@ namespace LuckyDraw.Hubs
         {
             Clients.All.getStaffCode(staffCode);
         }
+
+        public void SendResponse(int grade, string message)
+        {
+            Clients.All.getResponse(grade, message);
+        }
     }
 }

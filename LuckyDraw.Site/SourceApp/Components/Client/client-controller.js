@@ -2,11 +2,12 @@
 /*global clientModule*/
 
 clientModule.controller('ClientController',
-['$location', '$routeParams', 'CommonModel', 'baseUrl',
-function ($location, $routeParams, CommonModel, baseUrl) {
+['$scope', '$location', '$routeParams', 'CommonModel', 'baseUrl',
+function ($scope, $location, $routeParams, CommonModel, baseUrl) {
     var vm = this;
 
     vm.grade = parseInt($routeParams.grade);
+    vm.message = null;
     vm.staffCode = '';
 
     vm.initialize = function () {
@@ -30,8 +31,6 @@ function ($location, $routeParams, CommonModel, baseUrl) {
     };
 
     vm.initialize();
-
-    var hubProxy = $.connection.hubs;
 
     vm.getClient = function () {
         var client = 'default-client';
@@ -65,6 +64,8 @@ function ($location, $routeParams, CommonModel, baseUrl) {
         return isValid;
     };
 
+    var hubProxy = $.connection.hubs;
+
     vm.getStaffByCode = function (staffCode) {
         if (vm.checkStaffCodeByGrade(staffCode)) {
             CommonModel.getStaffByCode(staffCode).then(function () {
@@ -81,7 +82,12 @@ function ($location, $routeParams, CommonModel, baseUrl) {
         }
     };
 
-    $.connection.hub.start().done(function () {
-        console.log('Now connected, connection ID =' + $.connection.hub.id);
-    });
+    hubProxy.client.getResponse = function (grade, message) {
+        if (grade === vm.grade) {
+            vm.message = message;
+            $scope.$apply();
+        }
+    };
+
+    $.connection.hub.start();
 } ]);

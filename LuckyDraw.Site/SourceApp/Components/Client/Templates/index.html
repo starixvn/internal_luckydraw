@@ -1,6 +1,6 @@
 ﻿<div class="row client-site" ng-controller="ClientController as clientCtrl" ng-class="clientCtrl.getClient()" client-keyboard-event>
     <div class="row staff-info">
-        <div class="col-sm-3">
+        <div class="col-sm-3 avatar">
             <img style="width: 150px" ng-src="data:image/jpeg;base64,{{clientCtrl.staff.Avatar}}" src="" alt="" />
         </div>
         <div class="col-sm-6">
@@ -23,5 +23,6 @@
         </div>
     </div>
     <div class="row status">
+        <div class="text-center" ng-if="clientCtrl.message" ng-bind="clientCtrl.message"></div>
     </div>
 </div>
