@@ -190,6 +190,27 @@ function ($scope, $routeParams, ServerModel, CommonModel, baseUrl) {
         }
     };
 
+    vm.removeSpecialWinner = function () {
+        if (vm.focusWinner > 0 && vm.focusWinner < 4
+            && vm.prizedWinners.length > 0 && vm.savedWinners.length > 0) {
+            var staff;
+
+            switch (vm.focusWinner) {
+                case 1:
+                    staff = vm.winner3;
+                    break;
+                case 2:
+                    staff = vm.winner2;
+                    break;
+                case 3:
+                    staff = vm.winner1;
+                    break;
+            }
+
+            ServerModel.openPopupConfirmRemoveSpecialWinner(vm, staff, vm.focusWinner);
+        }
+    };
+
     vm.removeAllWinner = function () {
         if (vm.savedWinners.length > 0) {
             ServerModel.openPopupConfirmRemoveAllWinner(vm);
@@ -262,7 +283,7 @@ serverModule.directive('superGrandWinnerDetailKeyboardEvent',
                         }
                         break;
                     case 46: // delete
-                        alert('delete');
+                        scope.winnerDetailCtrl.removeSpecialWinner();
                         break;
                     case 49: // 1
                         scope.winnerDetailCtrl.choosePrize(1);

@@ -176,11 +176,16 @@ namespace LuckyDraw.Site.Controllers.API
         }
 
         [HttpDelete]
-        public CommandResult DeleteWinner(string staffIds)
+        public CommandResult DeleteWinner(
+            string staffIds,
+            int prizeTypeId,
+            int? currentPrize = null)
         {
             DeleteWinnerCriteria criteria = new DeleteWinnerCriteria()
             {
-                StaffIds = staffIds
+                StaffIds = staffIds,
+                PrizeTypeId = prizeTypeId,
+                CurrentPrize = currentPrize
             };
 
             return _staffService.DeleteWinner(criteria);

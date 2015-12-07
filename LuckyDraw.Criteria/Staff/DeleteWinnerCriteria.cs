@@ -15,6 +15,10 @@ namespace LuckyDraw.Criteria.Staff
     {
         public string StaffIds { get; set; }
 
+        public int PrizeTypeId { get; set; }
+
+        public int? CurrentPrize { get; set; }
+
         public override string GetSettingKey()
         {
             return "Winner_Delete";
@@ -22,7 +26,7 @@ namespace LuckyDraw.Criteria.Staff
 
         public override bool IsValid()
         {
-            return !string.IsNullOrEmpty(StaffIds);
+            return !string.IsNullOrEmpty(StaffIds) && PrizeTypeId > 0;
         }
     }
 }

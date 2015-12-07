@@ -34,8 +34,14 @@ serverModule.factory('serverFactory', ['$http', 'baseUrl', function ($http, base
         updateWinner: function (criteria) {
             return $http.put(baseUrl + 'api/Server/UpdateWinner', criteria);
         },
-        deleteWinner: function (staffIds) {
-            return $http['delete'](baseUrl + 'api/Server/DeleteWinner', { params: { staffIds: staffIds} });
+        deleteWinner: function (staffIds, prizeTypeId, currentPrize) {
+            return $http['delete'](baseUrl + 'api/Server/DeleteWinner', {
+                params: {
+                    staffIds: staffIds,
+                    prizeTypeId: prizeTypeId,
+                    currentPrize: currentPrize
+                }
+            });
         }
     };
 } ]);

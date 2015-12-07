@@ -114,7 +114,7 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
 
         modalInstance.result.then(function () {
-            serverFactory.deleteWinner(staff.StaffId)
+            serverFactory.deleteWinner(staff.StaffId, vm.prizeType)
             .success(function (response) {
                 if (response.IsSuccessful) {
                     switch (index) {
@@ -126,6 +126,60 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
                             break;
                         case 3:
                             vm.blueStaff = null;
+                            break;
+                    }
+                } else {
+                    notificationFactory.error("", response.Message);
+                }
+            }).error(function (response, status) {
+                errorFactory.errorHandle(status);
+            });
+        })['finally'](function () {
+            modalInstance = '';
+        });
+    };
+
+    serverModel.openPopupConfirmRemoveSpecialWinner = function (vm, staff, index) {
+        var modalInstance = $modal.open({
+            templateUrl: 'SourceApp/Components/Server/Templates/modalConfirmRemoveWinner.html',
+            controller: "RemoveWinnerController as removeWinnerCtrl",
+            backdrop: 'static',
+            resolve: {
+                staff: function () {
+                    return angular.copy(staff);
+                },
+                isRemoveAll: function () {
+                    return false;
+                },
+                isReset: function () {
+                    return false;
+                }
+            },
+            windowClass: "modal-confirm-center"
+        });
+
+        modalInstance.result.then(function () {
+            if (vm.prizedWinner.length === 3 && vm.prizedIndex === 0) {
+                if (vm.isFinished) {
+                    vm.prizeSetting.CurrentPrize -= 1;
+                    vm.isFinished = false;
+                }
+
+                vm.isDelete = true;
+            }
+
+            serverFactory.deleteWinner(staff.StaffId, vm.prizeType, vm.prizeSetting.CurrentPrize)
+            .success(function (response) {
+                if (response.IsSuccessful) {
+                    switch (index) {
+                        case 1:
+                            vm.winner3 = null;
+                            break;
+                        case 2:
+                            vm.winner2 = null;
+                            break;
+                        case 3:
+                            vm.winner1 = null;
                             break;
                     }
                 } else {
@@ -159,11 +213,15 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
 
         modalInstance.result.then(function () {
-            var staffIds = vm.savedWinners.map(function (e) { return e.StaffId; }).join(',');
-            serverFactory.deleteWinner(staffIds)
+            var staffIds = vm.savedWinners.map(function (e) { return e.StaffId; }).join(','),
+                currentPrize = (parseInt((vm.startPrize - 1) / 3) + 1) * 3;
+
+            serverFactory.deleteWinner(staffIds, vm.prizeType, currentPrize)
             .success(function (response) {
                 if (response.IsSuccessful) {
                     vm.savedWinners = [];
+                    vm.prizedWinners = [];
+                    vm.prizedIndex = 3;
                 } else {
                     notificationFactory.error("", response.Message);
                 }
