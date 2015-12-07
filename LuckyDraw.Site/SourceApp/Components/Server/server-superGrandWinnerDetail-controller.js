@@ -8,12 +8,15 @@ function ($scope, $routeParams, ServerModel, CommonModel, baseUrl) {
 
     vm.baseUrl = baseUrl;
     vm.prizeType = parseInt($routeParams.prizeType);
-    vm.currentPrize = parseInt($routeParams.currentPrize);
 
+    vm.startPrize = 9;
     vm.focusWinner = 4;
     vm.prizedIndex = 3;
     vm.prizedWinners = [];
     vm.savedWinners = [];
+
+    vm.isDelete = false;
+    vm.isFinished = false;
 
     vm.winner1 = null;
     vm.winner2 = null;
@@ -29,19 +32,26 @@ function ($scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                 if (index === -1) {
                     $location.path(baseUrl + 'Home/AccessDenied');
                 } else {
-                    ServerModel.getSuperGrandWinnerDetail(vm.prizeType, vm.currentPrize).then(function () {
-                        vm.winnerDetail = ServerModel.winnerDetail;
+                    CommonModel.getPrizeSettingByPrizeType(vm.prizeType).then(function () {
+                        if (CommonModel.prizeSetting) {
+                            vm.prizeSetting = CommonModel.prizeSetting;
+                            vm.startPrize = vm.prizeSetting.CurrentPrize;
 
-                        if (vm.winnerDetail && vm.winnerDetail.Winners.length > 0) {
-                            angular.forEach(vm.winnerDetail.Winners, function (winner, index) {
-                                var prizeIndex = winner.Prize.PrizeId < 0 ? -1 : winner.Prize.PrizeIndex;
+                            ServerModel.getSuperGrandWinnerDetail(vm.prizeType, vm.startPrize).then(function () {
+                                vm.winnerDetail = ServerModel.winnerDetail;
 
-                                vm.fillWinner(winner, index + 1, prizeIndex);
-                                vm.savedWinners.push(winner);
+                                if (vm.winnerDetail && vm.winnerDetail.Winners.length > 0) {
+                                    angular.forEach(vm.winnerDetail.Winners, function (winner, index) {
+                                        var prizeIndex = winner.Prize.PrizeId < 0 ? -1 : winner.Prize.PrizeIndex;
 
-                                if (prizeIndex !== -1) {
-                                    vm.prizedIndex -= 1;
-                                    vm.prizedWinners.push(winner);
+                                        vm.fillWinner(winner, index + 1, prizeIndex);
+                                        vm.savedWinners.push(winner);
+
+                                        if (prizeIndex !== -1) {
+                                            vm.prizedIndex -= 1;
+                                            vm.prizedWinners.push(winner);
+                                        }
+                                    });
                                 }
                             });
                         }
@@ -99,7 +109,7 @@ function ($scope, $routeParams, ServerModel, CommonModel, baseUrl) {
     };
 
     vm.sortPrize = function () {
-        ServerModel.getSuperGrandWinnerDetail(vm.prizeType, vm.currentPrize).then(function () {
+        ServerModel.getSuperGrandWinnerDetail(vm.prizeType, vm.startPrize).then(function () {
             vm.winnerDetail = ServerModel.winnerDetail;
 
             if (vm.winnerDetail && vm.winnerDetail.Winners.length > 0) {
@@ -139,15 +149,18 @@ function ($scope, $routeParams, ServerModel, CommonModel, baseUrl) {
         if (vm.savedWinners.length >= 3
                 && (prize > 0 && prize < 10)
                 && index === -1
-                && ((vm.currentPrize - 1) / 3 === (prize - 1) / 3)) {
-            ServerModel.getPrizeNumber(prizeIndex).then(function () {
+                && (parseInt((vm.startPrize - 1) / 3) === parseInt((prize - 1) / 3))) {
+            ServerModel.getPrizeNumber(prize).then(function () {
                 if (ServerModel.prizeNumber) {
+                    var winners = [];
                     switch (vm.focusWinner) {
                         case 1:
                             if (vm.winner3) {
                                 vm.winner3.PrizeNumber = baseUrl + ServerModel.prizeNumber;
                                 vm.winner3.Prize = vm.winnerDetail.Prizes[(prize - 1) % 3];
-                                ServerModel.updateWinner(new Array(vm.winner3));
+
+                                winners.push(vm.winner3)
+                                ServerModel.updateWinner(vm, winners);
                                 vm.prizedIndex -= 1;
                             }
                             break;
@@ -155,7 +168,9 @@ function ($scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                             if (vm.winner2) {
                                 vm.winner2.PrizeNumber = baseUrl + ServerModel.prizeNumber;
                                 vm.winner2.Prize = vm.winnerDetail.Prizes[(prize - 1) % 3];
-                                ServerModel.updateWinner(new Array(vm.winner2));
+
+                                winners.push(vm.winner2)
+                                ServerModel.updateWinner(vm, winners);
                                 vm.prizedIndex -= 1;
                             }
                             break;
@@ -163,7 +178,9 @@ function ($scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                             if (vm.winner1) {
                                 vm.winner1.PrizeNumber = baseUrl + ServerModel.prizeNumber;
                                 vm.winner1.Prize = vm.winnerDetail.Prizes[(prize - 1) % 3];
-                                ServerModel.updateWinner(new Array(vm.winner1));
+
+                                winners.push(vm.winner1)
+                                ServerModel.updateWinner(vm, winners);
                                 vm.prizedIndex -= 1;
                             }
                             break;
@@ -284,7 +301,7 @@ serverModule.directive('superGrandWinnerDetailKeyboardEvent',
                             scope.winnerDetailCtrl.resetPrizeWinners();
                         }
                         break;
-                    case 115: // s
+                    case 83: // s
                         scope.winnerDetailCtrl.sortPrize();
                         break;
                 }

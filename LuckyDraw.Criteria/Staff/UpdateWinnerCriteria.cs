@@ -37,6 +37,10 @@ namespace LuckyDraw.Criteria.Staff
             }
         }
 
+        public int PrizeTypeId { get; set; }
+
+        public int? CurrentPrize { get; set; }
+
         [SpParam(Ignored = true)]
         public IEnumerable<StaffModel> Winners { get; set; }
 
@@ -47,7 +51,7 @@ namespace LuckyDraw.Criteria.Staff
 
         public override bool IsValid()
         {
-            return true;
+            return PrizeTypeId > 0;
         }
     }
 }

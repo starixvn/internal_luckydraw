@@ -87,12 +87,12 @@ serverModule.directive('prizeListKeyboardEvent',
                         if (scope.prizeListCtrl.isOpeningPrize && scope.prizeListCtrl.currentPrize) {
                             switch (scope.prizeListCtrl.prizeType) {
                                 case 2:
-                                    path = baseUrl + 'Server/SuperGrandWinnerDetail/' + scope.prizeListCtrl.prizeType + '?currentPrize=' + scope.prizeListCtrl.currentPrize;
+                                    path = baseUrl + 'Server/SuperGrandWinnerDetail/' + scope.prizeListCtrl.prizeType;
                                     break;
                                 case 3:
                                 case 4:
                                 case 5:
-                                    path = baseUrl + 'Server/WinnerDetail/' + scope.prizeListCtrl.prizeType + '?currentPrize=' + scope.prizeListCtrl.currentPrize;
+                                    path = baseUrl + 'Server/WinnerDetail/' + scope.prizeListCtrl.prizeType;
                                     break;
                             }
                         } else {

@@ -71,16 +71,27 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
     };
 
-    serverModel.updateWinner = function (winners) {
-        return serverFactory.updateWinner(winners)
-        .success(function (response) {
-            if (response.IsSuccessful) {
-            } else {
-                notificationFactory.error("", response.Message);
-            }
-        }).error(function (response, status) {
-            errorFactory.errorHandle(status);
-        });
+    serverModel.updateWinner = function (vm, winners) {
+        if (vm.prizeSetting.CurrentPrize > 0 && !vm.isDelete) {
+            vm.prizeSetting.CurrentPrize -= 1;
+
+            var criteria = {
+                Winners: winners,
+                PrizeTypeId: vm.prizeType,
+                CurrentPrize: vm.prizeSetting.CurrentPrize
+            };
+
+            return serverFactory.updateWinner(criteria)
+            .success(function (response) {
+                if (response.IsSuccessful) {
+                    vm.prizedWinners.push(winners[0]);
+                } else {
+                    notificationFactory.error("", response.Message);
+                }
+            }).error(function (response, status) {
+                errorFactory.errorHandle(status);
+            });
+        }
     };
 
     serverModel.openPopupConfirmRemoveWinner = function (vm, staff, index) {
@@ -184,7 +195,9 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
 
         modalInstance.result.then(function () {
-            var winners = [];
+            var winners = [],
+                currentPrize = (parseInt((vm.startPrize - 1) / 3) + 1) * 3;
+
             if (vm.winner1) {
                 vm.winner1.Prize.PrizeId = -1;
                 winners.push(vm.winner1);
@@ -200,12 +213,19 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
                 winners.push(vm.winner3);
             }
 
-            serverFactory.updateWinner(winners)
+            var criteria = {
+                Winners: winners,
+                PrizeTypeId: vm.prizeType,
+                CurrentPrize: currentPrize
+            };
+
+            serverFactory.updateWinner(criteria)
             .success(function (response) {
                 if (response.IsSuccessful) {
                     vm.winner1.PrizeNumber = null;
                     vm.winner2.PrizeNumber = null;
                     vm.winner3.PrizeNumber = null;
+                    vm.prizedWinners = [];
                 } else {
                     notificationFactory.error("", response.Message);
                 }

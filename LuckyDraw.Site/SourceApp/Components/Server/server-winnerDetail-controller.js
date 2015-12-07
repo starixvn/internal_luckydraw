@@ -8,7 +8,6 @@ function ($routeParams, ServerModel, CommonModel, baseUrl) {
 
     vm.baseUrl = baseUrl;
     vm.prizeType = parseInt($routeParams.prizeType);
-    vm.currentPrize = parseInt($routeParams.currentPrize);
 
     vm.greenStaff = null;
     vm.pinkStaff = null;
@@ -44,27 +43,34 @@ function ($routeParams, ServerModel, CommonModel, baseUrl) {
                 if (index === -1) {
                     $location.path(baseUrl + 'Home/AccessDenied');
                 } else {
-                    ServerModel.getWinnerDetail(vm.prizeType, vm.currentPrize).then(function () {
-                        vm.winnerDetail = ServerModel.winnerDetail;
+                    CommonModel.getPrizeSettingByPrizeType(vm.prizeType).then(function () {
+                        if (CommonModel.prizeSetting) {
+                            vm.prizeSetting = CommonModel.prizeSetting;
+                            vm.currentPrize = vm.prizeSetting.CurrentPrize;
 
-                        if (vm.winnerDetail && vm.winnerDetail.Winners.length > 0) {
-                            angular.forEach(vm.winnerDetail.Winners, function (winner) {
-                                switch (winner.StaffCode.substring(0, 2)) {
-                                    case '10':
-                                        if (!vm.pinkStaff) {
-                                            vm.pinkStaff = winner;
+                            ServerModel.getWinnerDetail(vm.prizeType, vm.currentPrize).then(function () {
+                                vm.winnerDetail = ServerModel.winnerDetail;
+
+                                if (vm.winnerDetail && vm.winnerDetail.Winners.length > 0) {
+                                    angular.forEach(vm.winnerDetail.Winners, function (winner) {
+                                        switch (winner.StaffCode.substring(0, 2)) {
+                                            case '10':
+                                                if (!vm.pinkStaff) {
+                                                    vm.pinkStaff = winner;
+                                                }
+                                                break;
+                                            case '11':
+                                                if (!vm.greenStaff) {
+                                                    vm.greenStaff = winner;
+                                                }
+                                                break;
+                                            case '12':
+                                                if (!vm.blueStaff) {
+                                                    vm.blueStaff = winner;
+                                                }
+                                                break;
                                         }
-                                        break;
-                                    case '11':
-                                        if (!vm.greenStaff) {
-                                            vm.greenStaff = winner;
-                                        }
-                                        break;
-                                    case '12':
-                                        if (!vm.blueStaff) {
-                                            vm.blueStaff = winner;
-                                        }
-                                        break;
+                                    });
                                 }
                             });
                         }

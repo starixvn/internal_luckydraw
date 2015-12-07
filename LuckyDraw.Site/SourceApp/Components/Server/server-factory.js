@@ -31,8 +31,8 @@ serverModule.factory('serverFactory', ['$http', 'baseUrl', function ($http, base
         insertWinner: function (winners) {
             return $http.post(baseUrl + 'api/Server/InsertWinner', winners);
         },
-        updateWinner: function (winners) {
-            return $http.put(baseUrl + 'api/Server/UpdateWinner', winners);
+        updateWinner: function (criteria) {
+            return $http.put(baseUrl + 'api/Server/UpdateWinner', criteria);
         },
         deleteWinner: function (staffIds) {
             return $http['delete'](baseUrl + 'api/Server/DeleteWinner', { params: { staffIds: staffIds} });

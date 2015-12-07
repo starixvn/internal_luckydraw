@@ -170,13 +170,8 @@ namespace LuckyDraw.Site.Controllers.API
         }
 
         [HttpPut]
-        public CommandResult UpdateWinner(IEnumerable<StaffModel> winners)
+        public CommandResult UpdateWinner(UpdateWinnerCriteria criteria)
         {
-            UpdateWinnerCriteria criteria = new UpdateWinnerCriteria()
-            {
-                Winners = winners
-            };
-
             return _staffService.UpdateWinner(criteria);
         }
 
