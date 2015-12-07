@@ -224,3 +224,7 @@
 @mixin box-sizing($type: border-box) {
   @include css3-prefix('box-sizing', $type);
 }
+
+@mixin border-image ($path, $offsets, $repeats) {
+	@include css3-prefix('border-image', $path $offsets $repeats);
+}

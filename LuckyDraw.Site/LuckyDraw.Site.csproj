@@ -192,10 +192,15 @@
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\bg-cashprize.jpg" />
     <Content Include="Images\border.png" />
     <Content Include="Images\cashprize-bg.jpg" />
     <Content Include="Images\grandprize-bg.jpg" />
+    <Content Include="Images\logo-cash.png" />
+    <Content Include="Images\logo-grand.png" />
     <Content Include="Images\logo-Luckydraw.png" />
+    <Content Include="Images\logo-major.png" />
+    <Content Include="Images\logo-supergrand.png" />
     <Content Include="Images\luckdraw-opening-bg.jpg" />
     <Content Include="Images\majorprize-bg.jpg" />
     <Content Include="Images\prizeListMain.png" />
@@ -284,6 +289,12 @@
     <Content Include="Images\Title\blank_ticket_a.png" />
     <Content Include="Images\Title\blank_ticket_b.png" />
     <Content Include="Images\winner-bg.jpg" />
+    <Content Include="Images\Winner\cashprize-small.png" />
+    <Content Include="Images\Winner\logo-grand.png" />
+    <Content Include="Images\Winner\logo-Luckydraw-small.png" />
+    <Content Include="Images\Winner\logo-major.png" />
+    <Content Include="Images\Winner\logo-supergrand.png" />
+    <Content Include="Images\Winner\unknown.png" />
     <Content Include="Images\Winner\winner-pic.jpg" />
     <Content Include="Images\Winner\winnerimage-blue.jpg" />
     <Content Include="Images\Winner\winnerimage-green.jpg" />
@@ -477,7 +488,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54675</DevelopmentServerPort>
+          <DevelopmentServerPort>56233</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

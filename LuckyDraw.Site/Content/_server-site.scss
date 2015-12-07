@@ -1,11 +1,13 @@
+body {
+	background-color: #000;
+}
+
 .server-site {
     background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;
-	border: 4.4rem solid transparent;
-    -webkit-border-image: url(../Images/border.png) 51 repeat; /* Safari 3.1-5 */
-    -o-border-image: url(../Images/border.png) 51 repeat; /* Opera 11-12.1 */
-    border-image: url(../Images/border.png) 51 repeat;
-    height: 100vh;
-	width: 100vw;
+	border: 3.6rem solid transparent;
+	height: 100vh;
+	width: 100vw; 
+	@include border-image(url(../Images/border.png), 30%, repeat );
 	@include background-size('cover');
 
 	&.opening {
@@ -31,27 +33,140 @@
 	}
 
     &.super-grand-prize {		
-        background: url(../Images/supergrandprize-bg.jpg) no-repeat center center fixed;
+        background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
     }
 
     &.grand-prize {		
-        background: url(../Images/grandprize-bg.jpg) no-repeat center center fixed;
+        background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
     }
 
     &.major-prize {		
-        background: url(../Images/majorprize-bg.jpg) no-repeat center center fixed;     
+        background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;     
     }
 
     &.cash-prize {		
-		background: url(../Images/cashprize-bg.jpg) no-repeat center center fixed;
+		background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
     }
 	
     &.winner-details {		
-        background: url(../Images/winner-bg.jpg) no-repeat center center fixed;
-		padding: 0 15%;
-		
-		.winnerList, .prizePhoto {
-			@include align-with-flex(flex-start, flex-start, column, flex-start);
+        background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
+		padding: 5rem;
+
+		.logo-prize {
+			left: 1.2rem;
+			position: absolute;
+			top: 1.6rem;
+			z-index: 5;
+			height: 19.5rem;
+			width: 29.9rem;
+
+			&.cash {
+				background: url(../Images/Winner/cashprize-small.png)  no-repeat;				
+			}		
+		}
+
+		.logo-small {
+			right: 6.4rem;
+			position: absolute;
+			bottom: 4rem;
+			z-index: 5;
+			height: 8.8rem;
+			width: 32.7rem;
+			background: url(../Images/Winner/logo-Luckydraw-small.png)  no-repeat;
+		}
+
+		.staff-info {
+			margin: 1.5rem;
+			@include align-with-flex(center, center, row, center);
+
+			.avatar {
+				border: .2rem solid;
+				background-color: #0e090d;
+				height: 15rem;
+				text-align: center;
+				width: 13rem;
+
+				.photo {				
+					height: 100%;
+					width: 100%;
+				}
+
+				.photo-unknown {
+					margin: 3.7rem 3.6rem;
+				}
+			}
+
+			&.pink-staff {
+				.avatar {
+					border-color: #f8aad1;
+					outline: .1rem solid #f0549e;
+					@include box-shadow(0, 0, 1.6rem, #f8aad1);
+				}
+
+				.photo {
+					border: .1rem solid #f0549e;
+				}
+			}
+
+			&.green-staff {
+				.avatar {
+					border-color: #8de1af;
+					outline: .1rem solid #19c25d;
+					@include box-shadow(0, 0, 1.6rem, #8de1af);
+				}
+
+				.photo {
+					border: .1rem solid #19c25d;
+				}
+			}
+
+			&.blue-staff {
+				.avatar {
+					border-color: #95a8f7;
+					outline: .1rem solid #284eef;
+					@include box-shadow(0, 0, 1.2rem, #95a8f7);
+				}
+
+				.photo {
+					border: .1rem solid #284eef;
+				}
+			}
+
+			.info {
+				color: #ffea99;
+				font: {
+					weight: 600;
+					size: 2rem;
+				}
+				padding-left: 2rem;
+
+				.txtNickname {
+					font: {
+						weight: bold;
+						size: 3rem;
+					}
+				}
+
+				.txtFullName {
+					margin: -1rem 0 3rem;
+				}
+			}
+		}
+
+		.winner-container {
+			background: rgba(0, 0, 0, .7);
+			border: .1rem solid #ac7926;
+			height: 100%;
+			padding: 0 12rem 0 16rem;
+			@include flexbox;
+
+			.winnerList {
+				@include align-with-flex(flex-start, flex-start, column, center);
+			}
+
+			.prizePhoto {
+				@include align-with-flex(center, center, row, flex-end);
+			}
 		}
     }
 
@@ -60,72 +175,11 @@
 		@include background-size(cover);
 	}
 
-	.staff-info {
-        margin: 2rem;
-		@include align-with-flex(center, center, row, center);
-
-        .avatar {
-            border: .4rem solid;
-			background-color: #333;
-			height: 20rem;
-			text-align: center;
-			width: 15rem;
-
-			img {
-				height: 100%;
-				width: 100%;
-			}
-        }
-
-        &.pink-staff {
-            color: #f48fb1;
-
-            .avatar {
-                border-color: #f48fb1;
-            }
-        }
-
-        &.green-staff {
-            color: #a5d6a7;
-
-            .avatar {
-                border-color: #a5d6a7;
-            }
-        }
-
-        &.blue-staff {
-            color: #90caf9;
-
-            .avatar {
-                border-color: #90caf9;
-            }
-        }
-
-		.info {
-			font: {
-				weight: 500;
-				size: 2rem;
-			}
-			margin: 0;
-			padding-left: 2rem;
-			text-shadow: 1px 1px 0 rgba(255,255,255,0.2) ;
-
-			.txtNickname {
-				font-size: 2.4rem;
-			}
-
-			li {
-				font-family: Roboto, arial;
-				line-height: 3.5rem;
-			}
-		}
-    }
-
     &.super-grand-winner-details {
         .staff-info {
             &.focus {
                 .avatar {
-                    border: .3rem solid #f5f5f5;
+                    border: .2rem solid #f5f5f5;
                 }
             }
         }
@@ -136,4 +190,4 @@
 	.prize {
 		width: 26%;
 	}
-}   
+}
