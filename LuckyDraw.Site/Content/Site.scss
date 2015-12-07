@@ -1,16 +1,5 @@
 ﻿@import "Common/bootstrap";
 @import "Common/toastr";
 @import "Common/_mixins.scss";
-
-.container-fluid {
-    margin: 0;
-    padding: 0;
-}
-
-.row {
-    margin: 0;
-    padding: 0;
-}
-
 @import "client-site";
 @import "server-site";

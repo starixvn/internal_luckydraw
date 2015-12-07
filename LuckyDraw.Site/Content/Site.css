@@ -5982,14 +5982,6 @@ button.toast-close-button {
   #toast-container > div {
     padding: 15px 15px 15px 50px;
     width: 25em; } }
-.container-fluid {
-  margin: 0;
-  padding: 0; }
-
-.row {
-  margin: 0;
-  padding: 0; }
-
 .client-site .staff-info {
   margin-bottom: 2rem; }
 .client-site.default-client .status, .client-site.pink-client .status, .client-site.green-client .status, .client-site.blue-client .status {
@@ -6029,9 +6021,9 @@ body {
     position: absolute;
     text-align: center; }
   .server-site.opening .logo-opening {
-    top: 6rem; }
+    top: 2rem; }
   .server-site.opening .list-prize-opening {
-    bottom: 10.1rem; }
+    bottom: 7.5rem; }
   .server-site .listPrize {
     float: none;
     -webkit-box-align: center;
@@ -6072,25 +6064,7 @@ body {
   .server-site.cash-prize {
     background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed; }
   .server-site.winner-details {
-    background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
-    padding: 5rem; }
-    .server-site.winner-details .logo-prize {
-      left: 1.2rem;
-      position: absolute;
-      top: 1.6rem;
-      z-index: 5;
-      height: 19.5rem;
-      width: 29.9rem; }
-      .server-site.winner-details .logo-prize.cash {
-        background: url(../Images/Winner/cashprize-small.png) no-repeat; }
-    .server-site.winner-details .logo-small {
-      right: 6.4rem;
-      position: absolute;
-      bottom: 4rem;
-      z-index: 5;
-      height: 8.8rem;
-      width: 32.7rem;
-      background: url(../Images/Winner/logo-Luckydraw-small.png) no-repeat; }
+    background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed; }
     .server-site.winner-details .staff-info {
       margin: 1.5rem;
       -webkit-box-align: center;
@@ -6176,77 +6150,68 @@ body {
           font-size: 3rem; }
         .server-site.winner-details .staff-info .info .txtFullName {
           margin: -1rem 0 3rem; }
-    .server-site.winner-details .winner-container {
-      background: rgba(0, 0, 0, 0.7);
-      border: .1rem solid #ac7926;
-      height: 100%;
-      padding: 0 12rem 0 16rem;
+    .server-site.winner-details .winnerList {
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      -webkit-align-items: flex-start;
+      -moz-align-items: flex-start;
+      align-items: flex-start;
+      -webkit-align-content: flex-start;
+      -moz-align-content: flex-start;
+      -ms-flex-line-pack: start;
+      align-content: flex-start;
       display: -webkit-box;
       display: -moz-box;
       display: -ms-flexbox;
       display: -webkit-flex;
-      display: flex; }
-      .server-site.winner-details .winner-container .winnerList {
-        -webkit-box-align: start;
-        -ms-flex-align: start;
-        -webkit-align-items: flex-start;
-        -moz-align-items: flex-start;
-        align-items: flex-start;
-        -webkit-align-content: flex-start;
-        -moz-align-content: flex-start;
-        -ms-flex-line-pack: start;
-        align-content: flex-start;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-direction: normal;
-        -webkit-box-orient: vertical;
-        -webkit-flex-direction: column;
-        -moz-flex-direction: column;
-        -ms-flex-direction: column;
-        flex-direction: column;
-        -webkit-flex-wrap: wrap;
-        -moz-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        -moz-justify-content: center;
-        justify-content: center; }
-      .server-site.winner-details .winner-container .prizePhoto {
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        -moz-align-items: center;
-        align-items: center;
-        -webkit-align-content: center;
-        -moz-align-content: center;
-        -ms-flex-line-pack: center;
-        align-content: center;
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-direction: normal;
-        -webkit-box-orient: horizontal;
-        -webkit-flex-direction: row;
-        -moz-flex-direction: row;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -webkit-flex-wrap: wrap;
-        -moz-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -webkit-box-pack: end;
-        -ms-flex-pack: end;
-        -webkit-justify-content: flex-end;
-        -moz-justify-content: flex-end;
-        justify-content: flex-end; }
+      display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: vertical;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      justify-content: center; }
+    .server-site.winner-details .prizePhoto {
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      align-items: center;
+      -webkit-align-content: center;
+      -moz-align-content: center;
+      -ms-flex-line-pack: center;
+      align-content: center;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
+      -webkit-flex-direction: row;
+      -moz-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+      -webkit-justify-content: flex-end;
+      -moz-justify-content: flex-end;
+      justify-content: flex-end; }
   .server-site.cash-prize, .server-site.major-prize, .server-site.grand-prize, .server-site.super-grand-prize, .server-site.winner-details {
+    padding: 5rem;
     -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
@@ -6282,8 +6247,78 @@ body {
     -ms-background-size: cover;
     -o-background-size: cover;
     background-size: cover; }
+    .server-site.cash-prize .box-container, .server-site.major-prize .box-container, .server-site.grand-prize .box-container, .server-site.super-grand-prize .box-container, .server-site.winner-details .box-container {
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      align-items: center;
+      -webkit-align-content: center;
+      -moz-align-content: center;
+      -ms-flex-line-pack: center;
+      align-content: center;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
+      -webkit-flex-direction: row;
+      -moz-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      justify-content: center; }
   .server-site.super-grand-winner-details .staff-info.focus .avatar {
     border: .2rem solid #f5f5f5; }
+  .server-site .logo-prize {
+    position: absolute;
+    z-index: 5; }
+    .server-site .logo-prize.cash {
+      background: url(../Images/Winner/cashprize-small.png) no-repeat;
+      height: 12.5rem;
+      left: 3.6rem;
+      top: 1.9rem;
+      width: 18.8rem; }
+    .server-site .logo-prize.major {
+      background: url(../Images/Winner/majorprize-small.png) no-repeat;
+      height: 12.5rem;
+      left: 3.6rem;
+      top: 1.2rem;
+      width: 23.2rem; }
+    .server-site .logo-prize.grand {
+      background: url(../Images/Winner/grandprize-small.png) no-repeat;
+      height: 9.8rem;
+      left: 3.6rem;
+      top: 1.9rem;
+      width: 18.4rem; }
+    .server-site .logo-prize.super-grand {
+      background: url(../Images/Winner/supergrandprize-small.png) no-repeat;
+      height: 13.4rem;
+      left: 2.5rem;
+      top: 0.9rem;
+      width: 18.4rem; }
+  .server-site .logo-small {
+    right: 3.4rem;
+    position: absolute;
+    bottom: 1rem;
+    z-index: 5;
+    height: 8.8rem;
+    width: 32.7rem;
+    background: url(../Images/Winner/logo-Luckydraw-small.png) no-repeat; }
+  .server-site .box-container {
+    background: rgba(0, 0, 0, 0.7);
+    border: .1rem solid #ac7926;
+    height: 100%;
+    padding: 0 12rem 0 16rem; }
 
 @media (max-device-height: 400px) {
   .prize {
