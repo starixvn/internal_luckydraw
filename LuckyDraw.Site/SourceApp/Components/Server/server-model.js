@@ -59,8 +59,8 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
     };
 
-    serverModel.insertWinner = function (winners) {
-        return serverFactory.insertWinner(winners)
+    serverModel.insertWinner = function (criteria) {
+        return serverFactory.insertWinner(criteria)
         .success(function (response) {
             if (response.IsSuccessful) {
             } else {
@@ -114,10 +114,14 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
 
         modalInstance.result.then(function () {
-            var currentPrize = vm.prizeSetting.CurrentPrize + 1;
+            var currentPrize = vm.prizeSetting.CurrentPrize;
+            if (vm.nextPrize) {
+                currentPrize = vm.prizeSetting.CurrentPrize + 1;
+                vm.nextPrize = false;
 
-            if (currentPrize > (vm.prizeSetting.Quantity / vm.prizeSetting.Multiply)) {
-                currentPrize = parseInt(vm.prizeSetting.Quantity / vm.prizeSetting.Multiply);
+                if (currentPrize > (vm.prizeSetting.Quantity / vm.prizeSetting.Multiply)) {
+                    currentPrize = parseInt(vm.prizeSetting.Quantity / vm.prizeSetting.Multiply);
+                }
             }
 
             serverFactory.deleteWinner(staff.StaffId, vm.prizeType, currentPrize)
@@ -136,6 +140,11 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
                         case 3:
                             vm.blueStaff = null;
                             break;
+                    }
+
+                    index = vm.winnerDetail.Winners.map(function (e) { return e.StaffId; }).indexOf(staff.StaffId);
+                    if (index !== -1) {
+                        vm.winnerDetail.Winners.splice(index, 1);
                     }
                 } else {
                     notificationFactory.error("", response.Message);

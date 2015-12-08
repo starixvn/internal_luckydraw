@@ -165,13 +165,8 @@ namespace LuckyDraw.Site.Controllers.API
         }
 
         [HttpPost]
-        public CommandResult InsertWinner(IEnumerable<StaffModel> winners)
+        public CommandResult InsertWinner(InsertWinnerCriteria criteria)
         {
-            InsertWinnerCriteria criteria = new InsertWinnerCriteria()
-            {
-                Winners = winners
-            };
-
             return _staffService.InsertWinner(criteria);
         }
 

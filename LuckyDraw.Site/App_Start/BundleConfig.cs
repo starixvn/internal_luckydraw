@@ -50,8 +50,7 @@ namespace LuckyDraw.Site
                         "~/SourceApp/Components/Server/server-controller.js",
                         "~/SourceApp/Components/Server/server-prizeList-controller.js",
                         "~/SourceApp/Components/Server/server-winnerDetail-controller.js",
-                        "~/SourceApp/Components/Server/server-superGrandWinnerDetail-controller.js",
-                        "~/SourceApp/Components/Server/server-luckyList-controller.js"));
+                        "~/SourceApp/Components/Server/server-superGrandWinnerDetail-controller.js"));
         }
     }
 }

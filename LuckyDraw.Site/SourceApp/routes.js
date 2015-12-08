@@ -16,8 +16,6 @@ var serverModule = angular.module("serverModule", ['ngRoute'])
     { templateUrl: baseUrl + 'SourceApp/Components/Server/Templates/winnerDetail.html' });
     $routeProvider.when(baseUrl + 'Server/SuperGrandWinnerDetail/:prizeType',
     { templateUrl: baseUrl + 'SourceApp/Components/Server/Templates/superGrandWinnerDetail.html' });
-    $routeProvider.when(baseUrl + 'Server/LuckyList/Index',
-    { templateUrl: baseUrl + 'SourceApp/Components/Server/Templates/luckyList.html' });
 } ]);
 
 var clientModule = angular.module("clientModule", ['ngRoute'])

@@ -2,8 +2,14 @@
 /*global serverModule*/
 
 serverModule.controller('ServerController',
-['CommonModel', function (CommonModel) {
+['$window', 'CommonModel', 'baseUrl', function ($window, CommonModel, baseUrl) {
     var vm = this;
+
+    vm.redirectToPrizeList = function (prizeType) {
+        var path = baseUrl + 'Server/PrizeList/' + prizeType;
+
+        $window.location.href = path;
+    };
 
     vm.initialize = function () {
         CommonModel.getPrizeType().then(function () {
@@ -15,42 +21,25 @@ serverModule.controller('ServerController',
 } ]);
 
 serverModule.directive('serverKeyboardEvent',
-['$window', 'baseUrl', function ($window, baseUrl) {
+[function () {
     return {
         link: function (scope, element, attrs) {
             jQuery(document).on('keydown', function (event) {
                 event.preventDefault();
-                var path = '';
 
                 switch (event.which) {
                     case 49: // 1
-                        path = baseUrl + 'Server/PrizeList/2';
+                        scope.serverCtrl.redirectToPrizeList(2);
                         break;
                     case 50: // 2
-                        path = baseUrl + 'Server/PrizeList/3';
+                        scope.serverCtrl.redirectToPrizeList(3);
                         break;
                     case 51: // 3
-                        path = baseUrl + 'Server/PrizeList/4';
+                        scope.serverCtrl.redirectToPrizeList(4);
                         break;
                     case 52: // 4
-                        path = baseUrl + 'Server/PrizeList/5';
+                        scope.serverCtrl.redirectToPrizeList(5);
                         break;
-                    case 65: // a
-                        path = baseUrl + 'Server/LuckyList/Index?priceType=2';
-                        break;
-                    case 66: // b
-                        path = baseUrl + 'Server/LuckyList/Index?priceType=3';
-                        break;
-                    case 67: // c
-                        path = baseUrl + 'Server/LuckyList/Index?priceType=4';
-                        break;
-                    case 68: // d
-                        path = baseUrl + 'Server/LuckyList/Index?priceType=5';
-                        break;
-                }
-
-                if (path.length > 0) {
-                    $window.location.href = path;
                 }
             });
         }

@@ -57,6 +57,67 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Serv
         });
     };
 
+    vm.redirectToWinnerDetail = function () {
+        var path = '';
+
+        switch (vm.prizeType) {
+            case 2:
+                path = baseUrl + 'Server/SuperGrandWinnerDetail/' + vm.prizeType;
+                break;
+            case 3:
+            case 4:
+            case 5:
+                path = baseUrl + 'Server/WinnerDetail/' + vm.prizeType;
+                break;
+        }
+
+        if (path.length > 0) {
+            $window.location.href = path;
+        }
+    };
+
+    vm.redirectToServerIndex = function () {
+        var path = baseUrl + 'Server/Index';
+
+        $window.location.href = path;
+    };
+
+    vm.nextPrize = function () {
+        if (vm.prizeSetting.CurrentPrize > 0) {
+            if (vm.prizeSetting.Multiply > 1) {
+                vm.prizeSetting.CurrentPrize -= 1;
+            } else {
+                vm.prizeSetting.CurrentPrize -= 3;
+            }
+
+            if (vm.prizeSetting.CurrentPrize < 0) {
+                vm.prizeSetting.CurrentPrize = 0;
+            }
+
+            vm.updateCurrentPrize(vm.prizeSetting.CurrentPrize);
+        }
+    };
+
+    vm.backPrize = function () {
+        if (vm.prizeSetting.Multiply > 1) {
+            if (vm.prizeSetting.Quantity > (vm.prizeSetting.CurrentPrize * vm.prizeSetting.Multiply)) {
+                vm.prizeSetting.CurrentPrize += 1;
+            } else {
+                vm.prizeSetting.CurrentPrize = parseInt(vm.prizeSetting.Quantity / vm.prizeSetting.Multiply);
+            }
+
+            vm.updateCurrentPrize(vm.prizeSetting.CurrentPrize);
+        } else {
+            if (vm.prizeSetting.Quantity > vm.prizeSetting.CurrentPrize) {
+                vm.prizeSetting.CurrentPrize += 3;
+            } else {
+                vm.prizeSetting.CurrentPrize = vm.prizeSetting.Quantity;
+            }
+
+            vm.updateCurrentPrize(vm.prizeSetting.CurrentPrize);
+        }
+    };
+
     vm.updateCurrentPrize = function (currentPrize) {
         var criteria = {
             PrizeTypeId: vm.prizeType,
@@ -93,69 +154,29 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Serv
 } ]);
 
 serverModule.directive('prizeListKeyboardEvent',
-['$window', 'baseUrl', function ($window, baseUrl) {
+[function () {
     return {
         link: function (scope, element, attrs) {
             jQuery(document).on('keydown', function (event) {
                 event.preventDefault();
-                var path = '';
 
                 switch (event.which) {
                     case 13: // enter
-                        if (scope.prizeListCtrl.currentPrize) {
-                            switch (scope.prizeListCtrl.prizeType) {
-                                case 2:
-                                    path = baseUrl + 'Server/SuperGrandWinnerDetail/' + scope.prizeListCtrl.prizeType;
-                                    break;
-                                case 3:
-                                case 4:
-                                case 5:
-                                    path = baseUrl + 'Server/WinnerDetail/' + scope.prizeListCtrl.prizeType;
-                                    break;
-                            }
-                        }
+                        scope.prizeListCtrl.redirectToWinnerDetail();
                         break;
                     case 89: // ctrl+y to next
                         if (event.ctrlKey) {
-                            if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
-                                if (scope.prizeListCtrl.prizeSetting.CurrentPrize > 0) {
-                                    scope.prizeListCtrl.prizeSetting.CurrentPrize -= 1;
-                                    scope.prizeListCtrl.currentPrize -= 1;
-                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
-                                }
-                            } else {
-                                if (scope.prizeListCtrl.prizeSetting.CurrentPrize > 0) {
-                                    scope.prizeListCtrl.prizeSetting.CurrentPrize -= 3;
-                                    scope.prizeListCtrl.currentPrize -= 3;
-                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
-                                }
-                            }
+                            scope.prizeListCtrl.nextPrize();
                         }
                         break;
                     case 90: // ctrl+z to back
                         if (event.ctrlKey) {
-                            if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
-                                if (scope.prizeListCtrl.prizeSetting.Quantity > (scope.prizeListCtrl.prizeSetting.CurrentPrize * 3)) {
-                                    scope.prizeListCtrl.prizeSetting.CurrentPrize += 1;
-                                    scope.prizeListCtrl.currentPrize += 1;
-                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
-                                }
-                            } else {
-                                if (scope.prizeListCtrl.prizeSetting.Quantity > scope.prizeListCtrl.prizeSetting.CurrentPrize) {
-                                    scope.prizeListCtrl.prizeSetting.CurrentPrize += 3;
-                                    scope.prizeListCtrl.currentPrize += 3;
-                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
-                                }
-                            }
+                            scope.prizeListCtrl.backPrize();
                         }
                         break;
                     case 27: // asc
-                        path = baseUrl + 'Server/Index';
+                        scope.prizeListCtrl.redirectToServerIndex();
                         break;
-                }
-
-                if (path.length > 0) {
-                    $window.location.href = path;
                 }
             });
         }

@@ -335,11 +335,9 @@
     <Content Include="SourceApp\Components\Server\server-model.js" />
     <Content Include="SourceApp\Components\Server\server-factory.js" />
     <Content Include="SourceApp\Components\Server\server-prizeList-controller.js" />
-    <Content Include="SourceApp\Components\Server\server-luckyList-controller.js" />
     <Content Include="SourceApp\Components\Server\server-winnerDetail-controller.js" />
     <Content Include="SourceApp\Components\Server\server-controller.js" />
     <Content Include="SourceApp\Components\Server\Templates\index.html" />
-    <Content Include="SourceApp\Components\Server\Templates\luckyList.html" />
     <Content Include="SourceApp\Components\Server\Templates\modalConfirmRemoveWinner.html" />
     <Content Include="SourceApp\Components\Server\Templates\prizeList.html" />
     <Content Include="SourceApp\Components\Server\Templates\winnerDetail.html" />

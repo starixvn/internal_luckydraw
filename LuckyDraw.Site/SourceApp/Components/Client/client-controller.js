@@ -82,7 +82,7 @@ function ($scope, $location, $routeParams, CommonModel, baseUrl) {
         }
     };
 
-    hubProxy.client.getResponse = function (grade, message) {
+    hubProxy.client.getMessageResponse = function (grade, message) {
         if (grade === vm.grade) {
             vm.message = message;
             $scope.$apply();

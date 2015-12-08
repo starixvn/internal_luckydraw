@@ -28,8 +28,8 @@ serverModule.factory('serverFactory', ['$http', 'baseUrl', function ($http, base
         updateCurrentPrize: function (criteria) {
             return $http.put(baseUrl + 'api/Server/UpdateCurrentPrize', criteria);
         },
-        insertWinner: function (winners) {
-            return $http.post(baseUrl + 'api/Server/InsertWinner', winners);
+        insertWinner: function (criteria) {
+            return $http.post(baseUrl + 'api/Server/InsertWinner', criteria);
         },
         updateWinner: function (criteria) {
             return $http.put(baseUrl + 'api/Server/UpdateWinner', criteria);
