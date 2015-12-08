@@ -15,6 +15,27 @@ function ($routeParams, ServerModel, CommonModel, baseUrl) {
     vm.pinkStaff = null;
     vm.blueStaff = null;
 
+    vm.getLogoByPrizeType = function (prizeType) {
+        var className = '';
+
+        switch (prizeType) {
+            case 2:
+                className = 'super-grand';
+                break;
+            case 3:
+                className = 'grand';
+                break;
+            case 4:
+                className = 'major';
+                break;
+            case 5:
+                className = 'cash';
+                break;
+        }
+
+        return className;
+    };
+
     vm.initialize = function () {
         CommonModel.getPrizeType().then(function () {
             vm.prizeTypes = CommonModel.prizeTypes;

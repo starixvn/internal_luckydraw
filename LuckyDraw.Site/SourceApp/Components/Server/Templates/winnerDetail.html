@@ -1,5 +1,5 @@
 ﻿<div class="col-sm-12 server-site winner-details" ng-controller="WinnerDetailController as winnerDetailCtrl" winner-detail-keyboard-event>
-    <div class="logo-prize cash"></div>
+    <div class="logo-prize" ng-class="winnerDetailCtrl.getLogoByPrizeType(winnerDetailCtrl.prizeType)"></div>
     <div class="logo-small"></div>
     <div class="col-sm-12 box-container">
          <div class="col-sm-12 col-md-7 winnerList">
