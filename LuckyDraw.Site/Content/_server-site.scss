@@ -48,13 +48,12 @@ body {
 		background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
     }
 	
-    &.winner-details {		
+    &.winner-details, &.super-grand-winner-details {		
         background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
 		
 
 		.staff-info {
-			margin: 1.5rem;
-			@include align-with-flex(center, center, row, center);
+			@include align-with-flex(center, center, row, flex-start);
 
 			.avatar {
 				border: .2rem solid;
@@ -77,7 +76,7 @@ body {
 				.avatar {
 					border-color: #f8aad1;
 					outline: .1rem solid #f0549e;
-					@include box-shadow(0, 0, 1.6rem, #f8aad1);
+					@include box-shadow(0, 0, 1.2rem, #f0549e);
 				}
 
 				.photo {
@@ -89,7 +88,7 @@ body {
 				.avatar {
 					border-color: #8de1af;
 					outline: .1rem solid #19c25d;
-					@include box-shadow(0, 0, 1.6rem, #8de1af);
+					@include box-shadow(0, 0, 1.2rem, #19c25d);
 				}
 
 				.photo {
@@ -101,7 +100,7 @@ body {
 				.avatar {
 					border-color: #95a8f7;
 					outline: .1rem solid #284eef;
-					@include box-shadow(0, 0, 1.2rem, #95a8f7);
+					@include box-shadow(0, 0, 1.2rem, #284eef);
 				}
 
 				.photo {
@@ -117,17 +116,31 @@ body {
 				}
 				padding-left: 2rem;
 
-				.txtNickname {
+				.txt-nickname {
 					font: {
 						weight: bold;
 						size: 3rem;
 					}
+					margin: 0;
 				}
 
-				.txtFullName {
-					margin: -1rem 0 3rem;
+				p {
+					margin-bottom: 0;
 				}
+
+				.txt-fullname {
+					margin-bottom: 3rem;
+				}
+
 			}
+		}
+
+		
+    }
+
+	&.winner-details {
+		.staff-info {
+			margin: 1.5rem;
 		}
 
 		.winnerList {
@@ -137,9 +150,19 @@ body {
 		.prizePhoto {
 			@include align-with-flex(center, center, row, flex-end);
 		}
-    }
+	}
 
-	&.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize, &.winner-details {
+	&.super-grand-winner-details {
+		.winnerList {
+			@include align-with-flex(flex-start, flex-start, row, center);
+		}
+
+		.prizePhoto {
+			@include align-with-flex(center, center, row, flex-end);
+		}
+	}
+
+	&.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize, &.winner-details, &.super-grand-winner-details {
 		padding: 5rem;
 		@include align-with-flex(center, center, row, center);
 		@include background-size(cover);
@@ -148,16 +171,6 @@ body {
 			@include align-with-flex(center, center, row, center);
 		}
 	}
-
-    &.super-grand-winner-details {
-        .staff-info {
-            &.focus {
-                .avatar {
-                    border: .2rem solid #f5f5f5;
-                }
-            }
-        }
-    }
 
 	.logo-prize {		
 		position: absolute;
@@ -211,6 +224,7 @@ body {
 		border: .1rem solid #ac7926;
 		height: 100%;
 		padding: 0 12rem 0 16rem;
+		width: 100%;
 	}
 }
 
