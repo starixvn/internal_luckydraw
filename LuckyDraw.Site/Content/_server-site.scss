@@ -154,11 +154,23 @@ body {
 
 	&.super-grand-winner-details {
 		.winnerList {
-			@include align-with-flex(flex-start, flex-start, row, center);
+			@include align-with-flex(center, flex-start, row, center);
 		}
 
 		.prizePhoto {
 			@include align-with-flex(center, center, row, flex-end);
+		}
+
+		.avatar {
+			position: relative;
+		}
+
+		.prize-number {
+			position: absolute;
+			top: 4.8rem;
+			margin: 0;
+			z-index: 6;
+			left: -5.6rem;
 		}
 	}
 
@@ -212,7 +224,7 @@ body {
 	.logo-small {
 		right: 3.4rem;
 		position: absolute;
-		bottom: 1rem;
+		bottom: 0.5rem;
 		z-index: 5;
 		height: 8.8rem;
 		width: 32.7rem;

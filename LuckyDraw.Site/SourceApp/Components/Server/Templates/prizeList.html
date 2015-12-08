@@ -3,7 +3,7 @@
     <div class="logo-prize" ng-class="prizeListCtrl.getLogoByPrizeType(prizeListCtrl.prizeType)"></div>
     <div class="logo-small"></div>
     <div class="col-sm-12 box-container">
-        <div class="row listPrize" ng-repeat="prizeList in prizeListCtrl.prizeList">
+        <div class="listPrize" ng-repeat="prizeList in prizeListCtrl.prizeList">
             <div class="prize" ng-repeat="prize in prizeList">
                 <img src='' ng-src="{{prizeListCtrl.baseUrl}}{{prize.ImagePath}}" alt='' class="img-responsive" />
             </div>
