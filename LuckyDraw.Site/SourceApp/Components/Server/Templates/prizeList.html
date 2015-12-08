@@ -1,6 +1,6 @@
 ﻿<div class="col-sm-12 server-site" ng-controller="PrizeListController as prizeListCtrl" 
     ng-class="prizeListCtrl.getClassByPrizeType(prizeListCtrl.prizeType)" prize-list-keyboard-event>
-    <div class="logo-prize cash"></div>
+    <div class="logo-prize" ng-class="prizeListCtrl.getLogoByPrizeType(prizeListCtrl.prizeType)"></div>
     <div class="logo-small"></div>
     <div class="col-sm-12 box-container">
         <div class="row listPrize" ng-repeat="prizeList in prizeListCtrl.prizeList">

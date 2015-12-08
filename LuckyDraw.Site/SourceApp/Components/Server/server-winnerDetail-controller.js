@@ -161,7 +161,7 @@ serverModule.directive('winnerDetailKeyboardEvent',
                 switch (event.which) {
                     case 13: // enter
                     case 27: // asc
-                        path = baseUrl + 'Server/PrizeList/' + scope.winnerDetailCtrl.prizeType + '?isOpeningPrize';
+                        path = baseUrl + 'Server/PrizeList/' + scope.winnerDetailCtrl.prizeType;
                         break;
                     case 49: // 1
                         scope.winnerDetailCtrl.removeWinner(1);

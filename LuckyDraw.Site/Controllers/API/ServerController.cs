@@ -24,6 +24,7 @@ namespace LuckyDraw.Site.Controllers.API
     public class ServerController : ApiController
     {
         private const int NumRow = 3;
+        private const int NumRowMajor = 2;
         private readonly IPrizeService _prizeService;
         private readonly IStaffService _staffService;
         private readonly CommonController _commonController;
@@ -50,6 +51,11 @@ namespace LuckyDraw.Site.Controllers.API
             int total = prizeSetting.Quantity / prizeSetting.Multiply,
                 currentPrize = prizeSetting.CurrentPrize,
                 numColumn = (total % NumRow).Equals(0) ? (total / NumRow) : ((total / NumRow) + 1);
+
+            if (prizeType.Equals((int)PrizeType.Major))
+            {
+                numColumn = (total % NumRowMajor).Equals(0) ? (total / NumRowMajor) : ((total / NumRowMajor) + 1);
+            }
 
             return RenderPrize(prizeType, total, currentPrize, numColumn);
         }

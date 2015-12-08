@@ -7,7 +7,6 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Serv
     var vm = this;
 
     vm.baseUrl = baseUrl;
-    vm.isOpeningPrize = $routeParams.isOpeningPrize ? true : false;
     vm.prizeType = parseInt($routeParams.prizeType);
 
     vm.getClassByPrizeType = function (prizeType) {
@@ -31,6 +30,27 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Serv
         return className;
     };
 
+    vm.getLogoByPrizeType = function (prizeType) {
+        var className = '';
+
+        switch (prizeType) {
+            case 2:
+                className = 'super-grand';
+                break;
+            case 3:
+                className = 'grand';
+                break;
+            case 4:
+                className = 'major';
+                break;
+            case 5:
+                className = 'cash';
+                break;
+        }
+
+        return className;
+    };
+
     vm.renderListPrize = function () {
         ServerModel.renderListPrize(vm.prizeType).then(function () {
             vm.prizeList = ServerModel.prizeList;
@@ -47,9 +67,7 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Serv
     };
 
     vm.initialize = function () {
-        if (vm.isOpeningPrize) {
-            vm.renderListPrize();
-        };
+        vm.renderListPrize();
 
         CommonModel.getPrizeType().then(function () {
             vm.prizeTypes = CommonModel.prizeTypes;
@@ -84,7 +102,7 @@ serverModule.directive('prizeListKeyboardEvent',
 
                 switch (event.which) {
                     case 13: // enter
-                        if (scope.prizeListCtrl.isOpeningPrize && scope.prizeListCtrl.currentPrize) {
+                        if (scope.prizeListCtrl.currentPrize) {
                             switch (scope.prizeListCtrl.prizeType) {
                                 case 2:
                                     path = baseUrl + 'Server/SuperGrandWinnerDetail/' + scope.prizeListCtrl.prizeType;
@@ -95,45 +113,38 @@ serverModule.directive('prizeListKeyboardEvent',
                                     path = baseUrl + 'Server/WinnerDetail/' + scope.prizeListCtrl.prizeType;
                                     break;
                             }
-                        } else {
-                            scope.prizeListCtrl.renderListPrize();
-                            scope.prizeListCtrl.isOpeningPrize = true;
                         }
                         break;
                     case 89: // ctrl+y to next
                         if (event.ctrlKey) {
-                            if (scope.prizeListCtrl.isOpeningPrize) {
-                                if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
-                                    if (scope.prizeListCtrl.prizeSetting.CurrentPrize > 0) {
-                                        scope.prizeListCtrl.prizeSetting.CurrentPrize -= 1;
-                                        scope.prizeListCtrl.currentPrize -= 1;
-                                        scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
-                                    }
-                                } else {
-                                    if (scope.prizeListCtrl.prizeSetting.CurrentPrize > 0) {
-                                        scope.prizeListCtrl.prizeSetting.CurrentPrize -= 3;
-                                        scope.prizeListCtrl.currentPrize -= 3;
-                                        scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
-                                    }
+                            if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
+                                if (scope.prizeListCtrl.prizeSetting.CurrentPrize > 0) {
+                                    scope.prizeListCtrl.prizeSetting.CurrentPrize -= 1;
+                                    scope.prizeListCtrl.currentPrize -= 1;
+                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
+                                }
+                            } else {
+                                if (scope.prizeListCtrl.prizeSetting.CurrentPrize > 0) {
+                                    scope.prizeListCtrl.prizeSetting.CurrentPrize -= 3;
+                                    scope.prizeListCtrl.currentPrize -= 3;
+                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
                                 }
                             }
                         }
                         break;
                     case 90: // ctrl+z to back
                         if (event.ctrlKey) {
-                            if (scope.prizeListCtrl.isOpeningPrize) {
-                                if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
-                                    if (scope.prizeListCtrl.prizeSetting.Quantity > (scope.prizeListCtrl.prizeSetting.CurrentPrize * 3)) {
-                                        scope.prizeListCtrl.prizeSetting.CurrentPrize += 1;
-                                        scope.prizeListCtrl.currentPrize += 1;
-                                        scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
-                                    }
-                                } else {
-                                    if (scope.prizeListCtrl.prizeSetting.Quantity > scope.prizeListCtrl.prizeSetting.CurrentPrize) {
-                                        scope.prizeListCtrl.prizeSetting.CurrentPrize += 3;
-                                        scope.prizeListCtrl.currentPrize += 3;
-                                        scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
-                                    }
+                            if (scope.prizeListCtrl.prizeSetting.Multiply === 3) {
+                                if (scope.prizeListCtrl.prizeSetting.Quantity > (scope.prizeListCtrl.prizeSetting.CurrentPrize * 3)) {
+                                    scope.prizeListCtrl.prizeSetting.CurrentPrize += 1;
+                                    scope.prizeListCtrl.currentPrize += 1;
+                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
+                                }
+                            } else {
+                                if (scope.prizeListCtrl.prizeSetting.Quantity > scope.prizeListCtrl.prizeSetting.CurrentPrize) {
+                                    scope.prizeListCtrl.prizeSetting.CurrentPrize += 3;
+                                    scope.prizeListCtrl.currentPrize += 3;
+                                    scope.prizeListCtrl.updateCurrentPrize(scope.prizeListCtrl.currentPrize);
                                 }
                             }
                         }

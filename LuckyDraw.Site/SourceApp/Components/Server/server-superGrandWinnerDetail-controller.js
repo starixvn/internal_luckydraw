@@ -267,7 +267,7 @@ serverModule.directive('superGrandWinnerDetailKeyboardEvent',
                 switch (event.which) {
                     case 13: // enter
                     case 27: // asc
-                        path = baseUrl + 'Server/PrizeList/' + scope.winnerDetailCtrl.prizeType + '?isOpeningPrize';
+                        path = baseUrl + 'Server/PrizeList/' + scope.winnerDetailCtrl.prizeType;
                         break;
                     case 38: // up arrow
                         if (scope.winnerDetailCtrl.focusWinner < 3 && scope.winnerDetailCtrl.savedWinners.length >= 3) {
