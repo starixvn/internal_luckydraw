@@ -6020,6 +6020,8 @@ body {
     right: 0;
     position: absolute;
     text-align: center; }
+    .server-site.opening .logo-opening img, .server-site.opening .list-prize-opening img {
+      display: inline-block; }
   .server-site.opening .logo-opening {
     top: 2rem; }
   .server-site.opening .list-prize-opening {
@@ -6065,6 +6067,8 @@ body {
     background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed; }
   .server-site.winner-details, .server-site.super-grand-winner-details {
     background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed; }
+    .server-site.winner-details .box-container, .server-site.super-grand-winner-details .box-container {
+      padding: 5.2rem 12rem 4.8rem 16rem; }
     .server-site.winner-details .staff-info, .server-site.super-grand-winner-details .staff-info {
       -webkit-box-align: center;
       -ms-flex-align: center;
@@ -6104,43 +6108,48 @@ body {
         .server-site.winner-details .staff-info .avatar .photo, .server-site.super-grand-winner-details .staff-info .avatar .photo {
           height: 100%;
           width: 100%; }
-        .server-site.winner-details .staff-info .avatar .photo-unknown, .server-site.super-grand-winner-details .staff-info .avatar .photo-unknown {
+        .server-site.winner-details .staff-info .avatar .unknown, .server-site.super-grand-winner-details .staff-info .avatar .unknown {
           margin: 3.7rem 3.6rem; }
-      .server-site.winner-details .staff-info.pink-staff .avatar, .server-site.super-grand-winner-details .staff-info.pink-staff .avatar {
-        border-color: #f8aad1;
-        outline: .1rem solid #f0549e;
-        -webkit-box-shadow: 0 0 1.2rem #f0549e;
-        -khtml-box-shadow: 0 0 1.2rem #f0549e;
-        -moz-box-shadow: 0 0 1.2rem #f0549e;
-        -ms-box-shadow: 0 0 1.2rem #f0549e;
-        -o-box-shadow: 0 0 1.2rem #f0549e;
-        box-shadow: 0 0 1.2rem #f0549e; }
-      .server-site.winner-details .staff-info.pink-staff .photo, .server-site.super-grand-winner-details .staff-info.pink-staff .photo {
-        border: .1rem solid #f0549e; }
-      .server-site.winner-details .staff-info.green-staff .avatar, .server-site.super-grand-winner-details .staff-info.green-staff .avatar {
-        border-color: #8de1af;
-        outline: .1rem solid #19c25d;
-        -webkit-box-shadow: 0 0 1.2rem #19c25d;
-        -khtml-box-shadow: 0 0 1.2rem #19c25d;
-        -moz-box-shadow: 0 0 1.2rem #19c25d;
-        -ms-box-shadow: 0 0 1.2rem #19c25d;
-        -o-box-shadow: 0 0 1.2rem #19c25d;
-        box-shadow: 0 0 1.2rem #19c25d; }
-      .server-site.winner-details .staff-info.green-staff .photo, .server-site.super-grand-winner-details .staff-info.green-staff .photo {
-        border: .1rem solid #19c25d; }
-      .server-site.winner-details .staff-info.blue-staff .avatar, .server-site.super-grand-winner-details .staff-info.blue-staff .avatar {
-        border-color: #95a8f7;
-        outline: .1rem solid #284eef;
-        -webkit-box-shadow: 0 0 1.2rem #284eef;
-        -khtml-box-shadow: 0 0 1.2rem #284eef;
-        -moz-box-shadow: 0 0 1.2rem #284eef;
-        -ms-box-shadow: 0 0 1.2rem #284eef;
-        -o-box-shadow: 0 0 1.2rem #284eef;
-        box-shadow: 0 0 1.2rem #284eef; }
-      .server-site.winner-details .staff-info.blue-staff .photo, .server-site.super-grand-winner-details .staff-info.blue-staff .photo {
-        border: .1rem solid #284eef; }
+      .server-site.winner-details .staff-info.pink-staff, .server-site.super-grand-winner-details .staff-info.pink-staff {
+        color: #fd7fbc; }
+        .server-site.winner-details .staff-info.pink-staff .avatar, .server-site.super-grand-winner-details .staff-info.pink-staff .avatar {
+          border-color: #f8aad1;
+          outline: .1rem solid #f0549e;
+          -webkit-box-shadow: 0 0 1.6rem #f0549e;
+          -khtml-box-shadow: 0 0 1.6rem #f0549e;
+          -moz-box-shadow: 0 0 1.6rem #f0549e;
+          -ms-box-shadow: 0 0 1.6rem #f0549e;
+          -o-box-shadow: 0 0 1.6rem #f0549e;
+          box-shadow: 0 0 1.6rem #f0549e; }
+        .server-site.winner-details .staff-info.pink-staff .photo, .server-site.super-grand-winner-details .staff-info.pink-staff .photo {
+          border: .1rem solid #f0549e; }
+      .server-site.winner-details .staff-info.green-staff, .server-site.super-grand-winner-details .staff-info.green-staff {
+        color: #42e884; }
+        .server-site.winner-details .staff-info.green-staff .avatar, .server-site.super-grand-winner-details .staff-info.green-staff .avatar {
+          border-color: #8de1af;
+          outline: .1rem solid #19c25d;
+          -webkit-box-shadow: 0 0 1.6rem #19c25d;
+          -khtml-box-shadow: 0 0 1.6rem #19c25d;
+          -moz-box-shadow: 0 0 1.6rem #19c25d;
+          -ms-box-shadow: 0 0 1.6rem #19c25d;
+          -o-box-shadow: 0 0 1.6rem #19c25d;
+          box-shadow: 0 0 1.6rem #19c25d; }
+        .server-site.winner-details .staff-info.green-staff .photo, .server-site.super-grand-winner-details .staff-info.green-staff .photo {
+          border: .1rem solid #19c25d; }
+      .server-site.winner-details .staff-info.blue-staff, .server-site.super-grand-winner-details .staff-info.blue-staff {
+        color: #5e7bf3; }
+        .server-site.winner-details .staff-info.blue-staff .avatar, .server-site.super-grand-winner-details .staff-info.blue-staff .avatar {
+          border-color: #95a8f7;
+          outline: .1rem solid #284eef;
+          -webkit-box-shadow: 0 0 1.6rem #284eef;
+          -khtml-box-shadow: 0 0 1.6rem #284eef;
+          -moz-box-shadow: 0 0 1.6rem #284eef;
+          -ms-box-shadow: 0 0 1.6rem #284eef;
+          -o-box-shadow: 0 0 1.6rem #284eef;
+          box-shadow: 0 0 1.6rem #284eef; }
+        .server-site.winner-details .staff-info.blue-staff .photo, .server-site.super-grand-winner-details .staff-info.blue-staff .photo {
+          border: .1rem solid #284eef; }
       .server-site.winner-details .staff-info .info, .server-site.super-grand-winner-details .staff-info .info {
-        color: #ffea99;
         font-weight: 600;
         font-size: 2rem;
         padding-left: 2rem; }
@@ -6151,9 +6160,9 @@ body {
         .server-site.winner-details .staff-info .info p, .server-site.super-grand-winner-details .staff-info .info p {
           margin-bottom: 0; }
         .server-site.winner-details .staff-info .info .txt-fullname, .server-site.super-grand-winner-details .staff-info .info .txt-fullname {
-          margin-bottom: 3rem; }
+          margin: -0.5rem 0 3rem; }
   .server-site.winner-details .staff-info {
-    margin: 1.5rem; }
+    margin: 2.8rem 1.6rem; }
   .server-site.winner-details .winnerList {
     -webkit-box-align: start;
     -ms-flex-align: start;
@@ -6274,14 +6283,22 @@ body {
     -webkit-justify-content: flex-end;
     -moz-justify-content: flex-end;
     justify-content: flex-end; }
+    .server-site.super-grand-winner-details .prizePhoto .order-first {
+      margin-right: 16.6rem; }
+    .server-site.super-grand-winner-details .prizePhoto .order-second {
+      margin-right: -5.6rem; }
+    .server-site.super-grand-winner-details .prizePhoto .order-third {
+      margin-right: 10.8rem; }
+  .server-site.super-grand-winner-details .staff-info {
+    margin: 2.8rem 0; }
   .server-site.super-grand-winner-details .avatar {
     position: relative; }
   .server-site.super-grand-winner-details .prize-number {
     position: absolute;
-    top: 4.8rem;
+    top: -2.4rem;
+    left: -1.2rem;
     margin: 0;
-    z-index: 6;
-    left: -5.6rem; }
+    z-index: 6; }
   .server-site.cash-prize, .server-site.major-prize, .server-site.grand-prize, .server-site.super-grand-prize, .server-site.winner-details, .server-site.super-grand-winner-details {
     padding: 5rem;
     -webkit-box-align: center;
@@ -6350,36 +6367,33 @@ body {
       -moz-justify-content: center;
       justify-content: center; }
   .server-site .logo-prize {
+    left: -1.4rem;
     position: absolute;
     z-index: 5; }
     .server-site .logo-prize.cash {
       background: url(../Images/Winner/cashprize-small.png) no-repeat;
       height: 12.5rem;
-      left: 3.6rem;
-      top: 1.9rem;
+      top: -3.1rem;
       width: 18.8rem; }
     .server-site .logo-prize.major {
       background: url(../Images/Winner/majorprize-small.png) no-repeat;
       height: 12.5rem;
-      left: 3.6rem;
-      top: 1.2rem;
+      top: -3.8rem;
       width: 23.2rem; }
     .server-site .logo-prize.grand {
       background: url(../Images/Winner/grandprize-small.png) no-repeat;
       height: 9.8rem;
-      left: 3.6rem;
-      top: 1.9rem;
+      top: -3.1rem;
       width: 18.4rem; }
     .server-site .logo-prize.super-grand {
       background: url(../Images/Winner/supergrandprize-small.png) no-repeat;
       height: 13.4rem;
-      left: 2.5rem;
-      top: 0.9rem;
+      top: -4.6rem;
       width: 18.4rem; }
   .server-site .logo-small {
-    right: 3.4rem;
+    right: -2.4rem;
     position: absolute;
-    bottom: 0.5rem;
+    bottom: -4.8rem;
     z-index: 5;
     height: 8.8rem;
     width: 32.7rem;
@@ -6387,11 +6401,41 @@ body {
   .server-site .box-container {
     background: rgba(0, 0, 0, 0.7);
     border: .1rem solid #ac7926;
-    height: 100%;
-    padding: 0 12rem 0 16rem;
+    min-height: 100%;
+    position: relative;
     width: 100%; }
 
-@media (max-device-height: 400px) {
+@media (max-height: 400px) {
   .prize {
     width: 26%; } }
+@media (max-width: 1120px) {
+  .server-site.cash-prize, .server-site.major-prize, .server-site.grand-prize,
+  .server-site.super-grand-prize, .server-site.winner-details, .server-site.super-grand-winner-details {
+    height: 100%; }
+    .server-site.cash-prize .box-container, .server-site.major-prize .box-container, .server-site.grand-prize .box-container,
+    .server-site.super-grand-prize .box-container, .server-site.winner-details .box-container, .server-site.super-grand-winner-details .box-container {
+      padding: 9.2rem 4rem; } }
+@media (max-width: 991px) {
+  .server-site.winner-details .prizePhoto, .server-site.super-grand-winner-details .prizePhoto {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    justify-content: flex-start;
+    -webkit-box-ordinal-group: 1;
+    -webkit-order: 0;
+    -moz-order: 0;
+    -ms-flex-order: 0;
+    order: 0; }
+
+  .server-site.winner-details .winnerList, .server-site.super-grand-winner-details .winnerList,
+  .server-site.super-grand-winner-details .staff-info {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -moz-order: 1;
+    -ms-flex-order: 1;
+    order: 1; }
+
+  .server-site.super-grand-winner-details .prizePhoto .order-first, .server-site.super-grand-winner-details .prizePhoto .order-second, .server-site.super-grand-winner-details .prizePhoto .order-third {
+    margin-right: 0; } }
 

@@ -1,56 +1,56 @@
-﻿<div class="col-sm-12 server-site super-grand-winner-details" ng-controller="SuperGrandWinnerDetailController as winnerDetailCtrl" super-grand-winner-detail-keyboard-event>
-    <div class="logo-prize super-grand"></div>
-    <div class="logo-small"></div>
+﻿<div class="col-sm-12 server-site super-grand-winner-details" ng-controller="SuperGrandWinnerDetailController as winnerDetailCtrl" super-grand-winner-detail-keyboard-event>    
     <div class="row box-container">
+        <div class="logo-prize super-grand"></div>
+        <div class="logo-small"></div>
         <div class="col-sm-12 winnerList" ng-class="winnerDetailCtrl.getClass(winnerDetailCtrl.winner1.StaffCode)" is-focus="{{winnerDetailCtrl.winner1.IsFocus}}" focus-event>
-            <div class="col-sm-7 staff-info pink-staff">
+            <div class="col-sm-12 col-md-7 staff-info pink-staff">
                 <img class="prize-number" ng-if="winnerDetailCtrl.winner1.PrizeNumber" ng-src="{{winnerDetailCtrl.winner1.PrizeNumber}}" src="" alt=""/>
                 <div class="avatar">
-                    <img ng-if="!winnerDetailCtrl.winner1" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/unknown.png" src="" alt="" class="photo-unknown" />
+                    <img ng-if="!winnerDetailCtrl.winner1" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-pink.png" src="" alt="" class="unknown" />
                     <img ng-if="winnerDetailCtrl.winner1" ng-src="data:image/png;base64,{{winnerDetailCtrl.winner1.Avatar}}" src="" alt="" class="photo" />
                 </div>
                 <div class="info" ng-if="winnerDetailCtrl.winner1">
-                    <h2 class="text-uppercase txt-nickname" ng-bind="winnerDetailCtrl.winner1.FullName"></h2>
-                    <p class="text-capitalize txt-fullname" ng-bind="winnerDetailCtrl.winner1.NickName"></p>
+                    <h2 class="text-uppercase txt-nickname" ng-bind="winnerDetailCtrl.winner1.NickName"></h2>
+                    <p class="text-capitalize txt-fullname" ng-bind="winnerDetailCtrl.winner1.FullName"></p>
                     <p ng-bind="winnerDetailCtrl.winner1.Department.Name"></p>
                 </div>
             </div>
-            <div class="col-sm-5 prizePhoto">
-                <img ng-src="data:image/png;base64,{{winnerDetailCtrl.winnerDetail.Prizes[0].Image}}" src="" alt="" class="img-responsive" />
+            <div class="col-sm-12 col-md-5 prizePhoto">
+                <img ng-src="data:image/png;base64,{{winnerDetailCtrl.winnerDetail.Prizes[0].Image}}" src="" alt="" class="img-responsive order-first" />
             </div>
         </div>
         <div class="col-sm-12 winnerList" ng-class="winnerDetailCtrl.getClass(winnerDetailCtrl.winner2.StaffCode)" is-focus="{{winnerDetailCtrl.winner2.IsFocus}}" focus-event>
-            <div class="col-sm-7 staff-info green-staff">
+            <div class="col-sm-12 col-md-7 staff-info green-staff">
                 <img class="prize-number" ng-if="winnerDetailCtrl.winner2.PrizeNumber" ng-src="{{winnerDetailCtrl.winner2.PrizeNumber}}" src="" alt="" />
                 <div class="avatar">
-                    <img ng-if="!winnerDetailCtrl.winner2" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/unknown.png" src="" alt="" class="photo-unknown" />
+                    <img ng-if="!winnerDetailCtrl.winner2" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-green.png" src="" alt="" class="unknown" />
                     <img ng-if="winnerDetailCtrl.winner2" ng-src="data:image/png;base64,{{winnerDetailCtrl.winner2.Avatar}}" src="" alt="" class="photo" />
                 </div>
                 <div class="info" ng-if="winnerDetailCtrl.winner2">
-                    <h2 class="text-uppercase txt-nickname" ng-bind="winnerDetailCtrl.winner2.FullName"></h2>
-                    <p class="text-capitalize txt-fullname" ng-bind="winnerDetailCtrl.winner2.NickName"></p>
+                    <h2 class="text-uppercase txt-nickname" ng-bind="winnerDetailCtrl.winner2.NickName"></h2>
+                    <p class="text-capitalize txt-fullname" ng-bind="winnerDetailCtrl.winner2.FullName"></p>
                     <p ng-bind="winnerDetailCtrl.winner2.Department.Name"></p>
                 </div>
             </div>
-            <div class="col-sm-5 prizePhoto">
-                <img ng-src="data:image/png;base64,{{winnerDetailCtrl.winnerDetail.Prizes[1].Image}}" src="" alt="" class="img-responsive" />
+            <div class="col-sm-12 col-md-5 prizePhoto">
+                <img ng-src="data:image/png;base64,{{winnerDetailCtrl.winnerDetail.Prizes[1].Image}}" src="" alt="" class="img-responsive order-second" />
             </div>
         </div>
         <div class="col-sm-12 winnerList" ng-class="winnerDetailCtrl.getClass(winnerDetailCtrl.winner3.StaffCode)" is-focus="{{winnerDetailCtrl.winner3.IsFocus}}" focus-event>
-            <div class="col-sm-7 staff-info blue-staff">
+            <div class="col-sm-12 col-md-7 staff-info blue-staff">
                 <img class="prize-number" ng-if="winnerDetailCtrl.winner3.PrizeNumber" ng-src="{{winnerDetailCtrl.winner3.PrizeNumber}}" src="" alt="" />
                 <div class="avatar">
-                    <img ng-if="!winnerDetailCtrl.winner3" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/unknown.png" src="" alt="" class="photo-unknown" />
+                    <img ng-if="!winnerDetailCtrl.winner3" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-blue.png" src="" alt="" class="unknown" />
                     <img ng-if="winnerDetailCtrl.winner3" ng-src="data:image/png;base64,{{winnerDetailCtrl.winner3.Avatar}}" src="" alt="" class="photo" />
                 </div>
                 <div class="info" ng-if="winnerDetailCtrl.winner3">
-                    <h2 class="text-uppercase txt-nickname" ng-bind="winnerDetailCtrl.winner3.FullName"></h2>
-                    <p class="text-capitalize txt-fullname" ng-bind="winnerDetailCtrl.winner3.NickName"></p>
+                    <h2 class="text-uppercase txt-nickname" ng-bind="winnerDetailCtrl.winner3.NickName"></h2>
+                    <p class="text-capitalize txt-fullname" ng-bind="winnerDetailCtrl.winner3.FullName"></p>
                     <p ng-bind="winnerDetailCtrl.winner3.Department.Name"></p>
                 </div>
             </div>
-            <div class="col-sm-5 prizePhoto">
-                <img ng-src="data:image/png;base64,{{winnerDetailCtrl.winnerDetail.Prizes[2].Image}}" src="" alt="" class="img-responsive" />
+            <div class="col-sm-12 col-md-5 prizePhoto">
+                <img ng-src="data:image/png;base64,{{winnerDetailCtrl.winnerDetail.Prizes[2].Image}}" src="" alt="" class="img-responsive order-third" />
             </div>
         </div>
     </div>
