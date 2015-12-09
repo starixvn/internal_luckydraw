@@ -63,7 +63,11 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                                     angular.forEach(vm.winnerDetail.Winners, function (winner, index) {
                                         var prizeIndex = winner.Prize.PrizeId < 0 ? -1 : winner.Prize.PrizeIndex;
 
-                                        fillWinnerByPrizeNumber(winner, index + 1, prizeIndex);
+                                        if (vm.winnerDetail.IsSamePrize) {
+                                            vm.fillWinner(winner);
+                                        } else {
+                                            fillWinnerByPrizeNumber(winner, index + 1, prizeIndex);
+                                        }
 
                                         if (prizeIndex !== -1) {
                                             vm.prizedIndex -= 1;

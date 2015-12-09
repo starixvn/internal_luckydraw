@@ -6291,22 +6291,18 @@ body {
     position: absolute;
     z-index: 5; }
     .server-site .logo-prize.cash {
-      background: url(../Images/Winner/cashprize-small.png) no-repeat;
       height: 12.5rem;
       top: -3.1rem;
       width: 18.8rem; }
     .server-site .logo-prize.major {
-      background: url(../Images/Winner/majorprize-small.png) no-repeat;
       height: 12.5rem;
       top: -3.8rem;
       width: 23.2rem; }
     .server-site .logo-prize.grand {
-      background: url(../Images/Winner/grandprize-small.png) no-repeat;
       height: 9.8rem;
       top: -3.1rem;
       width: 18.4rem; }
     .server-site .logo-prize.super-grand {
-      background: url(../Images/Winner/supergrandprize-small.png) no-repeat;
       height: 13.4rem;
       top: -4.6rem;
       width: 18.4rem; }
