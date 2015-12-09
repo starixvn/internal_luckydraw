@@ -295,39 +295,39 @@ namespace LuckyDraw.Site.Controllers.API
             switch (prizeIndex)
             {
                 case (int)CashPrizeIndex.Prize64To66:
-                    imagePath = "Images/Title/66-65-64-after.png";
+                    imagePath = "Images/Title/64-65-66-after.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize67To69:
-                    imagePath = "Images/Title/69-68-67-after.png";
+                    imagePath = "Images/Title/67-68-69-after.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize70To72:
-                    imagePath = "Images/Title/72-71-70-after.png";
+                    imagePath = "Images/Title/70-71-72-after.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize73To75:
-                    imagePath = "Images/Title/75-74-73-after.png";
+                    imagePath = "Images/Title/73-74-75-after.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize76To78:
-                    imagePath = "Images/Title/78-77-76-after.png";
+                    imagePath = "Images/Title/76-77-78-after.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize79To81:
-                    imagePath = "Images/Title/81-80-79-after.png";
+                    imagePath = "Images/Title/79-80-81-after.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize82To84:
-                    imagePath = "Images/Title/84-83-82-after.png";
+                    imagePath = "Images/Title/82-83-84-after.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize85To87:
-                    imagePath = "Images/Title/87-86-85-after.png";
+                    imagePath = "Images/Title/85-86-87-after.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize88To90:
-                    imagePath = "Images/Title/90-89-88-after.png";
+                    imagePath = "Images/Title/88-89-90-after.png";
                     break;
 
                 default:
@@ -345,39 +345,39 @@ namespace LuckyDraw.Site.Controllers.API
             switch (prizeIndex)
             {
                 case (int)CashPrizeIndex.Prize64To66:
-                    imagePath = "Images/Title/66-65-64-before.png";
+                    imagePath = "Images/Title/64-65-66-before.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize67To69:
-                    imagePath = "Images/Title/69-68-67-before.png";
+                    imagePath = "Images/Title/67-68-69-before.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize70To72:
-                    imagePath = "Images/Title/72-71-70-before.png";
+                    imagePath = "Images/Title/70-71-72-before.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize73To75:
-                    imagePath = "Images/Title/75-74-73-before.png";
+                    imagePath = "Images/Title/73-74-75-before.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize76To78:
-                    imagePath = "Images/Title/78-77-76-before.png";
+                    imagePath = "Images/Title/76-77-78-before.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize79To81:
-                    imagePath = "Images/Title/81-80-79-before.png";
+                    imagePath = "Images/Title/79-80-81-before.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize82To84:
-                    imagePath = "Images/Title/84-83-82-before.png";
+                    imagePath = "Images/Title/82-83-84-before.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize85To87:
-                    imagePath = "Images/Title/87-86-85-before.png";
+                    imagePath = "Images/Title/85-86-87-before.png";
                     break;
 
                 case (int)CashPrizeIndex.Prize88To90:
-                    imagePath = "Images/Title/90-89-88-before.png";
+                    imagePath = "Images/Title/88-89-90-before.png";
                     break;
 
                 default:
@@ -395,35 +395,35 @@ namespace LuckyDraw.Site.Controllers.API
             switch (prizeIndex)
             {
                 case (int)MajorPrizeIndex.Prize40To42:
-                    imagePath = "Images/Title/42-41-40-after.png";
+                    imagePath = "Images/Title/40-41-42-after.png";
                     break;
 
                 case (int)MajorPrizeIndex.Prize43To45:
-                    imagePath = "Images/Title/45-44-43-after.png";
+                    imagePath = "Images/Title/43-44-45-after.png";
                     break;
 
                 case (int)MajorPrizeIndex.Prize46To48:
-                    imagePath = "Images/Title/48-47-46-after.png";
+                    imagePath = "Images/Title/46-47-48-after.png";
                     break;
 
                 case (int)MajorPrizeIndex.Prize49To51:
-                    imagePath = "Images/Title/51-50-49-after.png";
+                    imagePath = "Images/Title/49-50-51-after.png";
                     break;
 
                 case (int)MajorPrizeIndex.Prize52To54:
-                    imagePath = "Images/Title/54-53-52-after.png";
+                    imagePath = "Images/Title/52-53-54-after.png";
                     break;
 
                 case (int)MajorPrizeIndex.Prize55To57:
-                    imagePath = "Images/Title/57-56-55-after.png";
+                    imagePath = "Images/Title/55-56-57-after.png";
                     break;
 
                 case (int)MajorPrizeIndex.Prize58To60:
-                    imagePath = "Images/Title/60-59-58-after.png";
+                    imagePath = "Images/Title/58-59-60-after.png";
                     break;
 
                 case (int)MajorPrizeIndex.Prize61To63:
-                    imagePath = "Images/Title/63-62-61-after.png";
+                    imagePath = "Images/Title/61-62-63-after.png";
                     break;
 
                 default:
@@ -441,35 +441,35 @@ namespace LuckyDraw.Site.Controllers.API
             switch (prizeIndex)
             {
                 case (int)MajorPrizeIndex.Prize40To42:
-                    imagePath = "Images/Title/42-41-40-before.png";
+                    imagePath = "Images/Title/40-41-42-before.png";
                     break;
 
                 case (int)MajorPrizeIndex.Prize43To45:
-                    imagePath = "Images/Title/45-44-43-before.png";
+                    imagePath = "Images/Title/43-44-45-before.png";
                     break;
 
                 case (int)MajorPrizeIndex.Prize46To48:
-                    imagePath = "Images/Title/48-47-46-before.png";
+                    imagePath = "Images/Title/46-47-48-before.png";
                     break;
 
                 case (int)MajorPrizeIndex.Prize49To51:
-                    imagePath = "Images/Title/51-50-49-before.png";
+                    imagePath = "Images/Title/49-50-51-before.png";
                     break;
 
                 case (int)MajorPrizeIndex.Prize52To54:
-                    imagePath = "Images/Title/54-53-52-before.png";
+                    imagePath = "Images/Title/52-53-54-before.png";
                     break;
 
                 case (int)MajorPrizeIndex.Prize55To57:
-                    imagePath = "Images/Title/57-56-55-before.png";
+                    imagePath = "Images/Title/55-56-57-before.png";
                     break;
 
                 case (int)MajorPrizeIndex.Prize58To60:
-                    imagePath = "Images/Title/60-59-58-before.png";
+                    imagePath = "Images/Title/58-59-60-before.png";
                     break;
 
                 case (int)MajorPrizeIndex.Prize61To63:
-                    imagePath = "Images/Title/63-62-61-before.png";
+                    imagePath = "Images/Title/61-62-63-before.png";
                     break;
 
                 default:
@@ -487,43 +487,43 @@ namespace LuckyDraw.Site.Controllers.API
             switch (prizeIndex)
             {
                 case (int)GrandPrizeIndex.Prize10To12:
-                    imagePath = "Images/Title/12-11-10-after.png";
+                    imagePath = "Images/Title/10-11-12-after.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize13To15:
-                    imagePath = "Images/Title/15-14-13-after.png";
+                    imagePath = "Images/Title/13-14-15-after.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize16To18:
-                    imagePath = "Images/Title/18-17-16-after.png";
+                    imagePath = "Images/Title/16-17-18-after.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize19To21:
-                    imagePath = "Images/Title/21-20-19-after.png";
+                    imagePath = "Images/Title/19-20-21-after.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize22To24:
-                    imagePath = "Images/Title/24-23-22-after.png";
+                    imagePath = "Images/Title/22-23-24-after.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize25To27:
-                    imagePath = "Images/Title/27-26-25-after.png";
+                    imagePath = "Images/Title/25-26-27-after.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize28To30:
-                    imagePath = "Images/Title/30-29-28-after.png";
+                    imagePath = "Images/Title/28-29-30-after.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize31To33:
-                    imagePath = "Images/Title/33-32-31-after.png";
+                    imagePath = "Images/Title/31-32-33-after.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize34To36:
-                    imagePath = "Images/Title/36-35-34-after.png";
+                    imagePath = "Images/Title/34-35-36-after.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize37To39:
-                    imagePath = "Images/Title/39-38-37-after.png";
+                    imagePath = "Images/Title/37-38-39-after.png";
                     break;
 
                 default:
@@ -541,43 +541,43 @@ namespace LuckyDraw.Site.Controllers.API
             switch (prizeIndex)
             {
                 case (int)GrandPrizeIndex.Prize10To12:
-                    imagePath = "Images/Title/12-11-10-before.png";
+                    imagePath = "Images/Title/10-11-12-before.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize13To15:
-                    imagePath = "Images/Title/15-14-13-before.png";
+                    imagePath = "Images/Title/13-14-15-before.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize16To18:
-                    imagePath = "Images/Title/18-17-16-before.png";
+                    imagePath = "Images/Title/16-17-18-before.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize19To21:
-                    imagePath = "Images/Title/21-20-19-before.png";
+                    imagePath = "Images/Title/19-20-21-before.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize22To24:
-                    imagePath = "Images/Title/24-23-22-before.png";
+                    imagePath = "Images/Title/22-23-24-before.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize25To27:
-                    imagePath = "Images/Title/27-26-25-before.png";
+                    imagePath = "Images/Title/25-26-27-before.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize28To30:
-                    imagePath = "Images/Title/30-29-28-before.png";
+                    imagePath = "Images/Title/28-29-30-before.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize31To33:
-                    imagePath = "Images/Title/33-32-31-before.png";
+                    imagePath = "Images/Title/31-32-33-before.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize34To36:
-                    imagePath = "Images/Title/36-35-34-before.png";
+                    imagePath = "Images/Title/34-35-36-before.png";
                     break;
 
                 case (int)GrandPrizeIndex.Prize37To39:
-                    imagePath = "Images/Title/39-38-37-before.png";
+                    imagePath = "Images/Title/37-38-39-before.png";
                     break;
 
                 default:
