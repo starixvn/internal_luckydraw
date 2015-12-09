@@ -10,6 +10,7 @@
 namespace LuckyDraw.Models.Staff
 {
     using System.Collections.Generic;
+    using System.Linq;
     using LuckyDraw.Models.Prize;
 
     public class WinnerDetailModel
@@ -18,6 +19,21 @@ namespace LuckyDraw.Models.Staff
         {
             Prizes = new List<PrizeModel>();
             Winners = new List<StaffModel>();
+        }
+
+        public bool IsSamePrize
+        {
+            get
+            {
+                bool isSamePrize = false;
+
+                if (Prizes.Count > 1)
+                {
+                    isSamePrize = Prizes.All(x => x.Name.ToLower() == Prizes.First().Name.ToLower());
+                }
+
+                return isSamePrize;
+            }
         }
 
         public PrizeModel Prize { get; set; }
