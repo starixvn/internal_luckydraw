@@ -71,26 +71,27 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
     };
 
-    serverModel.updateWinner = function (vm, winners) {
-        if (vm.prizeSetting.CurrentPrize > 0 && !vm.isDelete) {
+    serverModel.superGrandUpdateWinner = function (vm, winners) {
+        var criteria = {
+            Winners: winners,
+            PrizeTypeId: vm.prizeType,
+            CurrentPrize: vm.prizeSetting.CurrentPrize
+        };
+
+        return serverFactory.updateWinner(criteria)
+        .success(function (response) {
+            if (response.IsSuccessful) {
+            } else {
+                notificationFactory.error("", response.Message);
+            }
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+
+        if (vm.prizeSetting.CurrentPrize > 0) {
             vm.prizeSetting.CurrentPrize -= 1;
 
-            var criteria = {
-                Winners: winners,
-                PrizeTypeId: vm.prizeType,
-                CurrentPrize: vm.prizeSetting.CurrentPrize
-            };
-
-            return serverFactory.updateWinner(criteria)
-            .success(function (response) {
-                if (response.IsSuccessful) {
-                    vm.prizedWinners.push(winners[0]);
-                } else {
-                    notificationFactory.error("", response.Message);
-                }
-            }).error(function (response, status) {
-                errorFactory.errorHandle(status);
-            });
+            
         }
     };
 
@@ -248,7 +249,6 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
 
                     vm.winnerDetail.Winners = [];
                     vm.prizedWinners = [];
-                    vm.prizedIndex = 3;
                 } else {
                     notificationFactory.error("", response.Message);
                 }

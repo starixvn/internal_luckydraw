@@ -9,12 +9,9 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
     vm.baseUrl = baseUrl;
     vm.prizeType = parseInt($routeParams.prizeType);
 
-    vm.startPrize = 9;
     vm.focusWinner = 4;
-    vm.prizedIndex = 3;
     vm.prizedWinners = [];
 
-    vm.isDelete = false;
     vm.isFinished = false;
 
     vm.winner1 = null;
@@ -70,7 +67,6 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                                         }
 
                                         if (prizeIndex !== -1) {
-                                            vm.prizedIndex -= 1;
                                             vm.prizedWinners.push(winner);
                                         }
                                     });
@@ -171,9 +167,8 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
     };
 
     vm.removeSpecialWinner = function () {
-        if (vm.focusWinner > 0 && vm.focusWinner < 4
-            && vm.prizedWinners.length > 0 && vm.winnerDetail.Winners.length > 0) {
-            var staff;
+        if (vm.focusWinner > 0 && vm.focusWinner < 4) {
+            var staff = null;
 
             switch (vm.focusWinner) {
                 case 1:
@@ -187,7 +182,9 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                     break;
             }
 
-            ServerModel.openPopupConfirmRemoveSpecialWinner(vm, staff, vm.focusWinner);
+            if (staff) {
+                ServerModel.openPopupConfirmRemoveSpecialWinner(vm, staff, vm.focusWinner);
+            }
         }
     };
 
@@ -208,9 +205,14 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                                 vm.winner3.PrizeNumber = baseUrl + ServerModel.prizeNumber;
                                 vm.winner3.Prize = vm.winnerDetail.Prizes[(prize - 1) % 3];
 
-                                winners.push(vm.winner3)
-                                ServerModel.updateWinner(vm, winners);
-                                vm.prizedIndex -= 1;
+                                winners.push(vm.winner3);
+                                vm.prizedWinners.push(vm.winner3);
+                                vm.prizeSetting.CurrentPrize = (parseInt((vm.prizeSetting.CurrentPrize - 1) / 3) + 1) * 3 - vm.prizedWinners.length;
+                                if (vm.prizeSetting.CurrentPrize < 0) {
+                                    vm.prizeSetting.CurrentPrize = 0;
+                                }
+
+                                ServerModel.superGrandUpdateWinner(vm, winners);
                             }
                             break;
                         case 2:
@@ -218,9 +220,14 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                                 vm.winner2.PrizeNumber = baseUrl + ServerModel.prizeNumber;
                                 vm.winner2.Prize = vm.winnerDetail.Prizes[(prize - 1) % 3];
 
-                                winners.push(vm.winner2)
-                                ServerModel.updateWinner(vm, winners);
-                                vm.prizedIndex -= 1;
+                                winners.push(vm.winner2);
+                                vm.prizedWinners.push(vm.winner2);
+                                vm.prizeSetting.CurrentPrize = (parseInt((vm.prizeSetting.CurrentPrize - 1) / 3) + 1) * 3 - vm.prizedWinners.length;
+                                if (vm.prizeSetting.CurrentPrize < 0) {
+                                    vm.prizeSetting.CurrentPrize = 0;
+                                }
+
+                                ServerModel.superGrandUpdateWinner(vm, winners);
                             }
                             break;
                         case 3:
@@ -228,9 +235,14 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                                 vm.winner1.PrizeNumber = baseUrl + ServerModel.prizeNumber;
                                 vm.winner1.Prize = vm.winnerDetail.Prizes[(prize - 1) % 3];
 
-                                winners.push(vm.winner1)
-                                ServerModel.updateWinner(vm, winners);
-                                vm.prizedIndex -= 1;
+                                winners.push(vm.winner1);
+                                vm.prizedWinners.push(vm.winner1);
+                                vm.prizeSetting.CurrentPrize = (parseInt((vm.prizeSetting.CurrentPrize - 1) / 3) + 1) * 3 - vm.prizedWinners.length;
+                                if (vm.prizeSetting.CurrentPrize < 0) {
+                                    vm.prizeSetting.CurrentPrize = 0;
+                                }
+
+                                ServerModel.superGrandUpdateWinner(vm, winners);
                             }
                             break;
                     }
@@ -263,7 +275,6 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                         fillWinnerByPrizeNumber(winner, index + 1, prizeIndex);
 
                         if (prizeIndex !== -1) {
-                            vm.prizedIndex -= 1;
                             vm.prizedWinners.push(winner);
                         }
                     });
@@ -350,7 +361,7 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                         }
                     });
 
-                    vm.prizeSetting.CurrentPrize -= 1;
+                    vm.prizeSetting.CurrentPrize = (parseInt((vm.prizeSetting.CurrentPrize - 1) / 3) + 1) * 3 - vm.prizedWinners.length;
 
                     var criteria = {
                         Winners: vm.prizedWinners,
@@ -361,7 +372,17 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                     ServerModel.insertWinner(criteria);
                 } else {
                     if (vm.fillWinner(staff)) {
+                        staff.Prize = {
+                            PrizeId: -1
+                        };
                         vm.winnerDetail.Winners.push(staff);
+
+                        var criteria = {
+                            Winners: new Array(staff),
+                            PrizeTypeId: vm.prizeType
+                        };
+
+                        ServerModel.insertWinner(criteria);
                     }
                 }
             }
