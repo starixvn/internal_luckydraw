@@ -102,16 +102,20 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Serv
         if (vm.prizeSetting.Multiply > 1) {
             if (vm.prizeSetting.Quantity > (vm.prizeSetting.CurrentPrize * vm.prizeSetting.Multiply)) {
                 vm.prizeSetting.CurrentPrize += 1;
-            } else {
-                vm.prizeSetting.CurrentPrize = parseInt(vm.prizeSetting.Quantity / vm.prizeSetting.Multiply);
+
+                if ((vm.prizeSetting.CurrentPrize * vm.prizeSetting.Multiply) > vm.prizeSetting.Quantity) {
+                    vm.prizeSetting.CurrentPrize = parseInt(vm.prizeSetting.Quantity / vm.prizeSetting.Multiply);
+                }
             }
 
             vm.updateCurrentPrize(vm.prizeSetting.CurrentPrize);
         } else {
             if (vm.prizeSetting.Quantity > vm.prizeSetting.CurrentPrize) {
                 vm.prizeSetting.CurrentPrize += 3;
-            } else {
-                vm.prizeSetting.CurrentPrize = vm.prizeSetting.Quantity;
+
+                if (vm.prizeSetting.CurrentPrize > vm.prizeSetting.Quantity) {
+                    vm.prizeSetting.CurrentPrize = vm.prizeSetting.Quantity;
+                }
             }
 
             vm.updateCurrentPrize(vm.prizeSetting.CurrentPrize);

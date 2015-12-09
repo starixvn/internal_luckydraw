@@ -99,25 +99,25 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
 
     var hubProxy = $.connection.hubs;
 
-    var checkWinner = function (newWinner, oldWinner) {
+    vm.sendMessageResponse = function (oldWinner, newWinner) {
         var grade = parseInt(newWinner.StaffCode.substring(0, 2)),
             message = '';
 
         if (vm.winnerDetail.Winners.length >= 3) {
             message = 'Full, barcode: ' + newWinner.StaffCode;
-            hubProxy.server.sendMessageResponse(grade, message);
         } else if (newWinner.StaffCode === oldWinner.StaffCode) {
             message = 'Barcode duplicated, barcode: ' + newWinner.StaffCode;
-            hubProxy.server.sendMessageResponse(grade, message);
         } else {
             message = 'Wrong group, barcode: ' + newWinner.StaffCode;
+        }
+
+        if (message.length > 0) {
             hubProxy.server.sendMessageResponse(grade, message);
         }
     };
 
     vm.fillWinner = function (winner) {
         var grade = parseInt(winner.StaffCode.substring(0, 2)),
-            message = '',
             isValid = true;
 
         switch (grade) {
@@ -126,7 +126,7 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
                     vm.pinkStaff = winner;
                 } else {
                     isValid = false;
-                    checkWinner(winner, vm.pinkStaff);
+                    vm.sendMessageResponse(vm.pinkStaff, winner);
                 }
                 break;
             case 11:
@@ -134,7 +134,7 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
                     vm.greenStaff = winner;
                 } else {
                     isValid = false;
-                    checkWinner(winner, vm.greenStaff);
+                    vm.sendMessageResponse(vm.greenStaff, winner);
                 }
                 break;
             case 12:
@@ -142,7 +142,7 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
                     vm.blueStaff = winner;
                 } else {
                     isValid = false;
-                    checkWinner(winner, vm.blueStaff);
+                    vm.sendMessageResponse(vm.blueStaff, winner);
                 }
                 break;
         }

@@ -2,8 +2,8 @@
 /*global serverModule*/
 
 serverModule.controller('SuperGrandWinnerDetailController',
-['$scope', '$routeParams', 'ServerModel', 'CommonModel', 'baseUrl',
-function ($scope, $routeParams, ServerModel, CommonModel, baseUrl) {
+['$window', '$scope', '$routeParams', 'ServerModel', 'CommonModel', 'baseUrl',
+function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
     var vm = this;
 
     vm.baseUrl = baseUrl;
@@ -13,7 +13,6 @@ function ($scope, $routeParams, ServerModel, CommonModel, baseUrl) {
     vm.focusWinner = 4;
     vm.prizedIndex = 3;
     vm.prizedWinners = [];
-    vm.savedWinners = [];
 
     vm.isDelete = false;
     vm.isFinished = false;
@@ -21,6 +20,26 @@ function ($scope, $routeParams, ServerModel, CommonModel, baseUrl) {
     vm.winner1 = null;
     vm.winner2 = null;
     vm.winner3 = null;
+
+    var fillWinnerByPrizeNumber = function (winner, position, prizeIndex) {
+        ServerModel.getPrizeNumber(prizeIndex).then(function () {
+            if (ServerModel.prizeNumber) {
+                winner.PrizeNumber = baseUrl + ServerModel.prizeNumber;
+            }
+
+            switch (position) {
+                case 1:
+                    vm.winner3 = winner;
+                    break;
+                case 2:
+                    vm.winner2 = winner;
+                    break;
+                case 3:
+                    vm.winner1 = winner;
+                    break;
+            }
+        });
+    };
 
     vm.initialize = function () {
         CommonModel.getPrizeType().then(function () {
@@ -44,8 +63,7 @@ function ($scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                                     angular.forEach(vm.winnerDetail.Winners, function (winner, index) {
                                         var prizeIndex = winner.Prize.PrizeId < 0 ? -1 : winner.Prize.PrizeIndex;
 
-                                        vm.fillWinner(winner, index + 1, prizeIndex);
-                                        vm.savedWinners.push(winner);
+                                        fillWinnerByPrizeNumber(winner, index + 1, prizeIndex);
 
                                         if (prizeIndex !== -1) {
                                             vm.prizedIndex -= 1;
@@ -85,68 +103,95 @@ function ($scope, $routeParams, ServerModel, CommonModel, baseUrl) {
         return result;
     };
 
-    vm.setFocusWinner = function (focusWinner) {
+    vm.redirectToPrizeList = function () {
+        var path = baseUrl + 'Server/PrizeList/' + vm.prizeType;
+
+        $window.location.href = path;
+    };
+
+    var setFocusWinner = function (focusWinner) {
         switch (focusWinner) {
             case 1:
-                vm.winner3.IsFocus = true;
-                vm.winner1.IsFocus = false;
-                vm.winner2.IsFocus = false;
+                if (vm.winner3) {
+                    vm.winner3.IsFocus = true;
+                }
+                if (vm.winner1) {
+                    vm.winner1.IsFocus = false;
+                }
+                if (vm.winner2) {
+                    vm.winner2.IsFocus = false;
+                }
                 $scope.$apply();
                 break;
             case 2:
-                vm.winner2.IsFocus = true;
-                vm.winner1.IsFocus = false;
-                vm.winner3.IsFocus = false;
+                if (vm.winner2) {
+                    vm.winner2.IsFocus = true;
+                }
+                if (vm.winner1) {
+                    vm.winner1.IsFocus = false;
+                }
+                if (vm.winner3) {
+                    vm.winner3.IsFocus = false;
+                }
                 $scope.$apply();
                 break;
             case 3:
-                vm.winner1.IsFocus = true;
-                vm.winner2.IsFocus = false;
-                vm.winner3.IsFocus = false;
+                if (vm.winner1) {
+                    vm.winner1.IsFocus = true;
+                }
+                if (vm.winner2) {
+                    vm.winner2.IsFocus = false;
+                }
+                if (vm.winner3) {
+                    vm.winner3.IsFocus = false;
+                }
                 $scope.$apply();
                 break;
         }
     };
 
-    vm.sortPrize = function () {
-        ServerModel.getSuperGrandWinnerDetail(vm.prizeType, vm.startPrize).then(function () {
-            vm.winnerDetail = ServerModel.winnerDetail;
+    vm.keyUpArrowEvent = function () {
+        if (vm.focusWinner < 3 && vm.winnerDetail.Winners.length > 0) {
+            vm.focusWinner += 1;
 
-            if (vm.winnerDetail && vm.winnerDetail.Winners.length > 0) {
-                angular.forEach(vm.winnerDetail.Winners, function (winner, index) {
-                    var prizeIndex = winner.Prize.PrizeId < 0 ? -1 : winner.Prize.PrizeIndex;
-
-                    vm.fillWinner(winner, index + 1, prizeIndex);
-                });
-            }
-        });
+            setFocusWinner(vm.focusWinner);
+        }
     };
 
-    vm.fillWinner = function (winner, position, prizeIndex) {
-        ServerModel.getPrizeNumber(prizeIndex).then(function () {
-            if (ServerModel.prizeNumber) {
-                winner.PrizeNumber = baseUrl + ServerModel.prizeNumber;
-            }
+    vm.keyDownArrowEvent = function () {
+        if (vm.focusWinner > 1 && vm.winnerDetail.Winners.length > 0) {
+            vm.focusWinner -= 1;
 
-            switch (position) {
+            setFocusWinner(vm.focusWinner);
+        }
+    };
+
+    vm.removeSpecialWinner = function () {
+        if (vm.focusWinner > 0 && vm.focusWinner < 4
+            && vm.prizedWinners.length > 0 && vm.winnerDetail.Winners.length > 0) {
+            var staff;
+
+            switch (vm.focusWinner) {
                 case 1:
-                    vm.winner3 = winner;
+                    staff = vm.winner3;
                     break;
                 case 2:
-                    vm.winner2 = winner;
+                    staff = vm.winner2;
                     break;
                 case 3:
-                    vm.winner1 = winner;
+                    staff = vm.winner1;
                     break;
             }
-        });
+
+            ServerModel.openPopupConfirmRemoveSpecialWinner(vm, staff, vm.focusWinner);
+        }
     };
 
     vm.choosePrize = function (prize) {
         var prizeId = vm.winnerDetail.Prizes[(prize - 1) % 3].PrizeId,
-            index = vm.winnerDetail.Winners.map(function (e) { return e.Prize.PrizeId; }).indexOf(prizeId);
+            index = vm.prizedWinners.map(function (e) { return e.Prize.PrizeId; }).indexOf(prizeId);
 
-        if (vm.savedWinners.length >= 3
+        if (vm.winnerDetail.Winners.length >= 3
                 && (prize > 0 && prize < 10)
                 && index === -1
                 && (parseInt((vm.startPrize - 1) / 3) === parseInt((prize - 1) / 3))) {
@@ -190,127 +235,170 @@ function ($scope, $routeParams, ServerModel, CommonModel, baseUrl) {
         }
     };
 
-    vm.removeSpecialWinner = function () {
-        if (vm.focusWinner > 0 && vm.focusWinner < 4
-            && vm.prizedWinners.length > 0 && vm.savedWinners.length > 0) {
-            var staff;
-
-            switch (vm.focusWinner) {
-                case 1:
-                    staff = vm.winner3;
-                    break;
-                case 2:
-                    staff = vm.winner2;
-                    break;
-                case 3:
-                    staff = vm.winner1;
-                    break;
-            }
-
-            ServerModel.openPopupConfirmRemoveSpecialWinner(vm, staff, vm.focusWinner);
-        }
-    };
-
     vm.removeAllWinner = function () {
-        if (vm.savedWinners.length > 0) {
+        if (vm.winnerDetail.Winners.length > 0) {
             ServerModel.openPopupConfirmRemoveAllWinner(vm);
         }
     };
 
     vm.resetPrizeWinners = function () {
-        if (vm.savedWinners.length > 0) {
+        if (vm.winnerDetail.Winners.length > 0 && !vm.winnerDetail.IsSamePrize) {
             ServerModel.openPopupConfirmResetPrize(vm);
         }
     };
 
+    vm.sortPrize = function () {
+        if (!vm.winnerDetail.IsSamePrize) {
+            ServerModel.getSuperGrandWinnerDetail(vm.prizeType, vm.startPrize).then(function () {
+                vm.winnerDetail = ServerModel.winnerDetail;
+
+                if (vm.winnerDetail && vm.winnerDetail.Winners.length > 0) {
+                    angular.forEach(vm.winnerDetail.Winners, function (winner, index) {
+                        var prizeIndex = winner.Prize.PrizeId < 0 ? -1 : winner.Prize.PrizeIndex;
+
+                        fillWinnerByPrizeNumber(winner, index + 1, prizeIndex);
+
+                        if (prizeIndex !== -1) {
+                            vm.prizedIndex -= 1;
+                            vm.prizedWinners.push(winner);
+                        }
+                    });
+                }
+            });
+        }
+    };
+
     var hubProxy = $.connection.hubs;
+
+    vm.sendMessageResponse = function (oldWinner, newWinner) {
+        var grade = parseInt(newWinner.StaffCode.substring(0, 2)),
+            message = '';
+
+        if (vm.winnerDetail.IsSamePrize) {
+            if (vm.prizedWinners.length >= 3) {
+                message = 'Full, barcode: ' + newWinner.StaffCode;
+            } else if (newWinner.StaffCode === oldWinner.StaffCode) {
+                message = 'Barcode duplicated, barcode: ' + newWinner.StaffCode;
+            } else {
+                message = 'Wrong group, barcode: ' + newWinner.StaffCode;
+            }
+        } else {
+            if (vm.winnerDetail.Winners.length >= 3) {
+                message = 'Full, barcode: ' + newWinner.StaffCode;
+            } else if (newWinner.StaffCode === oldWinner.StaffCode) {
+                message = 'Barcode duplicated, barcode: ' + newWinner.StaffCode;
+            } else {
+                message = 'Wrong group, barcode: ' + newWinner.StaffCode;
+            }
+        }
+
+        if (message.length > 0) {
+            hubProxy.server.sendMessageResponse(grade, message);
+        }
+    };
+
+    vm.fillWinner = function (winner) {
+        var grade = parseInt(winner.StaffCode.substring(0, 2)),
+            isValid = true;
+
+        switch (grade) {
+            case 10:
+                if (!vm.winner1) {
+                    vm.winner1 = winner;
+                } else {
+                    isValid = false;
+                    vm.sendMessageResponse(vm.winner1, winner);
+                }
+                break;
+            case 11:
+                if (!vm.winner2) {
+                    vm.winner2 = winner;
+                } else {
+                    isValid = false;
+                    vm.sendMessageResponse(vm.winner2, winner);
+                }
+                break;
+            case 12:
+                if (!vm.winner3) {
+                    vm.winner3 = winner;
+                } else {
+                    isValid = false;
+                    vm.sendMessageResponse(vm.winner3, winner);
+                }
+                break;
+        }
+
+        return isValid;
+    };
 
     hubProxy.client.getStaffCode = function (staffCode) {
         CommonModel.getStaffByCode(staffCode).then(function () {
             var staff = CommonModel.staff;
 
             if (staff && staff.StaffCode) {
-                switch (staff.StaffCode.substring(0, 2)) {
-                    case '10':
-                        if (!vm.pinkStaff) {
-                            vm.pinkStaff = staff;
+                if (vm.winnerDetail.IsSamePrize && vm.fillWinner(staff)) {
+                    vm.prizedWinners.push(staff);
+                    vm.winnerDetail.Winners.push(staff);
+
+                    angular.forEach(vm.winnerDetail.Prizes, function (prize, index) {
+                        if (vm.prizedWinners[index]) {
+                            vm.prizedWinners[index].Prize = prize;
                         }
-                        break;
-                    case '11':
-                        if (!vm.greenStaff) {
-                            vm.greenStaff = staff;
-                        }
-                        break;
-                    case '12':
-                        if (!vm.blueStaff) {
-                            vm.blueStaff = staff;
-                        }
-                        break;
+                    });
+
+                    vm.prizeSetting.CurrentPrize -= 1;
+
+                    var criteria = {
+                        Winners: vm.prizedWinners,
+                        PrizeTypeId: vm.prizeType,
+                        CurrentPrize: vm.prizeSetting.CurrentPrize
+                    };
+
+                    ServerModel.insertWinner(criteria);
+                } else {
+                    if (vm.fillWinner(staff)) {
+                        vm.winnerDetail.Winners.push(staff);
+                    }
                 }
             }
         });
     };
 
-    $.connection.hub.start().done(function () {
-        console.log('Now connected, connection ID =' + $.connection.hub.id);
-    });
+    $.connection.hub.start();
 } ]);
 
 serverModule.directive('superGrandWinnerDetailKeyboardEvent',
-['$window', 'baseUrl', function ($window, baseUrl) {
+[function () {
     return {
         link: function (scope, element, attrs) {
             jQuery(document).on('keydown', function (event) {
                 event.preventDefault();
-                var path = '';
 
                 switch (event.which) {
                     case 13: // enter
                     case 27: // asc
-                        path = baseUrl + 'Server/PrizeList/' + scope.winnerDetailCtrl.prizeType;
+                        scope.winnerDetailCtrl.redirectToPrizeList();
                         break;
                     case 38: // up arrow
-                        if (scope.winnerDetailCtrl.focusWinner < 3 && scope.winnerDetailCtrl.savedWinners.length >= 3) {
-                            scope.winnerDetailCtrl.focusWinner += 1;
-
-                            scope.winnerDetailCtrl.setFocusWinner(scope.winnerDetailCtrl.focusWinner);
-                        }
+                        scope.winnerDetailCtrl.keyUpArrowEvent();
                         break;
                     case 40: // down arrow
-                        if (scope.winnerDetailCtrl.focusWinner > 1 && scope.winnerDetailCtrl.savedWinners.length >= 3) {
-                            scope.winnerDetailCtrl.focusWinner -= 1;
-                            scope.winnerDetailCtrl.setFocusWinner(scope.winnerDetailCtrl.focusWinner);
-                        }
+                        scope.winnerDetailCtrl.keyDownArrowEvent();
                         break;
                     case 46: // delete
                         scope.winnerDetailCtrl.removeSpecialWinner();
                         break;
                     case 49: // 1
-                        scope.winnerDetailCtrl.choosePrize(1);
-                        break;
                     case 50: // 2
-                        scope.winnerDetailCtrl.choosePrize(2);
-                        break;
                     case 51: // 3
-                        scope.winnerDetailCtrl.choosePrize(3);
-                        break;
                     case 52: // 4
-                        scope.winnerDetailCtrl.choosePrize(4);
-                        break;
                     case 53: // 5
-                        scope.winnerDetailCtrl.choosePrize(5);
-                        break;
                     case 54: // 6
-                        scope.winnerDetailCtrl.choosePrize(6);
-                        break;
                     case 55: // 7
-                        scope.winnerDetailCtrl.choosePrize(7);
-                        break;
                     case 56: // 8
-                        scope.winnerDetailCtrl.choosePrize(8);
-                        break;
                     case 57: // 9
-                        scope.winnerDetailCtrl.choosePrize(9);
+                        var prizeNumber = parseInt(String.fromCharCode(event.which));
+                        scope.winnerDetailCtrl.choosePrize(prizeNumber);
                         break;
                     case 68: // press ctrl+d to remove winners
                         if (event.ctrlKey) {
@@ -325,10 +413,6 @@ serverModule.directive('superGrandWinnerDetailKeyboardEvent',
                     case 83: // s
                         scope.winnerDetailCtrl.sortPrize();
                         break;
-                }
-
-                if (path.length > 0) {
-                    $window.location.href = path;
                 }
             });
         }

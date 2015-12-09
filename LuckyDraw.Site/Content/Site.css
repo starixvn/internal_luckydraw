@@ -6304,9 +6304,6 @@ body {
   .server-site.super-grand-winner-details .avatar {
     position: relative; }
   .server-site.super-grand-winner-details .prize-number {
-    position: absolute;
-    top: -2.4rem;
-    left: -1.2rem;
     margin: 0;
     z-index: 6; }
   .server-site.cash-prize, .server-site.major-prize, .server-site.grand-prize, .server-site.super-grand-prize, .server-site.winner-details, .server-site.super-grand-winner-details {

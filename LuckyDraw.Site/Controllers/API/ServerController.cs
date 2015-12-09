@@ -102,8 +102,13 @@ namespace LuckyDraw.Site.Controllers.API
             {
                 GetWinnerByPrizeIdCriteria winnerCriteria = new GetWinnerByPrizeIdCriteria()
                 {
-                    PrizeIds = string.Join(",", winnerDetail.Prizes.Select(x => x.PrizeId)) + ",-1"
+                    PrizeIds = string.Join(",", winnerDetail.Prizes.Select(x => x.PrizeId))
                 };
+
+                if (!winnerDetail.IsSamePrize)
+                {
+                    winnerCriteria.PrizeIds += ",-1";
+                }
 
                 winnerDetail.Winners = _staffService.GetWinnerByPrizeId(winnerCriteria);
             }
