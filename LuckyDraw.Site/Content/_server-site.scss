@@ -1,302 +1,314 @@
 body {
-	background-color: #000;	
+    background-color: #000;
 }
 
 .server-site {
     background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;
-	border: 3.6rem solid transparent;
-	height: 100vh;
-	width: 100vw; 
-	@include border-image(url(../Images/border.png), 30%, repeat );
-	@include background-size('cover');
+    border: 3.6rem solid transparent;
+    height: 100vh;
+    width: 100vw; 
+    @include border-image(url(../Images/border.png), 30%, repeat );
+    @include background-size('cover');
 
-	&.opening {
-		.logo-opening, .list-prize-opening {
-			left: 0;
-			right: 0;
-			position: absolute;
-			text-align: center;
+    &.opening {
+        .logo-opening, .list-prize-opening {
+            left: 0;
+            right: 0;
+            position: absolute;
+            text-align: center;
 
-			img {
-				display: inline-block;
-			}
-		}
+            img {
+                display: inline-block;
+            }
+        }
 
-		.logo-opening {			
-			top: 2rem;
-		}
+        .logo-opening {
+            top: 2rem;
+        }
 
-		.list-prize-opening {
-			bottom: 7.5rem;
-		}
-	}
+        .list-prize-opening {
+            bottom: 7.5rem;
+        }
+    }
 
-	.listPrize {		
-		float: none;
-		@include align-with-flex(center, center, row, center);
-	}
+    .listPrize {
+        float: none;
+        @include align-with-flex(center, center, row, center);
+    }
 
-    &.super-grand-prize {		
+    &.super-grand-prize {
         background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
     }
 
-    &.grand-prize {		
+    &.grand-prize {
         background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
     }
 
-    &.major-prize {		
-        background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;     
+    &.major-prize {
+        background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
     }
 
-    &.cash-prize {		
-		background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
+    &.cash-prize {
+        background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
     }
-	
-    &.winner-details, &.super-grand-winner-details {		
+    
+    &.winner-details, &.super-grand-winner-details {
         background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
 
-		.box-container {
-			padding: 5.2rem 12rem 4.8rem 16rem;
-		}
+        .box-container {
+            padding: 5.2rem 12rem 4.8rem 16rem;
+        }
 
-		.staff-info {
-			@include align-with-flex(center, center, row, flex-start);
+        .staff-info {
+            @include align-with-flex(center, center, row, flex-start);
 
-			.avatar {
-				border: .2rem solid;
-				background-color: #0e090d;
-				height: 15rem;
-				text-align: center;
-				width: 13rem;
+            .avatar {
+                border: .2rem solid;
+                background-color: #0e090d;
+                height: 15rem;
+                text-align: center;
+                width: 13rem;
 
-				.photo {				
-					height: 100%;
-					width: 100%;
-				}
+                .photo {
+                    height: 100%;
+                    width: 100%;
+                }
 
-				.unknown {
-					margin: 3.7rem 3.6rem;
-				}
-			}
+                .unknown {
+                    margin: 3.7rem 3.6rem;
+                }
+            }
 
-			&.pink-staff {
-				color: #fd7fbc;
+            &.pink-staff {
+                color: #fd7fbc;
 
-				.avatar {
-					border-color: #f8aad1;
-					outline: .1rem solid #f0549e;
-					@include box-shadow(0, 0, 1.6rem, #f0549e);
-				}
+                .avatar {
+                    border-color: #f8aad1;
+                    outline: .1rem solid #f0549e;
+                    @include box-shadow(0, 0, 1.6rem, #f0549e);
+                }
 
-				.photo {
-					border: .1rem solid #f0549e;
-				}
-			}
+                .photo {
+                    border: .1rem solid #f0549e;
+                }
+            }
 
-			&.green-staff {
-				color: #42e884;
+            &.green-staff {
+                color: #42e884;
 
-				.avatar {
-					border-color: #8de1af;
-					outline: .1rem solid #19c25d;
-					@include box-shadow(0, 0, 1.6rem, #19c25d);
-				}
+                .avatar {
+                    border-color: #8de1af;
+                    outline: .1rem solid #19c25d;
+                    @include box-shadow(0, 0, 1.6rem, #19c25d);
+                }
 
-				.photo {
-					border: .1rem solid #19c25d;
-				}
-			}
+                .photo {
+                    border: .1rem solid #19c25d;
+                }
+            }
 
-			&.blue-staff {
-				color: #5e7bf3;
+            &.blue-staff {
+                color: #5e7bf3;
 
-				.avatar {
-					border-color: #95a8f7;
-					outline: .1rem solid #284eef;
-					@include box-shadow(0, 0, 1.6rem, #284eef);
-				}
+                .avatar {
+                    border-color: #95a8f7;
+                    outline: .1rem solid #284eef;
+                    @include box-shadow(0, 0, 1.6rem, #284eef);
+                }
 
-				.photo {
-					border: .1rem solid #284eef;
-				}
-			}
+                .photo {
+                    border: .1rem solid #284eef;
+                }
+            }
 
-			.info {
-				font: {
-					weight: 600;
-					size: 2rem;
-				}
-				padding-left: 2rem;
+            .info {
+                font: {
+                    weight: 600;
+                    size: 2rem;
+                }
+                padding-left: 2rem;
 
-				.txt-nickname {
-					font: {
-						weight: bold;
-						size: 3rem;
-					}
-					margin: 0;
-				}
+                .txt-nickname {
+                    font: {
+                        weight: bold;
+                        size: 3rem;
+                    }
+                    margin: 0;
+                }
 
-				p {
-					margin-bottom: 0;
-				}
+                p {
+                    margin-bottom: 0;
+                }
 
-				.txt-fullname {
-					margin: -0.5rem 0 3rem;
-				}
-			}
-		}
+                .txt-fullname {
+                    margin: -0.5rem 0 3rem;
+                }
+            }
+        }
     }
 
-	&.winner-details {		
+    &.winner-details {
 
-		.staff-info {
-			margin: 2.8rem 1.6rem;
-		}
+        .staff-info {
+            margin: 2.8rem 1.6rem;
+        }
 
-		.winnerList {
-			@include align-with-flex(flex-start, flex-start, column, center);
-		}
+        .winnerList {
+            @include align-with-flex(flex-start, flex-start, column, center);
+        }
 
-		.prizePhoto {
-			@include align-with-flex(center, center, row, flex-end);
-		}
-	}
+        .prizePhoto {
+            @include align-with-flex(center, center, row, flex-end);
+        }
+    }
 
-	&.super-grand-winner-details {
-		.winnerList {
-			@include align-with-flex(center, flex-start, row, center);
-		}
+    &.super-grand-winner-details {
+        .winnerList {
+            @include align-with-flex(center, flex-start, row, center);
 
-		.prizePhoto {
-			@include align-with-flex(center, center, row, flex-end);
+            &.focus {
+                .avatar {
+                    border-color: #fafafa;
+                    outline: .1rem solid #f5f5f5;
+                    @include box-shadow(0, 0, 1.6rem, #f5f5f5);
+                }
 
-			.order-first {
-				margin-right: 16.6rem;
-			}
+                .photo {
+                    border: .1rem solid #fafafa;
+                }
+            }
+        }
 
-			.order-second {
-				margin-right: -5.6rem;
-			}
+        .prizePhoto {
+            @include align-with-flex(center, center, row, flex-end);
 
-			.order-third {
-				margin-right: 10.8rem;
-			}
-		}
+            .order-first {
+                margin-right: 16.6rem;
+            }
 
-		.staff-info {
-			margin: 2.8rem 0;
-		}
+            .order-second {
+                margin-right: -5.6rem;
+            }
 
-		.avatar {
-			position: relative;
-		}
+            .order-third {
+                margin-right: 10.8rem;
+            }
+        }
 
-		.prize-number {
-			position: absolute;
-			top: -2.4rem;
-			left: -1.2rem;
-			margin: 0;
-			z-index: 6;
-		}
+        .staff-info {
+            margin: 2.8rem 0;
+        }
+
+        .avatar {
+            position: relative;
+        }
+
+        .prize-number {
+            position: absolute;
+            top: -2.4rem;
+            left: -1.2rem;
+            margin: 0;
+            z-index: 6;
+        }
 
 
-	}
+    }
 
-	&.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize, &.winner-details, &.super-grand-winner-details {
-		padding: 5rem;
-		@include align-with-flex(center, center, row, center);
-		@include background-size(cover);
+    &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize, &.winner-details, &.super-grand-winner-details {
+        padding: 5rem;
+        @include align-with-flex(center, center, row, center);
+        @include background-size(cover);
 
-		.box-container {
-			@include align-with-flex(center, center, row, center);
-		}
-	}
+        .box-container {
+            @include align-with-flex(center, center, row, center);
+        }
+    }
 
-	.logo-prize {
-		left: -1.4rem;
-		position: absolute;
-		z-index: 5;
+    .logo-prize {
+        left: -1.4rem;
+        position: absolute;
+        z-index: 5;
 
-		&.cash {
-			background: url(../Images/Winner/cashprize-small.png)  no-repeat;
-			height: 12.5rem;
-			top: -3.1rem;
-			width: 18.8rem;		
-		}
-		
-		&.major {
-			background: url(../Images/Winner/majorprize-small.png)  no-repeat;
-			height: 12.5rem;
-			top: -3.8rem;
-			width: 23.2rem;		
-		}
-		
-		&.grand {
-			background: url(../Images/Winner/grandprize-small.png)  no-repeat;
-			height: 9.8rem;
-			top: -3.1rem;
-			width: 18.4rem;		
-		}
-		
-		&.super-grand {
-			background: url(../Images/Winner/supergrandprize-small.png)  no-repeat;
-			height: 13.4rem;
-			top: -4.6rem;
-			width: 18.4rem;		
-		}	
-	}
+        &.cash {
+            background: url(../Images/Winner/cashprize-small.png)  no-repeat;
+            height: 12.5rem;
+            top: -3.1rem;
+            width: 18.8rem;
+        }
+        
+        &.major {
+            background: url(../Images/Winner/majorprize-small.png)  no-repeat;
+            height: 12.5rem;
+            top: -3.8rem;
+            width: 23.2rem;
+        }
+        
+        &.grand {
+            background: url(../Images/Winner/grandprize-small.png)  no-repeat;
+            height: 9.8rem;
+            top: -3.1rem;
+            width: 18.4rem;
+        }
+        
+        &.super-grand {
+            background: url(../Images/Winner/supergrandprize-small.png)  no-repeat;
+            height: 13.4rem;
+            top: -4.6rem;
+            width: 18.4rem;
+        }    
+    }
 
-	.logo-small {
-		right: -2.4rem;
-		position: absolute;
-		bottom: -4.8rem;
-		z-index: 5;
-		height: 8.8rem;
-		width: 32.7rem;
-		background: url(../Images/Winner/logo-Luckydraw-small.png)  no-repeat;
-	}
+    .logo-small {
+        right: -2.4rem;
+        position: absolute;
+        bottom: -4.8rem;
+        z-index: 5;
+        height: 8.8rem;
+        width: 32.7rem;
+        background: url(../Images/Winner/logo-Luckydraw-small.png)  no-repeat;
+    }
 
-	.box-container {
-		background: rgba(0, 0, 0, .7);
-		border: .1rem solid #ac7926;
-		min-height: 100%;		
-		position: relative;
-		width: 100%;
-	}
+    .box-container {
+        background: rgba(0, 0, 0, .7);
+        border: .1rem solid #ac7926;
+        min-height: 100%;
+        position: relative;
+        width: 100%;
+    }
 }
 
- @media (max-height: 400px) {   
-	.prize {
-		width: 26%;
-	}
+ @media (max-height: 400px) {
+    .prize {
+        width: 26%;
+    }
 }
 
- @media (max-width: 1120px) {   
-	.server-site.cash-prize, .server-site.major-prize, .server-site.grand-prize,
-	.server-site.super-grand-prize, .server-site.winner-details, .server-site.super-grand-winner-details {
-		height: 100%;
+ @media (max-width: 1120px) {
+    .server-site.cash-prize, .server-site.major-prize, .server-site.grand-prize,
+    .server-site.super-grand-prize, .server-site.winner-details, .server-site.super-grand-winner-details {
+        height: 100%;
 
-		.box-container {
-			padding: 9.2rem 4rem;
-		}
-	}
+        .box-container {
+            padding: 9.2rem 4rem;
+        }
+    }
 }
 
 
  @media (max-width: 991px) {
-	.server-site.winner-details .prizePhoto, .server-site.super-grand-winner-details .prizePhoto {
-		@include justify-content(flex-start);
-		@include order(0);
-	}
+    .server-site.winner-details .prizePhoto, .server-site.super-grand-winner-details .prizePhoto {
+        @include justify-content(flex-start);
+        @include order(0);
+    }
 
-	.server-site.winner-details .winnerList, .server-site.super-grand-winner-details .winnerList,
-	.server-site.super-grand-winner-details .staff-info {
-		@include order(1);
-	}
+    .server-site.winner-details .winnerList, .server-site.super-grand-winner-details .winnerList,
+    .server-site.super-grand-winner-details .staff-info {
+        @include order(1);
+    }
 
-	.server-site.super-grand-winner-details .prizePhoto {
-		.order-first, .order-second, .order-third {
-			margin-right: 0;
-		}
-	}
+    .server-site.super-grand-winner-details .prizePhoto {
+        .order-first, .order-second, .order-third {
+            margin-right: 0;
+        }
+    }
 }
