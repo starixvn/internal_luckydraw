@@ -6291,29 +6291,18 @@ body {
     position: absolute;
     z-index: 5; }
     .server-site .logo-prize.cash {
-      height: 12.5rem;
-      top: -3.1rem;
-      width: 18.8rem; }
+      top: -3.1rem; }
     .server-site .logo-prize.major {
-      height: 12.5rem;
-      top: -3.8rem;
-      width: 23.2rem; }
+      top: -3.8rem; }
     .server-site .logo-prize.grand {
-      height: 9.8rem;
-      top: -3.1rem;
-      width: 18.4rem; }
+      top: -3.1rem; }
     .server-site .logo-prize.super-grand {
-      height: 13.4rem;
-      top: -4.6rem;
-      width: 18.4rem; }
+      top: -4.6rem; }
   .server-site .logo-small {
     right: -2.4rem;
     position: absolute;
     bottom: -4.8rem;
-    z-index: 5;
-    height: 8.8rem;
-    width: 32.7rem;
-    background: url(../Images/Winner/logo-Luckydraw-small.png) no-repeat; }
+    z-index: 5; }
   .server-site .box-container {
     background: rgba(0, 0, 0, 0.7);
     border: .1rem solid #ac7926;
@@ -6350,11 +6339,6 @@ body {
     -moz-justify-content: center;
     justify-content: center; }
 
-@media (max-width: 992px) {
-  .server-site.winner-details .box-container, .server-site.super-grand-winner-details .box-container {
-    min-height: 730px;
-    padding-left: 1.6rem;
-    padding-right: 1.6rem; } }
 @media (max-width: 1025px) {
   .server-site.winner-details .box-container, .server-site.super-grand-winner-details .box-container {
     min-height: 73rem;
@@ -6398,10 +6382,36 @@ body {
 @media (max-width: 1200px) {
   .server-site.cash-prize, .server-site.major-prize, .server-site.grand-prize, .server-site.super-grand-prize, .server-site.winner-details, .server-site.super-grand-winner-details {
     height: 100%; } }
+@media (max-width: 320px) {
+  .server-site.cash-prize .box-container, .server-site.major-prize .box-container,
+  .server-site.grand-prize .box-container, .server-site.super-grand-prize .box-container {
+    padding: 0 1.6rem; }
+
+  .server-site .server-site .listPrize {
+    margin-top: 2rem; }
+  .server-site .logo-prize {
+    height: auto;
+    margin-top: 1.6rem;
+    position: initial;
+    text-align: center;
+    width: 10rem; }
+  .server-site.winner-details .prizePhoto, .server-site.super-grand-winner-details .prizePhoto {
+    margin-top: 2rem; }
+  .server-site.winner-details .staff-info, .server-site.super-grand-winner-details .staff-info {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center; }
+    .server-site.winner-details .staff-info .avatar, .server-site.super-grand-winner-details .staff-info .avatar {
+      height: auto;
+      width: 6rem; }
+      .server-site.winner-details .staff-info .avatar .unknown, .server-site.super-grand-winner-details .staff-info .avatar .unknown {
+        margin: 0; } }
 @media (min-width: 2000px) and (min-height: 900px) {
   .server-site.winner-details .box-container, .server-site.super-grand-winner-details .box-container {
     width: 170rem; } }
-@media (min-height: 700px) {
+@media (min-height: 900px) {
   .server-site .box-container {
-    min-height: 73rem; } }
+    height: 73rem; } }
 

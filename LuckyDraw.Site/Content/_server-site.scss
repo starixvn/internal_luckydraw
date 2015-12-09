@@ -216,27 +216,19 @@ body {
         z-index: 5;
 
         &.cash {
-            height: 12.5rem;
             top: -3.1rem;
-            width: 18.8rem;
         }
         
         &.major {
-            height: 12.5rem;
             top: -3.8rem;
-            width: 23.2rem;
         }
         
         &.grand {
-            height: 9.8rem;
             top: -3.1rem;
-            width: 18.4rem;
         }
         
         &.super-grand {
-            height: 13.4rem;
             top: -4.6rem;
-            width: 18.4rem;
         }
     }
 
@@ -245,9 +237,6 @@ body {
         position: absolute;
         bottom: -4.8rem;
         z-index: 5;
-        height: 8.8rem;
-        width: 32.7rem;
-        background: url(../Images/Winner/logo-Luckydraw-small.png)  no-repeat;
     }
 
     .box-container {
@@ -258,19 +247,6 @@ body {
 		width: 100%;		
 		@include align-with-flex(center, center, row, center);
     }
-}
-
- @media (max-width: 992px) {
-	.server-site {
-	 &.winner-details, &.super-grand-winner-details
-	 {
-		.box-container {
-			min-height: 730px;
-			padding-left: 1.6rem;
-			padding-right: 1.6rem;
-		}
-	 }
-   }
 }
 
  @media (max-width: 1025px) {
@@ -319,6 +295,46 @@ body {
    }
  }
 
+  @media (max-width: 320px) {
+	.server-site.cash-prize .box-container, .server-site.major-prize .box-container,
+	.server-site.grand-prize .box-container, .server-site.super-grand-prize .box-container {
+		padding: 0 1.6rem;
+	}
+
+	.server-site {
+		.server-site .listPrize {
+			margin-top: 2rem;
+		}
+
+		.logo-prize {
+			height: auto;
+			margin-top: 1.6rem;
+			position: initial;
+			text-align: center;
+			width: 10rem;
+		}
+
+		&.winner-details, &.super-grand-winner-details {
+			.prizePhoto {
+				margin-top: 2rem;
+			}
+
+			.staff-info {
+				@include justify-content(center);
+
+				.avatar {
+					height: auto;
+					width: 6rem;
+
+					.unknown {
+						margin: 0;
+					}
+				}
+			}
+		}
+	}
+ }
+
 @media (min-width: 2000px) and (min-height: 900px) {
 	 .server-site {
 	 &.winner-details, &.super-grand-winner-details
@@ -330,8 +346,8 @@ body {
    }
 }
 
-@media (min-height: 700px) {
+@media (min-height: 900px) {
 	.server-site .box-container {
-		min-height: 73rem;
+		height: 73rem;
 	}
 }

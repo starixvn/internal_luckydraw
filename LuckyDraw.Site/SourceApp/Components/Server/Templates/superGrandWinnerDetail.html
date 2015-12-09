@@ -1,16 +1,18 @@
 ﻿<div class="col-sm-12 server-site super-grand-winner-details" ng-controller="SuperGrandWinnerDetailController as winnerDetailCtrl" super-grand-winner-detail-keyboard-event>    
     <div class="row box-container">
-        <div class="logo-prize">
-            <img ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/supergrandprize-small.png" src="" alt="" />
+        <div class="logo-prize super-grand">
+            <img ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/supergrandprize-small.png" src="" alt="" class="img-responsive" />
         </div>
-        <div class="logo-small"></div>
+        <div class="logo-small">
+            <img ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/logo-Luckydraw-small.png" src="" alt="" class="img-responsive" />
+        </div>
         <div class="col-sm-12 col-lg-7 winnerList">
             <div class="staff-info pink-staff" ng-class="winnerDetailCtrl.getClass(winnerDetailCtrl.winner1.StaffCode)" is-focus="{{winnerDetailCtrl.winner1.IsFocus}}" focus-event>                    
                 <div class="avatar">
                     <img class="prize-number" ng-if="winnerDetailCtrl.winner1.PrizeNumber && !winnerDetailCtrl.winnerDetail.IsSamePrize" 
                     ng-src="{{winnerDetailCtrl.winner1.PrizeNumber}}" src="" alt=""/>
-                    <img ng-if="!winnerDetailCtrl.winner1" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-pink.png" src="" alt="" class="unknown" />
-                    <img ng-if="winnerDetailCtrl.winner1" ng-src="data:image/png;base64,{{winnerDetailCtrl.winner1.Avatar}}" src="" alt="" class="photo" />
+                    <img ng-if="!winnerDetailCtrl.winner1" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-pink.png" src="" alt="" class="unknown img-responsive" />
+                    <img ng-if="winnerDetailCtrl.winner1" ng-src="data:image/png;base64,{{winnerDetailCtrl.winner1.Avatar}}" src="" alt="" class="photo img-responsive" />
                 </div>
                 <div class="info" ng-if="winnerDetailCtrl.winner1">
                     <h2 class="text-uppercase txt-nickname" ng-bind="winnerDetailCtrl.winner1.FullName"></h2>
@@ -22,8 +24,8 @@
                 <div class="avatar">
                     <img class="prize-number" ng-if="winnerDetailCtrl.winner2.PrizeNumber && !winnerDetailCtrl.winnerDetail.IsSamePrize"
                     ng-src="{{winnerDetailCtrl.winner2.PrizeNumber}}" src="" alt="" />
-                    <img ng-if="!winnerDetailCtrl.winner2" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-green.png" src="" alt="" class="unknown" />
-                    <img ng-if="winnerDetailCtrl.winner2" ng-src="data:image/png;base64,{{winnerDetailCtrl.winner2.Avatar}}" src="" alt="" class="photo" />
+                    <img ng-if="!winnerDetailCtrl.winner2" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-green.png" src="" alt="" class="unknown img-responsive" />
+                    <img ng-if="winnerDetailCtrl.winner2" ng-src="data:image/png;base64,{{winnerDetailCtrl.winner2.Avatar}}" src="" alt="" class="photo img-responsive" />
                 </div>
                 <div class="info" ng-if="winnerDetailCtrl.winner2">
                     <h2 class="text-uppercase txt-nickname" ng-bind="winnerDetailCtrl.winner2.FullName"></h2>
@@ -35,8 +37,8 @@
                 <div class="avatar">
                     <img class="prize-number" ng-if="winnerDetailCtrl.winner3.PrizeNumber && !winnerDetailCtrl.winnerDetail.IsSamePrize"
                     ng-src="{{winnerDetailCtrl.winner3.PrizeNumber}}" src="" alt="" />
-                    <img ng-if="!winnerDetailCtrl.winner3" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-blue.png" src="" alt="" class="unknown" />
-                    <img ng-if="winnerDetailCtrl.winner3" ng-src="data:image/png;base64,{{winnerDetailCtrl.winner3.Avatar}}" src="" alt="" class="photo" />
+                    <img ng-if="!winnerDetailCtrl.winner3" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-blue.png" src="" alt="" class="unknown img-responsive" />
+                    <img ng-if="winnerDetailCtrl.winner3" ng-src="data:image/png;base64,{{winnerDetailCtrl.winner3.Avatar}}" src="" alt="" class="photo img-responsive" />
                 </div>
                 <div class="info" ng-if="winnerDetailCtrl.winner3">
                     <h2 class="text-uppercase txt-nickname" ng-bind="winnerDetailCtrl.winner3.FullName"></h2>
