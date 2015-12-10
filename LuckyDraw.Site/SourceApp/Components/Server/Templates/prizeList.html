@@ -6,14 +6,14 @@
             <img ng-if="prizeListCtrl.prizeType == 3" ng-src="{{prizeListCtrl.baseUrl}}Images/Winner/grandprize-small.png" src="" alt="" class="img-responsive" />
             <img ng-if="prizeListCtrl.prizeType == 4" ng-src="{{prizeListCtrl.baseUrl}}Images/Winner/majorprize-small.png" src="" alt="" class="img-responsive" />
             <img ng-if="prizeListCtrl.prizeType == 5" ng-src="{{prizeListCtrl.baseUrl}}Images/Winner/cashprize-small.png" src="" alt="" class="img-responsive" />
-        </div>
-        <div class="logo-small">
-            <img ng-src="{{prizeListCtrl.baseUrl}}Images/Winner/logo-Luckydraw-small.png" src="" alt="" class="img-responsive" />
-        </div>
+        </div>        
         <div class="listPrize" ng-repeat="prizeList in prizeListCtrl.prizeList">
             <div class="prize" ng-repeat="prize in prizeList">
                 <img src='' ng-src="{{prizeListCtrl.baseUrl}}{{prize.ImagePath}}" alt='' class="img-responsive" />
             </div>
+        </div>
+        <div class="logo-small">
+            <img ng-src="{{prizeListCtrl.baseUrl}}Images/Winner/logo-Luckydraw-small.png" src="" alt="" class="img-responsive" />
         </div>
     </div>
 </div>
