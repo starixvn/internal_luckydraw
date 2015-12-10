@@ -5982,18 +5982,174 @@ button.toast-close-button {
   #toast-container > div {
     padding: 15px 15px 15px 50px;
     width: 25em; } }
-.client-site .staff-info {
-  margin-bottom: 2rem; }
-.client-site.default-client .status, .client-site.pink-client .status, .client-site.green-client .status, .client-site.blue-client .status {
-  height: 3rem; }
-.client-site.default-client .status {
-  background: #9e9e9e; }
-.client-site.pink-client .status {
-  background: #f48fb1; }
-.client-site.green-client .status {
-  background: #a5d6a7; }
-.client-site.blue-client .status {
-  background: #90caf9; }
+.client-site {
+  background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
+  color: #ffe898;
+  height: 100vh;
+  padding: 20rem;
+  width: 100vw;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center;
+  -webkit-background-size: cover;
+  -khtml-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+  .client-site .box-container {
+    min-height: 50rem;
+    width: 70%;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-align-content: center;
+    -moz-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center; }
+  .client-site .logo-opening, .client-site .list-prize-opening {
+    left: 0;
+    right: 0;
+    position: absolute;
+    top: 4rem;
+    text-align: center; }
+    .client-site .logo-opening img, .client-site .list-prize-opening img {
+      display: inline-block; }
+  .client-site .avatar {
+    border: .2rem solid;
+    background-color: #0e090d;
+    height: 15rem;
+    text-align: center;
+    width: 13rem; }
+    .client-site .avatar .photo {
+      height: 100%;
+      width: 100%; }
+    .client-site .avatar .unknown {
+      margin: 3.7rem 3.6rem; }
+  .client-site.pink-client {
+    color: #fd7fbc; }
+    .client-site.pink-client .avatar {
+      border-color: #f8aad1;
+      outline: .1rem solid #f0549e;
+      -webkit-box-shadow: 0 0 1.6rem #f0549e;
+      -khtml-box-shadow: 0 0 1.6rem #f0549e;
+      -moz-box-shadow: 0 0 1.6rem #f0549e;
+      -ms-box-shadow: 0 0 1.6rem #f0549e;
+      -o-box-shadow: 0 0 1.6rem #f0549e;
+      box-shadow: 0 0 1.6rem #f0549e; }
+    .client-site.pink-client .photo {
+      border: .1rem solid #f0549e; }
+  .client-site.green-client {
+    color: #42e884; }
+    .client-site.green-client .avatar {
+      border-color: #8de1af;
+      outline: .1rem solid #19c25d;
+      -webkit-box-shadow: 0 0 1.6rem #19c25d;
+      -khtml-box-shadow: 0 0 1.6rem #19c25d;
+      -moz-box-shadow: 0 0 1.6rem #19c25d;
+      -ms-box-shadow: 0 0 1.6rem #19c25d;
+      -o-box-shadow: 0 0 1.6rem #19c25d;
+      box-shadow: 0 0 1.6rem #19c25d; }
+    .client-site.green-client .photo {
+      border: .1rem solid #19c25d; }
+  .client-site.blue-client {
+    color: #5e7bf3; }
+    .client-site.blue-client .avatar {
+      border-color: #95a8f7;
+      outline: .1rem solid #284eef;
+      -webkit-box-shadow: 0 0 1.6rem #284eef;
+      -khtml-box-shadow: 0 0 1.6rem #284eef;
+      -moz-box-shadow: 0 0 1.6rem #284eef;
+      -ms-box-shadow: 0 0 1.6rem #284eef;
+      -o-box-shadow: 0 0 1.6rem #284eef;
+      box-shadow: 0 0 1.6rem #284eef; }
+    .client-site.blue-client .photo {
+      border: .1rem solid #284eef; }
+  .client-site .staff-info {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-align-content: center;
+    -moz-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    justify-content: flex-start; }
+    .client-site .staff-info .info {
+      font-size: 2rem;
+      padding-left: 2rem; }
+      .client-site .staff-info .info .txt-nickname {
+        font-weight: bold;
+        font-size: 3rem;
+        margin: 0; }
 
 body {
   background-color: #000; }
@@ -6395,14 +6551,15 @@ body {
     position: absolute;
     bottom: -4.8rem;
     z-index: 5; }
-  .server-site .box-container {
-    background: rgba(0, 0, 0, 0.7);
-    border: .1rem solid #ac7926;
-    min-height: 100%;
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-    position: relative;
-    width: 100%; }
+
+.box-container {
+  background: rgba(0, 0, 0, 0.9);
+  border: .1rem solid #ac7926;
+  min-height: 100%;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  position: relative;
+  width: 100%; }
 
 @media (max-width: 1350px) {
   .server-site.cash-prize, .server-site.major-prize, .server-site.grand-prize, .server-site.super-grand-prize, .server-site.winner-details, .server-site.super-grand-winner-details {

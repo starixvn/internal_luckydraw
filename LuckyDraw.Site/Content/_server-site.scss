@@ -244,16 +244,18 @@ body {
         z-index: 5;
     }
 
-    .box-container {
-        background: rgba(0, 0, 0, .7);
-        border: .1rem solid #ac7926;
-		min-height: 100%;
-		padding-top: 6rem;
-		padding-bottom: 6rem;	
-        position: relative;
-		width: 100%;		
-    }
-} 
+    
+}
+
+.box-container {
+    background: rgba(0, 0, 0, .9);
+    border: .1rem solid #ac7926;
+	min-height: 100%;
+	padding-top: 6rem;
+	padding-bottom: 6rem;	
+    position: relative;
+	width: 100%;		
+}
 
 @media (max-width: 1350px) {
    .server-site {

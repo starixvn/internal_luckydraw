@@ -1,35 +1,104 @@
 .client-site {
-    .staff-info {
-        margin-bottom: 2rem;
-    }
+	background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
+	color: #ffe898;
+    height: 100vh;
+	padding: 20rem;
+    width: 100vw;
+    @include align-with-flex(center, center, row, center);
+    @include background-size(cover);
 
-    &.default-client, &.pink-client, &.green-client, &.blue-client {
-        .status {
-            height: 3rem;
+	.box-container {
+		min-height: 50rem;
+		width: 70%;
+		@include align-with-flex(center, center, row, center);
+	}
+
+	.logo-opening, .list-prize-opening {
+        left: 0;
+        right: 0;
+        position: absolute;
+		top: 4rem;
+        text-align: center;
+
+        img {
+            display: inline-block;
         }
     }
 
-    &.default-client {
-        .status {
-            background: #9e9e9e;
+	.avatar {
+        border: .2rem solid;
+        background-color: #0e090d;
+        height: 15rem;
+        text-align: center;
+        width: 13rem;
+
+        .photo {
+            height: 100%;
+            width: 100%;
+        }
+
+        .unknown {
+            margin: 3.7rem 3.6rem;
         }
     }
 
     &.pink-client {
-        .status {
-            background: #f48fb1;
+        color: #fd7fbc;
+
+        .avatar {
+            border-color: #f8aad1;
+            outline: .1rem solid #f0549e;
+            @include box-shadow(0, 0, 1.6rem, #f0549e);
+        }
+
+        .photo {
+            border: .1rem solid #f0549e;
         }
     }
 
     &.green-client {
-        .status {
-            background: #a5d6a7;
+        color: #42e884;
+
+        .avatar {
+            border-color: #8de1af;
+            outline: .1rem solid #19c25d;
+            @include box-shadow(0, 0, 1.6rem, #19c25d);
+        }
+
+        .photo {
+            border: .1rem solid #19c25d;
         }
     }
 
     &.blue-client {
-        .status {
-            background: #90caf9;
+        color: #5e7bf3;
+
+        .avatar {
+            border-color: #95a8f7;
+            outline: .1rem solid #284eef;
+            @include box-shadow(0, 0, 1.6rem, #284eef);
+        }
+
+        .photo {
+            border: .1rem solid #284eef;
         }
     }
+
+    .staff-info {
+        @include align-with-flex(center, center, row, flex-start);
+        
+        .info {
+            font-size: 2rem;
+            padding-left: 2rem;
+
+            .txt-nickname {
+                font: {
+                    weight: bold;
+                    size: 3rem;
+                }
+                margin: 0;
+            }
+        }
+    }
+
 }

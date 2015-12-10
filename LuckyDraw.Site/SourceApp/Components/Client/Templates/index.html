@@ -1,28 +1,33 @@
-﻿<div class="row client-site" ng-controller="ClientController as clientCtrl" ng-class="clientCtrl.getClient()" client-keyboard-event>
-    <div class="row staff-info">
-        <div class="col-sm-3 avatar">
-            <img style="width: 150px" ng-src="data:image/jpeg;base64,{{clientCtrl.staff.Avatar}}" src="" alt="" />
-        </div>
-        <div class="col-sm-6">
-            <div class="row line">
-                <div class="col-sm-4" data-translate="FullName"></div>
-                <div class="col-sm-8" ng-bind="clientCtrl.staff.FullName"></div>
-            </div>
-            <div class="row line">
-                <div class="col-sm-4" data-translate="Code"></div>
-                <div class="col-sm-8" ng-bind="clientCtrl.staff.BarCode"></div>
-            </div>
-            <div class="row line">
-                <div class="col-sm-4" data-translate="NickName"></div>
-                <div class="col-sm-8" ng-bind="clientCtrl.staff.NickName"></div>
-            </div>
-            <div class="row line">
-                <div class="col-sm-4" data-translate="Department"></div>
-                <div class="col-sm-8" ng-bind="clientCtrl.staff.Department.Name"></div>
-            </div>
-        </div>
+﻿<div class="col-sm-12 client-site" ng-controller="ClientController as clientCtrl" ng-class="clientCtrl.getClient()" client-keyboard-event>
+    <div class="logo-opening">
+        <img src="/Images/logo-Luckydraw.png" alt="LuckyDraw" width="560"  class="img-responsive" />
     </div>
-    <div class="row status">
-        <div class="text-center" ng-if="clientCtrl.message" ng-bind="clientCtrl.message"></div>
+    <div class="box-container">
+        <div class="col-sm-10 staff-info">
+            <div class="avatar">
+                <img ng-src="data:image/jpeg;base64,{{clientCtrl.staff.Avatar}}" src="" alt="" class="img-responsive photo" />
+            </div>
+            <div class="info">
+                <div class="row line">
+                    <div class="col-sm-5" data-translate="FullName"></div>
+                    <div class="col-sm-7" ng-bind="clientCtrl.staff.FullName"></div>
+                </div>
+                <div class="row line">
+                    <div class="col-sm-5" data-translate="Code"></div>
+                    <div class="col-sm-7" ng-bind="clientCtrl.staff.BarCode"></div>
+                </div>
+                <div class="row line">
+                    <div class="col-sm-5" data-translate="NickName"></div>
+                    <div class="col-sm-7" ng-bind="clientCtrl.staff.NickName"></div>
+                </div>
+                <div class="row line">
+                    <div class="col-sm-5" data-translate="Department"></div>
+                    <div class="col-sm-7" ng-bind="clientCtrl.staff.Department.Name"></div>
+                </div>
+            </div>
+        </div>
+        <div class="logo-small">
+            <img ng-src="{{prizeListCtrl.baseUrl}}Images/Winner/logo-Luckydraw-small.png" src="" alt="" class="img-responsive" />
+        </div>
     </div>
 </div>
