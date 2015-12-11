@@ -1,5 +1,5 @@
 ﻿'use strict';
-/*exported commonModule, prizeModule, serverModule, clientModule, controlServerModule*/
+/*exported commonModule, prizeModule, serverModule, clientModule*/
 
 var commonModule = angular.module("commonModule", ['ngRoute']);
 
