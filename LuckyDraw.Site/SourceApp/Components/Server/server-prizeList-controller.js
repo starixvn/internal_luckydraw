@@ -155,6 +155,26 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Serv
     };
 
     vm.initialize();
+
+    var hubProxy = $.connection.hubs;
+
+    hubProxy.client.getSignalEnter = function () {
+        vm.redirectToWinnerDetail();
+    };
+
+    hubProxy.client.getSignalEsc = function () {
+        vm.redirectToServerIndex();
+    };
+
+    hubProxy.client.getSignalCtrlZ = function () {
+        vm.backPrize();
+    };
+
+    hubProxy.client.getSignalCtrlY = function () {
+        vm.nextPrize();
+    };
+
+    $.connection.hub.start();
 } ]);
 
 serverModule.directive('prizeListKeyboardEvent',

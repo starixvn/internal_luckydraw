@@ -18,6 +18,25 @@ serverModule.controller('ServerController',
     };
 
     vm.initialize();
+
+    var hubProxy = $.connection.hubs;
+
+    hubProxy.client.getSignalNumber = function (number) {
+        if (number === 1) {
+            vm.redirectToPrizeList(2);
+        }
+        else if (number === 2) {
+            vm.redirectToPrizeList(3);
+        }
+        else if (number === 3) {
+            vm.redirectToPrizeList(4);
+        }
+        else if (number === 4) {
+            vm.redirectToPrizeList(5);
+        }
+    };
+
+    $.connection.hub.start();
 } ]);
 
 serverModule.directive('serverKeyboardEvent',

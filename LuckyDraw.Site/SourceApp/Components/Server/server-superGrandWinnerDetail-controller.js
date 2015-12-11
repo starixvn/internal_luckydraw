@@ -389,6 +389,42 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
         });
     };
 
+    hubProxy.client.getSignalEnter = function () {
+        vm.redirectToPrizeList();
+    };
+
+    hubProxy.client.getSignalEsc = function () {
+        vm.redirectToPrizeList();
+    };
+
+    hubProxy.client.getSignalNumber = function (number) {
+        vm.choosePrize(number);
+    };
+
+    hubProxy.client.getSignalMoveUp = function () {
+        vm.keyUpArrowEvent();
+    };
+
+    hubProxy.client.getSignalMoveDown = function () {
+        vm.keyDownArrowEvent();
+    };
+
+    hubProxy.client.getSignalDelete = function () {
+        vm.removeSpecialWinner();
+    };
+
+    hubProxy.client.getSignalCtrlD = function () {
+        vm.removeAllWinner();
+    };
+
+    hubProxy.client.getSignalCtrlE = function () {
+        vm.resetPrizeWinners();
+    };
+
+    hubProxy.client.getSignalCharacterS = function () {
+        vm.sortPrize();
+    };
+
     $.connection.hub.start();
 } ]);
 

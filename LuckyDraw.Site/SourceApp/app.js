@@ -1,7 +1,7 @@
 ﻿'use strict';
 /*exported appModule*/
 
-var appModule = angular.module("appModule", ['commonModule', 'prizeModule', 'serverModule', 'clientModule', 'prizeModule',
+var appModule = angular.module("appModule", ['commonModule', 'prizeModule', 'serverModule', 'clientModule', 'prizeModule', 'controlServerModule',
 'pascalprecht.translate', 'ui.bootstrap', 'ngRoute'])
 .config(['$translateProvider', '$locationProvider', '$routeProvider', '$provide',
 function ($translateProvider, $locationProvider, $routeProvider, $provide) {

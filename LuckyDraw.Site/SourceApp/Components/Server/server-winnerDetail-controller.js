@@ -176,6 +176,18 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
         });
     };
 
+    hubProxy.client.getSignalEnter = function () {
+        vm.redirectToPrizeList();
+    };
+
+    hubProxy.client.getSignalEsc = function () {
+        vm.redirectToPrizeList();
+    };
+
+    hubProxy.client.getSignalNumber = function (number) {
+        vm.removeWinner(number);
+    };
+
     $.connection.hub.start();
 } ]);
 
