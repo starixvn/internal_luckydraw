@@ -29,6 +29,10 @@ namespace LuckyDraw.Site
                         "~/Content/css",
                         "~/Content/site.css");
 
+            bundles.AddAndInclude(
+                        "~/Content/servercontrol",
+                        "~/Content/server-control-site.css");
+
             bundles.Add(new ScriptBundle("~/bundles/common/js").Include(
                         "~/SourceApp/Shared/error-factory.js",
                         "~/SourceApp/Shared/notification-factory.js"));
