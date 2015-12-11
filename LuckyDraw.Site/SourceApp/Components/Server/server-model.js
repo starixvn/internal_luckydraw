@@ -25,7 +25,7 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
             serverModel.winnerDetail = winnerDetail;
         }).error(function (response, status) {
             errorFactory.errorHandle(status);
-        });
+        }); openPopupConfirmRemoveWinner
     };
 
     serverModel.getSuperGrandWinnerDetail = function (prizeType, currentPrize) {
@@ -91,7 +91,7 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         if (vm.prizeSetting.CurrentPrize > 0) {
             vm.prizeSetting.CurrentPrize -= 1;
 
-            
+
         }
     };
 
@@ -130,16 +130,15 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
                 if (response.IsSuccessful) {
                     vm.currentPrize = currentPrize;
                     vm.prizeSetting.CurrentPrize = currentPrize;
-
                     switch (index) {
                         case 1:
-                            vm.winner3 = null;
+                            vm.pinkStaff = null;
                             break;
                         case 2:
-                            vm.winner2 = null;
+                            vm.greenStaff = null;
                             break;
                         case 3:
-                            vm.winner1 = null;
+                            vm.blueStaff = null;
                             break;
                     }
 

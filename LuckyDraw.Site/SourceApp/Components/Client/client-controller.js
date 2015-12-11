@@ -74,7 +74,12 @@ function ($scope, $location, $routeParams, CommonModel, baseUrl) {
                 if (CommonModel.staff) {
                     vm.staff = CommonModel.staff;
 
-                    hubProxy.server.sendStaffCode(staffCode);
+                    if (vm.staff.Prize === null) {
+                        vm.message = "Duplicate Barcode"
+                    }
+                    else {
+                        hubProxy.server.sendStaffCode(staffCode);
+                    }
                 }
             });
         } else {

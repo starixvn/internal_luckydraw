@@ -24,14 +24,15 @@ namespace LuckyDraw.Repositories.Implements
         {
             using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
-                return db.QueryEntity<StaffModel, DepartmentModel, StaffModel>(
-                    (staff, dept) =>
+                return db.QueryEntity<StaffModel, DepartmentModel, PrizeModel, StaffModel>(
+                    (staff, dept, prize) =>
                     {
                         staff.Department = dept;
+                        staff.Prize = prize;
 
                         return staff;
                     },
-                    "DepartmentId",
+                    "DepartmentId, PrizeId",
                     criteria.GetSpParams());
             }
         }
