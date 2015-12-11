@@ -6054,13 +6054,13 @@ button.toast-close-button {
     -webkit-justify-content: center;
     -moz-justify-content: center;
     justify-content: center; }
-  .client-site .logo-opening, .client-site .list-prize-opening {
+  .client-site .logo-opening {
     left: 0;
     right: 0;
     position: absolute;
-    top: 4rem;
+    top: 5rem;
     text-align: center; }
-    .client-site .logo-opening img, .client-site .list-prize-opening img {
+    .client-site .logo-opening img {
       display: inline-block; }
   .client-site .avatar {
     border: .2rem solid;
@@ -6150,14 +6150,15 @@ button.toast-close-button {
     -moz-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    -webkit-justify-content: flex-start;
-    -moz-justify-content: flex-start;
-    justify-content: flex-start; }
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center; }
     .client-site .staff-info .info {
       font-size: 2rem;
-      padding-left: 2rem; }
+      padding-left: 2rem;
+      width: 50rem; }
       .client-site .staff-info .info .txt-nickname {
         font-weight: bold;
         margin: 0; }
@@ -6330,11 +6331,18 @@ body {
       -moz-justify-content: flex-start;
       justify-content: flex-start; }
       .server-site.winner-details .staff-info .avatar, .server-site.super-grand-winner-details .staff-info .avatar {
-        border: .2rem solid;
+        border: .2rem solid #ffe898;
         background-color: #0e090d;
         height: 15rem;
         text-align: center;
-        width: 13rem; }
+        width: 13rem;
+        outline: .1rem solid #ac7926;
+        -webkit-box-shadow: 0 0 1.6rem #ac7926;
+        -khtml-box-shadow: 0 0 1.6rem #ac7926;
+        -moz-box-shadow: 0 0 1.6rem #ac7926;
+        -ms-box-shadow: 0 0 1.6rem #ac7926;
+        -o-box-shadow: 0 0 1.6rem #ac7926;
+        box-shadow: 0 0 1.6rem #ac7926; }
         .server-site.winner-details .staff-info .avatar .photo, .server-site.super-grand-winner-details .staff-info .avatar .photo {
           height: 100%;
           width: 100%; }

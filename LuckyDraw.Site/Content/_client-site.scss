@@ -12,11 +12,11 @@
 		@include align-with-flex(center, center, row, center);
 	}
 
-	.logo-opening, .list-prize-opening {
+	.logo-opening {
         left: 0;
         right: 0;
         position: absolute;
-		top: 4rem;
+		top: 5rem;
         text-align: center;
 
         img {
@@ -62,11 +62,12 @@
     }
 
     .staff-info {
-        @include align-with-flex(center, center, row, flex-start);
+        @include align-with-flex(center, center, row, center);
         
         .info {
             font-size: 2rem;
             padding-left: 2rem;
+			width: 50rem;
 
             .txt-nickname {
                 font: {
