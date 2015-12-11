@@ -187,6 +187,7 @@
     <Content Include="Content\Common\fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <None Include="Content\Common\_mixins.scss" />
     <None Include="Content\Common\_toastr.scss" />
+    <Content Include="Content\Common\materialize.css" />
     <Content Include="Content\server-control-site.css">
       <DependentUpon>server-control-site.scss</DependentUpon>
     </Content>
@@ -319,6 +320,7 @@
     <Content Include="Libs\jquery.validate.min.js" />
     <Content Include="Libs\jquery.validate.unobtrusive.js" />
     <Content Include="Libs\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Libs\materialize.js" />
     <Content Include="Libs\modernizr-2.8.3.js" />
     <Content Include="Libs\toastr.js" />
     <Content Include="Libs\ui-bootstrap-tpls-0.13.0.min.js" />

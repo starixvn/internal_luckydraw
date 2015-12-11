@@ -1,23 +1,67 @@
 ﻿<div class="server-control col-sm-12" ng-controller="ServerControlController as serverControlCtrl">
-    <button class="button" ng-click="serverControlCtrl.enter()" data-translate="Enter"></button>
-    <button class="button" ng-click="serverControlCtrl.esc()" data-translate="Esc"></button>
-    <button class="button" ng-click="serverControlCtrl.number(1)" data-translate="1"></button>
-    <button class="button" ng-click="serverControlCtrl.number(2)" data-translate="2"></button>
-    <button class="button" ng-click="serverControlCtrl.number(3)" data-translate="3"></button>
-    <button class="button" ng-click="serverControlCtrl.number(4)" data-translate="4"></button>
-    <button class="button" ng-click="serverControlCtrl.number(5)" data-translate="5"></button>
-    <button class="button" ng-click="serverControlCtrl.number(6)" data-translate="6"></button>
-
-    <button class="button" ng-click="serverControlCtrl.ctrlZ()" data-translate="Ctrl + Z"></button>
-    <button class="button" ng-click="serverControlCtrl.ctrlY()" data-translate="Ctrl + Y"></button>
-    
-
-    <button class="button" ng-click="serverControlCtrl.moveUp()" data-translate="Move Up"></button>
-    <button class="button" ng-click="serverControlCtrl.moveDown()" data-translate="Move Down"></button>
-    <button class="button" ng-click="serverControlCtrl.deleteWinner()" data-translate="Delete"></button>
-
-    <button class="button" ng-click="serverControlCtrl.ctrlD()" data-translate="Ctrl + D"></button>
-    <button class="button" ng-click="serverControlCtrl.ctrlE()" data-translate="Ctrl + E"></button>
-
-    <button class="button" ng-click="serverControlCtrl.sort()" data-translate="Sort"></button>
+    <div class="col-sm-12 col-md-12 box-container">
+        <div class="row">
+            <div class="col-xs-4 col-sm-2">
+                <button class="waves-effect waves-light btn" ng-click="serverControlCtrl.number(1)" data-translate="1"></button>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <button class="waves-effect waves-light btn" ng-click="serverControlCtrl.number(2)" data-translate="2"></button>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <button class="waves-effect waves-light btn" ng-click="serverControlCtrl.number(3)" data-translate="3"></button>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <button class="waves-effect waves-light btn" ng-click="serverControlCtrl.number(4)" data-translate="4"></button>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <button class="waves-effect waves-light btn" ng-click="serverControlCtrl.number(5)" data-translate="5"></button>
+            </div>
+            <div class="col-xs-4 col-sm-2">
+                <button class="waves-effect waves-light btn" ng-click="serverControlCtrl.number(6)" data-translate="6"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="waves-effect waves-light btn full-width" ng-click="serverControlCtrl.enter()" data-translate="Enter"></button>
+            </div>
+            <div class="col-sm-6">
+                <button class="waves-effect waves-light btn full-width" ng-click="serverControlCtrl.esc()" data-translate="Esc"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="waves-effect waves-light btn full-width" ng-click="serverControlCtrl.moveUp()" data-translate="Move Up"></button>
+            </div>
+            <div class="col-sm-6">
+                <button class="waves-effect waves-light btn full-width" ng-click="serverControlCtrl.moveDown()" data-translate="Move Down"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="waves-effect waves-light btn full-width" ng-click="serverControlCtrl.ctrlZ()" data-translate="Ctrl + Z"></button>
+            </div>
+            <div class="col-sm-6">
+                <button class="waves-effect waves-light btn full-width" ng-click="serverControlCtrl.ctrlY()" data-translate="Ctrl + Y"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <button class=" waves-effect waves-light btn full-width" ng-click="serverControlCtrl.sort()" data-translate="Sort"></button>
+            </div>
+            <div class="col-sm-6">
+                <button class="waves-effect waves-light btn full-width" ng-click="serverControlCtrl.deleteWinner()" data-translate="Delete"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <button class="waves-effect waves-light btn full-width" ng-click="serverControlCtrl.ctrlD()" data-translate="Ctrl + D"></button>
+            </div>
+            <div class="col-sm-6">
+                <button class="waves-effect waves-light btn full-width" ng-click="serverControlCtrl.ctrlE()" data-translate="Ctrl + E"></button>
+            </div>
+        </div>
+        <div class="row logo-luckydraw">
+            <img src="/Images/logo-Luckydraw.png" alt="LuckyDraw" width="560"  class="img-responsive" />
+        </div>
+    </div>    
 </div>

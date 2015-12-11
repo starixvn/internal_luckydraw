@@ -1,0 +1,65 @@
+@import "Common/bootstrap";
+@import "Common/materialize.css";
+@import "Common/_mixins.scss";
+
+[class^="col"] {
+	padding-left: 0.6rem;
+	padding-right: 0.6rem;
+}
+
+.row {
+	margin-bottom: 0;
+}
+
+.server-control {
+	background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;
+    height: 100vh;
+	padding-top: 1.6rem;
+	padding-bottom: 1.6rem;
+    width: 100vw;
+    @include background-size('cover');
+
+	.logo-luckydraw {
+		margin-bottom: 4rem;
+		margin-top: 4rem;
+		text-align: center;
+
+		 img {
+            display: inline-block;
+        }
+	}
+
+	.btn {
+		background-color: #f7c524;
+		color: #03030b;
+		font-size: 2.4rem;
+		height: 8rem;
+		margin-bottom: 1.2rem;
+		width: 100%;
+		@include border-radius(0);
+
+		&:hover {
+			background-color: #c29b1d;
+		}
+	}
+
+	.box-container {
+		background: rgba(0, 0, 0, .8);
+		min-height: 100%;
+		padding: 2rem;
+		position: relative;
+		width: 100%;	
+	}
+}
+
+@media (max-width: 767px) {
+	.server-control {
+		height: 100%;
+	}
+}
+
+@media (min-width: 700px) and (orientation: landscape) {
+	.server-control {
+		height: 100%;
+	}
+}

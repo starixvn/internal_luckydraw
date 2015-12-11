@@ -258,6 +258,16 @@
 	@include css3-prefix('border-image', $path $offsets $repeats);
 }
 
+/// Border Radius
+/// @param {Size} $radius [5px] - Radius
+/// @require {mixin} css3-prefix
+
+@mixin border-radius($radius: 5px) {
+    @include css3-prefix('border-radius', $radius);
+}
+
+
+
 /// Align item with flexbox
 
 @mixin align-with-flex ($align-items, $align-content, $position, $justify-content, $wrap: wrap){

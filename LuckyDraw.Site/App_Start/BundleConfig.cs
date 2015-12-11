@@ -58,6 +58,7 @@ namespace LuckyDraw.Site
                         "~/SourceApp/Components/ServerControl/serverControl-controller.js"));
             bundles.Add(new ScriptBundle("~/bundles/servercontrol").Include(
                         "~/SourceApp/appServerControl.js",
+                         "~/Libs/materialize.js",
                         "~/SourceApp/Components/ServerControl/serverControl-controller.js"));
         }
     }
