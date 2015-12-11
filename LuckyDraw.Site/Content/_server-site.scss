@@ -92,44 +92,17 @@ body {
 
             &.pink-staff {
                 color: #fd7fbc;
-
-                .avatar {
-                    border-color: #f8aad1;
-                    outline: .1rem solid #f0549e;
-                    @include box-shadow(0, 0, 1.6rem, #f0549e);
-                }
-
-                .photo {
-                    border: .1rem solid #f0549e;
-                }
+				@include avatar-border-color(#f8aad1, #f0549e);
             }
 
             &.green-staff {
                 color: #42e884;
-
-                .avatar {
-                    border-color: #8de1af;
-                    outline: .1rem solid #19c25d;
-                    @include box-shadow(0, 0, 1.6rem, #19c25d);
-                }
-
-                .photo {
-                    border: .1rem solid #19c25d;
-                }
+				@include avatar-border-color(#8de1af, #19c25d);
             }
 
             &.blue-staff {
                 color: #5e7bf3;
-
-                .avatar {
-                    border-color: #95a8f7;
-                    outline: .1rem solid #284eef;
-                    @include box-shadow(0, 0, 1.6rem, #284eef);
-                }
-
-                .photo {
-                    border: .1rem solid #284eef;
-                }
+				@include avatar-border-color(#95a8f7, #284eef);
             }
 
             .info {

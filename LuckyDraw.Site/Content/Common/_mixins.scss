@@ -245,6 +245,19 @@
   }
 }
 
+/// Box Sizing
+/// @param {*} $type [border-box] - Type
+/// @require {mixin} css3-prefix
+
+@mixin box-sizing($type: border-box) {
+  @include css3-prefix('box-sizing', $type);
+}
+
+/// Border image
+@mixin border-image ($path, $offsets, $repeats) {
+	@include css3-prefix('border-image', $path $offsets $repeats);
+}
+
 /// Align item with flexbox
 
 @mixin align-with-flex ($align-items, $align-content, $position, $justify-content, $wrap: wrap){
@@ -256,14 +269,14 @@
 	@include justify-content($justify-content);
 }
 
-/// Box Sizing
-/// @param {*} $type [border-box] - Type
-/// @require {mixin} css3-prefix
+@mixin avatar-border-color($border-color-light, $border-color-dark) {
+    .avatar {
+        border-color: $border-color-light;
+        outline: .1rem solid $border-color-dark;
+        @include box-shadow(0, 0, 1.6rem, $border-color-dark);
+    }
 
-@mixin box-sizing($type: border-box) {
-  @include css3-prefix('box-sizing', $type);
-}
-
-@mixin border-image ($path, $offsets, $repeats) {
-	@include css3-prefix('border-image', $path $offsets $repeats);
+    .photo {
+        border: .1rem solid $border-color-dark;
+    }
 }

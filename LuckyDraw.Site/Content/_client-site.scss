@@ -1,6 +1,5 @@
 .client-site {
-	background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
-	color: #ffe898;
+	background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;	
     height: 100vh;
 	padding: 20rem;
     width: 100vw;
@@ -42,46 +41,24 @@
         }
     }
 
+	&.default-client {
+        color: #ffe898;
+		@include avatar-border-color(#ffe898, #ac7926);
+    }
+
     &.pink-client {
         color: #fd7fbc;
-
-        .avatar {
-            border-color: #f8aad1;
-            outline: .1rem solid #f0549e;
-            @include box-shadow(0, 0, 1.6rem, #f0549e);
-        }
-
-        .photo {
-            border: .1rem solid #f0549e;
-        }
+		@include avatar-border-color(#f8aad1, #f0549e);
     }
 
     &.green-client {
         color: #42e884;
-
-        .avatar {
-            border-color: #8de1af;
-            outline: .1rem solid #19c25d;
-            @include box-shadow(0, 0, 1.6rem, #19c25d);
-        }
-
-        .photo {
-            border: .1rem solid #19c25d;
-        }
+		@include avatar-border-color(#8de1af, #19c25d);
     }
 
     &.blue-client {
         color: #5e7bf3;
-
-        .avatar {
-            border-color: #95a8f7;
-            outline: .1rem solid #284eef;
-            @include box-shadow(0, 0, 1.6rem, #284eef);
-        }
-
-        .photo {
-            border: .1rem solid #284eef;
-        }
+		@include avatar-border-color(#95a8f7, #284eef);
     }
 
     .staff-info {
@@ -94,7 +71,6 @@
             .txt-nickname {
                 font: {
                     weight: bold;
-                    size: 3rem;
                 }
                 margin: 0;
             }

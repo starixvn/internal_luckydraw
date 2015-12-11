@@ -5984,7 +5984,6 @@ button.toast-close-button {
     width: 25em; } }
 .client-site {
   background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
-  color: #ffe898;
   height: 100vh;
   padding: 20rem;
   width: 100vw;
@@ -6074,11 +6073,24 @@ button.toast-close-button {
       width: 100%; }
     .client-site .avatar .unknown {
       margin: 3.7rem 3.6rem; }
+  .client-site.default-client {
+    color: #ffe898; }
+    .client-site.default-client .avatar {
+      border-color: #ffe898;
+      outline: 0.1rem solid #ac7926;
+      -webkit-box-shadow: 0 0 1.6rem #ac7926;
+      -khtml-box-shadow: 0 0 1.6rem #ac7926;
+      -moz-box-shadow: 0 0 1.6rem #ac7926;
+      -ms-box-shadow: 0 0 1.6rem #ac7926;
+      -o-box-shadow: 0 0 1.6rem #ac7926;
+      box-shadow: 0 0 1.6rem #ac7926; }
+    .client-site.default-client .photo {
+      border: 0.1rem solid #ac7926; }
   .client-site.pink-client {
     color: #fd7fbc; }
     .client-site.pink-client .avatar {
       border-color: #f8aad1;
-      outline: .1rem solid #f0549e;
+      outline: 0.1rem solid #f0549e;
       -webkit-box-shadow: 0 0 1.6rem #f0549e;
       -khtml-box-shadow: 0 0 1.6rem #f0549e;
       -moz-box-shadow: 0 0 1.6rem #f0549e;
@@ -6086,12 +6098,12 @@ button.toast-close-button {
       -o-box-shadow: 0 0 1.6rem #f0549e;
       box-shadow: 0 0 1.6rem #f0549e; }
     .client-site.pink-client .photo {
-      border: .1rem solid #f0549e; }
+      border: 0.1rem solid #f0549e; }
   .client-site.green-client {
     color: #42e884; }
     .client-site.green-client .avatar {
       border-color: #8de1af;
-      outline: .1rem solid #19c25d;
+      outline: 0.1rem solid #19c25d;
       -webkit-box-shadow: 0 0 1.6rem #19c25d;
       -khtml-box-shadow: 0 0 1.6rem #19c25d;
       -moz-box-shadow: 0 0 1.6rem #19c25d;
@@ -6099,12 +6111,12 @@ button.toast-close-button {
       -o-box-shadow: 0 0 1.6rem #19c25d;
       box-shadow: 0 0 1.6rem #19c25d; }
     .client-site.green-client .photo {
-      border: .1rem solid #19c25d; }
+      border: 0.1rem solid #19c25d; }
   .client-site.blue-client {
     color: #5e7bf3; }
     .client-site.blue-client .avatar {
       border-color: #95a8f7;
-      outline: .1rem solid #284eef;
+      outline: 0.1rem solid #284eef;
       -webkit-box-shadow: 0 0 1.6rem #284eef;
       -khtml-box-shadow: 0 0 1.6rem #284eef;
       -moz-box-shadow: 0 0 1.6rem #284eef;
@@ -6112,7 +6124,7 @@ button.toast-close-button {
       -o-box-shadow: 0 0 1.6rem #284eef;
       box-shadow: 0 0 1.6rem #284eef; }
     .client-site.blue-client .photo {
-      border: .1rem solid #284eef; }
+      border: 0.1rem solid #284eef; }
   .client-site .staff-info {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -6148,7 +6160,6 @@ button.toast-close-button {
       padding-left: 2rem; }
       .client-site .staff-info .info .txt-nickname {
         font-weight: bold;
-        font-size: 3rem;
         margin: 0; }
 
 body {
@@ -6333,7 +6344,7 @@ body {
         color: #fd7fbc; }
         .server-site.winner-details .staff-info.pink-staff .avatar, .server-site.super-grand-winner-details .staff-info.pink-staff .avatar {
           border-color: #f8aad1;
-          outline: .1rem solid #f0549e;
+          outline: 0.1rem solid #f0549e;
           -webkit-box-shadow: 0 0 1.6rem #f0549e;
           -khtml-box-shadow: 0 0 1.6rem #f0549e;
           -moz-box-shadow: 0 0 1.6rem #f0549e;
@@ -6341,12 +6352,12 @@ body {
           -o-box-shadow: 0 0 1.6rem #f0549e;
           box-shadow: 0 0 1.6rem #f0549e; }
         .server-site.winner-details .staff-info.pink-staff .photo, .server-site.super-grand-winner-details .staff-info.pink-staff .photo {
-          border: .1rem solid #f0549e; }
+          border: 0.1rem solid #f0549e; }
       .server-site.winner-details .staff-info.green-staff, .server-site.super-grand-winner-details .staff-info.green-staff {
         color: #42e884; }
         .server-site.winner-details .staff-info.green-staff .avatar, .server-site.super-grand-winner-details .staff-info.green-staff .avatar {
           border-color: #8de1af;
-          outline: .1rem solid #19c25d;
+          outline: 0.1rem solid #19c25d;
           -webkit-box-shadow: 0 0 1.6rem #19c25d;
           -khtml-box-shadow: 0 0 1.6rem #19c25d;
           -moz-box-shadow: 0 0 1.6rem #19c25d;
@@ -6354,12 +6365,12 @@ body {
           -o-box-shadow: 0 0 1.6rem #19c25d;
           box-shadow: 0 0 1.6rem #19c25d; }
         .server-site.winner-details .staff-info.green-staff .photo, .server-site.super-grand-winner-details .staff-info.green-staff .photo {
-          border: .1rem solid #19c25d; }
+          border: 0.1rem solid #19c25d; }
       .server-site.winner-details .staff-info.blue-staff, .server-site.super-grand-winner-details .staff-info.blue-staff {
         color: #5e7bf3; }
         .server-site.winner-details .staff-info.blue-staff .avatar, .server-site.super-grand-winner-details .staff-info.blue-staff .avatar {
           border-color: #95a8f7;
-          outline: .1rem solid #284eef;
+          outline: 0.1rem solid #284eef;
           -webkit-box-shadow: 0 0 1.6rem #284eef;
           -khtml-box-shadow: 0 0 1.6rem #284eef;
           -moz-box-shadow: 0 0 1.6rem #284eef;
@@ -6367,7 +6378,7 @@ body {
           -o-box-shadow: 0 0 1.6rem #284eef;
           box-shadow: 0 0 1.6rem #284eef; }
         .server-site.winner-details .staff-info.blue-staff .photo, .server-site.super-grand-winner-details .staff-info.blue-staff .photo {
-          border: .1rem solid #284eef; }
+          border: 0.1rem solid #284eef; }
       .server-site.winner-details .staff-info .info, .server-site.super-grand-winner-details .staff-info .info {
         font-weight: 600;
         font-size: 2rem;
