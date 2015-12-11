@@ -1,7 +1,7 @@
 ﻿'use strict';
-/*global controlServerModule*/
+/*global serverControlModule*/
 
-controlServerModule.controller('ServerControlController',
+serverControlModule.controller('ServerControlController',
 [
 function () {
     var vm = this;

@@ -322,6 +322,7 @@
     <Content Include="Libs\modernizr-2.8.3.js" />
     <Content Include="Libs\toastr.js" />
     <Content Include="Libs\ui-bootstrap-tpls-0.13.0.min.js" />
+    <Content Include="SourceApp\appServerControl.js" />
     <Content Include="SourceApp\Components\Client\client-directive.js" />
     <Content Include="SourceApp\Components\Client\client-controller.js" />
     <Content Include="SourceApp\Components\Client\Templates\index.html" />
@@ -364,6 +365,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\ServerControl.cshtml" />
+    <Content Include="Views\Shared\_LayoutServerControl.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -490,7 +493,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>63361</DevelopmentServerPort>
+          <DevelopmentServerPort>55387</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

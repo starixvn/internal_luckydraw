@@ -31,8 +31,7 @@ namespace LuckyDraw.Site
                 "Server/Cash/Index",
                 "Server/PrizeList/{prizeType}",
                 "Server/WinnerDetail/{prizeType}",
-                "Server/SuperGrandWinnerDetail/{prizeType}",
-                "ServerControl/Index",
+                "Server/SuperGrandWinnerDetail/{prizeType}"
             };
 
             homeRouteUrls.ForEach(url => routes.MapRoute(
@@ -43,6 +42,12 @@ namespace LuckyDraw.Site
                     controller = "Home",
                     action = "Index"
                 }));
+
+            routes.MapRoute(
+                name: "ServerControl/Index",
+                url: "ServerControl/Index",
+                defaults: new { controller = "Home", action = "ServerControl", id = UrlParameter.Optional }
+            );
 
             routes.MapRoute(
                 name: "Default",

@@ -17,5 +17,10 @@ namespace LuckyDraw.Site.Controllers
         {
             return View();
         }
+
+        public ActionResult ServerControl()
+        {
+            return View();
+        }
     }
 }

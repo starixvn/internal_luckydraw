@@ -26,10 +26,3 @@ var clientModule = angular.module("clientModule", ['ngRoute'])
     $routeProvider.when(baseUrl + 'Client/Index/:grade',
     { templateUrl: baseUrl + 'SourceApp/Components/Client/Templates/index.html' });
 } ]);
-
-var controlServerModule = angular.module("controlServerModule", ['ngRoute'])
-.config(['$routeProvider', function ($routeProvider) {
-    var baseUrl = $("base").first().attr("href");
-    $routeProvider.when(baseUrl + 'ServerControl/Index',
-    { templateUrl: baseUrl + 'SourceApp/Components/ServerControl/Templates/index.html' });
-} ]);
