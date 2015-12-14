@@ -256,7 +256,9 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
     };
 
     vm.resetPrizeWinners = function () {
-        if (vm.winnerDetail.Winners.length > 0 && !vm.winnerDetail.IsSamePrize) {
+        if (((vm.winner1 && vm.winner1.Prize && vm.winner1.PrizeId > 0)
+            || (vm.winner2 && vm.winner2.Prize && vm.winner2.PrizeId > 0)
+            || (vm.winner3 && vm.winner3.Prize && vm.winner3.PrizeId > 0)) && !vm.winnerDetail.IsSamePrize) {
             ServerModel.openPopupConfirmResetPrize(vm);
         }
     };

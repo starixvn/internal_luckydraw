@@ -112,7 +112,7 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Serv
         } else {
             if (vm.prizeSetting.Quantity > vm.prizeSetting.CurrentPrize) {
                 if (vm.prizeSetting.CurrentPrize % 3 === 0) {
-                    vm.prizeSetting.CurrentPrize += 3
+                    vm.prizeSetting.CurrentPrize += 3;
                 } else {
                     vm.prizeSetting.CurrentPrize = parseInt((vm.prizeSetting.CurrentPrize / 3) + 1) * 3;
                 }

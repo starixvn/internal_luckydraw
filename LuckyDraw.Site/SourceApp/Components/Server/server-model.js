@@ -255,7 +255,11 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
 
         modalInstance.result.then(function () {
             var staffIds = vm.winnerDetail.Winners.map(function (e) { return e.StaffId; }).join(','),
+                currentPrize = 0;
+
+            if (vm.startPrize > 0) {
                 currentPrize = (parseInt((vm.startPrize - 1) / 3) + 1) * 3;
+            }
 
             serverFactory.deleteWinner(staffIds, vm.prizeType, currentPrize)
             .success(function (response) {
@@ -297,8 +301,11 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
 
         modalInstance.result.then(function () {
-            var winners = [],
+            var winners = [], currentPrize = 0;
+
+            if (vm.startPrize > 0) {
                 currentPrize = (parseInt((vm.startPrize - 1) / 3) + 1) * 3;
+            }
 
             if (vm.winner1) {
                 vm.winner1.Prize.PrizeId = -1;
