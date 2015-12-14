@@ -22,12 +22,6 @@ function ($scope, $location, $routeParams, CommonModel, baseUrl) {
                 }
             }
         });
-
-        CommonModel.getStaffByCode('11402249').then(function () {
-            if (CommonModel.staff) {
-                vm.staff = CommonModel.staff;
-            }
-        });
     };
 
     vm.initialize();
@@ -73,13 +67,7 @@ function ($scope, $location, $routeParams, CommonModel, baseUrl) {
 
                 if (CommonModel.staff) {
                     vm.staff = CommonModel.staff;
-
-                    if (vm.staff.Prize === null) {
-                        hubProxy.server.sendStaffCode(staffCode);
-                    }
-                    else {
-                        vm.message = "Duplicate Barcode"
-                    }
+                    hubProxy.server.sendStaffCode(staffCode);
                 }
             });
         } else {

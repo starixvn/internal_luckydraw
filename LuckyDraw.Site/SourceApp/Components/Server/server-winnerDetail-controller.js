@@ -9,8 +9,6 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
     vm.baseUrl = baseUrl;
     vm.prizeType = parseInt($routeParams.prizeType);
 
-    vm.nextPrize = false;
-
     vm.greenStaff = null;
     vm.pinkStaff = null;
     vm.blueStaff = null;
@@ -99,20 +97,20 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
 
     var hubProxy = $.connection.hubs;
 
-    vm.sendMessageResponse = function (oldWinner, newWinner) {
+    var sendMessageResponse = function (oldWinner, newWinner) {
         var grade = parseInt(newWinner.StaffCode.substring(0, 2)),
             message = '';
 
         if (vm.winnerDetail.Winners.length >= 3) {
-            message = 'Full, barcode: ' + newWinner.StaffCode;
+            message = 'Full winner.';
         } else if (newWinner.StaffCode === oldWinner.StaffCode) {
-            message = 'Barcode duplicated, barcode: ' + newWinner.StaffCode;
+            message = 'Barcode duplicated.';
         } else {
-            message = 'Wrong group, barcode: ' + newWinner.StaffCode;
+            message = 'Group had winner.';
         }
 
         if (message.length > 0) {
-            hubProxy.server.sendMessageResponse(grade, message);
+            ServerModel.sendMessageResponse(hubProxy, grade, message);
         }
     };
 
@@ -126,7 +124,7 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
                     vm.pinkStaff = winner;
                 } else {
                     isValid = false;
-                    vm.sendMessageResponse(vm.pinkStaff, winner);
+                    sendMessageResponse(vm.pinkStaff, winner);
                 }
                 break;
             case 11:
@@ -134,7 +132,7 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
                     vm.greenStaff = winner;
                 } else {
                     isValid = false;
-                    vm.sendMessageResponse(vm.greenStaff, winner);
+                    sendMessageResponse(vm.greenStaff, winner);
                 }
                 break;
             case 12:
@@ -142,7 +140,7 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
                     vm.blueStaff = winner;
                 } else {
                     isValid = false;
-                    vm.sendMessageResponse(vm.blueStaff, winner);
+                    sendMessageResponse(vm.blueStaff, winner);
                 }
                 break;
         }
@@ -154,18 +152,17 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
         CommonModel.getStaffByCode(staffCode).then(function () {
             var staff = CommonModel.staff;
 
-            if (staff && staff.StaffCode) {
+            if (staff && staff.StaffCode && ServerModel.checkWinner(hubProxy, staff)) {
                 if (vm.fillWinner(staff)) {
                     staff.Prize = vm.winnerDetail.Prize;
                     vm.winnerDetail.Winners.push(staff);
 
                     if (vm.winnerDetail.Winners.length === 3) {
                         vm.prizeSetting.CurrentPrize -= 1;
-                        vm.nextPrize = true;
                     }
 
                     var criteria = {
-                        Winners: vm.winnerDetail.Winners,
+                        Winners: new Array(staff),
                         PrizeTypeId: vm.prizeType,
                         CurrentPrize: vm.prizeSetting.CurrentPrize
                     };

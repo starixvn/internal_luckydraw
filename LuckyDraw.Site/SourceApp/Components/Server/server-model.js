@@ -90,9 +90,26 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
 
         if (vm.prizeSetting.CurrentPrize > 0) {
             vm.prizeSetting.CurrentPrize -= 1;
-
-
         }
+    };
+
+    serverModel.sendMessageResponse = function (hubProxy, grade, message) {
+        hubProxy.server.sendMessageResponse(grade, message);
+    };
+
+    serverModel.checkWinner = function (hubProxy, winner) {
+        var isValid = true,
+            grade = parseInt(winner.StaffCode.substring(0, 2)),
+            message = '';
+
+        if (winner.Prize && winner.Prize.PrizeId) {
+            message = 'Staff received other prize.';
+            serverModel.sendMessageResponse(hubProxy, grade, message);
+
+            isValid = false;
+        }
+
+        return isValid;
     };
 
     serverModel.openPopupConfirmRemoveWinner = function (vm, staff, index) {

@@ -63,7 +63,7 @@
 
     .staff-info {
         @include align-with-flex(center, center, row, center);
-        
+
         .info {
             font-size: 2rem;
             padding-left: 2rem;
@@ -78,4 +78,8 @@
         }
     }
 
+    .alert {
+        margin-top: 2rem;
+        border-radius: unset;
+    }
 }

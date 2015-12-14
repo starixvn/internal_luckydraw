@@ -25,10 +25,6 @@ namespace LuckyDraw.Site
                 "Client/Index",
                 "Client/Index/{grade}",
                 "Server/Index",
-                "Server/SuperGrand/Index",
-                "Server/Grand/Index",
-                "Server/Major/Index",
-                "Server/Cash/Index",
                 "Server/PrizeList/{prizeType}",
                 "Server/WinnerDetail/{prizeType}",
                 "Server/SuperGrandWinnerDetail/{prizeType}"

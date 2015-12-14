@@ -12,8 +12,6 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
     vm.focusWinner = 4;
     vm.prizedWinners = [];
 
-    vm.isFinished = false;
-
     vm.winner1 = null;
     vm.winner2 = null;
     vm.winner3 = null;
@@ -36,6 +34,47 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                     break;
             }
         });
+    };
+
+    var setFocusWinner = function (focusWinner) {
+        switch (focusWinner) {
+            case 1:
+                if (vm.winner3) {
+                    vm.winner3.IsFocus = true;
+                }
+                if (vm.winner1) {
+                    vm.winner1.IsFocus = false;
+                }
+                if (vm.winner2) {
+                    vm.winner2.IsFocus = false;
+                }
+                $scope.$apply();
+                break;
+            case 2:
+                if (vm.winner2) {
+                    vm.winner2.IsFocus = true;
+                }
+                if (vm.winner1) {
+                    vm.winner1.IsFocus = false;
+                }
+                if (vm.winner3) {
+                    vm.winner3.IsFocus = false;
+                }
+                $scope.$apply();
+                break;
+            case 3:
+                if (vm.winner1) {
+                    vm.winner1.IsFocus = true;
+                }
+                if (vm.winner2) {
+                    vm.winner2.IsFocus = false;
+                }
+                if (vm.winner3) {
+                    vm.winner3.IsFocus = false;
+                }
+                $scope.$apply();
+                break;
+        }
     };
 
     vm.initialize = function () {
@@ -107,47 +146,6 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
         var path = baseUrl + 'Server/PrizeList/' + vm.prizeType;
 
         $window.location.href = path;
-    };
-
-    var setFocusWinner = function (focusWinner) {
-        switch (focusWinner) {
-            case 1:
-                if (vm.winner3) {
-                    vm.winner3.IsFocus = true;
-                }
-                if (vm.winner1) {
-                    vm.winner1.IsFocus = false;
-                }
-                if (vm.winner2) {
-                    vm.winner2.IsFocus = false;
-                }
-                $scope.$apply();
-                break;
-            case 2:
-                if (vm.winner2) {
-                    vm.winner2.IsFocus = true;
-                }
-                if (vm.winner1) {
-                    vm.winner1.IsFocus = false;
-                }
-                if (vm.winner3) {
-                    vm.winner3.IsFocus = false;
-                }
-                $scope.$apply();
-                break;
-            case 3:
-                if (vm.winner1) {
-                    vm.winner1.IsFocus = true;
-                }
-                if (vm.winner2) {
-                    vm.winner2.IsFocus = false;
-                }
-                if (vm.winner3) {
-                    vm.winner3.IsFocus = false;
-                }
-                $scope.$apply();
-                break;
-        }
     };
 
     vm.keyUpArrowEvent = function () {
@@ -285,30 +283,30 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
 
     var hubProxy = $.connection.hubs;
 
-    vm.sendMessageResponse = function (oldWinner, newWinner) {
+    var sendMessageResponse = function (oldWinner, newWinner) {
         var grade = parseInt(newWinner.StaffCode.substring(0, 2)),
             message = '';
 
         if (vm.winnerDetail.IsSamePrize) {
             if (vm.prizedWinners.length >= 3) {
-                message = 'Full, barcode: ' + newWinner.StaffCode;
+                message = 'Full winner.';
             } else if (newWinner.StaffCode === oldWinner.StaffCode) {
-                message = 'Barcode duplicated, barcode: ' + newWinner.StaffCode;
+                message = 'Barcode duplicated.';
             } else {
-                message = 'Wrong group, barcode: ' + newWinner.StaffCode;
+                message = 'Group had winner.';
             }
         } else {
             if (vm.winnerDetail.Winners.length >= 3) {
-                message = 'Full, barcode: ' + newWinner.StaffCode;
+                message = 'Full winner.';
             } else if (newWinner.StaffCode === oldWinner.StaffCode) {
-                message = 'Barcode duplicated, barcode: ' + newWinner.StaffCode;
+                message = 'Barcode duplicated.';
             } else {
-                message = 'Wrong group, barcode: ' + newWinner.StaffCode;
+                message = 'Group had winner.';
             }
         }
 
         if (message.length > 0) {
-            hubProxy.server.sendMessageResponse(grade, message);
+            ServerModel.sendMessageResponse(hubProxy, grade, message);
         }
     };
 
@@ -316,31 +314,21 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
         var grade = parseInt(winner.StaffCode.substring(0, 2)),
             isValid = true;
 
-        switch (grade) {
-            case 10:
-                if (!vm.winner1) {
-                    vm.winner1 = winner;
-                } else {
-                    isValid = false;
-                    vm.sendMessageResponse(vm.winner1, winner);
-                }
-                break;
-            case 11:
-                if (!vm.winner2) {
-                    vm.winner2 = winner;
-                } else {
-                    isValid = false;
-                    vm.sendMessageResponse(vm.winner2, winner);
-                }
-                break;
-            case 12:
-                if (!vm.winner3) {
-                    vm.winner3 = winner;
-                } else {
-                    isValid = false;
-                    vm.sendMessageResponse(vm.winner3, winner);
-                }
-                break;
+        if (!vm.winner1) {
+            vm.winner1 = winner;
+        } else if (vm.winner1 && parseInt(vm.winner1.StaffCode.substring(0, 2)) === grade) {
+            isValid = false;
+            sendMessageResponse(vm.winner1, winner);
+        } else if (!vm.winner2) {
+            vm.winner2 = winner;
+        } else if (vm.winner2 && parseInt(vm.winner2.StaffCode.substring(0, 2)) === grade) {
+            isValid = false;
+            sendMessageResponse(vm.winner2, winner);
+        } else if (!vm.winner3) {
+            vm.winner3 = winner;
+        } else if (vm.winner3 && parseInt(vm.winner3.StaffCode.substring(0, 2)) === grade) {
+            isValid = false;
+            sendMessageResponse(vm.winner3, winner);
         }
 
         return isValid;
@@ -350,26 +338,28 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
         CommonModel.getStaffByCode(staffCode).then(function () {
             var staff = CommonModel.staff;
 
-            if (staff && staff.StaffCode) {
-                if (vm.winnerDetail.IsSamePrize && vm.fillWinner(staff)) {
-                    vm.prizedWinners.push(staff);
-                    vm.winnerDetail.Winners.push(staff);
+            if (staff && staff.StaffCode && ServerModel.checkWinner(hubProxy, staff)) {
+                if (vm.winnerDetail.IsSamePrize) {
+                    if (vm.fillWinner(staff)) {
+                        vm.prizedWinners.push(staff);
+                        vm.winnerDetail.Winners.push(staff);
 
-                    angular.forEach(vm.winnerDetail.Prizes, function (prize, index) {
-                        if (vm.prizedWinners[index]) {
-                            vm.prizedWinners[index].Prize = prize;
-                        }
-                    });
+                        angular.forEach(vm.winnerDetail.Prizes, function (prize, index) {
+                            if (vm.prizedWinners[index]) {
+                                vm.prizedWinners[index].Prize = prize;
+                            }
+                        });
 
-                    vm.prizeSetting.CurrentPrize = (parseInt((vm.prizeSetting.CurrentPrize - 1) / 3) + 1) * 3 - vm.prizedWinners.length;
+                        vm.prizeSetting.CurrentPrize = (parseInt((vm.prizeSetting.CurrentPrize - 1) / 3) + 1) * 3 - vm.prizedWinners.length;
 
-                    var criteria = {
-                        Winners: vm.prizedWinners,
-                        PrizeTypeId: vm.prizeType,
-                        CurrentPrize: vm.prizeSetting.CurrentPrize
-                    };
+                        var criteria = {
+                            Winners: new Array(staff),
+                            PrizeTypeId: vm.prizeType,
+                            CurrentPrize: vm.prizeSetting.CurrentPrize
+                        };
 
-                    ServerModel.insertWinner(criteria);
+                        ServerModel.insertWinner(criteria);
+                    }
                 } else {
                     if (vm.fillWinner(staff)) {
                         staff.Prize = {
