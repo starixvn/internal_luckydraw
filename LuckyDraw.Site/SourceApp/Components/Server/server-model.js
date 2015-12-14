@@ -194,7 +194,8 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
 
         modalInstance.result.then(function () {
-            if (vm.prizeSetting.CurrentPrize * vm.prizeSetting.Multiply < vm.prizeSetting.Quantity) {
+            if (((vm.prizeSetting.CurrentPrize * vm.prizeSetting.Multiply) < vm.prizeSetting.Quantity)
+                && staff.Prize && staff.Prize.PrizeId > 0) {
                 vm.prizeSetting.CurrentPrize += 1;
             }
 
