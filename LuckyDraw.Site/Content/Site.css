@@ -6168,15 +6168,15 @@ body {
 
 .server-site {
   background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;
-  border: 3.6rem solid transparent;
+  border: 2rem solid transparent;
   height: 100vh;
   width: 100vw;
-  -webkit-border-image: url(../Images/border.png) 30% repeat;
-  -khtml-border-image: url(../Images/border.png) 30% repeat;
-  -moz-border-image: url(../Images/border.png) 30% repeat;
-  -ms-border-image: url(../Images/border.png) 30% repeat;
-  -o-border-image: url(../Images/border.png) 30% repeat;
-  border-image: url(../Images/border.png) 30% repeat;
+  -webkit-border-image: url(../Images/border.png) 29% repeat;
+  -khtml-border-image: url(../Images/border.png) 29% repeat;
+  -moz-border-image: url(../Images/border.png) 29% repeat;
+  -ms-border-image: url(../Images/border.png) 29% repeat;
+  -o-border-image: url(../Images/border.png) 29% repeat;
+  border-image: url(../Images/border.png) 29% repeat;
   -webkit-background-size: cover;
   -khtml-background-size: cover;
   -moz-background-size: cover;
@@ -6337,6 +6337,7 @@ body {
         text-align: center;
         width: 13rem;
         outline: .1rem solid #ac7926;
+        overflow: hidden;
         -webkit-box-shadow: 0 0 1.6rem #ac7926;
         -khtml-box-shadow: 0 0 1.6rem #ac7926;
         -moz-box-shadow: 0 0 1.6rem #ac7926;
@@ -6554,19 +6555,22 @@ body {
     -moz-justify-content: center;
     justify-content: center; }
   .server-site .logo-prize {
-    left: -1.4rem;
     position: absolute;
     z-index: 5; }
     .server-site .logo-prize.cash {
-      top: -3.1rem; }
+      left: -2.2rem;
+      top: -4.1rem; }
     .server-site .logo-prize.major {
-      top: -3.8rem; }
-    .server-site .logo-prize.grand {
-      top: -3.1rem; }
-    .server-site .logo-prize.super-grand {
+      left: -3.8rem;
       top: -4.6rem; }
+    .server-site .logo-prize.grand {
+      left: -3rem;
+      top: -3.5rems; }
+    .server-site .logo-prize.super-grand {
+      left: -3rem;
+      top: -5rem; }
   .server-site .logo-small {
-    right: -2.4rem;
+    right: -5.4rem;
     position: absolute;
     bottom: -4.8rem;
     z-index: 5; }
@@ -6578,7 +6582,14 @@ body {
   padding-top: 6rem;
   padding-bottom: 6rem;
   position: relative;
-  width: 100%; }
+  width: 100%;
+  border: 1rem solid transparent;
+  -webkit-border-image: url(../Images/border-rope.png) 10% repeat;
+  -khtml-border-image: url(../Images/border-rope.png) 10% repeat;
+  -moz-border-image: url(../Images/border-rope.png) 10% repeat;
+  -ms-border-image: url(../Images/border-rope.png) 10% repeat;
+  -o-border-image: url(../Images/border-rope.png) 10% repeat;
+  border-image: url(../Images/border-rope.png) 10% repeat; }
 
 @media (max-width: 1350px) {
   .server-site.cash-prize, .server-site.major-prize, .server-site.grand-prize, .server-site.super-grand-prize, .server-site.winner-details, .server-site.super-grand-winner-details {
@@ -6591,7 +6602,6 @@ body {
     align-self: flex-start; } }
 @media (max-width: 1024px) {
   .server-site.winner-details .box-container, .server-site.super-grand-winner-details .box-container {
-    min-height: 73rem;
     padding-left: 1.6rem;
     padding-right: 1.6rem; }
   .server-site.winner-details .winnerList, .server-site.super-grand-winner-details .winnerList {
@@ -6626,6 +6636,8 @@ body {
     -moz-order: 3;
     -ms-flex-order: 3;
     order: 3; }
+  .server-site.winner-details .img-responsive, .server-site.super-grand-winner-details .img-responsive {
+    width: 100%; }
   .server-site.cash-prize .box-container, .server-site.major-prize .box-container, .server-site.grand-prize .box-container, .server-site.super-grand-prize .box-container {
     padding: 10rem 1.6rem; } }
 @media (max-width: 320px) {
@@ -6649,7 +6661,4 @@ body {
 @media (min-width: 2000px) and (min-height: 900px) {
   .server-site.winner-details .box-container, .server-site.super-grand-winner-details .box-container {
     width: 170rem; } }
-@media (min-height: 1000px) {
-  .server-site .box-container {
-    height: 73rem; } }
 

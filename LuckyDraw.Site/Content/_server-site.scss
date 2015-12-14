@@ -4,10 +4,10 @@ body {
 
 .server-site {
     background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;
-    border: 3.6rem solid transparent;
+    border: 2rem solid transparent;
     height: 100vh;
     width: 100vw; 
-    @include border-image(url(../Images/border.png), 30%, repeat );
+    @include border-image(url(../Images/border.png), 29%, repeat );
     @include background-size('cover');
 
     &.opening {
@@ -80,6 +80,7 @@ body {
                 text-align: center;
                 width: 13rem;
 				outline: .1rem solid #ac7926;
+				overflow: hidden;
 				@include box-shadow(0, 0, 1.6rem, #ac7926);
 
                 .photo {
@@ -190,30 +191,33 @@ body {
 		 }		
 	}
 
-    .logo-prize {
-        left: -1.4rem;
-        position: absolute;
-        z-index: 5;
+    .logo-prize {        
+		position: absolute;
+		z-index: 5;
 
         &.cash {
-            top: -3.1rem;
+			left: -2.2rem;
+            top: -4.1rem;
         }
         
         &.major {
-            top: -3.8rem;
+			left: -3.8rem;
+            top: -4.6rem;
         }
         
         &.grand {
-            top: -3.1rem;
+			left: -3rem;
+            top: -3.5rems;
         }
         
         &.super-grand {
-            top: -4.6rem;
+			left: -3rem;
+            top: -5rem;
         }
     }
 
     .logo-small {
-        right: -2.4rem;
+        right: -5.4rem;
         position: absolute;
         bottom: -4.8rem;
         z-index: 5;
@@ -230,6 +234,8 @@ body {
 	padding-bottom: 6rem;	
     position: relative;
 	width: 100%;		
+	border: 1rem solid transparent;
+    @include border-image(url(../Images/border-rope.png), 10%, repeat );
 }
 
 @media (max-width: 1350px) {
@@ -254,7 +260,7 @@ body {
 	 &.winner-details, &.super-grand-winner-details
 	 {
 		.box-container {
-			min-height: 73rem;
+			//min-height: 73rem;
 			padding-left: 1.6rem;
 			padding-right: 1.6rem;
 		}
@@ -277,7 +283,11 @@ body {
 		
 		.logo-small {
 			@include order(3);
-		}		
+		}
+
+		.img-responsive {
+			width: 100%;
+		}
 	 }
 
 	 &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize {
@@ -334,10 +344,4 @@ body {
 		}
 	 }
    }
-}
-
-@media (min-height: 1000px) {
-	.server-site .box-container {
-		height: 73rem;
-	}
 }
