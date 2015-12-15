@@ -197,6 +197,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\bg-cashprize.jpg" />
+    <Content Include="Images\border-rope.png" />
     <Content Include="Images\border.png" />
     <Content Include="Images\logo-Luckydraw.png" />
     <Content Include="Images\luckdraw-opening-bg.jpg" />

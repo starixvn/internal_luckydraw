@@ -282,8 +282,11 @@
 @mixin avatar-border-color($border-color-light, $border-color-dark) {
     .avatar {
         border-color: $border-color-light;
-        outline: .1rem solid $border-color-dark;
         @include box-shadow(0, 0, 1.6rem, $border-color-dark);
+
+		&:after {
+			outline-color: $border-color-dark;
+		}
     }
 
     .photo {
