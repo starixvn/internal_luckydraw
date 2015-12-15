@@ -8,6 +8,7 @@ function ($scope, $window, $location, $routeParams, CommonModel, baseUrl) {
 
     vm.grade = parseInt($routeParams.grade);
     vm.message = null;
+    vm.staff = null;
     vm.staffCode = '';
     vm.baseUrl = baseUrl;
 
@@ -71,6 +72,9 @@ function ($scope, $window, $location, $routeParams, CommonModel, baseUrl) {
                 vm.staffCode = '';
 
                 if (CommonModel.staff) {
+                    vm.message = null;
+                    $scope.$apply();
+
                     vm.staff = CommonModel.staff;
                     hubProxy.server.sendStaffCode(staffCode);
                 }
@@ -81,7 +85,7 @@ function ($scope, $window, $location, $routeParams, CommonModel, baseUrl) {
     };
 
     hubProxy.client.getMessageResponse = function (grade, message) {
-        if (grade === vm.grade) {
+        if (grade === vm.grade && message) {
             vm.message = message;
             $scope.$apply();
         }

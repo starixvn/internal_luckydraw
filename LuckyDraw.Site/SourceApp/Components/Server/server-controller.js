@@ -2,7 +2,8 @@
 /*global serverModule*/
 
 serverModule.controller('ServerController',
-['$window', 'CommonModel', 'baseUrl', function ($window, CommonModel, baseUrl) {
+['$window', 'CommonModel', 'baseUrl',
+function ($window, CommonModel, baseUrl) {
     var vm = this;
 
     vm.redirectToPrizeList = function (prizeType) {
@@ -21,6 +22,10 @@ serverModule.controller('ServerController',
 
     vm.redirectToDashboard = function () {
         $window.location.href = '/';
+    };
+
+    vm.redirectToAdhocPrize = function () {
+        $window.location.href = baseUrl + 'Server/AdhocPrize/Index';
     };
 
     var hubProxy = $.connection.hubs;
@@ -65,6 +70,9 @@ serverModule.directive('serverKeyboardEvent',
                         break;
                     case 52: // 4
                         scope.serverCtrl.redirectToPrizeList(5);
+                        break;
+                    case 53: // 5
+                        scope.serverCtrl.redirectToAdhocPrize();
                         break;
                 }
             });

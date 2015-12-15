@@ -331,12 +331,14 @@
     <Content Include="SourceApp\Components\ServerControl\Templates\index.html" />
     <Content Include="SourceApp\Components\Resources\resources-controller.js" />
     <Content Include="SourceApp\Components\Resources\resources-factory.js" />
+    <Content Include="SourceApp\Components\Server\server-adhocPrize-controller.js" />
     <Content Include="SourceApp\Components\Server\server-superGrandWinnerDetail-controller.js" />
     <Content Include="SourceApp\Components\Server\server-model.js" />
     <Content Include="SourceApp\Components\Server\server-factory.js" />
     <Content Include="SourceApp\Components\Server\server-prizeList-controller.js" />
     <Content Include="SourceApp\Components\Server\server-winnerDetail-controller.js" />
     <Content Include="SourceApp\Components\Server\server-controller.js" />
+    <Content Include="SourceApp\Components\Server\Templates\adhocPrize.html" />
     <Content Include="SourceApp\Components\Server\Templates\index.html" />
     <Content Include="SourceApp\Components\Server\Templates\modalConfirmRemoveWinner.html" />
     <Content Include="SourceApp\Components\Server\Templates\prizeList.html" />

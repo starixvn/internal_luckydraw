@@ -25,6 +25,8 @@ var serverModule = angular.module('serverModule', ['ngRoute'])
     { templateUrl: baseUrl + 'SourceApp/Components/Server/Templates/winnerDetail.html', caseInsensitiveMatch: true });
     $routeProvider.when(baseUrl + 'Server/SuperGrandWinnerDetail/:prizeType',
     { templateUrl: baseUrl + 'SourceApp/Components/Server/Templates/superGrandWinnerDetail.html', caseInsensitiveMatch: true });
+    $routeProvider.when(baseUrl + 'Server/AdhocPrize/Index',
+    { templateUrl: baseUrl + 'SourceApp/Components/Server/Templates/adhocPrize.html', caseInsensitiveMatch: true });
 } ]);
 
 var clientModule = angular.module('clientModule', ['ngRoute'])

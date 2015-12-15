@@ -8,10 +8,10 @@
          <div class="col-sm-12 col-md-6 winnerList">
             <div class="row staff-info pink-staff">
                 <div class="avatar">
-                    <img ng-show="!winnerDetailCtrl.pinkStaff" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-pink.png" src="" alt="" class="unknown" />
-                    <img ng-show="winnerDetailCtrl.pinkStaff" ng-src="data:image/png;base64,{{winnerDetailCtrl.pinkStaff.Avatar}}" src="" alt="" class="photo img-responsive" />
+                    <img ng-if="!winnerDetailCtrl.pinkStaff" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-pink.png" src="" alt="" class="unknown" />
+                    <img ng-if="winnerDetailCtrl.pinkStaff" ng-src="data:image/png;base64,{{winnerDetailCtrl.pinkStaff.Avatar}}" src="" alt="" class="photo img-responsive" />
                 </div>
-                <div class="info" ng-show="winnerDetailCtrl.pinkStaff">
+                <div class="info" ng-if="winnerDetailCtrl.pinkStaff">
                     <h2 class="text-uppercase txt-nickname" ng-bind="winnerDetailCtrl.pinkStaff.NickName"></h2>
                     <p class="text-capitalize txt-fullname" ng-bind="winnerDetailCtrl.pinkStaff.FullName"></p>
                     <p ng-bind="winnerDetailCtrl.pinkStaff.Department.Name"></p>
@@ -19,10 +19,10 @@
             </div>
             <div class="row staff-info green-staff">
                 <div class="avatar">
-                    <img ng-show="!winnerDetailCtrl.greenStaff" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-green.png" src="" alt="" class="unknown" />
-                    <img ng-show="winnerDetailCtrl.greenStaff" ng-src="data:image/png;base64,{{winnerDetailCtrl.greenStaff.Avatar}}" src="" alt="" class="photo img-responsive" />
+                    <img ng-if="!winnerDetailCtrl.greenStaff" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-green.png" src="" alt="" class="unknown" />
+                    <img ng-if="winnerDetailCtrl.greenStaff" ng-src="data:image/png;base64,{{winnerDetailCtrl.greenStaff.Avatar}}" src="" alt="" class="photo img-responsive" />
                 </div>
-                <div class="info" ng-show="winnerDetailCtrl.greenStaff">
+                <div class="info" ng-if="winnerDetailCtrl.greenStaff">
                     <h2 class="text-uppercase txt-nickname" ng-bind="winnerDetailCtrl.greenStaff.NickName"></h2>
                     <p class="text-capitalize txt-fullname" ng-bind="winnerDetailCtrl.greenStaff.FullName"></p>
                     <p ng-bind="winnerDetailCtrl.greenStaff.Department.Name"></p>
@@ -30,10 +30,10 @@
             </div>
             <div class="row staff-info blue-staff">
                 <div class="avatar">
-                    <img ng-show="!winnerDetailCtrl.blueStaff" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-blue.png" src="" alt="" class="unknown" />
-                    <img ng-show="winnerDetailCtrl.blueStaff" ng-src="data:image/png;base64,{{winnerDetailCtrl.blueStaff.Avatar}}" src="" alt="" class="photo img-responsive" />
+                    <img ng-if="!winnerDetailCtrl.blueStaff" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/winnerimage-blue.png" src="" alt="" class="unknown" />
+                    <img ng-if="winnerDetailCtrl.blueStaff" ng-src="data:image/png;base64,{{winnerDetailCtrl.blueStaff.Avatar}}" src="" alt="" class="photo img-responsive" />
                 </div>
-                <div class="info" ng-show="winnerDetailCtrl.blueStaff">
+                <div class="info" ng-if="winnerDetailCtrl.blueStaff">
                     <h2 class="text-uppercase txt-nickname" ng-bind="winnerDetailCtrl.blueStaff.NickName"></h2>
                     <p class="text-capitalize txt-fullname" ng-bind="winnerDetailCtrl.blueStaff.FullName"></p>
                     <p ng-bind="winnerDetailCtrl.blueStaff.Department.Name"></p>
