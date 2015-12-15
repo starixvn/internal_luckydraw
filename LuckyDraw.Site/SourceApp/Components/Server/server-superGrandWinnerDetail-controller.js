@@ -190,7 +190,7 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
         var prizeId = vm.winnerDetail.Prizes[(prize - 1) % 3].PrizeId,
             index = vm.prizedWinners.map(function (e) { return e.Prize.PrizeId; }).indexOf(prizeId);
 
-        if (vm.winnerDetail.Winners.length >= 3
+        if (vm.winnerDetail.Winners.length > 2
                 && (prize > 0 && prize < 10)
                 && index === -1
                 && (parseInt((vm.startPrize - 1) / 3) === parseInt((prize - 1) / 3))) {
@@ -290,7 +290,7 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
             message = '';
 
         if (vm.winnerDetail.IsSamePrize) {
-            if (vm.prizedWinners.length >= 3) {
+            if (vm.prizedWinners.length > 2) {
                 message = 'Full winner.';
             } else if (newWinner.StaffCode === oldWinner.StaffCode) {
                 message = 'Barcode duplicated.';
@@ -298,7 +298,7 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                 message = 'Group had winner.';
             }
         } else {
-            if (vm.winnerDetail.Winners.length >= 3) {
+            if (vm.winnerDetail.Winners.length > 2) {
                 message = 'Full winner.';
             } else if (newWinner.StaffCode === oldWinner.StaffCode) {
                 message = 'Barcode duplicated.';
@@ -315,22 +315,22 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
     vm.fillWinner = function (winner) {
         var grade = parseInt(winner.StaffCode.substring(0, 2)),
             isValid = true;
-
-        if (!vm.winner1) {
-            vm.winner1 = winner;
-        } else if (vm.winner1 && parseInt(vm.winner1.StaffCode.substring(0, 2)) === grade) {
+        
+        if (vm.winner1 && parseInt(vm.winner1.StaffCode.substring(0, 2)) === grade) {
             isValid = false;
             sendMessageResponse(vm.winner1, winner);
-        } else if (!vm.winner2) {
-            vm.winner2 = winner;
         } else if (vm.winner2 && parseInt(vm.winner2.StaffCode.substring(0, 2)) === grade) {
             isValid = false;
             sendMessageResponse(vm.winner2, winner);
-        } else if (!vm.winner3) {
-            vm.winner3 = winner;
         } else if (vm.winner3 && parseInt(vm.winner3.StaffCode.substring(0, 2)) === grade) {
             isValid = false;
             sendMessageResponse(vm.winner3, winner);
+        } else if (!vm.winner1) {
+            vm.winner1 = winner;
+        } else if (!vm.winner2) {
+            vm.winner2 = winner;
+        } else if (!vm.winner3) {
+            vm.winner3 = winner;
         }
 
         return isValid;

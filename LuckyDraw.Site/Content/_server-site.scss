@@ -185,8 +185,22 @@ body {
 	&.winner-details {
 		.prizePhoto {
             @include align-with-flex(center, center, column, center);
-        }		
+        }
 	}
+
+    &.adhoc-prize {
+        background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
+
+        .box-container {
+            padding-left: 16.4rem;
+            padding-right: 6rem;
+            @include align-with-flex(center, center, row, center);
+        }
+
+        .winnerList {
+            @include align-with-flex(flex-start, flex-start, column, center);
+        }
+    }
 
     &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize, &.winner-details, &.super-grand-winner-details {
         padding: 5rem;		
@@ -194,7 +208,7 @@ body {
         @include background-size(cover);
     }
 
-	 &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize {
+    &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize {
 		 .box-container {
 			padding-left: 18rem;
 			padding-right: 18rem;
@@ -202,7 +216,7 @@ body {
 		 }		
 	}
 
-    .logo-prize {        
+    .logo-prize {
 		position: absolute;
 		z-index: 5;
 
@@ -240,9 +254,9 @@ body {
     border: .1rem solid #ac7926;
 	min-height: 100%;
 	padding-top: 6rem;
-	padding-bottom: 6rem;	
+	padding-bottom: 6rem;
     position: relative;
-	width: 100%;		
+	width: 100%;
 	border: 1rem solid transparent;
     @include border-image(url(../Images/border-rope.png), 10%, repeat );
 }

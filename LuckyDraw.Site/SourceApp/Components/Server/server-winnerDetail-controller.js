@@ -101,7 +101,7 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
         var grade = parseInt(newWinner.StaffCode.substring(0, 2)),
             message = '';
 
-        if (vm.winnerDetail.Winners.length >= 3) {
+        if (vm.winnerDetail.Winners.length > 2) {
             message = 'Full winner.';
         } else if (newWinner.StaffCode === oldWinner.StaffCode) {
             message = 'Barcode duplicated.';

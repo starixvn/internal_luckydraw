@@ -58,21 +58,23 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Serv
     };
 
     vm.redirectToWinnerDetail = function () {
-        var path = '';
+        if (vm.prizeSetting.CurrentPrize > 0) {
+            var path = '';
 
-        switch (vm.prizeType) {
-            case 2:
-                path = baseUrl + 'Server/SuperGrandWinnerDetail/' + vm.prizeType;
-                break;
-            case 3:
-            case 4:
-            case 5:
-                path = baseUrl + 'Server/WinnerDetail/' + vm.prizeType;
-                break;
-        }
+            switch (vm.prizeType) {
+                case 2:
+                    path = baseUrl + 'Server/SuperGrandWinnerDetail/' + vm.prizeType;
+                    break;
+                case 3:
+                case 4:
+                case 5:
+                    path = baseUrl + 'Server/WinnerDetail/' + vm.prizeType;
+                    break;
+            }
 
-        if (path.length > 0) {
-            $window.location.href = path;
+            if (path.length > 0) {
+                $window.location.href = path;
+            }
         }
     };
 
