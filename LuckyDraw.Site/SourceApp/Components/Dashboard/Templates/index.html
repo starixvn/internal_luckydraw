@@ -1,0 +1,24 @@
+﻿<div class="col-sm-12 dashboard" ng-controller="DashboardController as dashboardCtrl" dashboard-keyboard-event>
+    <div class="logo-opening">
+        <img ng-src="{{dashboardCtrl.baseUrl}}Images/logo-Luckydraw.png" src="" alt="LuckyDraw" width="560" class="img-responsive" />
+    </div>
+    <div class="box-container">
+        <div class="col-sm-12 text-center server">
+            <button class="btn" ng-click="dashboardCtrl.redirectToServer()">Server</button>
+        </div>
+        <div class="col-sm-12 text-center client">
+            <div class="col-sm-3">
+                <button class="btn" ng-click="dashboardCtrl.redirectToDefaultClient()">Default Client</button>
+            </div>
+            <div class="col-sm-3">
+                <button class="btn" ng-click="dashboardCtrl.redirectToPinkClient()">Pink Client</button>
+            </div>
+            <div class="col-sm-3">
+                <button class="btn" ng-click="dashboardCtrl.redirectToGreenClient()">Green Client</button>
+            </div>
+            <div class="col-sm-3">
+                <button class="btn" ng-click="dashboardCtrl.redirectToBlueClient()">Blue Client</button>
+            </div>
+        </div>
+    </div>
+</div>

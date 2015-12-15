@@ -47,6 +47,7 @@ namespace LuckyDraw.Site
                         "~/SourceApp/Components/Resources/resources-controller.js",
                         "~/SourceApp/Components/Common/common-factory.js",
                         "~/SourceApp/Components/Common/common-model.js",
+                        "~/SourceApp/Components/Dashboard/dashboard-controller.js",
                         "~/SourceApp/Components/Client/client-controller.js",
                         "~/SourceApp/Components/Client/client-directive.js",
                         "~/SourceApp/Components/Server/server-factory.js",

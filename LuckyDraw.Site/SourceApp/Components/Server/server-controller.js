@@ -19,6 +19,10 @@ serverModule.controller('ServerController',
 
     vm.initialize();
 
+    vm.redirectToDashboard = function () {
+        $window.location.href = '/';
+    };
+
     var hubProxy = $.connection.hubs;
 
     hubProxy.client.getSignalNumber = function (number) {
@@ -47,6 +51,9 @@ serverModule.directive('serverKeyboardEvent',
                 event.preventDefault();
 
                 switch (event.which) {
+                    case 27: // asc
+                        scope.serverCtrl.redirectToDashboard();
+                        break;
                     case 49: // 1
                         scope.serverCtrl.redirectToPrizeList(2);
                         break;

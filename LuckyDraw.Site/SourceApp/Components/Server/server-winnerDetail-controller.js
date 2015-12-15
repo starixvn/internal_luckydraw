@@ -219,13 +219,11 @@ serverModule.directive('winnerDetailKeyboardEvent',
                         scope.winnerDetailCtrl.redirectToPrizeList();
                         break;
                     case 49: // 1
-                        scope.winnerDetailCtrl.removeWinner(1);
-                        break;
                     case 50: // 2
-                        scope.winnerDetailCtrl.removeWinner(2);
-                        break;
                     case 51: // 3
-                        scope.winnerDetailCtrl.removeWinner(3);
+                        var number = parseInt(String.fromCharCode(event.which));
+                        scope.winnerDetailCtrl.removeWinner(number);
+
                         break;
                 }
             });

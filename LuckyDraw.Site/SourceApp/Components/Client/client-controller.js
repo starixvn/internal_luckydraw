@@ -2,13 +2,14 @@
 /*global clientModule*/
 
 clientModule.controller('ClientController',
-['$scope', '$location', '$routeParams', 'CommonModel', 'baseUrl',
-function ($scope, $location, $routeParams, CommonModel, baseUrl) {
+['$scope', '$window', '$location', '$routeParams', 'CommonModel', 'baseUrl',
+function ($scope, $window, $location, $routeParams, CommonModel, baseUrl) {
     var vm = this;
 
     vm.grade = parseInt($routeParams.grade);
     vm.message = null;
     vm.staffCode = '';
+    vm.baseUrl = baseUrl;
 
     vm.initialize = function () {
         CommonModel.getGrade().then(function () {
@@ -56,6 +57,10 @@ function ($scope, $location, $routeParams, CommonModel, baseUrl) {
         }
 
         return isValid;
+    };
+
+    vm.redirectToDashboard = function () {
+        $window.location.href = '/';
     };
 
     var hubProxy = $.connection.hubs;

@@ -1,13 +1,22 @@
 ﻿'use strict';
-/*exported commonModule, prizeModule, serverModule, clientModule*/
+/*exported commonModule, prizeModule, dashboardModule, serverModule, clientModule*/
 
-var commonModule = angular.module("commonModule", ['ngRoute']);
+var commonModule = angular.module('commonModule', ['ngRoute']);
 
-var prizeModule = angular.module("prizeModule", ['ngRoute']);
+var prizeModule = angular.module('prizeModule', ['ngRoute']);
 
-var serverModule = angular.module("serverModule", ['ngRoute'])
+var dashboardModule = angular.module('dashboardModule', ['ngRoute'])
 .config(['$routeProvider', function ($routeProvider) {
-    var baseUrl = $("base").first().attr("href");
+    var baseUrl = $('base').first().attr('href');
+
+    $routeProvider.when('/',
+    { templateUrl: baseUrl + 'SourceApp/Components/Dashboard/Templates/index.html' });
+} ]);
+
+var serverModule = angular.module('serverModule', ['ngRoute'])
+.config(['$routeProvider', function ($routeProvider) {
+    var baseUrl = $('base').first().attr('href');
+
     $routeProvider.when(baseUrl + 'Server/Index',
     { templateUrl: baseUrl + 'SourceApp/Components/Server/Templates/index.html', caseInsensitiveMatch: true });
     $routeProvider.when(baseUrl + 'Server/PrizeList/:prizeType',
@@ -18,9 +27,10 @@ var serverModule = angular.module("serverModule", ['ngRoute'])
     { templateUrl: baseUrl + 'SourceApp/Components/Server/Templates/superGrandWinnerDetail.html', caseInsensitiveMatch: true });
 } ]);
 
-var clientModule = angular.module("clientModule", ['ngRoute'])
+var clientModule = angular.module('clientModule', ['ngRoute'])
 .config(['$routeProvider', function ($routeProvider) {
-    var baseUrl = $("base").first().attr("href");
+    var baseUrl = $('base').first().attr('href');
+
     $routeProvider.when(baseUrl + 'Client/Index',
     { templateUrl: baseUrl + 'SourceApp/Components/Client/Templates/index.html', caseInsensitiveMatch: true });
     $routeProvider.when(baseUrl + 'Client/Index/:grade',

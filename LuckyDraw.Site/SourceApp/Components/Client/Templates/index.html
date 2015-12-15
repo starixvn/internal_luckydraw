@@ -1,7 +1,7 @@
 ﻿<div class="col-sm-12 client-site" ng-controller="ClientController as clientCtrl"
     ng-class="clientCtrl.getClient()" client-keyboard-event>
     <div class="logo-opening">
-        <img src="/Images/logo-Luckydraw.png" alt="LuckyDraw" width="560" class="img-responsive" />
+        <img ng-src="{{clientCtrl.baseUrl}}Images/logo-Luckydraw.png" src="" alt="LuckyDraw" width="560" class="img-responsive" />
     </div>
     <div class="box-container">
         <div class="col-sm-12 staff-info">
