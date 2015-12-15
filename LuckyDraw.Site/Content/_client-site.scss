@@ -16,7 +16,7 @@
         left: 0;
         right: 0;
         position: absolute;
-		top: 5rem;
+		top: 3rem;
         text-align: center;
 
         img {
@@ -28,8 +28,21 @@
         border: .2rem solid;
         background-color: #0e090d;
         height: 15rem;
+		position: relative;
         text-align: center;
         width: 13rem;
+
+		&:after {
+			content: '';
+			margin: -2px;
+			outline: .1rem solid #ac7926;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;					
+			z-index: 5;
+		}
 
         .photo {
             height: 100%;

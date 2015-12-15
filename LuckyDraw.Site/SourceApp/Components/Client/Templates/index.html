@@ -1,7 +1,7 @@
 ﻿<div class="col-sm-12 client-site" ng-controller="ClientController as clientCtrl"
     ng-class="clientCtrl.getClient()" client-keyboard-event>
     <div class="logo-opening">
-        <img ng-src="{{clientCtrl.baseUrl}}Images/logo-Luckydraw.png" src="" alt="LuckyDraw" width="560" class="img-responsive" />
+        <img ng-src="{{clientCtrl.baseUrl}}Images/logo-Luckydraw.png" src="" alt="LuckyDraw" class="img-responsive" />
     </div>
     <div class="box-container">
         <div class="col-sm-12 staff-info">
@@ -33,10 +33,6 @@
         </div>
         <div class="col-sm-12 alert alert-danger" role="alert" ng-if="clientCtrl.message">
             <div class="text-center" ng-bind="clientCtrl.message"></div>
-        </div>
-        <div class="logo-small">
-            <img ng-src="{{prizeListCtrl.baseUrl}}Images/Winner/logo-Luckydraw-small.png" src=""
-                alt="" class="img-responsive" />
         </div>
     </div>
 </div>
