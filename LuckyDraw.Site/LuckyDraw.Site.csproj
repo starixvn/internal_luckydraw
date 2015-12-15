@@ -198,13 +198,9 @@
     <Content Include="Global.asax" />
     <Content Include="Images\bg-cashprize.jpg" />
     <Content Include="Images\border.png" />
-    <Content Include="Images\cashprize-bg.jpg" />
-    <Content Include="Images\grandprize-bg.jpg" />
     <Content Include="Images\logo-Luckydraw.png" />
     <Content Include="Images\luckdraw-opening-bg.jpg" />
-    <Content Include="Images\majorprize-bg.jpg" />
     <Content Include="Images\prizeListMain.png" />
-    <Content Include="Images\supergrandprize-bg.jpg" />
     <Content Include="Images\Title\1-after.png" />
     <Content Include="Images\Title\1-before.png" />
     <Content Include="Images\Title\1.png" />
@@ -288,7 +284,6 @@
     <Content Include="Images\Title\9.png" />
     <Content Include="Images\Title\blank_ticket_a.png" />
     <Content Include="Images\Title\blank_ticket_b.png" />
-    <Content Include="Images\winner-bg.jpg" />
     <Content Include="Images\Winner\cashprize-small.png" />
     <Content Include="Images\Winner\grandprize-small.png" />
     <Content Include="Images\Winner\logo-grand.png" />
