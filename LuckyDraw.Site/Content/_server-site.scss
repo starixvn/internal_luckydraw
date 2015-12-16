@@ -57,7 +57,7 @@ body {
         background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
     }
     
-    &.winner-details, &.super-grand-winner-details, &.adhoc-prize {
+    &.winner-details, &.super-grand-winner-details {
         background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
 
         .box-container {
@@ -260,6 +260,11 @@ body {
 			left: -15.6rem;
 			top: -11rem;
         }
+
+		&.adhoc {
+			right: 0;
+			top: 0;
+		}
     }
 
     .logo-small {
