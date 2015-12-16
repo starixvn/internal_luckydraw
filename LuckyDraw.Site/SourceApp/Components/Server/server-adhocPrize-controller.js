@@ -2,18 +2,22 @@
 /*global serverModule*/
 
 serverModule.controller('AdhocPrizeController',
-['$window', 'ServerModel', 'CommonModel', 'baseUrl',
-function ($window, ServerModel, CommonModel, baseUrl) {
+['$window', '$scope', 'ServerModel', 'CommonModel', 'baseUrl',
+function ($window, $scope, ServerModel, CommonModel, baseUrl) {
     var vm = this;
 
     vm.prizeType = 1; // adhoc
     vm.baseUrl = baseUrl;
     vm.currentWinner = null;
     vm.currentQuantity = 0;
+    vm.numRow = 2;
     vm.numColumn = 4;
     vm.winners = [];
+    vm.currentIndexFocus = -1;
 
-    var initializeListWinner = function () {
+    vm.initializeListWinner = function () {
+        vm.maxIndexFocus = 0;
+
         for (var i = 0; i < vm.numRow; i++) {
             var itemRows = [];
 
@@ -21,12 +25,36 @@ function ($window, ServerModel, CommonModel, baseUrl) {
                 var index = (i * vm.numColumn) + j;
 
                 if (index < vm.prizeSetting.Quantity) {
-                    var itemRow = {};
+                    var itemRow = {
+                        IsFocus: false
+                    };
+
                     itemRows.push(itemRow);
+                    vm.maxIndexFocus += 1;
                 }
             }
 
             vm.winners.push(itemRows);
+        }
+    };
+
+    vm.fillWinner = function () {
+        angular.forEach(vm.winnerDetail.Winners, function (winner, index) {
+            var rowIndex = parseInt(index / vm.numColumn),
+                colIndex = index % vm.numColumn;
+
+            winner.IsFocus = false;
+            vm.winners[rowIndex][colIndex] = angular.copy(winner);
+        });
+    };
+
+    var resetFocus = function () {
+        for (var i = 0; i < vm.numRow; i++) {
+            for (var j = 0; j < vm.numColumn; j++) {
+                if (vm.winners[i][j]) {
+                    vm.winners[i][j].IsFocus = false;
+                }
+            }
         }
     };
 
@@ -35,18 +63,20 @@ function ($window, ServerModel, CommonModel, baseUrl) {
             if (CommonModel.prizeSetting) {
                 vm.prizeSetting = CommonModel.prizeSetting;
 
-                vm.numRow = (vm.prizeSetting.Quantity % vm.numColumn) === 0 ? parseInt(vm.prizeSetting.Quantity / vm.numColumn) : parseInt(vm.prizeSetting.Quantity / vm.numColumn) + 1;
-                initializeListWinner();
+                var numRow = (vm.prizeSetting.Quantity % vm.numColumn) === 0 ? parseInt(vm.prizeSetting.Quantity / vm.numColumn) : parseInt(vm.prizeSetting.Quantity / vm.numColumn) + 1;
+                if (numRow < vm.numRow) {
+                    vm.numRow = numRow;
+                }
+
+                vm.initializeListWinner();
+                vm.maxIndexFocus += 1;
 
                 ServerModel.getAdhocWinnerDetail().then(function () {
                     vm.winnerDetail = ServerModel.winnerDetail;
 
                     if (vm.winnerDetail && vm.winnerDetail.Winners.length > 0) {
                         vm.currentQuantity = vm.winnerDetail.Winners.length;
-
-                        angular.forEach(vm.winnerDetail.Winners, function (winner) {
-
-                        });
+                        vm.fillWinner();
                     }
                 });
             }
@@ -81,43 +111,86 @@ function ($window, ServerModel, CommonModel, baseUrl) {
         $window.location.href = path;
     };
 
-    var hubProxy = $.connection.hubs;
+    vm.keyLeftArrowEvent = function () {
+        if (vm.currentIndexFocus > 0) {
+            resetFocus();
+            vm.currentIndexFocus -= 1;
 
-    var sendMessageResponse = function (winner) {
-        var isValid = true,
-            grade = parseInt(winner.StaffCode.substring(0, 2)),
-            message = '';
+            var rowIndex = parseInt(vm.currentIndexFocus / vm.numColumn),
+                colIndex = vm.currentIndexFocus % vm.numColumn;
 
-        var index = vm.winnerDetail.Winners.map(function (e) { return e.StaffCode; }).indexOf(winner.StaffCode);
-
-        if (vm.winnerDetail.Winners.length > vm.prizeSetting.Quantity) {
-            message = 'Full winner.';
-        } else if (index !== -1) {
-            message = 'Barcode duplicated.';
+            vm.winners[rowIndex][colIndex].IsFocus = true;
+            $scope.$apply();
         }
-
-        if (message.length > 0) {
-            isValid = false;
-            ServerModel.sendMessageResponse(hubProxy, grade, message);
-        }
-
-        return isValid;
     };
+
+    vm.keyUpArrowEvent = function () {
+    };
+
+    vm.keyRightArrowEvent = function () {
+        if (vm.currentIndexFocus < vm.maxIndexFocus) {
+            vm.currentIndexFocus += 1;
+
+            var rowIndex = parseInt(vm.currentIndexFocus / vm.numColumn),
+                colIndex = vm.currentIndexFocus % vm.numColumn;
+
+            if (rowIndex < vm.numRow && vm.winners[rowIndex][colIndex]) {
+                resetFocus();
+                vm.winners[rowIndex][colIndex].IsFocus = true;
+                $scope.$apply();
+            }
+        }
+    };
+
+    vm.keyDownArrowEvent = function () {
+    };
+
+    vm.removeWinner = function () {
+        var rowIndex = parseInt(vm.currentIndexFocus / vm.numColumn),
+            colIndex = vm.currentIndexFocus % vm.numColumn;
+
+        if (vm.winnerDetail.Winners.length > 0 && vm.winners[rowIndex][colIndex] && vm.winners[rowIndex][colIndex].StaffId) {
+            ServerModel.openPopupConfirmRemoveAdhocWinner(vm, vm.winners[rowIndex][colIndex]);
+        }
+    };
+
+    var hubProxy = $.connection.hubs;
 
     hubProxy.client.getStaffCode = function (staffCode) {
         CommonModel.getStaffByCode(staffCode).then(function () {
-            var staff = CommonModel.staff;
+            var staff = CommonModel.staff,
+                grade, message;
 
-            if (staff && staff.StaffCode && ServerModel.checkWinner(hubProxy, staff)) {
-                staff.Prize = vm.winnerDetail.Prize;
-                vm.winnerDetail.Winners.push(staff);
+            if (staff && staff.StaffCode) {
+                grade = parseInt(staff.StaffCode.substring(0, 2));
 
-                var criteria = {
-                    Winners: new Array(staff),
-                    PrizeTypeId: vm.prizeType
-                };
+                if (vm.winnerDetail.Winners.length > vm.prizeSetting.Quantity) {
+                    message = 'Full winner.';
+                    ServerModel.sendMessageResponse(hubProxy, grade, message);
+                } else {
+                    if (staff.Prize) {
+                        if (staff.Prize.PrizeId !== vm.winnerDetail.Prize.PrizeId) {
+                            message = 'Staff received other prize.';
+                            ServerModel.sendMessageResponse(hubProxy, grade, message);
+                        } else {
+                            message = 'Barcode duplicated.';
+                            ServerModel.sendMessageResponse(hubProxy, grade, message);
+                        }
+                    } else {
+                        staff.Prize = vm.winnerDetail.Prize;
+                        vm.currentWinner = staff;
+                        vm.winnerDetail.Winners.unshift(staff);
+                        vm.currentQuantity = vm.winnerDetail.Winners.length;
+                        vm.fillWinner();
 
-                ServerModel.insertWinner(criteria);
+                        var criteria = {
+                            Winners: new Array(staff),
+                            PrizeTypeId: vm.prizeType
+                        };
+
+                        ServerModel.insertWinner(criteria);
+                    }
+                }
             }
         });
     };
@@ -136,6 +209,21 @@ serverModule.directive('adhocPrizeKeyboardEvent',
                     case 13: // enter
                     case 27: // asc
                         scope.adhocPrizeCtrl.redirectToServerIndex();
+                        break;
+                    case 37: // left arrow
+                        scope.adhocPrizeCtrl.keyLeftArrowEvent();
+                        break;
+                    case 38: // up arrow
+                        scope.adhocPrizeCtrl.keyUpArrowEvent();
+                        break;
+                    case 39: // right arrow
+                        scope.adhocPrizeCtrl.keyRightArrowEvent();
+                        break;
+                    case 40: // down arrow
+                        scope.adhocPrizeCtrl.keyDownArrowEvent();
+                        break;
+                    case 46: // delete
+                        scope.adhocPrizeCtrl.removeWinner();
                         break;
                 }
             });

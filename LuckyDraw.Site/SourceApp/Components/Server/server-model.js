@@ -106,21 +106,6 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         hubProxy.server.sendMessageResponse(grade, message);
     };
 
-    serverModel.checkWinner = function (hubProxy, winner) {
-        var isValid = true,
-            grade = parseInt(winner.StaffCode.substring(0, 2)),
-            message = '';
-
-        if (winner.Prize && winner.Prize.PrizeId) {
-            message = 'Staff received other prize.';
-            serverModel.sendMessageResponse(hubProxy, grade, message);
-
-            isValid = false;
-        }
-
-        return isValid;
-    };
-
     serverModel.openPopupConfirmRemoveWinner = function (vm, staff, index) {
         var modalInstance = $modal.open({
             templateUrl: 'SourceApp/Components/Server/Templates/modalConfirmRemoveWinner.html',
@@ -353,6 +338,49 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
                     }
 
                     vm.prizedWinners = [];
+                } else {
+                    notificationFactory.error("", response.Message);
+                }
+            }).error(function (response, status) {
+                errorFactory.errorHandle(status);
+            });
+        })['finally'](function () {
+            modalInstance = '';
+        });
+    };
+
+    serverModel.openPopupConfirmRemoveAdhocWinner = function (vm, staff) {
+        var modalInstance = $modal.open({
+            templateUrl: 'SourceApp/Components/Server/Templates/modalConfirmRemoveWinner.html',
+            controller: "RemoveWinnerController as removeWinnerCtrl",
+            backdrop: 'static',
+            resolve: {
+                staff: function () {
+                    return angular.copy(staff);
+                },
+                isRemoveAll: function () {
+                    return false;
+                },
+                isReset: function () {
+                    return false;
+                }
+            },
+            windowClass: "modal-confirm-center"
+        });
+
+        modalInstance.result.then(function () {
+            serverFactory.deleteWinner(staff.StaffId, vm.prizeType)
+            .success(function (response) {
+                if (response.IsSuccessful) {
+                    var index = vm.winnerDetail.Winners.map(function (e) { return e.StaffId; }).indexOf(staff.StaffId);
+
+                    if (index !== -1) {
+                        vm.winnerDetail.Winners.splice(index, 1);
+                        vm.currentQuantity = vm.winnerDetail.Winners.length;
+                        vm.winners = [];
+                        vm.initializeListWinner();
+                        vm.fillWinner();
+                    }
                 } else {
                     notificationFactory.error("", response.Message);
                 }

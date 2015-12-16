@@ -6624,6 +6624,17 @@ body {
     color: #ffea99; }
   .server-site.adhoc-prize .list-winner .winner {
     display: inline-block; }
+    .server-site.adhoc-prize .list-winner .winner .staff-info.focus .avatar {
+      border-color: #fafafa;
+      outline: .1rem solid #f5f5f5;
+      -webkit-box-shadow: 0 0 1.6rem #f5f5f5;
+      -khtml-box-shadow: 0 0 1.6rem #f5f5f5;
+      -moz-box-shadow: 0 0 1.6rem #f5f5f5;
+      -ms-box-shadow: 0 0 1.6rem #f5f5f5;
+      -o-box-shadow: 0 0 1.6rem #f5f5f5;
+      box-shadow: 0 0 1.6rem #f5f5f5; }
+    .server-site.adhoc-prize .list-winner .winner .staff-info.focus .photo {
+      border: .1rem solid #fafafa; }
   .server-site.cash-prize, .server-site.major-prize, .server-site.grand-prize, .server-site.super-grand-prize, .server-site.winner-details, .server-site.super-grand-winner-details {
     padding: 5rem;
     -webkit-box-align: center;

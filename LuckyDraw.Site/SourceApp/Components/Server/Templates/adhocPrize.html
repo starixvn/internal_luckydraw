@@ -23,7 +23,7 @@
             <div class="col-sm-8">
                 <div class="list-winner" ng-repeat="listWinner in adhocPrizeCtrl.winners">
                     <div class="winner" ng-repeat="winner in listWinner">
-                        <div class="staff-info" ng-class="adhocPrizeCtrl.getCssClass(winner.StaffCode)">
+                        <div class="staff-info" ng-class="adhocPrizeCtrl.getCssClass(winner.StaffCode)" is-focus="{{winner.IsFocus}}" focus-event>
                             <div class="avatar">
                                 <img ng-if="!winner.StaffId" ng-src="{{adhocPrizeCtrl.baseUrl}}Images/Winner/winner-pic.png" src="" alt="" class="unknown" />
                                 <img ng-if="winner.StaffId" ng-src="data:image/png;base64,{{winner.Avatar}}" src="" alt="" class="photo img-responsive" />
