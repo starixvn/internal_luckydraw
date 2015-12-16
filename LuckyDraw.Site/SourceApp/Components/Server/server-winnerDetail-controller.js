@@ -152,8 +152,13 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
         CommonModel.getStaffByCode(staffCode).then(function () {
             var staff = CommonModel.staff;
 
-            if (staff && staff.StaffCode && ServerModel.checkWinner(hubProxy, staff)) {
-                if (vm.fillWinner(staff)) {
+            if (staff && staff.StaffCode) {
+                if (staff.Prize && staff.Prize.PrizeId !== vm.winnerDetail.Prize.PrizeId) {
+                    var grade = parseInt(staff.StaffCode.substring(0, 2)),
+                        message = 'Staff received other prize.';
+
+                    ServerModel.sendMessageResponse(hubProxy, grade, message);
+                } else if (vm.fillWinner(staff)) {
                     staff.Prize = vm.winnerDetail.Prize;
                     vm.winnerDetail.Winners.push(staff);
 

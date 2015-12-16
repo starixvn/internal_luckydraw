@@ -315,7 +315,7 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
     vm.fillWinner = function (winner) {
         var grade = parseInt(winner.StaffCode.substring(0, 2)),
             isValid = true;
-        
+
         if (vm.winner1 && parseInt(vm.winner1.StaffCode.substring(0, 2)) === grade) {
             isValid = false;
             sendMessageResponse(vm.winner1, winner);
@@ -340,41 +340,54 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
         CommonModel.getStaffByCode(staffCode).then(function () {
             var staff = CommonModel.staff;
 
-            if (staff && staff.StaffCode && ServerModel.checkWinner(hubProxy, staff)) {
-                if (vm.winnerDetail.IsSamePrize) {
-                    if (vm.fillWinner(staff)) {
-                        vm.prizedWinners.push(staff);
-                        vm.winnerDetail.Winners.push(staff);
+            if (staff && staff.StaffCode) {
+                if (staff.Prize && staff.Prize.PrizeId !== -1) {
+                    var index = vm.winnerDetail.Prizes.map(function (e) { return e.PrizeId; }).indexOf(staff.Prize.PrizeId);
 
-                        angular.forEach(vm.winnerDetail.Prizes, function (prize, index) {
-                            if (vm.prizedWinners[index]) {
-                                vm.prizedWinners[index].Prize = prize;
-                            }
-                        });
+                    if (index === -1) {
+                        var grade = parseInt(staff.StaffCode.substring(0, 2)),
+                            message = 'Staff received other prize.';
 
-                        vm.prizeSetting.CurrentPrize = (parseInt((vm.prizeSetting.CurrentPrize - 1) / 3) + 1) * 3 - vm.prizedWinners.length;
-
-                        var criteria = {
-                            Winners: new Array(staff),
-                            PrizeTypeId: vm.prizeType,
-                            CurrentPrize: vm.prizeSetting.CurrentPrize
-                        };
-
-                        ServerModel.insertWinner(criteria);
+                        ServerModel.sendMessageResponse(hubProxy, grade, message);
+                    } else {
+                        vm.fillWinner(staff);
                     }
                 } else {
-                    if (vm.fillWinner(staff)) {
-                        staff.Prize = {
-                            PrizeId: -1
-                        };
-                        vm.winnerDetail.Winners.push(staff);
+                    if (vm.winnerDetail.IsSamePrize) {
+                        if (vm.fillWinner(staff)) {
+                            vm.prizedWinners.push(staff);
+                            vm.winnerDetail.Winners.push(staff);
 
-                        var criteria = {
-                            Winners: new Array(staff),
-                            PrizeTypeId: vm.prizeType
-                        };
+                            angular.forEach(vm.winnerDetail.Prizes, function (prize, index) {
+                                if (vm.prizedWinners[index]) {
+                                    vm.prizedWinners[index].Prize = prize;
+                                }
+                            });
 
-                        ServerModel.insertWinner(criteria);
+                            vm.prizeSetting.CurrentPrize = (parseInt((vm.prizeSetting.CurrentPrize - 1) / 3) + 1) * 3 - vm.prizedWinners.length;
+
+                            var criteria = {
+                                Winners: new Array(staff),
+                                PrizeTypeId: vm.prizeType,
+                                CurrentPrize: vm.prizeSetting.CurrentPrize
+                            };
+
+                            ServerModel.insertWinner(criteria);
+                        }
+                    } else {
+                        if (vm.fillWinner(staff)) {
+                            staff.Prize = {
+                                PrizeId: -1
+                            };
+                            vm.winnerDetail.Winners.push(staff);
+
+                            var criteria = {
+                                Winners: new Array(staff),
+                                PrizeTypeId: vm.prizeType
+                            };
+
+                            ServerModel.insertWinner(criteria);
+                        }
                     }
                 }
             }
