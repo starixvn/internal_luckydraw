@@ -10,6 +10,6 @@ function ($translateProvider, $locationProvider, $routeProvider, $provide) {
     $locationProvider.html5Mode(true);
     var baseUrl = $("base").first().attr("href");
     $routeProvider.when(baseUrl + 'ServerControl/Index',
-    { templateUrl: baseUrl + 'SourceApp/Components/ServerControl/Templates/index.html' });
+    { templateUrl: baseUrl + 'SourceApp/Components/ServerControl/Templates/index.html', caseInsensitiveMatch: true });
     $provide.value("baseUrl", baseUrl);
 } ]);

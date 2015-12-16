@@ -323,9 +323,13 @@
     <Content Include="Libs\toastr.js" />
     <Content Include="Libs\ui-bootstrap-tpls-0.13.0.min.js" />
     <Content Include="SourceApp\appServerControl.js" />
+    <Content Include="SourceApp\Components\Client\advanced-model.js" />
+    <Content Include="SourceApp\Components\Client\advanced-controller.js" />
     <Content Include="SourceApp\Components\Client\client-directive.js" />
     <Content Include="SourceApp\Components\Client\client-controller.js" />
+    <Content Include="SourceApp\Components\Client\Templates\advancedZone.html" />
     <Content Include="SourceApp\Components\Client\Templates\index.html" />
+    <Content Include="SourceApp\Components\Client\Templates\popupSecure.html" />
     <Content Include="SourceApp\Components\Common\common-model.js" />
     <Content Include="SourceApp\Components\Common\common-factory.js" />
     <Content Include="SourceApp\Components\Dashboard\dashboard-controller.js" />

@@ -50,6 +50,8 @@ namespace LuckyDraw.Site
                         "~/SourceApp/Components/Dashboard/dashboard-controller.js",
                         "~/SourceApp/Components/Client/client-controller.js",
                         "~/SourceApp/Components/Client/client-directive.js",
+                        "~/SourceApp/Components/Client/advanced-controller.js",
+                        "~/SourceApp/Components/Client/advanced-model.js",
                         "~/SourceApp/Components/Server/server-factory.js",
                         "~/SourceApp/Components/Server/server-model.js",
                         "~/SourceApp/Components/Server/server-controller.js",

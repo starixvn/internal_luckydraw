@@ -24,6 +24,7 @@ namespace LuckyDraw.Site
                 "Home/AccessDenied",
                 "Client/Index",
                 "Client/Index/{grade}",
+                "AdvancedZone/Index",
                 "Server/Index",
                 "Server/PrizeList/{prizeType}",
                 "Server/WinnerDetail/{prizeType}",

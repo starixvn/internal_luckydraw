@@ -27,6 +27,10 @@ function ($window, baseUrl) {
     vm.redirectToBlueClient = function () {
         $window.location.href = baseUrl + 'Client/Index/12';
     };
+
+    vm.redirectToAdvancedZone = function () {
+        $window.location.href = baseUrl + 'AdvancedZone/Index';
+    };
 } ]);
 
 dashboardModule.directive('dashboardKeyboardEvent', function () {

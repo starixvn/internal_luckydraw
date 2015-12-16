@@ -37,4 +37,6 @@ var clientModule = angular.module('clientModule', ['ngRoute'])
     { templateUrl: baseUrl + 'SourceApp/Components/Client/Templates/index.html', caseInsensitiveMatch: true });
     $routeProvider.when(baseUrl + 'Client/Index/:grade',
     { templateUrl: baseUrl + 'SourceApp/Components/Client/Templates/index.html', caseInsensitiveMatch: true });
+    $routeProvider.when(baseUrl + 'AdvancedZone/Index',
+    { templateUrl: baseUrl + 'SourceApp/Components/Client/Templates/advancedZone.html', caseInsensitiveMatch: true });
 } ]);
