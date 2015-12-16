@@ -22,6 +22,9 @@ serverModule.factory('serverFactory', ['$http', 'baseUrl', function ($http, base
                 }
             });
         },
+        getAdhocWinnerDetail: function (prizeType, currentPrize) {
+            return $http.get(baseUrl + 'api/Server/GetAdhocWinnerDetail');
+        },
         getPrizeNumber: function (prizeIndex) {
             return $http.get(baseUrl + 'api/Server/GetPrizeNumber', { params: { prizeIndex: prizeIndex} });
         },

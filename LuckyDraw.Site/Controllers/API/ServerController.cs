@@ -117,6 +117,31 @@ namespace LuckyDraw.Site.Controllers.API
         }
 
         [HttpGet]
+        public WinnerDetailModel GetAdhocWinnerDetail()
+        {
+            WinnerDetailModel winnerDetail = new WinnerDetailModel();
+
+            GetPrizeByPrizeTypeCriteria prizeCriteria = new GetPrizeByPrizeTypeCriteria()
+            {
+                PrizeTypeId = (int)PrizeType.Adhoc
+            };
+
+            winnerDetail.Prize = _prizeService.GetPrizeByPrizeType(prizeCriteria).FirstOrDefault();
+
+            if (winnerDetail.Prize.PrizeId > 0)
+            {
+                GetWinnerByPrizeIdCriteria winnerCriteria = new GetWinnerByPrizeIdCriteria()
+                {
+                    PrizeIds = winnerDetail.Prize.PrizeId.ToString()
+                };
+
+                winnerDetail.Winners = _staffService.GetWinnerByPrizeId(winnerCriteria).OrderByDescending(x => x.Prize.ReceivedDate).ToList();
+            }
+
+            return winnerDetail;
+        }
+
+        [HttpGet]
         public string GetPrizeNumber(int prizeIndex)
         {
             string imagePath = string.Empty;

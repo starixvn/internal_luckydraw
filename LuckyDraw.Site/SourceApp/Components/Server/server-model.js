@@ -37,6 +37,15 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         });
     };
 
+    serverModel.getAdhocWinnerDetail = function () {
+        return serverFactory.getAdhocWinnerDetail()
+        .success(function (winnerDetail) {
+            serverModel.winnerDetail = winnerDetail;
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
+
     serverModel.getPrizeNumber = function (prizeIndex) {
         return serverFactory.getPrizeNumber(prizeIndex)
         .success(function (prizeNumber) {

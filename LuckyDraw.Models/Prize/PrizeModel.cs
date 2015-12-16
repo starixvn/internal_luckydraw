@@ -24,5 +24,7 @@ namespace LuckyDraw.Models.Prize
         public Byte[] Image { get; set; }
 
         public string PriceProgram { get; set; }
+
+        public DateTime ReceivedDate { get; set; }
     }
 }

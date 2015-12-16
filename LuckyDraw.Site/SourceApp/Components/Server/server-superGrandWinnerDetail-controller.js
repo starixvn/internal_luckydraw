@@ -201,7 +201,7 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                         case 1:
                             if (vm.winner3) {
                                 vm.winner3.PrizeNumber = baseUrl + ServerModel.prizeNumber;
-                                vm.winner3.Prize = vm.winnerDetail.Prizes[(prize - 1) % 3];
+                                vm.winner3.Prize = angular.copy(vm.winnerDetail.Prizes[(prize - 1) % 3]);
 
                                 winners.push(vm.winner3);
                                 vm.prizedWinners.push(vm.winner3);
@@ -216,7 +216,7 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                         case 2:
                             if (vm.winner2) {
                                 vm.winner2.PrizeNumber = baseUrl + ServerModel.prizeNumber;
-                                vm.winner2.Prize = vm.winnerDetail.Prizes[(prize - 1) % 3];
+                                vm.winner2.Prize = angular.copy(vm.winnerDetail.Prizes[(prize - 1) % 3]);
 
                                 winners.push(vm.winner2);
                                 vm.prizedWinners.push(vm.winner2);
@@ -231,7 +231,7 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                         case 3:
                             if (vm.winner1) {
                                 vm.winner1.PrizeNumber = baseUrl + ServerModel.prizeNumber;
-                                vm.winner1.Prize = vm.winnerDetail.Prizes[(prize - 1) % 3];
+                                vm.winner1.Prize = angular.copy(vm.winnerDetail.Prizes[(prize - 1) % 3]);
 
                                 winners.push(vm.winner1);
                                 vm.prizedWinners.push(vm.winner1);
