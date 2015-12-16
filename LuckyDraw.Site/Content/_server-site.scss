@@ -33,6 +33,7 @@ body {
 
     .listPrize {
         float: none;
+		width: 100%;
         @include align-with-flex(center, center, row, center);
 
         .prize {
@@ -41,15 +42,15 @@ body {
     }
 
     &.super-grand-prize {
-        background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
+        background: url(../Images/bg-supergrandprize.jpg) no-repeat center center fixed;
     }
 
     &.grand-prize {
-        background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
+        background: url(../Images/bg-grandprize.jpg) no-repeat center center fixed;
     }
 
     &.major-prize {
-        background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
+        background: url(../Images/bg-majorprize.jpg) no-repeat center center fixed;
     }
 
     &.cash-prize {
@@ -139,7 +140,7 @@ body {
                 }
 
                 .txt-fullname {
-                    margin: -0.5rem 0 3rem;
+                    margin-bottom: 3rem;
                 }
             }
         }
@@ -241,31 +242,35 @@ body {
         z-index: 5;
 
         &.cash {
-            left: -2.2rem;
-            top: -4.1rem;
+			left: -15rem;
+			top: -12.6rem;
         }
 
         &.major {
-            left: -3.8rem;
-            top: -4.6rem;
+			left: -17rem;
+			top: -14.6rem;
         }
 
         &.grand {
-            left: -3rem;
-            top: -3.5rem;
+			left: -16.5rem;
+			top: -15rem;
         }
 
         &.super-grand {
-            left: -3rem;
-            top: -5rem;
+			left: -15.6rem;
+			top: -11rem;
         }
     }
 
     .logo-small {
         right: -2.4rem;
         position: absolute;
-        bottom: -4.8rem;
+        bottom: -5rem;
         z-index: 5;
+
+		img {
+			float: right;
+		}
     }
 }
 
@@ -281,27 +286,57 @@ body {
     @include border-image(url(../Images/border-rope.png), 10%, repeat );
 }
 
-@media (max-width: 1350px) {
-   .server-site {
-      &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
-      &.winner-details, &.super-grand-winner-details
-      {
-        height: 100%;
-      }
+@media (max-width: 1599px) {
+	.server-site {
+		.logo-prize {
+		&.super-grand, &.grand, &.major, &.cash {
+			img {
+				width: 70%;
+			}
+		}
 
-      &.super-grand-winner-details {
-        .prizePhoto .prize-order:nth-child(2) {
-            margin-right: 0;
-            @include align-self(flex-start);
+		&.super-grand {
+			left: -10.6rem;
+			top: -8rem;
         }
-      }
-   }
- }
 
- @media (max-width: 1024px) {
+		&.cash {
+			left: -11rem;
+			top: -9rem;
+        }
+        
+        &.major {
+			left: -12rem;
+			top: -10.6rem;
+        }
+        
+        &.grand {
+			left: -12rem;
+			top: -11rem;
+        }
+	  }
+
+	  .logo-small {
+		right: -2.4rem;
+		bottom: -4rem;
+
+		img {
+			width: 70%;
+		}
+	  }
+	}
+}
+
+ @media (max-width: 1023px) {
    .server-site {
+
+    &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
+	&.winner-details, &.super-grand-winner-details {
+		height: 100%;
+	}
+
      &.winner-details, &.super-grand-winner-details
-     {
+	 {	 
         .box-container {
             padding-left: 1.6rem;
             padding-right: 1.6rem;
@@ -326,10 +361,6 @@ body {
         .logo-small {
             @include order(3);
         }
-
-        .img-responsive {
-            width: 100%;
-        }
      }
 
      &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize {
@@ -337,6 +368,13 @@ body {
             padding: 10rem 1.6rem;
          }
     }
+
+	 &.super-grand-winner-details {
+		.prizePhoto .prize-order:nth-child(2) {
+			margin-right: 0;
+			@include align-self(flex-start);
+		}
+	  }
    }
 }
 
@@ -349,7 +387,7 @@ body {
             }
         }
     }
-
+		
     .server-site {
         .logo-prize {
             height: auto;
@@ -385,5 +423,70 @@ body {
             width: 170rem;
         }
      }
+   }
+}
+
+/* Resolution */
+@media (min-width: 1024px) and (max-width: 1599px) {
+	.server-site {
+
+	  &.opening {
+		.logo-opening img {
+			width: 35%;
+		}
+
+		.list-prize-opening img {
+			width: 47%;
+		}
+	  }
+
+	  &.super-grand-winner-details {
+		.prizePhoto .prize-order:nth-child(2) {
+			margin-right: 0;
+			@include align-self(flex-start);
+		}
+		.prize-number {
+			left: -2.5rem;
+			top: -2rem;
+			width: 50%;
+		}
+	  }
+
+	  &.winner-details, &.super-grand-winner-details {
+	    .box-container {
+			padding: 6rem 0 6rem 6rem;
+		}
+
+		.prize-order, img {
+			width: 70%;
+		}
+
+		.staff-info {
+			margin: 1.4rem 1.6rem 1.4rem 0;
+
+			.avatar {
+			    height: 11rem;
+				width: 9rem;
+
+				.unknown {
+					margin: 1.7rem 0.6rem;
+				}
+			}
+
+			.info {
+				font-size: 1.4rem;
+
+				.txt-nickname {
+					font-size: 2rem;
+				}
+			}
+		}
+	  }
+
+	  .listPrize .prize {
+		width: 22%;
+	  }
+
+	  
    }
 }

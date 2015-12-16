@@ -5,7 +5,7 @@
             <img ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/supergrandprize-small.png"
                 src="" alt="" class="img-responsive" />
         </div>
-        <div class="col-sm-12 col-lg-6 winnerList">
+        <div class="col-sm-12 col-md-6 winnerList">
             <div class="row staff-info" ng-class="winnerDetailCtrl.getClass(winnerDetailCtrl.winner1.StaffCode)"
                 is-focus="{{winnerDetailCtrl.winner1.IsFocus}}" focus-event>
                 <div class="avatar">
@@ -55,7 +55,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-12 col-lg-6 prizePhoto">
+        <div class="col-sm-12 col-md-6 prizePhoto">
             <img ng-src="data:image/png;base64,{{prize.Image}}" src="" alt="" ng-if="!winnerDetailCtrl.winnerDetail.IsSamePrize"
                 ng-repeat="prize in winnerDetailCtrl.winnerDetail.Prizes" class="img-responsive prize-order" />
             <img ng-src="data:image/png;base64,{{winnerDetailCtrl.winnerDetail.Prizes[0].Image}}"
