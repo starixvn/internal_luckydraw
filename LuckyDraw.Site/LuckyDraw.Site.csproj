@@ -288,12 +288,10 @@
     <Content Include="Images\Title\9.png" />
     <Content Include="Images\Title\blank_ticket_a.png" />
     <Content Include="Images\Title\blank_ticket_b.png" />
+    <Content Include="Images\Winner\adhocprize-small.png" />
     <Content Include="Images\Winner\cashprize-small.png" />
     <Content Include="Images\Winner\grandprize-small.png" />
-    <Content Include="Images\Winner\logo-grand.png" />
     <Content Include="Images\Winner\logo-Luckydraw-small.png" />
-    <Content Include="Images\Winner\logo-major.png" />
-    <Content Include="Images\Winner\logo-supergrand.png" />
     <Content Include="Images\Winner\majorprize-small.png" />
     <Content Include="Images\Winner\supergrandprize-small.png" />
     <Content Include="Images\Winner\winner-pic.png" />

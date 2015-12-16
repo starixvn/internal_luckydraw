@@ -1,7 +1,7 @@
 ﻿<div class="col-sm-12 server-site adhoc-prize" ng-controller="AdhocPrizeController as adhocPrizeCtrl" adhoc-prize-keyboard-event>
     <div class="col-sm-12 box-container">
-        <div class="logo-prize">
-            <img ng-src="{{adhocPrizeCtrl.baseUrl}}Images/Winner/grandprize-small.png" src="" alt="" class="img-responsive" />
+        <div class="logo-prize adhoc">
+            <img ng-src="{{adhocPrizeCtrl.baseUrl}}Images/Winner/adhocprize-small.png" src="" alt="" class="img-responsive" />
         </div>
          <div class="col-sm-12">
             <div class="col-sm-3 current-winner">
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="quantity">
-                    {{adhocPrizeCtrl.currentQuantity}} | {{adhocPrizeCtrl.prizeSetting.Quantity}}
+                    {{adhocPrizeCtrl.currentQuantity}}/{{adhocPrizeCtrl.prizeSetting.Quantity}}
                 </div>
             </div>
             <div class="col-sm-8">

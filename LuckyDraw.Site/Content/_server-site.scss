@@ -69,81 +69,6 @@ body {
         .winnerList {
             @include align-with-flex(flex-start, flex-start, column, center);
         }
-
-        .staff-info {
-            margin: 2.4rem 1.6rem 2.4rem 0;
-            @include align-with-flex(center, center, row, flex-start);
-
-            .avatar {
-                border: .2rem solid #ffea99;
-                background-color: #0e090d;
-                height: 15rem;
-                position: relative;
-                text-align: center;
-                width: 13rem;
-                @include box-shadow(0, 0, 1.6rem, #ffea99);
-
-                &:after {
-                    content: '';
-                    margin: -2px;
-                    outline: .1rem solid #ac7926;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    z-index: 5;
-                }
-
-                .photo {
-                    height: 100%;
-                    width: 100%;
-                }
-
-                .unknown {
-                    margin: 3.7rem 3.6rem;
-                }
-            }
-
-            &.pink-staff {
-                color: #fd7fbc;
-                @include avatar-border-color(#f8aad1, #f0549e);
-            }
-
-            &.green-staff {
-                color: #42e884;
-                @include avatar-border-color(#8de1af, #19c25d);
-            }
-
-            &.blue-staff {
-                color: #5e7bf3;
-                @include avatar-border-color(#95a8f7, #284eef);
-            }
-
-            .info {
-                font: {
-                    weight: 600;
-                    size: 2rem;
-                }
-                padding-left: 2rem;
-
-                .txt-nickname {
-                    font: {
-                        weight: bold;
-                        size: 3rem;
-                    }
-                    margin: 0;
-                }
-
-                p {
-                    margin-bottom: 0;
-                }
-
-                .txt-fullname {
-                    margin-bottom: 3rem;
-                }
-            }
-        }
     }
 
     &.super-grand-winner-details {
@@ -190,17 +115,39 @@ body {
     }
 
     &.adhoc-prize {
+		overflow: hidden;
+
+		.staff-info {
+			@include flex-direction(column);
+		}
+
         .current-winner {
             .staff-info {
+				color: #efe548;
+				margin: 0;
+
                 .avatar {
-                    width: 16rem;
-                    height: 20rem;
+                    width: 30.6rem;
+                    height: 34.4rem;
+
+					.unknown {
+						margin: 13.7rem 3.6rem;
+					}
                 }
+
+				.info {
+					height: 13rem;
+					margin: 6rem 0 4rem;
+				}
             }
 
             .quantity {
-                font-size: 2rem;
-                color: #ffea99;
+                font: {
+			      size: 10rem;
+				  weight: bold;
+				}
+                color: #efe548;
+				text-align: center;
             }
         }
 
@@ -208,22 +155,31 @@ body {
             .winner {
                 display: inline-block;
 
-                .staff-info.focus {
-                    .avatar {
-                        border-color: #fafafa;
-                        outline: .1rem solid #f5f5f5;
-                        @include box-shadow(0, 0, 1.6rem, #f5f5f5);
-                    }
+                .staff-info {
+					margin: 3rem;
 
-                    .photo {
-                        border: .1rem solid #fafafa;
-                    }
-                }
+					&.focus {
+						.avatar {
+							border-color: #fafafa;
+							outline: .1rem solid #f5f5f5;
+							@include box-shadow(0, 0, 1.6rem, #f5f5f5);
+						}
+
+						.photo {
+							border: .1rem solid #fafafa;
+						}
+					}				
+				}
+
+				.info {
+					height: 7rem;
+					margin: 2.5rem 0;
+				}
             }
         }
     }
 
-    &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize, &.winner-details, &.super-grand-winner-details {
+    &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize, &.winner-details, &.super-grand-winner-details, &.adhoc-prize {
         padding: 5rem;
         @include align-with-flex(center, center, row, center);
         @include background-size(cover);
@@ -262,8 +218,8 @@ body {
         }
 
 		&.adhoc {
-			right: 0;
-			top: 0;
+			right: -27rem;
+			top: -20rem;
 		}
     }
 
@@ -276,6 +232,81 @@ body {
 		img {
 			float: right;
 		}
+    }
+
+	.staff-info {
+        margin: 2.4rem 1.6rem 2.4rem 0;
+        @include align-with-flex(center, center, row, flex-start);
+
+        .avatar {
+            border: .2rem solid #ffea99;
+            background-color: #0e090d;
+            height: 15rem;
+            position: relative;
+            text-align: center;
+            width: 13rem;
+            @include box-shadow(0, 0, 1.6rem, #ffea99);
+
+            &:after {
+                content: '';
+                margin: -2px;
+                outline: .1rem solid #ac7926;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 5;
+            }
+
+            .photo {
+                height: 100%;
+                width: 100%;
+            }
+
+            .unknown {
+                margin: 3.7rem 3.6rem;
+            }
+        }
+
+        &.pink-staff {
+            color: #fd7fbc;
+            @include avatar-border-color(#f8aad1, #f0549e);
+        }
+
+        &.green-staff {
+            color: #42e884;
+            @include avatar-border-color(#8de1af, #19c25d);
+        }
+
+        &.blue-staff {
+            color: #5e7bf3;
+            @include avatar-border-color(#95a8f7, #284eef);
+        }
+
+        .info {
+            font: {
+                weight: 600;
+                size: 2rem;
+            }
+            padding-left: 2rem;
+
+            .txt-nickname {
+                font: {
+                    weight: bold;
+                    size: 3rem;
+                }
+                margin: 0;
+            }
+
+            p {
+                margin-bottom: 0;
+            }
+
+            .txt-fullname {
+                margin-bottom: 3rem;
+            }
+        }
     }
 }
 
