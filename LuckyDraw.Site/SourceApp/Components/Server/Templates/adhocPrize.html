@@ -7,7 +7,7 @@
             <div class="col-sm-3 current-winner">
                 <div class="staff-info" ng-class="adhocPrizeCtrl.getCssClass(adhocPrizeCtrl.currentWinner.StaffCode)">
                     <div class="avatar">
-                        <img ng-if="!adhocPrizeCtrl.currentWinner" ng-src="{{adhocPrizeCtrl.baseUrl}}Images/Winner/winner-pic.png" src="" alt="" class="unknown" />
+                        <img ng-if="!adhocPrizeCtrl.currentWinner" ng-src="{{adhocPrizeCtrl.baseUrl}}Images/Winner/winner-pic-lg.png" src="" alt="" class="unknown-lg" />
                         <img ng-if="adhocPrizeCtrl.currentWinner" ng-src="data:image/png;base64,{{adhocPrizeCtrl.currentWinner.Avatar}}" src="" alt="" class="photo img-responsive" />
                     </div>
                     <div class="info">
@@ -20,9 +20,9 @@
                     {{adhocPrizeCtrl.currentQuantity}}/{{adhocPrizeCtrl.prizeSetting.Quantity}}
                 </div>
             </div>
-            <div class="col-sm-8">
+            <div class="col-sm-9">
                 <div class="list-winner" ng-repeat="listWinner in adhocPrizeCtrl.winners">
-                    <div class="winner" ng-repeat="winner in listWinner">
+                    <div class="col-sm-12 col-lg-3 winner" ng-repeat="winner in listWinner">
                         <div class="staff-info" ng-class="adhocPrizeCtrl.getCssClass(winner.StaffCode)" is-focus="{{winner.IsFocus}}" focus-event>
                             <div class="avatar">
                                 <img ng-if="!winner.StaffId" ng-src="{{adhocPrizeCtrl.baseUrl}}Images/Winner/winner-pic.png" src="" alt="" class="unknown" />

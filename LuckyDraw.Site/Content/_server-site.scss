@@ -117,27 +117,40 @@ body {
     &.adhoc-prize {
 		overflow: hidden;
 
+		.box-container {
+			padding: 3.5rem 3rem 3.5rem 8rem;
+		}
+
 		.staff-info {
 			@include flex-direction(column);
+
+			.info {
+				padding-left: 0;				
+			}
 		}
 
         .current-winner {
             .staff-info {
-				color: #efe548;
+				color: #efe548;				
 				margin: 0;
 
                 .avatar {
                     width: 30.6rem;
                     height: 34.4rem;
 
-					.unknown {
-						margin: 13.7rem 3.6rem;
+					.unknown-lg {
+						margin: 3.7rem 3.6rem;
 					}
                 }
 
 				.info {
-					height: 13rem;
-					margin: 6rem 0 4rem;
+					font-size: 3.2rem;
+					margin: 6rem 0 1rem;
+					text-align: center;
+
+					.txt-nickname {
+						font-size: 4.5rem;
+					}
 				}
             }
 
@@ -152,11 +165,14 @@ body {
         }
 
         .list-winner {
+			margin-left: 6rem;
+			@include align-with-flex(flex-start, flex-start, row, flex-start);
+
             .winner {
-                display: inline-block;
+				width: 22.4rem;
 
                 .staff-info {
-					margin: 3rem;
+					margin: 0 3rem 3rem;					
 
 					&.focus {
 						.avatar {
@@ -168,12 +184,21 @@ body {
 						.photo {
 							border: .1rem solid #fafafa;
 						}
-					}				
+					}
 				}
 
 				.info {
-					height: 7rem;
-					margin: 2.5rem 0;
+					font-size: 1.8rem;
+					margin: 2.5rem 0 1rem;
+					min-height: 16rem;
+
+					.txt-nickname {
+						font-size: 2.8rem;
+					}
+
+					.txt-fullname {
+						margin-bottom: 1rem;
+					}
 				}
             }
         }
@@ -239,7 +264,7 @@ body {
         @include align-with-flex(center, center, row, flex-start);
 
         .avatar {
-            border: .2rem solid #ffea99;
+            border: .2rem solid #f6ee89;
             background-color: #0e090d;
             height: 15rem;
             position: relative;

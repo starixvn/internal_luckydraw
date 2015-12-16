@@ -6507,6 +6507,8 @@ body {
     justify-content: center; }
   .server-site.adhoc-prize {
     overflow: hidden; }
+    .server-site.adhoc-prize .box-container {
+      padding: 3.5rem 3rem 3.5rem 8rem; }
     .server-site.adhoc-prize .staff-info {
       -webkit-box-direction: normal;
       -webkit-box-orient: vertical;
@@ -6514,40 +6516,81 @@ body {
       -moz-flex-direction: column;
       -ms-flex-direction: column;
       flex-direction: column; }
+      .server-site.adhoc-prize .staff-info .info {
+        padding-left: 0; }
     .server-site.adhoc-prize .current-winner .staff-info {
       color: #efe548;
       margin: 0; }
       .server-site.adhoc-prize .current-winner .staff-info .avatar {
         width: 30.6rem;
         height: 34.4rem; }
-        .server-site.adhoc-prize .current-winner .staff-info .avatar .unknown {
-          margin: 13.7rem 3.6rem; }
+        .server-site.adhoc-prize .current-winner .staff-info .avatar .unknown-lg {
+          margin: 3.7rem 3.6rem; }
       .server-site.adhoc-prize .current-winner .staff-info .info {
-        height: 13rem;
-        margin: 6rem 0 4rem; }
+        font-size: 3.2rem;
+        margin: 6rem 0 1rem;
+        text-align: center; }
+        .server-site.adhoc-prize .current-winner .staff-info .info .txt-nickname {
+          font-size: 4.5rem; }
     .server-site.adhoc-prize .current-winner .quantity {
       font-size: 10rem;
       font-weight: bold;
       color: #efe548;
       text-align: center; }
-    .server-site.adhoc-prize .list-winner .winner {
-      display: inline-block; }
-      .server-site.adhoc-prize .list-winner .winner .staff-info {
-        margin: 3rem; }
-        .server-site.adhoc-prize .list-winner .winner .staff-info.focus .avatar {
-          border-color: #fafafa;
-          outline: .1rem solid #f5f5f5;
-          -webkit-box-shadow: 0 0 1.6rem whitesmoke;
-          -khtml-box-shadow: 0 0 1.6rem whitesmoke;
-          -moz-box-shadow: 0 0 1.6rem whitesmoke;
-          -ms-box-shadow: 0 0 1.6rem whitesmoke;
-          -o-box-shadow: 0 0 1.6rem whitesmoke;
-          box-shadow: 0 0 1.6rem whitesmoke; }
-        .server-site.adhoc-prize .list-winner .winner .staff-info.focus .photo {
-          border: .1rem solid #fafafa; }
-      .server-site.adhoc-prize .list-winner .winner .info {
-        height: 7rem;
-        margin: 2.5rem 0; }
+    .server-site.adhoc-prize .list-winner {
+      margin-left: 6rem;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      -webkit-align-items: flex-start;
+      -moz-align-items: flex-start;
+      align-items: flex-start;
+      -webkit-align-content: flex-start;
+      -moz-align-content: flex-start;
+      -ms-flex-line-pack: start;
+      align-content: flex-start;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-direction: normal;
+      -webkit-box-orient: horizontal;
+      -webkit-flex-direction: row;
+      -moz-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-flex-wrap: wrap;
+      -moz-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: start;
+      -ms-flex-pack: start;
+      -webkit-justify-content: flex-start;
+      -moz-justify-content: flex-start;
+      justify-content: flex-start; }
+      .server-site.adhoc-prize .list-winner .winner {
+        width: 22.4rem; }
+        .server-site.adhoc-prize .list-winner .winner .staff-info {
+          margin: 0 3rem 3rem; }
+          .server-site.adhoc-prize .list-winner .winner .staff-info.focus .avatar {
+            border-color: #fafafa;
+            outline: .1rem solid #f5f5f5;
+            -webkit-box-shadow: 0 0 1.6rem whitesmoke;
+            -khtml-box-shadow: 0 0 1.6rem whitesmoke;
+            -moz-box-shadow: 0 0 1.6rem whitesmoke;
+            -ms-box-shadow: 0 0 1.6rem whitesmoke;
+            -o-box-shadow: 0 0 1.6rem whitesmoke;
+            box-shadow: 0 0 1.6rem whitesmoke; }
+          .server-site.adhoc-prize .list-winner .winner .staff-info.focus .photo {
+            border: .1rem solid #fafafa; }
+        .server-site.adhoc-prize .list-winner .winner .info {
+          font-size: 1.8rem;
+          margin: 2.5rem 0 1rem;
+          min-height: 16rem; }
+          .server-site.adhoc-prize .list-winner .winner .info .txt-nickname {
+            font-size: 2.8rem; }
+          .server-site.adhoc-prize .list-winner .winner .info .txt-fullname {
+            margin-bottom: 1rem; }
   .server-site.cash-prize, .server-site.major-prize, .server-site.grand-prize, .server-site.super-grand-prize, .server-site.winner-details, .server-site.super-grand-winner-details, .server-site.adhoc-prize {
     padding: 5rem;
     -webkit-box-align: center;
@@ -6674,7 +6717,7 @@ body {
     -moz-justify-content: flex-start;
     justify-content: flex-start; }
     .server-site .staff-info .avatar {
-      border: .2rem solid #ffea99;
+      border: .2rem solid #f6ee89;
       background-color: #0e090d;
       height: 15rem;
       position: relative;
