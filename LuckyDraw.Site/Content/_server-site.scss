@@ -118,7 +118,7 @@ body {
 		overflow: hidden;
 
 		.box-container {
-			padding: 3.5rem 3rem 3.5rem 8rem;
+			padding: 3.5rem 3rem 3.5rem 5rem;
 		}
 
 		.staff-info {
@@ -145,23 +145,30 @@ body {
 
 				.info {
 					font-size: 3.2rem;
-					margin: 6rem 0 1rem;
+					margin: 5rem 0 1rem;
 					text-align: center;
 
 					.txt-nickname {
 						font-size: 4.5rem;
 					}
-				}
-            }
 
-            .quantity {
-                font: {
-			      size: 10rem;
-				  weight: bold;
+					.txt-fullname {
+						margin-bottom: 0;
+					}
 				}
-                color: #efe548;
-				text-align: center;
-            }
+            }            
+        }
+
+		.quantity {
+            font: {
+			    size: 10rem;
+				weight: bold;
+			}
+            color: #efe548;
+			left: 12rem;
+			text-align: center;
+			position: absolute;
+			bottom: 10px;
         }
 
         .list-winner {
@@ -174,6 +181,8 @@ body {
 				width: 17.4rem;
 
                 .staff-info {
+					margin-top: 0;
+
 					&.focus {
 						.avatar {
 							border-color: #fafafa;
@@ -188,16 +197,22 @@ body {
 				}
 
 				.info {
-					font-size: 1.8rem;
+					font-size: 1.6rem;
 					margin: 2.5rem 0 1rem;
-					min-height: 16rem;
+					min-height: 14rem;
+					position: relative;
 
-					.txt-nickname {
-						font-size: 2.8rem;
+					.txt-nickname, .txt-department {
+						font-size: 2rem;
 					}
 
 					.txt-fullname {
 						margin-bottom: 1rem;
+					}
+
+					.txt-department {
+						position: absolute;
+						bottom: 0;
 					}
 				}
             }
@@ -266,10 +281,10 @@ body {
         .avatar {
             border: .2rem solid #f6ee89;
             background-color: #0e090d;
-            height: 15rem;
+            height: 14.6rem;
             position: relative;
             text-align: center;
-            width: 13rem;
+            width: 12.6rem;
             @include box-shadow(0, 0, 1.6rem, #ffea99);
 
             &:after {

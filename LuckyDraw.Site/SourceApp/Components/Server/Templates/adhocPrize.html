@@ -15,11 +15,8 @@
                         <p class="text-capitalize txt-fullname" ng-bind="adhocPrizeCtrl.currentWinner.FullName"></p>
                         <p ng-bind="adhocPrizeCtrl.currentWinner.Department.Name"></p>
                     </div>
-                </div>
-                <div class="quantity">
-                    {{adhocPrizeCtrl.currentQuantity}}/{{adhocPrizeCtrl.prizeSetting.Quantity}}
-                </div>
-            </div>
+                </div>                
+            </div>            
             <div class="col-sm-9">
                 <div class="list-winner" ng-repeat="listWinner in adhocPrizeCtrl.winners">
                     <div class="col-sm-12 col-lg-3 winner" ng-repeat="winner in listWinner">
@@ -31,7 +28,7 @@
                             <div class="info">
                                 <h2 class="text-uppercase txt-nickname" ng-bind="winner.NickName"></h2>
                                 <p class="text-capitalize txt-fullname" ng-bind="winner.FullName"></p>
-                                <p ng-bind="winner.Department.Name"></p>
+                                <p class="txt-department" ng-bind="winner.Department.Name"></p>
                             </div>
                         </div>
                     </div>
@@ -40,6 +37,9 @@
         </div>
         <div class="logo-small">
             <img ng-src="{{adhocPrizeCtrl.baseUrl}}Images/Winner/logo-Luckydraw-small.png" src="" alt="" class="img-responsive" />
+        </div>
+        <div class="quantity">
+            {{adhocPrizeCtrl.currentQuantity}}/{{adhocPrizeCtrl.prizeSetting.Quantity}}
         </div>
     </div>
 </div>
