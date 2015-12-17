@@ -8,11 +8,11 @@ function ($window, $scope, AdvancedModel, CommonModel, baseUrl) {
 
     vm.baseUrl = baseUrl;
     vm.message = null;
-    vm.unlockAdvancedZone = true;
+    vm.unlockAdvancedZone = false;
     vm.staff = null;
     vm.query = '';
 
-    //AdvancedModel.openPopupSecure(vm);
+    AdvancedModel.openPopupSecure(vm);
 
     vm.getCssClass = function (staffCode) {
         var result = 'default-staff';
