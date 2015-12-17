@@ -33,6 +33,19 @@ namespace LuckyDraw.Services.Implements
             _staffRepository = staffRepository ?? new StaffRepository();
         }
 
+        public IList<StaffModel> GetStaff(GetStaffCriteria criteria)
+        {
+            Check.Argument.IsNotNull(criteria, "criteria");
+            IList<StaffModel> staffs = new List<StaffModel>();
+
+            if (criteria.IsValid())
+            {
+                staffs = _staffRepository.GetStaff(criteria);
+            }
+
+            return staffs;
+        }
+
         public StaffModel GetStaffByCode(GetStaffByCodeCriteria criteria)
         {
             Check.Argument.IsNotNull(criteria, "criteria");

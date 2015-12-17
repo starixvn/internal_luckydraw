@@ -6,31 +6,39 @@ clientModule.factory('AdvancedModel',
 function ($modal, commonFactory, notificationFactory, errorFactory) {
     var advancedModel = {};
 
-    advancedModel.prizeList = [];
+    advancedModel.password = null;
+    advancedModel.staffs = [];
 
-    serverModel.openPopupSecure = function (vm) {
+    advancedModel.openPopupSecure = function (vm) {
         var modalInstance = $modal.open({
             templateUrl: 'SourceApp/Components/Client/Templates/popupSecure.html',
             controller: "SecureController as secureCtrl",
             backdrop: 'static',
-            windowClass: "modal-confirm-center"
+            size: 'sm',
+            windowClass: "modal-secure"
         });
 
-        modalInstance.result.then(function (passcode) {
-            serverFactory.getStaff(passcode)
-            .success(function (response) {
-                if (response.IsSuccessful) {
-                    
-                } else {
-                    notificationFactory.error("", response.Message);
+        modalInstance.result.then(function (password) {
+            commonFactory.getPassword()
+            .success(function (defaultPassword) {
+                if (password === defaultPassword) {
+                    vm.unlockAdvancedZone = true;
+                    modalInstance = '';
                 }
             }).error(function (response, status) {
                 errorFactory.errorHandle(status);
             });
-        })['finally'](function () {
-            modalInstance = '';
         });
     };
 
-    return serverModel;
+    advancedModel.getPassword = function () {
+        return commonFactory.getPassword()
+        .success(function (password) {
+            advancedModel.password = password;
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
+
+    return advancedModel;
 } ]);

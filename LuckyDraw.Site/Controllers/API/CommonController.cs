@@ -23,6 +23,8 @@ namespace LuckyDraw.Site.Controllers.API
 
     public class CommonController : ApiController
     {
+        private const string password = "R&D777879";
+
         private readonly IStaffService _staffService;
         private readonly IPrizeService _prizeService;
 
@@ -37,6 +39,17 @@ namespace LuckyDraw.Site.Controllers.API
         {
             _staffService = staffService ?? new StaffService();
             _prizeService = prizeService ?? new PrizeService();
+        }
+
+        [HttpGet]
+        public IList<StaffModel> GetStaff(string query)
+        {
+            var criteria = new GetStaffCriteria()
+            {
+                Query = query
+            };
+
+            return _staffService.GetStaff(criteria);
         }
 
         [HttpGet]
@@ -108,6 +121,12 @@ namespace LuckyDraw.Site.Controllers.API
             }
 
             return grades;
+        }
+
+        [HttpGet]
+        public string GetPassword()
+        {
+            return password;
         }
     }
 }

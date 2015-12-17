@@ -15,6 +15,8 @@ namespace LuckyDraw.Repositories.Interfaces
 
     public interface IStaffRepository
     {
+        IList<StaffModel> GetStaff(ICriteria criteria);
+
         StaffModel GetStaffByCode(ICriteria criteria);
 
         IList<StaffModel> GetWinnerByPrizeId(ICriteria criteria);

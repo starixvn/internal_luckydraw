@@ -14,12 +14,29 @@ namespace LuckyDraw.Repositories.Implements
     using Fanex.Data;
     using Fanex.Data.Repository;
     using LuckyDraw.Models.Department;
+    using LuckyDraw.Models.Prize;
     using LuckyDraw.Models.Staff;
     using LuckyDraw.Repositories.Interfaces;
-    using LuckyDraw.Models.Prize;
 
     public class StaffRepository : IStaffRepository
     {
+        public IList<StaffModel> GetStaff(ICriteria criteria)
+        {
+            using (var db = new ObjectDb(criteria.GetSettingKey()))
+            {
+                return db.Query<StaffModel, DepartmentModel, PrizeModel, StaffModel>(
+                    (winner, dept, prize) =>
+                    {
+                        winner.Department = dept;
+                        winner.Prize = prize;
+
+                        return winner;
+                    },
+                    "DepartmentId, PrizeId",
+                    criteria.GetSpParams()).ToList();
+            }
+        }
+
         public StaffModel GetStaffByCode(ICriteria criteria)
         {
             using (var db = new ObjectDb(criteria.GetSettingKey()))

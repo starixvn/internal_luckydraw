@@ -3,6 +3,9 @@
 
 commonModule.factory('commonFactory', ['$http', 'baseUrl', function ($http, baseUrl) {
     return {
+        getStaff: function (query) {
+            return $http.get(baseUrl + 'api/Common/GetStaff', { params: { query: query} });
+        },
         getStaffByCode: function (staffCode) {
             return $http.get(baseUrl + 'api/Common/GetStaffByCode', { params: { staffCode: staffCode} });
         },
@@ -17,6 +20,9 @@ commonModule.factory('commonFactory', ['$http', 'baseUrl', function ($http, base
         },
         getPrizeType: function () {
             return $http.get(baseUrl + 'api/Common/GetPrizeType');
+        },
+        getPassword: function () {
+            return $http.get(baseUrl + 'api/Common/GetPassword');
         }
     };
 } ]);

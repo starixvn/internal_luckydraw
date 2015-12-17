@@ -17,6 +17,7 @@ namespace LuckyDraw.Site
         {
             bundles.Add(new ScriptBundle("~/bundles/vendor").Include(
                         "~/Libs/jquery-{version}.js",
+                        "~/Libs/jquery-ui.min.js",
                         "~/Libs/bootstrap.min.js",
                         "~/Libs/angular.min.js",
                         "~/Libs/angular-resource.min.js",
@@ -50,8 +51,8 @@ namespace LuckyDraw.Site
                         "~/SourceApp/Components/Dashboard/dashboard-controller.js",
                         "~/SourceApp/Components/Client/client-controller.js",
                         "~/SourceApp/Components/Client/client-directive.js",
-                        "~/SourceApp/Components/Client/advanced-controller.js",
                         "~/SourceApp/Components/Client/advanced-model.js",
+                        "~/SourceApp/Components/Client/advanced-controller.js",
                         "~/SourceApp/Components/Server/server-factory.js",
                         "~/SourceApp/Components/Server/server-model.js",
                         "~/SourceApp/Components/Server/server-controller.js",

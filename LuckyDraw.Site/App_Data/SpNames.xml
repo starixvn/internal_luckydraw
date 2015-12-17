@@ -1,6 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Functions>
     <Function Name="Staff">
+        <Setting Key="Staff_Get" SpName="Staff_Get" DbName="LuckyDraw" Plain="0">
+        </Setting>
         <Setting Key="Staff_GetByCode" SpName="Staff_GetByCode" DbName="LuckyDraw" Plain="0">
         </Setting>
         <Setting Key="Winner_GetByPrizeId" SpName="Winner_GetByPrizeId" DbName="LuckyDraw" Plain="0">

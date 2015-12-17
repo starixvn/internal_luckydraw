@@ -16,6 +16,8 @@ namespace LuckyDraw.Services.Interfaces
 
     public interface IStaffService
     {
+        IList<StaffModel> GetStaff(GetStaffCriteria criteria);
+
         StaffModel GetStaffByCode(GetStaffByCodeCriteria criteria);
 
         IList<StaffModel> GetWinnerByPrizeId(GetWinnerByPrizeIdCriteria criteria);

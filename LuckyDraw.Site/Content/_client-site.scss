@@ -1,22 +1,22 @@
-.client-site {
-	background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;	
+@import "Common/jquery-ui.min.css";
+
+.client-site, .advanced-zone {
+    background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
     height: 100vh;
-	padding: 20rem;
+    padding: 20rem;
     width: 100vw;
     @include align-with-flex(center, center, row, center);
     @include background-size(cover);
 
-	.box-container {
-		min-height: 50rem;
-		width: 70%;
-		@include align-with-flex(center, center, row, center);
-	}
+    .box-container {
+        @include align-with-flex(center, center, row, center);
+    }
 
-	.logo-opening {
+    .logo-opening {
         left: 0;
         right: 0;
         position: absolute;
-		top: 3rem;
+        top: 3rem;
         text-align: center;
 
         img {
@@ -24,25 +24,25 @@
         }
     }
 
-	.avatar {
+    .avatar {
         border: .2rem solid;
         background-color: #0e090d;
         height: 15rem;
-		position: relative;
+        position: relative;
         text-align: center;
         width: 13rem;
 
-		&:after {
-			content: '';
-			margin: -2px;
-			outline: .1rem solid #ac7926;
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			z-index: 5;
-		}
+        &:after {
+            content: '';
+            margin: -2px;
+            outline: .1rem solid #ac7926;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 5;
+        }
 
         .photo {
             height: 100%;
@@ -54,33 +54,13 @@
         }
     }
 
-	&.default-client {
-        color: #ffe898;
-		@include avatar-border-color(#ffe898, #ac7926);
-    }
-
-    &.pink-client {
-        color: #fd7fbc;
-		@include avatar-border-color(#f8aad1, #f0549e);
-    }
-
-    &.green-client {
-        color: #42e884;
-		@include avatar-border-color(#8de1af, #19c25d);
-    }
-
-    &.blue-client {
-        color: #5e7bf3;
-		@include avatar-border-color(#95a8f7, #284eef);
-    }
-
     .staff-info {
         @include align-with-flex(center, center, row, center);
 
         .info {
             font-size: 2rem;
             padding-left: 2rem;
-			width: 50rem;
+            width: 50rem;
 
             .txt-nickname {
                 font: {
@@ -94,5 +74,110 @@
     .alert {
         margin-top: 2rem;
         border-radius: unset;
+    }
+}
+
+.client-site {
+    .box-container {
+        min-height: 50rem;
+        width: 70%;
+    }
+
+    &.default-client {
+        color: #ffe898;
+        @include avatar-border-color(#ffe898, #ac7926);
+    }
+
+    &.pink-client {
+        color: #fd7fbc;
+        @include avatar-border-color(#f8aad1, #f0549e);
+    }
+
+    &.green-client {
+        color: #42e884;
+        @include avatar-border-color(#8de1af, #19c25d);
+    }
+
+    &.blue-client {
+        color: #5e7bf3;
+        @include avatar-border-color(#95a8f7, #284eef);
+    }
+}
+
+.advanced-zone {
+    .row {
+        margin: 0;
+    }
+
+    .box-container {
+        min-height: 60rem;
+        width: 80%;
+        margin-top: 5rem;
+
+        .search-autocomplete {
+            margin-bottom: 2rem;
+
+            .form-control {
+                width: 80%;
+            }
+
+            ul.ui-autocomplete {
+                max-height: 33rem;
+                overflow-y: auto;
+                overflow-x: hidden;
+
+                li.ui-menu-item {
+                    border-bottom: .1rem solid #cccccc;
+
+                    &.ui-state-focus {
+                        background-color: #ffe898;
+                    }
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
+                }
+            }
+        }
+
+        .default-staff {
+            color: #ffe898;
+            @include avatar-border-color(#ffe898, #ac7926);
+        }
+
+        .pink-staff {
+            color: #fd7fbc;
+            @include avatar-border-color(#f8aad1, #f0549e);
+        }
+
+        .green-staff {
+            color: #42e884;
+            @include avatar-border-color(#8de1af, #19c25d);
+        }
+
+        .blue-staff {
+            color: #5e7bf3;
+            @include avatar-border-color(#95a8f7, #284eef);
+        }
+    }
+}
+
+.modal-secure {
+    display: flex !important;
+    height: 100%;
+
+    .modal-dialog{
+        margin: auto;
+    }
+
+    #securePopup {
+        .alert-danger {
+            background-color: #fff;
+            padding-top: 1rem;
+        }
+
+        .modal-footer {
+            text-align: center;
+        }
     }
 }

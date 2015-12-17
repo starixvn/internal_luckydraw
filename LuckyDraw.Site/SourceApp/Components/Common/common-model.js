@@ -6,11 +6,21 @@ commonModule.factory('CommonModel',
 function (commonFactory, errorFactory) {
     var commonModel = {};
 
+    commonModel.staffs = [];
     commonModel.staff = null;
     commonModel.prizeSetting = null;
     commonModel.prizes = [];
     commonModel.grades = [];
     commonModel.prizeTypes = [];
+
+    commonModel.getStaff = function (query) {
+        return commonFactory.getStaff(query)
+        .success(function (staffs) {
+            commonModel.staffs = staffs;
+        }).error(function (response, status) {
+            errorFactory.errorHandle(status);
+        });
+    };
 
     commonModel.getStaffByCode = function (staffCode) {
         return commonFactory.getStaffByCode(staffCode)

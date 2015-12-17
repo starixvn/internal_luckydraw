@@ -1,1 +1,41 @@
-﻿
+﻿<div class="col-sm-12 advanced-zone" ng-controller="AdvancedController as advancedCtrl">
+    <div class="logo-opening">
+        <img ng-src="{{advancedCtrl.baseUrl}}Images/logo-Luckydraw.png" src="" alt="LuckyDraw" class="img-responsive" />
+    </div>
+    <div class="box-container">
+        <div ng-if="advancedCtrl.unlockAdvancedZone" ng-class="advancedCtrl.getCssClass(advancedCtrl.staff.StaffCode)">
+            <div class="row search-autocomplete">
+                <input type="text" class="form-control" ng-model="advancedCtrl.query"
+                    placeholder="Enter full name or nick name"
+                    search-auto-complete search-staffs="advancedCtrl.getStaff()" staff="advancedCtrl.staff" send-staff-code="advancedCtrl.sendStaffCode()" />
+            </div>
+            <div class="row staff-info">
+                <div class="avatar">
+                    <img ng-if="!advancedCtrl.staff" ng-src="{{advancedCtrl.baseUrl}}Images/Winner/winner-pic.png" src="" alt="" class="unknown" />
+                    <img ng-if="advancedCtrl.staff" ng-src="data:image/jpeg;base64,{{advancedCtrl.staff.Avatar}}" src="" alt="" class="img-responsive photo" />
+                </div>
+                <div class="row info">
+                    <div class="col-sm-12 line">
+                        <div class="col-sm-4" data-translate="NickName"></div>
+                        <div class="col-sm-8 txt-nickname" ng-bind="advancedCtrl.staff.NickName"></div>
+                    </div>
+                    <div class="col-sm-12 line">
+                        <div class="col-sm-4" data-translate="FullName"></div>
+                        <div class="col-sm-8" ng-bind="advancedCtrl.staff.FullName"></div>
+                    </div>
+                    <div class="col-sm-12 line">
+                        <div class="col-sm-4" data-translate="Code"></div>
+                        <div class="col-sm-8" ng-bind="advancedCtrl.staff.BarCode"></div>
+                    </div>
+                    <div class="col-sm-12 line">
+                        <div class="col-sm-4" data-translate="Department"></div>
+                        <div class="col-sm-8" ng-bind="advancedCtrl.staff.Department.Name"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row alert alert-danger" role="alert" ng-if="advancedCtrl.message">
+                <div class="text-center" ng-bind="advancedCtrl.message"></div>
+            </div>
+        </div>
+    </div>
+</div>

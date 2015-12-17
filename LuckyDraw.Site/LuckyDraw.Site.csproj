@@ -187,6 +187,7 @@
     <Content Include="Content\Common\fonts\bootstrap\glyphicons-halflings-regular.svg" />
     <None Include="Content\Common\_mixins.scss" />
     <None Include="Content\Common\_toastr.scss" />
+    <Content Include="Content\Common\jquery-ui.min.css" />
     <Content Include="Content\Common\materialize.css" />
     <Content Include="Content\server-control-site.css">
       <DependentUpon>server-control-site.scss</DependentUpon>
@@ -312,6 +313,7 @@
     <Content Include="Libs\bootstrap.min.js" />
     <Content Include="Libs\jquery-2.1.4.js" />
     <Content Include="Libs\jquery-2.1.4.min.js" />
+    <Content Include="Libs\jquery-ui.min.js" />
     <Content Include="Libs\jquery.signalR-1.2.2.js" />
     <Content Include="Libs\jquery.signalR-1.2.2.min.js" />
     <Content Include="Libs\jquery.validate.js" />
@@ -501,7 +503,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>55387</DevelopmentServerPort>
+          <DevelopmentServerPort>52616</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
