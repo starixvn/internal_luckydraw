@@ -13,26 +13,13 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
     vm.pinkStaff = null;
     vm.blueStaff = null;
 
-    vm.getLogoByPrizeType = function (prizeType) {
-        var className = '';
+    vm.getClassPrizeByPrizeType = function (prizeType) {
+        return ServerModel.getClassPrizeByPrizeType(prizeType);
+    }
 
-        switch (prizeType) {
-            case 2:
-                className = 'super-grand';
-                break;
-            case 3:
-                className = 'grand';
-                break;
-            case 4:
-                className = 'major';
-                break;
-            case 5:
-                className = 'cash';
-                break;
-        }
-
-        return className;
-    };
+    vm.getClassLogoByPrizeType = function (prizeType) {
+        return ServerModel.getClassLogoByPrizeType(prizeType);
+    }
 
     vm.initialize = function () {
         CommonModel.getPrizeType().then(function () {

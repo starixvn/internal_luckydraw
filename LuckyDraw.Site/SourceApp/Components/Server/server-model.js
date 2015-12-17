@@ -10,6 +10,48 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
     serverModel.winnerDetail = null;
     serverModel.prizeNumber = null;
 
+    serverModel.getClassPrizeByPrizeType = function (prizeType) {
+        var className = '';
+
+        switch (prizeType) {
+            case 2:
+                className = 'super-grand-prize';
+                break;
+            case 3:
+                className = 'grand-prize';
+                break;
+            case 4:
+                className = 'major-prize';
+                break;
+            case 5:
+                className = 'cash-prize';
+                break;
+        }
+
+        return className;
+    };
+
+    serverModel.getClassLogoByPrizeType = function (prizeType) {
+        var className = '';
+
+        switch (prizeType) {
+            case 2:
+                className = 'super-grand';
+                break;
+            case 3:
+                className = 'grand';
+                break;
+            case 4:
+                className = 'major';
+                break;
+            case 5:
+                className = 'cash';
+                break;
+        }
+
+        return className;
+    };
+
     serverModel.renderListPrize = function (prizeType) {
         return serverFactory.renderListPrize(prizeType)
         .success(function (prizeList) {

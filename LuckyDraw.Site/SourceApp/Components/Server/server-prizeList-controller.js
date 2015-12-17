@@ -9,47 +9,13 @@ function ($scope, $window, $document, $location, $routeParams, CommonModel, Serv
     vm.baseUrl = baseUrl;
     vm.prizeType = parseInt($routeParams.prizeType);
 
-    vm.getClassByPrizeType = function (prizeType) {
-        var className = '';
+    vm.getClassPrizeByPrizeType = function (prizeType) {
+        return ServerModel.getClassPrizeByPrizeType(prizeType);
+    }
 
-        switch (prizeType) {
-            case 2:
-                className = 'super-grand-prize';
-                break;
-            case 3:
-                className = 'grand-prize';
-                break;
-            case 4:
-                className = 'major-prize';
-                break;
-            case 5:
-                className = 'cash-prize';
-                break;
-        }
-
-        return className;
-    };
-
-    vm.getLogoByPrizeType = function (prizeType) {
-        var className = '';
-
-        switch (prizeType) {
-            case 2:
-                className = 'super-grand';
-                break;
-            case 3:
-                className = 'grand';
-                break;
-            case 4:
-                className = 'major';
-                break;
-            case 5:
-                className = 'cash';
-                break;
-        }
-
-        return className;
-    };
+    vm.getClassLogoByPrizeType = function (prizeType) {
+        return ServerModel.getClassLogoByPrizeType(prizeType);
+    }
 
     vm.renderListPrize = function () {
         ServerModel.renderListPrize(vm.prizeType).then(function () {

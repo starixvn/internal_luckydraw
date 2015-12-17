@@ -1,6 +1,7 @@
-﻿<div class="col-sm-12 server-site winner-details" ng-controller="WinnerDetailController as winnerDetailCtrl" winner-detail-keyboard-event>
+﻿<div class="col-sm-12 server-site winner-details" ng-controller="WinnerDetailController as winnerDetailCtrl"
+    ng-class="winnerDetailCtrl.getClassPrizeByPrizeType(winnerDetailCtrl.prizeType)" winner-detail-keyboard-event>
     <div class="col-sm-12 box-container">
-        <div class="logo-prize" ng-class="winnerDetailCtrl.getLogoByPrizeType(winnerDetailCtrl.prizeType)">
+        <div class="logo-prize" ng-class="winnerDetailCtrl.getClassLogoByPrizeType(winnerDetailCtrl.prizeType)">
             <img ng-if="winnerDetailCtrl.prizeType == 3" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/grandprize-small.png" src="" alt="" class="img-responsive" />
             <img ng-if="winnerDetailCtrl.prizeType == 4" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/majorprize-small.png" src="" alt=""  class="img-responsive"/>
             <img ng-if="winnerDetailCtrl.prizeType == 5" ng-src="{{winnerDetailCtrl.baseUrl}}Images/Winner/cashprize-small.png" src="" alt="" class="img-responsive" />

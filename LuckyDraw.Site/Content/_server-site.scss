@@ -58,8 +58,6 @@ body {
     }
     
     &.winner-details, &.super-grand-winner-details {
-        background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
-
         .box-container {
             padding-left: 16.4rem;
             padding-right: 6rem;
@@ -127,13 +125,13 @@ body {
 			@include flex-direction(column);
 
 			.info {
-				padding-left: 0;				
+				padding-left: 0;
 			}
 		}
 
         .current-winner {
             .staff-info {
-				color: #efe548;				
+				color: #efe548;
 				margin: 0;
 
                 .avatar {
