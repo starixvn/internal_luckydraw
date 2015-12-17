@@ -43,8 +43,6 @@ clientModule.directive('advancedKeyboardEvent', function () {
     return {
         link: function (scope, element, attrs) {
             jQuery(document).on('keydown', function (event) {
-                event.preventDefault();
-
                 switch (event.which) {
                     case 27: // asc
                         scope.advancedCtrl.redirectToDashboard();
