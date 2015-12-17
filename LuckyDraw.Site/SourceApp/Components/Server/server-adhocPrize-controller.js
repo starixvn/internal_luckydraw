@@ -43,8 +43,10 @@ function ($window, $scope, ServerModel, CommonModel, baseUrl) {
             var rowIndex = parseInt(index / vm.numColumn),
                 colIndex = index % vm.numColumn;
 
-            winner.IsFocus = false;
-            vm.winners[rowIndex][colIndex] = angular.copy(winner);
+            if (rowIndex < vm.numRow && colIndex < vm.numColumn && vm.winners[rowIndex][colIndex]) {
+                winner.IsFocus = false;
+                vm.winners[rowIndex][colIndex] = angular.copy(winner);
+            }
         });
     };
 
