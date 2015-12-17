@@ -4,24 +4,14 @@
     </div>
     <div class="box-container">
         <div class="col-sm-12 text-center server">
-            <button class="btn" ng-click="dashboardCtrl.redirectToServer()">Server</button>
+            <button class="btn btn-server" ng-click="dashboardCtrl.redirectToServer()">Server</button>
         </div>
         <div class="col-sm-12 text-center client">
-            <div class="col-sm-2">
-                <button class="btn default-client" ng-click="dashboardCtrl.redirectToDefaultClient()">Default Client</button>
-            </div>
-            <div class="col-sm-2">
-                <button class="btn pink-client" ng-click="dashboardCtrl.redirectToPinkClient()">Pink Client</button>
-            </div>
-            <div class="col-sm-2">
-                <button class="btn green-client" ng-click="dashboardCtrl.redirectToGreenClient()">Green Client</button>
-            </div>
-            <div class="col-sm-2">
-                <button class="btn blue-client" ng-click="dashboardCtrl.redirectToBlueClient()">Blue Client</button>
-            </div>
-            <div class="col-sm-2">
-                <button class="btn" ng-click="dashboardCtrl.redirectToAdvancedZone()">Advanced Zone</button>
-            </div>
+            <button class="btn btn-default" ng-click="dashboardCtrl.redirectToDefaultClient()">Default Client</button>
+            <button class="btn btn-pink" ng-click="dashboardCtrl.redirectToPinkClient()">Pink Client</button>
+            <button class="btn btn-green" ng-click="dashboardCtrl.redirectToGreenClient()">Green Client</button>
+            <button class="btn btn-blue" ng-click="dashboardCtrl.redirectToBlueClient()">Blue Client</button>
+            <button class="btn btn-advanced" ng-click="dashboardCtrl.redirectToAdvancedZone()">Advanced Zone</button>
         </div>
     </div>
 </div>

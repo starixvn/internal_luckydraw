@@ -2,8 +2,8 @@
 /*global clientModule*/
 
 clientModule.controller('AdvancedController',
-['$scope', 'AdvancedModel', 'CommonModel', 'baseUrl',
-function ($scope, AdvancedModel, CommonModel, baseUrl) {
+['$window', '$scope', 'AdvancedModel', 'CommonModel', 'baseUrl',
+function ($window, $scope, AdvancedModel, CommonModel, baseUrl) {
     var vm = this;
 
     vm.baseUrl = baseUrl;
@@ -36,6 +36,10 @@ function ($scope, AdvancedModel, CommonModel, baseUrl) {
 
     vm.getStaff = function () {
         return CommonModel.getStaff(vm.query);
+    };
+
+    vm.redirectToDashboard = function () {
+        $window.location.href = '/';
     };
 
     var hubProxy = $.connection.hubs;

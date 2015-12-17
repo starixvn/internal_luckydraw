@@ -24,36 +24,65 @@
         }
     }
 
+    .btn-server {
+        min-width: 15%;
+    }
+
+    .client {
+        .btn {
+            min-width: 15%;
+            margin: 1rem 1%;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
     .btn {
-		background-color: #f8c52b;
-		border: .1rem solid #ac7926;
+        background-color: #f8c52b;
+        border: .1rem solid #ac7926;
         color: #03030b;
         font-size: 2.4rem;
         height: 8rem;
         margin-bottom: 1.2rem;
         border-radius: 0;
 
-		&.default-client {
-			background-color: #ffe898;
-		}
+        &.btn-default {
+            background-color: #ffe898;
+        }
 
-		&.pink-client {
-			background-color: #f8aad1;
-			border-color: #f0549e;
-		}
+        &.btn-pink {
+            background-color: #f8aad1;
+            border-color: #f0549e;
+        }
 
-		&.green-client {
-			background-color: #8de1af;
-			border-color: #19c25d;
-		}
+        &.btn-green {
+            background-color: #8de1af;
+            border-color: #19c25d;
+        }
 
-		&.blue-client {
-			background-color: #95a8f7;
-			border-color: #284eef;
-		}
+        &.btn-blue {
+            background-color: #95a8f7;
+            border-color: #284eef;
+        }
     }
 
     .server {
         margin-bottom: 5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 8rem;
+
+        .box-container {
+            height: 90%;
+        }
     }
 }

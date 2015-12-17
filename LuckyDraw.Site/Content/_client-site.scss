@@ -8,10 +8,6 @@
     @include align-with-flex(center, center, row, center);
     @include background-size(cover);
 
-    .box-container {
-        @include align-with-flex(center, center, row, center);
-    }
-
     .logo-opening {
         left: 0;
         right: 0;
@@ -59,8 +55,6 @@
 
         .info {
             font-size: 2rem;
-            padding-left: 2rem;
-            width: 50rem;
 
             .txt-nickname {
                 font: {
@@ -81,6 +75,14 @@
     .box-container {
         min-height: 50rem;
         width: 70%;
+        @include align-with-flex(center, center, row, center);
+    }
+
+    .staff-info {
+        .info {
+            padding-left: 2rem;
+            width: 50rem;
+        }
     }
 
     &.default-client {
@@ -111,15 +113,36 @@
 
     .box-container {
         min-height: 60rem;
-        width: 80%;
+        width: 50%;
         margin-top: 5rem;
+
+        .default-staff, .pink-staff, .green-staff, .blue-staff {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .default-staff, .default-staff .label {
+            color: #ffe898;
+            @include avatar-border-color(#ffe898, #ac7926);
+        }
+
+        .pink-staff, .pink-staff .label {
+            color: #fd7fbc;
+            @include avatar-border-color(#f8aad1, #f0549e);
+        }
+
+        .green-staff, .green-staff .label {
+            color: #42e884;
+            @include avatar-border-color(#8de1af, #19c25d);
+        }
+
+        .blue-staff, .blue-staff .label {
+            color: #5e7bf3;
+            @include avatar-border-color(#95a8f7, #284eef);
+        }
 
         .search-autocomplete {
             margin-bottom: 2rem;
-
-            .form-control {
-                width: 80%;
-            }
 
             ul.ui-autocomplete {
                 max-height: 33rem;
@@ -140,30 +163,20 @@
             }
         }
 
-        .default-staff {
-            color: #ffe898;
-            @include avatar-border-color(#ffe898, #ac7926);
-        }
+        .staff-info {
+            .info {
+                margin-top: 2rem;
 
-        .pink-staff {
-            color: #fd7fbc;
-            @include avatar-border-color(#f8aad1, #f0549e);
-        }
-
-        .green-staff {
-            color: #42e884;
-            @include avatar-border-color(#8de1af, #19c25d);
-        }
-
-        .blue-staff {
-            color: #5e7bf3;
-            @include avatar-border-color(#95a8f7, #284eef);
+                .label {
+                    font-size: inherit;
+                }
+            }
         }
     }
 }
 
 .modal-secure {
-    display: flex !important;
+    @include css3-prefix('display', 'flex !important');
     height: 100%;
 
     .modal-dialog{
@@ -178,6 +191,46 @@
 
         .modal-footer {
             text-align: center;
+        }
+    }
+}
+
+@media (max-width: 1366px) {
+    .advanced-zone {
+        .box-container {
+            width: 80%;
+            padding: .5rem 0;
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .advanced-zone {
+        .box-container {
+            width: 95%;
+            padding: .5rem 0;
+            margin: 0;
+        }
+    }
+}
+
+@media (max-width: 960px) {
+    .advanced-zone {
+        padding: 10rem;
+
+        .box-container {
+            width: 95%;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .advanced-zone {
+        padding: 8rem;
+
+        .box-container {
+            height: 95%;
         }
     }
 }
