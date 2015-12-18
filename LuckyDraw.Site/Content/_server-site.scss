@@ -177,8 +177,8 @@ body {
 				margin-left: 1rem;
 				margin-right: 1rem;
 
-                .staff-info {
-					margin-top: 0;
+                .staff-info {					
+					margin-top: 0;					
 					@include align-items(flex-start);
 
 					&.focus {
@@ -199,6 +199,7 @@ body {
 					margin: 2.5rem 0 1rem;
 					min-height: 14rem;
 					position: relative;
+					width: 100%;
 
 					.txt-nickname, .txt-department {
 						font-size: 2rem;
@@ -360,6 +361,23 @@ body {
     @include border-image(url(../Images/border-rope.png), 10%, repeat );
 }
 
+@media (max-width: 1599px) {
+	.server-site {
+		&.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize, &.adhoc-prize {
+			 .box-container {
+				padding: 3rem;
+			 }
+		}
+
+		&.super-grand-winner-details {
+			.prizePhoto .prize-order:nth-child(2) {
+				margin-right: 0;
+				@include align-self(flex-start);
+			}
+		}
+	}	
+}
+
 /* Resolution */
 @media (min-width: 320px) and (max-width: 1599px),
        (min-height: 768px) and (max-height: 899px) {	
@@ -420,7 +438,7 @@ body {
 
 				.winner .info {
 					font-size: 1.4rem;
-					min-height: 12rem;
+					min-height: 9rem;
 
 					.txt-nickname, .txt-department {
 						font-size: 1.8rem;
@@ -493,23 +511,6 @@ body {
         }
      }
    }
-}
-
-@media (max-width: 1599px) {
-	.server-site {
-		&.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize {
-			 .box-container {
-				padding: 4rem;
-			 }
-		}
-
-		&.super-grand-winner-details {
-			.prizePhoto .prize-order:nth-child(2) {
-				margin-right: 0;
-				@include align-self(flex-start);
-			}
-		}
-	}	
 }
 
   @media (max-width: 320px) {
@@ -649,6 +650,7 @@ body {
 			@include align-with-flex(center, center, row, flex-start);
 
 			.info {
+				width: auto;
 				margin-left: 2rem;
 				min-height: initial;
 

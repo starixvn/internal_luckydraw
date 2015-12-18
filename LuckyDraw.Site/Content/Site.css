@@ -6731,7 +6731,8 @@ body {
           font-size: 1.6rem;
           margin: 2.5rem 0 1rem;
           min-height: 14rem;
-          position: relative; }
+          position: relative;
+          width: 100%; }
           .server-site.adhoc-prize .list-winner .winner .info .txt-nickname, .server-site.adhoc-prize .list-winner .winner .info .txt-department {
             font-size: 2rem; }
           .server-site.adhoc-prize .list-winner .winner .info .txt-fullname {
@@ -6963,6 +6964,15 @@ body {
   -o-border-image: url(../Images/border-rope.png) 10% repeat;
   border-image: url(../Images/border-rope.png) 10% repeat; }
 
+@media (max-width: 1599px) {
+  .server-site.cash-prize .box-container, .server-site.major-prize .box-container, .server-site.grand-prize .box-container, .server-site.super-grand-prize .box-container, .server-site.adhoc-prize .box-container {
+    padding: 3rem; }
+  .server-site.super-grand-winner-details .prizePhoto .prize-order:nth-child(2) {
+    margin-right: 0;
+    -webkit-align-self: flex-start;
+    -moz-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start; } }
 /* Resolution */
 @media (min-width: 320px) and (max-width: 1599px), (min-height: 768px) and (max-height: 899px) {
   .server-site .logo-prize.super-grand img, .server-site .logo-prize.grand img, .server-site .logo-prize.major img, .server-site .logo-prize.cash img, .server-site .logo-prize.adhoc img {
@@ -6995,7 +7005,7 @@ body {
     margin-left: 0; }
     .server-site.adhoc-prize .list-winner .winner .info {
       font-size: 1.4rem;
-      min-height: 12rem; }
+      min-height: 9rem; }
       .server-site.adhoc-prize .list-winner .winner .info .txt-nickname, .server-site.adhoc-prize .list-winner .winner .info .txt-department {
         font-size: 1.8rem; }
   .server-site.adhoc-prize .current-winner .staff-info .avatar {
@@ -7050,15 +7060,6 @@ body {
     -moz-order: 3;
     -ms-flex-order: 3;
     order: 3; } }
-@media (max-width: 1599px) {
-  .server-site.cash-prize .box-container, .server-site.major-prize .box-container, .server-site.grand-prize .box-container, .server-site.super-grand-prize .box-container {
-    padding: 4rem; }
-  .server-site.super-grand-winner-details .prizePhoto .prize-order:nth-child(2) {
-    margin-right: 0;
-    -webkit-align-self: flex-start;
-    -moz-align-self: flex-start;
-    -ms-flex-item-align: start;
-    align-self: flex-start; } }
 @media (max-width: 320px) {
   .server-site.cash-prize .box-container, .server-site.major-prize .box-container, .server-site.grand-prize .box-container, .server-site.super-grand-prize .box-container, .server-site.winner-details .box-container, .server-site.super-grand-winner-details .box-container, .server-site.adhoc-prize .box-container {
     padding: 0 1.6rem; }
@@ -7155,6 +7156,7 @@ body {
       -moz-justify-content: flex-start;
       justify-content: flex-start; }
       .server-site.adhoc-prize .list-winner .winner .staff-info .info {
+        width: auto;
         margin-left: 2rem;
         min-height: initial; }
         .server-site.adhoc-prize .list-winner .winner .staff-info .info .txt-department {
