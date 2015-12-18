@@ -13,7 +13,8 @@ function ($modal, commonFactory, notificationFactory, errorFactory) {
         var modalInstance = $modal.open({
             templateUrl: 'SourceApp/Components/Client/Templates/popupSecure.html',
             controller: "SecureController as secureCtrl",
-            backdrop: 'static',
+            animation: false,
+            backdrop: false,
             size: 'sm',
             windowClass: "modal-secure"
         });

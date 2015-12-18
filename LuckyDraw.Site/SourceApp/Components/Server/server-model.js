@@ -152,7 +152,7 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         var modalInstance = $modal.open({
             templateUrl: 'SourceApp/Components/Server/Templates/modalConfirmRemoveWinner.html',
             controller: "RemoveWinnerController as removeWinnerCtrl",
-            backdrop: 'static',
+            backdrop: false,
             resolve: {
                 staff: function () {
                     return angular.copy(staff);
@@ -214,7 +214,7 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         var modalInstance = $modal.open({
             templateUrl: 'SourceApp/Components/Server/Templates/modalConfirmRemoveWinner.html',
             controller: "RemoveWinnerController as removeWinnerCtrl",
-            backdrop: 'static',
+            backdrop: false,
             resolve: {
                 staff: function () {
                     return angular.copy(staff);
@@ -274,7 +274,7 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         var modalInstance = $modal.open({
             templateUrl: 'SourceApp/Components/Server/Templates/modalConfirmRemoveWinner.html',
             controller: "RemoveWinnerController as removeWinnerCtrl",
-            backdrop: 'static',
+            backdrop: false,
             resolve: {
                 staff: function () {
                     return null;
@@ -321,7 +321,7 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         var modalInstance = $modal.open({
             templateUrl: 'SourceApp/Components/Server/Templates/modalConfirmRemoveWinner.html',
             controller: "RemoveWinnerController as removeWinnerCtrl",
-            backdrop: 'static',
+            backdrop: false,
             resolve: {
                 staff: function () {
                     return null;
@@ -395,7 +395,7 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
         var modalInstance = $modal.open({
             templateUrl: 'SourceApp/Components/Server/Templates/modalConfirmRemoveWinner.html',
             controller: "RemoveWinnerController as removeWinnerCtrl",
-            backdrop: 'static',
+            backdrop: false,
             resolve: {
                 staff: function () {
                     return angular.copy(staff);
