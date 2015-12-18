@@ -20,6 +20,7 @@ namespace LuckyDraw.Site
                         "~/Libs/jquery-ui.min.js",
                         "~/Libs/bootstrap.min.js",
                         "~/Libs/angular.min.js",
+                        "~/Libs/angular-animate.min.js",
                         "~/Libs/angular-resource.min.js",
                         "~/Libs/angular-route.min.js",
                         "~/Libs/angular-translate.js",

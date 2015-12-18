@@ -300,6 +300,8 @@
     <Content Include="Images\Winner\winnerimage-blue.png" />
     <Content Include="Images\Winner\winnerimage-green.png" />
     <Content Include="Images\Winner\winnerimage-pink.png" />
+    <Content Include="Libs\angular-animate.js" />
+    <Content Include="Libs\angular-animate.min.js" />
     <Content Include="Libs\angular-resource.js" />
     <Content Include="Libs\angular-resource.min.js" />
     <Content Include="Libs\angular-route.js" />
@@ -365,6 +367,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <None Include="Content\_animations.scss" />
     <None Include="Content\_dashboard.scss" />
     <None Include="Content\_server-site.scss" />
     <None Include="Content\_client-site.scss" />
@@ -503,7 +506,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>50946</DevelopmentServerPort>
+          <DevelopmentServerPort>54945</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

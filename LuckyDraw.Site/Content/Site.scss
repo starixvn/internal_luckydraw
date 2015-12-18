@@ -4,3 +4,40 @@
 @import "dashboard";
 @import "client-site";
 @import "server-site";
+
+/*======================================= ANIMATIONS ========================================*/
+
+.main-view.ng-leave  { z-index:9999; }
+.main-view.ng-enter  { z-index:8888; }
+
+.main-view.ng-leave {
+    @include css3-prefix('animation', 'slideOutLeft 0.5s both ease-in');
+}
+.main-view.ng-enter {
+    @include css3-prefix('animation', 'slideInRight 0.5s both ease-in');
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+    from    { transform: translateX(100%); }
+    to      { transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+    from    { -moz-transform: translateX(100%); }
+    to      { -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+    from    { -webkit-transform: translateX(100%); }
+    to      { -webkit-transform: translateX(0); }
+}
+
+/* slide in from the bottom */
+@keyframes slideOutLeft {
+    to      { transform: translateX(-100%); }
+}
+@-moz-keyframes slideOutLeft {  
+    to      { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes slideOutLeft {
+    to      { -webkit-transform: translateX(-100%); }
+}

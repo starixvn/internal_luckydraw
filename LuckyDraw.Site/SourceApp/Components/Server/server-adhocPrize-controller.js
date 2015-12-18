@@ -166,7 +166,7 @@ function ($window, $scope, ServerModel, CommonModel, baseUrl) {
             if (staff && staff.StaffCode) {
                 grade = parseInt(staff.StaffCode.substring(0, 2));
 
-                if (vm.winnerDetail.Winners.length > vm.prizeSetting.Quantity) {
+                if (vm.winnerDetail.Winners.length >= vm.prizeSetting.Quantity) {
                     message = 'Full winner.';
                     ServerModel.sendMessageResponse(hubProxy, grade, message);
                 } else {

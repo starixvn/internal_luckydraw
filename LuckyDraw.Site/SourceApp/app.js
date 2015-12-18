@@ -2,7 +2,7 @@
 /*exported appModule*/
 
 var appModule = angular.module('appModule', ['commonModule', 'prizeModule', 'dashboardModule', 'serverModule', 'clientModule', 'prizeModule',
-'pascalprecht.translate', 'ui.bootstrap', 'ngRoute'])
+'pascalprecht.translate', 'ui.bootstrap', 'ngRoute', 'ngAnimate'])
 .config(['$translateProvider', '$locationProvider', '$routeProvider', '$provide',
 function ($translateProvider, $locationProvider, $routeProvider, $provide) {
     $translateProvider.useLoader('resourceFactory', {});
