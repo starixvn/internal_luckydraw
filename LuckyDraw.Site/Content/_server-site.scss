@@ -492,20 +492,24 @@ body {
             @include order(3);
         }
      }
-
-     &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize {
-         .box-container {
-            padding: 10rem 1.6rem;
-         }
-    }
-
-	 &.super-grand-winner-details {
-		.prizePhoto .prize-order:nth-child(2) {
-			margin-right: 0;
-			@include align-self(flex-start);
-		}
-	  }
    }
+}
+
+@media (max-width: 1599px) {
+	.server-site {
+		&.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize {
+			 .box-container {
+				padding: 4rem;
+			 }
+		}
+
+		&.super-grand-winner-details {
+			.prizePhoto .prize-order:nth-child(2) {
+				margin-right: 0;
+				@include align-self(flex-start);
+			}
+		}
+	}	
 }
 
   @media (max-width: 320px) {
@@ -640,6 +644,7 @@ body {
 		}
 
 		.list-winner .winner .staff-info {
+			margin-bottom: 3.2rem;
 			white-space: nowrap;
 			@include align-with-flex(center, center, row, flex-start);
 
