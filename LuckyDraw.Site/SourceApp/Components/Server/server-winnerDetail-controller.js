@@ -206,7 +206,9 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
         }
     };
 
-    $.connection.hub.start();
+    $.connection.hub.start().done(function () {
+        hubProxy.server.sendCurrentPrizeTypeToServerControl(vm.prizeType);
+    });
 } ]);
 
 serverModule.controller('RemoveWinnerController',

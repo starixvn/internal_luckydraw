@@ -34,6 +34,11 @@ namespace LuckyDraw.Hubs
             Clients.All.getSignalConfirmFromServerControl(isOk, key);
         }
 
+        public void SendCurrentPrizeTypeToServerControl(int prizeType)
+        {
+            Clients.All.getCurrentPrizeType(prizeType);
+        }
+
         public void SendSignalEnter()
         {
             Clients.All.getSignalEnter();

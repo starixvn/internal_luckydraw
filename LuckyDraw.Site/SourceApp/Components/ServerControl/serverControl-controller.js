@@ -8,6 +8,10 @@ function (ServerControlModel) {
 
     var hubProxy = $.connection.hubs;
 
+    hubProxy.client.getCurrentPrizeType = function (prizeType) {
+        vm.currentPrizeType = prizeType;
+    };
+
     vm.sendSignalConfirm = function (isOk, key) {
         hubProxy.server.sendSignalConfirm(isOk, key);
     };
@@ -39,11 +43,15 @@ function (ServerControlModel) {
     }
 
     vm.ctrlD = function () {
-        ServerControlModel.openPopupConfirmRemoveAllWinner(vm);
+        if (vm.currentPrizeType === 2) {
+            ServerControlModel.openPopupConfirmRemoveAllWinner(vm);
+        }
     }
 
     vm.ctrlE = function () {
-        ServerControlModel.openPopupConfirmResetPrize(vm);
+        if (vm.currentPrizeType === 2) {
+            ServerControlModel.openPopupConfirmResetPrize(vm);
+        }
     }
 
     vm.moveUp = function () {
@@ -59,7 +67,9 @@ function (ServerControlModel) {
     }
 
     vm.sort = function () {
-        hubProxy.server.sendSignalCharacterS();
+        if (vm.currentPrizeType === 2) {
+            hubProxy.server.sendSignalCharacterS();
+        }
     }
 
     $.connection.hub.start();

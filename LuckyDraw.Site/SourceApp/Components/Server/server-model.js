@@ -214,6 +214,7 @@ function ($modal, serverFactory, notificationFactory, errorFactory) {
 
     serverModel.removeSpecialWinner = function (vm, staff, index) {
         if (((vm.prizeSetting.CurrentPrize * vm.prizeSetting.Multiply) < vm.prizeSetting.Quantity)
+                && vm.prizeSetting.CurrentPrize % 3 !== 0
                 && staff.Prize && staff.Prize.PrizeId > 0) {
             vm.prizeSetting.CurrentPrize += 1;
         }
