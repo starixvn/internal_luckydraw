@@ -11,10 +11,40 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
 
     vm.focusWinner = 4;
     vm.prizedWinners = [];
+    vm.signalFromServerControl = false;
 
     vm.winner1 = null;
     vm.winner2 = null;
     vm.winner3 = null;
+
+    var hubProxy = $.connection.hubs;
+
+    var sendMessageResponse = function (oldWinner, newWinner) {
+        var grade = parseInt(newWinner.StaffCode.substring(0, 2)),
+            message = '';
+
+        if (vm.winnerDetail.IsSamePrize) {
+            if (vm.prizedWinners.length > 2) {
+                message = 'Full winner.';
+            } else if (newWinner.StaffCode === oldWinner.StaffCode) {
+                message = 'Barcode duplicated.';
+            } else {
+                message = 'Group had winner.';
+            }
+        } else {
+            if (vm.winnerDetail.Winners.length > 2) {
+                message = 'Full winner.';
+            } else if (newWinner.StaffCode === oldWinner.StaffCode) {
+                message = 'Barcode duplicated.';
+            } else {
+                message = 'Group had winner.';
+            }
+        }
+
+        if (message.length > 0) {
+            ServerModel.sendMessageResponse(hubProxy, grade, message);
+        }
+    };
 
     var fillWinnerByPrizeNumber = function (winner, position, prizeIndex) {
         ServerModel.getPrizeNumber(prizeIndex).then(function () {
@@ -166,22 +196,35 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
 
     vm.removeSpecialWinner = function () {
         if (vm.focusWinner > 0 && vm.focusWinner < 4) {
-            var staff = null;
+            vm.staffInfoRemove = null;
 
             switch (vm.focusWinner) {
                 case 1:
-                    staff = vm.winner3;
+                    vm.staffInfoRemove = {
+                        staff: vm.winner3,
+                        index: 1
+                    };
                     break;
                 case 2:
-                    staff = vm.winner2;
+                    vm.staffInfoRemove = {
+                        staff: vm.winner2,
+                        index: 2
+                    };
                     break;
                 case 3:
-                    staff = vm.winner1;
+                    vm.staffInfoRemove = {
+                        staff: vm.winner1,
+                        index: 3
+                    };
                     break;
             }
 
-            if (staff) {
-                ServerModel.openPopupConfirmRemoveSpecialWinner(vm, staff, vm.focusWinner);
+            if (vm.staffInfoRemove) {
+                if (vm.signalFromServerControl) {
+                    hubProxy.server.sendStaffInfoToServerControl(vm.staffInfoRemove.staff);
+                } else {
+                    ServerModel.openPopupConfirmRemoveSpecialWinner(vm, vm.staffInfoRemove.staff, vm.staffInfoRemove.index);
+                }
             }
         }
     };
@@ -280,35 +323,6 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
                     });
                 }
             });
-        }
-    };
-
-    var hubProxy = $.connection.hubs;
-
-    var sendMessageResponse = function (oldWinner, newWinner) {
-        var grade = parseInt(newWinner.StaffCode.substring(0, 2)),
-            message = '';
-
-        if (vm.winnerDetail.IsSamePrize) {
-            if (vm.prizedWinners.length > 2) {
-                message = 'Full winner.';
-            } else if (newWinner.StaffCode === oldWinner.StaffCode) {
-                message = 'Barcode duplicated.';
-            } else {
-                message = 'Group had winner.';
-            }
-        } else {
-            if (vm.winnerDetail.Winners.length > 2) {
-                message = 'Full winner.';
-            } else if (newWinner.StaffCode === oldWinner.StaffCode) {
-                message = 'Barcode duplicated.';
-            } else {
-                message = 'Group had winner.';
-            }
-        }
-
-        if (message.length > 0) {
-            ServerModel.sendMessageResponse(hubProxy, grade, message);
         }
     };
 
@@ -415,7 +429,10 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
     };
 
     hubProxy.client.getSignalDelete = function () {
-        vm.removeSpecialWinner();
+        if (vm.focusWinner > 0 && vm.focusWinner < 4) {
+            vm.signalFromServerControl = true;
+            vm.removeSpecialWinner();
+        }
     };
 
     hubProxy.client.getSignalCtrlD = function () {
@@ -428,6 +445,22 @@ function ($window, $scope, $routeParams, ServerModel, CommonModel, baseUrl) {
 
     hubProxy.client.getSignalCharacterS = function () {
         vm.sortPrize();
+    };
+
+    hubProxy.client.getSignalConfirmFromServerControl = function (isOk, key) {
+        if (isOk) {
+            switch (key) {
+                case 'remove':
+                    ServerModel.removeSpecialWinner(vm, vm.staffInfoRemove.staff, vm.staffInfoRemove.index);
+                    break;
+                case 'remove-all':
+                    ServerModel.removeAllWinner(vm);
+                    break;
+                case 'reset':
+                    ServerModel.resetPrize(vm);
+                    break;
+            }
+        }
     };
 
     $.connection.hub.start();
@@ -452,6 +485,7 @@ serverModule.directive('superGrandWinnerDetailKeyboardEvent',
                         scope.winnerDetailCtrl.keyDownArrowEvent();
                         break;
                     case 46: // delete
+                        scope.winnerDetailCtrl.signalFromServerControl = false;
                         scope.winnerDetailCtrl.removeSpecialWinner();
                         break;
                     case 49: // 1

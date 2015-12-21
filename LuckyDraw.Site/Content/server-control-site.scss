@@ -48,9 +48,25 @@
 		min-height: 100%;
 		padding: 2rem;
 		position: relative;
-		width: 100%;	
+		width: 100%;
 	}
 }
+
+.modal-confirm {
+    background-color: transparent;
+    box-shadow: none;
+
+    .modal-content {
+        padding: 0;
+    }
+
+    .modal-footer {
+        .control-button {
+            margin: 0;
+            float: right;
+        }
+    }
+} 
 
 @media (max-width: 767px) {
 	.server-control {

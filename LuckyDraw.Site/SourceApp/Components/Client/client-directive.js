@@ -8,9 +8,6 @@ clientModule.directive('clientKeyboardEvent', function () {
                 event.preventDefault();
 
                 switch (event.which) {
-                    case 27: // asc
-                        scope.clientCtrl.redirectToDashboard();
-                        break;
                     case 48: // 0
                     case 49: // 1
                     case 50: // 2
@@ -32,20 +29,6 @@ clientModule.directive('clientKeyboardEvent', function () {
                             }
                         }
 
-                        break;
-                }
-            });
-        }
-    };
-});
-
-clientModule.directive('advancedKeyboardEvent', function () {
-    return {
-        link: function (scope, element, attrs) {
-            jQuery(document).on('keydown', function (event) {
-                switch (event.which) {
-                    case 27: // asc
-                        scope.advancedCtrl.redirectToDashboard();
                         break;
                 }
             });

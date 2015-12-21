@@ -38,10 +38,6 @@ function ($window, $scope, AdvancedModel, CommonModel, baseUrl) {
         return CommonModel.getStaff(vm.query);
     };
 
-    vm.redirectToDashboard = function () {
-        $window.location.href = '/';
-    };
-
     var hubProxy = $.connection.hubs;
 
     vm.sendStaffCode = function () {

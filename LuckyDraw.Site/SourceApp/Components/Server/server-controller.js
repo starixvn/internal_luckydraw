@@ -20,10 +20,6 @@ function ($window, CommonModel, baseUrl) {
 
     vm.initialize();
 
-    vm.redirectToDashboard = function () {
-        $window.location.href = '/';
-    };
-
     vm.redirectToAdhocPrize = function () {
         $window.location.href = baseUrl + 'Server/AdhocPrize/Index';
     };
@@ -31,17 +27,22 @@ function ($window, CommonModel, baseUrl) {
     var hubProxy = $.connection.hubs;
 
     hubProxy.client.getSignalNumber = function (number) {
-        if (number === 1) {
-            vm.redirectToPrizeList(2);
-        }
-        else if (number === 2) {
-            vm.redirectToPrizeList(3);
-        }
-        else if (number === 3) {
-            vm.redirectToPrizeList(4);
-        }
-        else if (number === 4) {
-            vm.redirectToPrizeList(5);
+        switch (number) {
+            case 1:
+                vm.redirectToPrizeList(2);
+                break;
+            case 2:
+                vm.redirectToPrizeList(3);
+                break;
+            case 3:
+                vm.redirectToPrizeList(4);
+                break;
+            case 4:
+                vm.redirectToPrizeList(5);
+                break;
+            case 5:
+                vm.redirectToAdhocPrize();
+                break;
         }
     };
 
@@ -56,9 +57,6 @@ serverModule.directive('serverKeyboardEvent',
                 event.preventDefault();
 
                 switch (event.which) {
-                    case 27: // asc
-                        scope.serverCtrl.redirectToDashboard();
-                        break;
                     case 49: // 1
                         scope.serverCtrl.redirectToPrizeList(2);
                         break;

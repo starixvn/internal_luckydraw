@@ -1,0 +1,29 @@
+﻿<div id="confirmPopup">
+    <div class="modal-header">
+        <div class="popup-header">
+            {{"Confirm" | translate}}
+            <span class="close-popup" ng-click="removeWinnerCtrl.cancel()"></span>
+        </div>
+    </div>
+    <div class="modal-body">
+        <div ng-if="removeWinnerCtrl.staff">
+            Are you sure you want to remove <b>{{removeWinnerCtrl.staff.FullName}}</b> from winner list?
+        </div>
+        <div ng-if="removeWinnerCtrl.isRemoveAll">
+            Are you sure you want to remove all winners from winner list?
+        </div>
+        <div ng-if="removeWinnerCtrl.isReset">
+            Are you sure you want to reset this prize?
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row control-button">
+            <div class="col">
+                <button class="waves-effect waves-light btn btn-primary" ng-click="removeWinnerCtrl.ok()" data-translate="OK"></button>
+            </div>
+            <div class="col">
+                <button class="waves-effect waves-light btn btn-default" ng-click="removeWinnerCtrl.cancel()" data-translate="Cancel"></button>
+            </div>
+        </div>
+    </div>
+</div>

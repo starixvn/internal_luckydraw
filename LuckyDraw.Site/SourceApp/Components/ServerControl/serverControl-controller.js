@@ -2,9 +2,21 @@
 /*global serverControlModule*/
 
 serverControlModule.controller('ServerControlController',
-[
-function () {
+['ServerControlModel',
+function (ServerControlModel) {
     var vm = this;
+
+    var hubProxy = $.connection.hubs;
+
+    vm.sendSignalConfirm = function (isOk, key) {
+        hubProxy.server.sendSignalConfirm(isOk, key);
+    };
+
+    hubProxy.client.getStaffInfo = function (staff) {
+        if (staff) {
+            ServerControlModel.openPopupConfirmRemoveWinner(vm, staff);
+        }
+    };
 
     vm.enter = function () {
         hubProxy.server.sendSignalEnter();
@@ -27,11 +39,11 @@ function () {
     }
 
     vm.ctrlD = function () {
-        hubProxy.server.sendSignalCtrlD();
+        ServerControlModel.openPopupConfirmRemoveAllWinner(vm);
     }
 
     vm.ctrlE = function () {
-        hubProxy.server.sendSignalCtrlE();
+        ServerControlModel.openPopupConfirmResetPrize(vm);
     }
 
     vm.moveUp = function () {
@@ -50,7 +62,23 @@ function () {
         hubProxy.server.sendSignalCharacterS();
     }
 
-    var hubProxy = $.connection.hubs;
-
     $.connection.hub.start();
+} ]);
+
+serverControlModule.controller('RemoveWinnerController',
+['$modalInstance', 'staff', 'isRemoveAll', 'isReset',
+function ($modalInstance, staff, isRemoveAll, isReset) {
+    var vm = this;
+
+    vm.staff = staff;
+    vm.isRemoveAll = isRemoveAll;
+    vm.isReset = isReset;
+
+    vm.ok = function () {
+        $modalInstance.close();
+    };
+
+    vm.cancel = function () {
+        $modalInstance.dismiss("cancel");
+    };
 } ]);

@@ -12,6 +12,26 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
     vm.greenStaff = null;
     vm.pinkStaff = null;
     vm.blueStaff = null;
+    vm.signalFromServerControl = false;
+
+    var hubProxy = $.connection.hubs;
+
+    var sendMessageResponse = function (oldWinner, newWinner) {
+        var grade = parseInt(newWinner.StaffCode.substring(0, 2)),
+            message = '';
+
+        if (vm.winnerDetail.Winners.length > 2) {
+            message = 'Full winner.';
+        } else if (newWinner.StaffCode === oldWinner.StaffCode) {
+            message = 'Barcode duplicated.';
+        } else {
+            message = 'Group had winner.';
+        }
+
+        if (message.length > 0) {
+            ServerModel.sendMessageResponse(hubProxy, grade, message);
+        }
+    };
 
     vm.getClassPrizeByPrizeType = function (prizeType) {
         return ServerModel.getClassPrizeByPrizeType(prizeType);
@@ -57,22 +77,41 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
     vm.initialize();
 
     vm.removeWinner = function (index) {
+        vm.staffInfoRemove = null;
+
         switch (index) {
             case 1:
                 if (vm.pinkStaff) {
-                    ServerModel.openPopupConfirmRemoveWinner(vm, vm.pinkStaff, index);
+                    vm.staffInfoRemove = {
+                        staff: vm.pinkStaff,
+                        index: index
+                    };
                 }
                 break;
             case 2:
                 if (vm.greenStaff) {
-                    ServerModel.openPopupConfirmRemoveWinner(vm, vm.greenStaff, index);
+                    vm.staffInfoRemove = {
+                        staff: vm.greenStaff,
+                        index: index
+                    };
                 }
                 break;
             case 3:
                 if (vm.blueStaff) {
-                    ServerModel.openPopupConfirmRemoveWinner(vm, vm.blueStaff, index);
+                    vm.staffInfoRemove = {
+                        staff: vm.blueStaff,
+                        index: index
+                    };
                 }
                 break;
+        }
+
+        if (vm.staffInfoRemove) {
+            if (vm.signalFromServerControl) {
+                hubProxy.server.sendStaffInfoToServerControl(vm.staffInfoRemove.staff);
+            } else {
+                ServerModel.openPopupConfirmRemoveWinner(vm, vm.staffInfoRemove.staff, vm.staffInfoRemove.index);
+            }
         }
     };
 
@@ -80,25 +119,6 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
         var path = baseUrl + 'Server/PrizeList/' + vm.prizeType;
 
         $window.location.href = path;
-    };
-
-    var hubProxy = $.connection.hubs;
-
-    var sendMessageResponse = function (oldWinner, newWinner) {
-        var grade = parseInt(newWinner.StaffCode.substring(0, 2)),
-            message = '';
-
-        if (vm.winnerDetail.Winners.length > 2) {
-            message = 'Full winner.';
-        } else if (newWinner.StaffCode === oldWinner.StaffCode) {
-            message = 'Barcode duplicated.';
-        } else {
-            message = 'Group had winner.';
-        }
-
-        if (message.length > 0) {
-            ServerModel.sendMessageResponse(hubProxy, grade, message);
-        }
     };
 
     vm.fillWinner = function (winner) {
@@ -174,7 +194,16 @@ function ($window, $routeParams, ServerModel, CommonModel, baseUrl) {
     };
 
     hubProxy.client.getSignalNumber = function (number) {
-        vm.removeWinner(number);
+        if (number > 0 && number < 4) {
+            vm.signalFromServerControl = true;
+            vm.removeWinner(number);
+        }
+    };
+
+    hubProxy.client.getSignalConfirmFromServerControl = function (isOk, key) {
+        if (isOk && key === 'remove') {
+            ServerModel.removeWinner(vm, vm.staffInfoRemove.staff, vm.staffInfoRemove.index);
+        }
     };
 
     $.connection.hub.start();
@@ -214,6 +243,7 @@ serverModule.directive('winnerDetailKeyboardEvent',
                     case 50: // 2
                     case 51: // 3
                         var number = parseInt(String.fromCharCode(event.which));
+                        scope.winnerDetailCtrl.signalFromServerControl = false;
                         scope.winnerDetailCtrl.removeWinner(number);
 
                         break;

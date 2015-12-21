@@ -15,6 +15,8 @@ function ($window, $scope, ServerModel, CommonModel, baseUrl) {
     vm.winners = [];
     vm.currentIndexFocus = -1;
 
+    var hubProxy = $.connection.hubs;
+
     vm.initializeListWinner = function () {
         vm.maxIndexFocus = 0;
 
@@ -127,6 +129,7 @@ function ($window, $scope, ServerModel, CommonModel, baseUrl) {
     };
 
     vm.keyUpArrowEvent = function () {
+        vm.keyLeftArrowEvent();
     };
 
     vm.keyRightArrowEvent = function () {
@@ -145,6 +148,7 @@ function ($window, $scope, ServerModel, CommonModel, baseUrl) {
     };
 
     vm.keyDownArrowEvent = function () {
+        vm.keyRightArrowEvent();
     };
 
     vm.removeWinner = function () {
@@ -155,8 +159,6 @@ function ($window, $scope, ServerModel, CommonModel, baseUrl) {
             ServerModel.openPopupConfirmRemoveAdhocWinner(vm, vm.winners[rowIndex][colIndex]);
         }
     };
-
-    var hubProxy = $.connection.hubs;
 
     hubProxy.client.getStaffCode = function (staffCode) {
         CommonModel.getStaffByCode(staffCode).then(function () {
@@ -195,6 +197,32 @@ function ($window, $scope, ServerModel, CommonModel, baseUrl) {
                 }
             }
         });
+    };
+
+    hubProxy.client.getSignalDelete = function () {
+        var rowIndex = parseInt(vm.currentIndexFocus / vm.numColumn),
+            colIndex = vm.currentIndexFocus % vm.numColumn;
+
+        if (vm.winnerDetail.Winners.length > 0 && vm.winners[rowIndex][colIndex] && vm.winners[rowIndex][colIndex].StaffId) {
+            vm.staffInfoRemove = vm.winners[rowIndex][colIndex];
+            hubProxy.server.sendStaffInfoToServerControl(vm.staffInfoRemove);
+        } else {
+            vm.staffInfoRemove = null;
+        }
+    };
+
+    hubProxy.client.getSignalMoveUp = function () {
+        vm.keyUpArrowEvent();
+    };
+
+    hubProxy.client.getSignalMoveDown = function () {
+        vm.keyDownArrowEvent();
+    };
+
+    hubProxy.client.getSignalConfirmFromServerControl = function (isOk, key) {
+        if (isOk && key === 'remove') {
+            ServerModel.removeAdhocWinner(vm, vm.staffInfoRemove);
+        }
     };
 
     $.connection.hub.start();

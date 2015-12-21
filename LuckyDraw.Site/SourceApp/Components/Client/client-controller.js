@@ -60,10 +60,6 @@ function ($scope, $window, $location, $routeParams, CommonModel, baseUrl) {
         return isValid;
     };
 
-    vm.redirectToDashboard = function () {
-        $window.location.href = '/';
-    };
-
     var hubProxy = $.connection.hubs;
 
     vm.getStaffByCode = function (staffCode) {

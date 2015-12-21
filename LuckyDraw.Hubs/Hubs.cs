@@ -9,6 +9,7 @@
 
 namespace LuckyDraw.Hubs
 {
+    using LuckyDraw.Models.Staff;
     using Microsoft.AspNet.SignalR;
 
     public class Hubs : Hub
@@ -21,6 +22,16 @@ namespace LuckyDraw.Hubs
         public void SendMessageResponse(int grade, string message)
         {
             Clients.All.getMessageResponse(grade, message);
+        }
+
+        public void SendStaffInfoToServerControl(StaffModel staff)
+        {
+            Clients.All.getStaffInfo(staff);
+        }
+
+        public void SendSignalConfirm(bool isOk, string key)
+        {
+            Clients.All.getSignalConfirmFromServerControl(isOk, key);
         }
 
         public void SendSignalEnter()

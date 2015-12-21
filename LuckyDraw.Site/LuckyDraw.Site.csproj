@@ -338,10 +338,12 @@
     <Content Include="SourceApp\Components\Common\common-factory.js" />
     <Content Include="SourceApp\Components\Dashboard\dashboard-controller.js" />
     <Content Include="SourceApp\Components\Dashboard\Templates\index.html" />
+    <Content Include="SourceApp\Components\ServerControl\serverControl-model.js" />
     <Content Include="SourceApp\Components\ServerControl\serverControl-controller.js" />
     <Content Include="SourceApp\Components\ServerControl\Templates\index.html" />
     <Content Include="SourceApp\Components\Resources\resources-controller.js" />
     <Content Include="SourceApp\Components\Resources\resources-factory.js" />
+    <Content Include="SourceApp\Components\ServerControl\Templates\modalConfirm.html" />
     <Content Include="SourceApp\Components\Server\server-adhocPrize-controller.js" />
     <Content Include="SourceApp\Components\Server\server-superGrandWinnerDetail-controller.js" />
     <Content Include="SourceApp\Components\Server\server-model.js" />
