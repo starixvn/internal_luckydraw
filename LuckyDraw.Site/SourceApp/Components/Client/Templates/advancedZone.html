@@ -3,37 +3,39 @@
         <img ng-src="{{advancedCtrl.baseUrl}}Images/logo-Luckydraw.png" src="" alt="LuckyDraw" class="img-responsive" />
     </div>
     <div class="box-container">
-        <div ng-show="advancedCtrl.unlockAdvancedZone" ng-class="advancedCtrl.getCssClass(advancedCtrl.staff.StaffCode)">
+        <div ng-show="advancedCtrl.unlockAdvancedZone">
             <div class="row search-autocomplete">
-                <input type="text" class="form-control" ng-model="advancedCtrl.query"
+                <div class="col-sm-10 col-sm-offset-1">
+                    <input type="text" class="form-control" ng-model="advancedCtrl.query"
                     placeholder="Enter code or full name or nick name or department"
                     search-auto-complete search-staffs="advancedCtrl.getStaff()" staff="advancedCtrl.staff" send-staff-code="advancedCtrl.sendStaffCode()" />
+                </div>                
             </div>
-            <div class="row staff-info">
+            <div class="row staff-info" ng-class="advancedCtrl.getCssClass(advancedCtrl.staff.StaffCode)">
                 <div class="avatar">
                     <img ng-show="!advancedCtrl.staff" ng-src="{{advancedCtrl.baseUrl}}Images/Winner/winner-pic.png" src="" alt="" class="unknown" />
                     <img ng-show="advancedCtrl.staff" ng-src="data:image/jpeg;base64,{{advancedCtrl.staff.Avatar}}" src="" alt="" class="img-responsive photo" />
                 </div>
-                <div class="info" ng-show="advancedCtrl.staff">
-                    <div class="col-sm-12">
-                        <div class="col-sm-4 label" data-translate="NickName"></div>
+                <div class="col-sm-10 info" ng-show="advancedCtrl.staff">
+                    <div class="row">
+                        <div class="col-sm-4" data-translate="NickName"></div>
                         <div class="col-sm-8 txt-nickname" ng-bind="advancedCtrl.staff.NickName"></div>
                     </div>
-                    <div class="col-sm-12">
-                        <div class="col-sm-4 label" data-translate="FullName"></div>
+                    <div class="row">
+                        <div class="col-sm-4" data-translate="FullName"></div>
                         <div class="col-sm-8" ng-bind="advancedCtrl.staff.FullName"></div>
                     </div>
-                    <div class="col-sm-12">
-                        <div class="col-sm-4 label" data-translate="Code"></div>
+                    <div class="row">
+                        <div class="col-sm-4" data-translate="Code"></div>
                         <div class="col-sm-8" ng-bind="advancedCtrl.staff.BarCode"></div>
                     </div>
-                    <div class="col-sm-12">
-                        <div class="col-sm-4 label" data-translate="Department"></div>
+                    <div class="row">
+                        <div class="col-sm-4" data-translate="Department"></div>
                         <div class="col-sm-8" ng-bind="advancedCtrl.staff.Department.Name"></div>
                     </div>
                 </div>
             </div>
-            <div class="row alert alert-danger" role="alert" ng-show="advancedCtrl.message">
+            <div class="alert alert-danger message-box" role="alert" ng-show="advancedCtrl.message">
                 <div class="text-center" ng-bind="advancedCtrl.message"></div>
             </div>
         </div>

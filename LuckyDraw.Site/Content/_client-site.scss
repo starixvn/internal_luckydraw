@@ -1,7 +1,7 @@
 @import "Common/jquery-ui.min.css";
 
 .client-site, .advanced-zone {
-    background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
+    background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;
     height: 100vh;
     padding: 20rem;
     width: 100vw;
@@ -20,55 +20,21 @@
         }
     }
 
-    .avatar {
-        border: .2rem solid;
-        background-color: #0e090d;
-        height: 15rem;
-        position: relative;
-        text-align: center;
-        width: 13rem;
-
-        &:after {
-            content: '';
-            margin: -2px;
-            outline: .1rem solid #ac7926;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 5;
-        }
-
-        .photo {
-            height: 100%;
-            width: 100%;
-        }
-
-        .unknown {
-            margin: 3.7rem 3.6rem;
-        }
-    }
-
     .staff-info {
         @include align-with-flex(center, center, row, center);
 
         .info {
             font-size: 2rem;
-
-            .txt-nickname {
-                font: {
-                    weight: bold;
-                }
-                margin: 0;
-            }
         }
     }
 
-    .alert {
-        margin-top: 2rem;
+	.message-box {
+		font-weight: bold;
+		margin: 0;
+		position: absolute;
         border-radius: unset;
-    }
+	}
+
 }
 
 .client-site {
@@ -86,25 +52,17 @@
     }
 
     &.default-client {
-        color: #ffe898;
-        @include avatar-border-color(#ffe898, #ac7926);
+        color: $text-color-default;
+        @include avatar-border-color($border-color-default, $outline-color-default);
     }
 
-    &.pink-client {
-        color: #fd7fbc;
-        @include avatar-border-color(#f8aad1, #f0549e);
-    }
-
-    &.green-client {
-        color: #42e884;
-        @include avatar-border-color(#8de1af, #19c25d);
-    }
-
-    &.blue-client {
-        color: #5e7bf3;
-        @include avatar-border-color(#95a8f7, #284eef);
-    }
+	.message-box {
+		bottom: -62px;
+		left: -10px;
+		right: -10px;
+	}
 }
+
 
 .advanced-zone {
     .row {
@@ -116,30 +74,13 @@
         width: 50%;
         margin-top: 5rem;
 
-        .default-staff, .pink-staff, .green-staff, .blue-staff {
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
+		.form-control {
+			@include border-radius(0);
 
-        .default-staff, .default-staff .label {
-            color: #ffe898;
-            @include avatar-border-color(#ffe898, #ac7926);
-        }
-
-        .pink-staff, .pink-staff .label {
-            color: #fd7fbc;
-            @include avatar-border-color(#f8aad1, #f0549e);
-        }
-
-        .green-staff, .green-staff .label {
-            color: #42e884;
-            @include avatar-border-color(#8de1af, #19c25d);
-        }
-
-        .blue-staff, .blue-staff .label {
-            color: #5e7bf3;
-            @include avatar-border-color(#95a8f7, #284eef);
-        }
+			&:focus {
+				border-color: #ffe898;
+			}
+		}
 
         .search-autocomplete {
             margin-bottom: 2rem;
@@ -150,7 +91,7 @@
                 overflow-x: hidden;
 
                 li.ui-menu-item {
-                    border-bottom: .1rem solid #cccccc;
+                    border-bottom: .1rem solid #ccc;
 
                     &.ui-state-focus {
                         background-color: #ffe898;
@@ -164,16 +105,19 @@
         }
 
         .staff-info {
-            .info {
-                margin-top: 2rem;
+			margin: 4rem 0 2rem;
 
-                .label {
-                    font-size: inherit;
-                    text-align: left;
-                }
+            .info {
+                margin-top: 3rem;
             }
         }
     }
+
+	.message-box {
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
 }
 
 .modal-secure {
@@ -197,41 +141,35 @@
 }
 
 @media (max-width: 1366px) {
-    .advanced-zone {
-        .box-container {
-            width: 80%;
-            padding: .5rem 0;
-            margin: 0;
-        }
+    .advanced-zone .box-container {
+		min-height: 52rem;
+        padding: 3rem 0;
     }
+
+	.client-site .box-container, .advanced-zone .box-container {
+		width: 80%;
+	}
 }
 
 @media (max-width: 1024px) {
-    .advanced-zone {
-        .box-container {
-            width: 95%;
-            padding: .5rem 0;
-            margin: 0;
-        }
+    .advanced-zone .box-container, .client-site .box-container {
+        width: 95%;
+        padding: 1.5rem 0;
     }
+
+	.client-site .staff-info .info {
+		margin-top: 3rem;
+	}
 }
 
 @media (max-width: 960px) {
-    .advanced-zone {
+    .advanced-zone, .client-site {
         padding: 10rem;
-
-        .box-container {
-            width: 95%;
-        }
     }
 }
 
 @media (max-width: 768px) {
-    .advanced-zone {
+    .advanced-zone, .client-site {
         padding: 8rem;
-
-        .box-container {
-            height: 95%;
-        }
     }
 }

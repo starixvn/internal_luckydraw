@@ -1,6 +1,7 @@
 ﻿@import "Common/bootstrap";
 @import "Common/toastr";
-@import "Common/_mixins.scss";
+@import "Common/_variables";
+@import "Common/_mixins";
 @import "dashboard";
 @import "client-site";
 @import "server-site";
@@ -19,25 +20,25 @@
 
 /* slide in from the right */
 @keyframes slideInRight {
-    from    { transform: translateX(100%); }
+    from    { transform: translateX(90%); }
     to      { transform: translateX(0); }
 }
 @-moz-keyframes slideInRight {
-    from    { -moz-transform: translateX(100%); }
+    from    { -moz-transform: translateX(90%); }
     to      { -moz-transform: translateX(0); }
 }
 @-webkit-keyframes slideInRight {
-    from    { -webkit-transform: translateX(100%); }
+    from    { -webkit-transform: translateX(90%); }
     to      { -webkit-transform: translateX(0); }
 }
 
 /* slide in from the bottom */
 @keyframes slideOutLeft {
-    to      { transform: translateX(-100%); }
+    to      { transform: translateX(-90%); }
 }
 @-moz-keyframes slideOutLeft {  
-    to      { -moz-transform: translateX(-100%); }
+    to      { -moz-transform: translateX(-90%); }
 }
 @-webkit-keyframes slideOutLeft {
-    to      { -webkit-transform: translateX(-100%); }
+    to      { -webkit-transform: translateX(-90%); }
 }

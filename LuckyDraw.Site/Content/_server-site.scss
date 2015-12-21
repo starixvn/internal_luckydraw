@@ -1,5 +1,5 @@
 body {
-    background-color: #000;
+    background-color: $site-background-color;
 }
 
 .server-site {
@@ -30,17 +30,7 @@ body {
             bottom: 7.5rem;
         }
     }
-
-    .listPrize {
-        float: none;
-		width: 100%;
-        @include align-with-flex(center, center, row, center);
-
-        .prize {
-            margin: 0.8rem;
-        }
-    }
-
+    
     &.super-grand-prize {
         background: url(../Images/bg-supergrandprize.jpg) no-repeat center center fixed;
     }
@@ -56,6 +46,20 @@ body {
     &.cash-prize {
         background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
     }
+
+	&.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
+	&.winner-details, &.super-grand-winner-details, &.adhoc-prize {
+        padding: 5rem;
+        @include align-with-flex(center, center, row, center);
+        @include background-size(cover);
+    }
+
+    &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize {
+         .box-container {
+            padding-left: 18rem;
+            @include align-with-flex(center, center, row, center);
+         }
+    }
     
     &.winner-details, &.super-grand-winner-details {
         .box-container {
@@ -67,6 +71,26 @@ body {
         .winnerList {
             @include align-with-flex(flex-start, flex-start, column, center);
         }
+
+		.staff-info {
+			margin: 2.4rem 1.6rem 2.4rem 0;
+
+			.info {
+				font-size: $info-font-size-lg;
+				padding-left: 2rem;
+
+				.txt-nickname {
+					font: {
+						weight: bold;
+						size: $nickname-font-size-lg;
+					}
+				}            
+
+				.txt-fullname {
+					margin-bottom: 3rem;
+				}
+			}
+		}
     }
 
     &.super-grand-winner-details {
@@ -78,18 +102,6 @@ body {
                     margin-right: 6rem;
                     @include align-self(flex-end);
                 }
-            }
-        }
-
-        .staff-info.focus {
-            .avatar {
-                border-color: #fafafa;
-                outline: .1rem solid #f5f5f5;
-                @include box-shadow(0, 0, 1.6rem, #f5f5f5);
-            }
-
-            .photo {
-                border: .1rem solid #fafafa;
             }
         }
 
@@ -130,7 +142,6 @@ body {
         .current-winner {
             .staff-info {
 				color: #efe548;
-				margin: 0;
 
                 .avatar {
                     width: 30.6rem;
@@ -142,16 +153,13 @@ body {
                 }
 
 				.info {
-					font-size: 3.2rem;
+					font-size: $adhoc-current-info-font-size-lg;
 					margin: 5rem 0 1rem;
 					text-align: center;
+					min-height: 10rem;
 
 					.txt-nickname {
-						font-size: 4.5rem;
-					}
-
-					.txt-fullname {
-						margin-bottom: 0;
+						font-size: $adhoc-current-nickname-font-size-lg;
 					}
 				}
             }            
@@ -159,50 +167,40 @@ body {
 
 		.quantity {
             font: {
-			    size: 10rem;
+			    size: $adhoc-quantity-font-size-lg;
 				weight: bold;
 			}
-            color: #efe548;
-			left: 17rem;
+			color: #efe548;
 			text-align: center;
-			position: absolute;
-			bottom: 3rem;
+			position: relative;
+			bottom: -7rem;
         }
 
         .list-winner {
 			margin-left: 3rem;
 			@include align-with-flex(flex-start, flex-start, row, flex-start);
 
+			&:first-child {
+				margin-bottom: 4rem;
+			}
+
             .winner {
 				margin-left: 1rem;
 				margin-right: 1rem;
 
-                .staff-info {					
-					margin-top: 0;					
-					@include align-items(flex-start);
-
-					&.focus {
-						.avatar {
-							border-color: #fafafa;
-							outline: .1rem solid #f5f5f5;
-							@include box-shadow(0, 0, 1.6rem, #f5f5f5);
-						}
-
-						.photo {
-							border: .1rem solid #fafafa;
-						}
-					}
+                .staff-info {			
+					@include align-items(flex-start);					
 				}
 
 				.info {
-					font-size: 1.6rem;
-					margin: 2.5rem 0 1rem;
-					min-height: 14rem;
+					font-size: $adhoc-info-font-size-lg;
+					margin: 3rem 0 0;
+					min-height: 13rem;
 					position: relative;
 					width: 100%;
 
 					.txt-nickname, .txt-department {
-						font-size: 2rem;
+						font-size: $adhoc-nickname-font-size-lg;
 					}
 
 					.txt-fullname {
@@ -218,18 +216,14 @@ body {
         }
     }
 
-    &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize, &.winner-details, &.super-grand-winner-details, &.adhoc-prize {
-        padding: 5rem;
+	.listPrize {
+        float: none;
+		width: 100%;
         @include align-with-flex(center, center, row, center);
-        @include background-size(cover);
-    }
 
-    &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize {
-         .box-container {
-            padding-left: 18rem;
-            padding-right: 18rem;
-            @include align-with-flex(center, center, row, center);
-         }
+        .prize {
+            margin: 0.8rem;
+        }
     }
 
     .logo-prize {
@@ -272,81 +266,82 @@ body {
 			float: right;
 		}
     }
+}
 
-	.staff-info {
-        margin: 2.4rem 1.6rem 2.4rem 0;
-        @include align-with-flex(center, center, row, flex-start);
+.staff-info {
+	color: $text-color-default;        
+    @include align-with-flex(center, center, row, flex-start);
 
-        .avatar {
-            border: .2rem solid #f6ee89;
-            background-color: #0e090d;
-            height: 14.6rem;
-            position: relative;
-            text-align: center;
-            width: 12.6rem;
-            @include box-shadow(0, 0, 1.6rem, #ffea99);
+    .avatar {
+        border: .2rem solid $border-color-default;
+        background-color: $background-color-default;
+        height: 14.6rem;
+        position: relative;
+        text-align: center;
+        width: 12.6rem;
+        @include box-shadow(0, 0, 1.6rem, $outline-color-default);
 
-            &:after {
-                content: '';
-                margin: -2px;
-                outline: .1rem solid #ac7926;
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 5;
-            }
-
-            .photo {
-                height: 100%;
-                width: 100%;
-            }
-
-            .unknown {
-                margin: 3.7rem 3.6rem;
-            }
+        &:after {
+			bottom: 0;
+            content: '';
+			left: 0;
+            margin: -2px;
+            outline: .1rem solid $outline-color-default;
+            position: absolute;                                
+            right: 0;
+			top: 0;             
+            z-index: 5;
         }
 
-        &.pink-staff {
-            color: #fd7fbc;
-            @include avatar-border-color(#f8aad1, #f0549e);
+        .photo {
+            height: 100%;
+            width: 100%;
         }
 
-        &.green-staff {
-            color: #42e884;
-            @include avatar-border-color(#8de1af, #19c25d);
-        }
-
-        &.blue-staff {
-            color: #5e7bf3;
-            @include avatar-border-color(#95a8f7, #284eef);
-        }
-
-        .info {
-            font: {
-                weight: 600;
-                size: 2rem;
-            }
-            padding-left: 2rem;
-
-            .txt-nickname {
-                font: {
-                    weight: bold;
-                    size: 3rem;
-                }
-                margin: 0;
-            }
-
-            p {
-                margin-bottom: 0;
-            }
-
-            .txt-fullname {
-                margin-bottom: 3rem;
-            }
+        .unknown {
+            margin: 3.7rem 3rem;
         }
     }
+
+    &.pink-staff {
+        color: $text-color-pink;
+        @include avatar-border-color($border-color-pink, $outline-color-pink);
+    }
+
+    &.green-staff {
+        color: $text-color-green;
+        @include avatar-border-color($border-color-green, $outline-color-green);
+    }
+
+    &.blue-staff {
+        color: $text-color-blue;
+        @include avatar-border-color($border-color-blue, $outline-color-blue);
+    }
+
+	&.focus {
+		.avatar {
+			border-color: $border-color-focus;
+			outline: .1rem solid $outline-color-focus;
+			@include box-shadow(0, 0, 1.6rem, $outline-color-focus);
+		}
+
+		.photo {
+			border: .1rem solid $border-color-focus;
+		}
+	}
+
+	.info {
+		font-weight: 600;
+			
+		.txt-nickname {
+			font-weight: bold;
+			margin: 0;
+		}
+
+		p {
+            margin-bottom: 0;
+        }
+	}
 }
 
 .box-container {
@@ -379,7 +374,7 @@ body {
 }
 
 /* Resolution */
-@media (min-width: 320px) and (max-width: 1599px),
+@media (min-width: 321px) and (max-width: 1599px),
        (min-height: 768px) and (max-height: 899px) {	
 	.server-site {
 		.logo-prize {
@@ -437,11 +432,11 @@ body {
 				margin-left: 0;
 
 				.winner .info {
-					font-size: 1.4rem;
+					font-size: $adhoc-info-font-size-md;
 					min-height: 9rem;
 
 					.txt-nickname, .txt-department {
-						font-size: 1.8rem;
+						font-size: adhoc-nickname-font-size-md;
 					}
 				}
 			}
@@ -458,17 +453,17 @@ body {
 				}
 
 				.info {
-					font-size: 2.2rem;
+					font-size: $adhoc-current-info-font-size-md;
 
 					.txt-nickname {
-						font-size: 3.5rem;
+						font-size: $adhoc-current-nickname-font-size-md;
 					}
 				}
 			}
 
 			.quantity {
 				bottom: 1rem;
-				font-size: 8rem;
+				font-size: $adhoc-quantity-font-size-md;
 				left: 14rem;
 			}
 		}
@@ -610,10 +605,10 @@ body {
 			}
 
 			.info {
-				font-size: 1.4rem;
+				font-size: $info-font-size-md;
 
 				.txt-nickname {
-					font-size: 2rem;
+					font-size: $nickname-font-size-md;
 				}
 			}
 		}
@@ -639,7 +634,7 @@ body {
 
 		.quantity {
 			bottom: auto;
-			font-size: 8rem;
+			font-size: $adhoc-quantity-font-size-md;
 			left: 2rem;
 			top: 0;
 		}

@@ -6099,7 +6099,7 @@ button.toast-close-button {
     .dashboard .box-container {
       height: 90%; } }
 .client-site, .advanced-zone {
-  background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
+  background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;
   height: 100vh;
   padding: 20rem;
   width: 100vw;
@@ -6146,28 +6146,6 @@ button.toast-close-button {
     text-align: center; }
     .client-site .logo-opening img, .advanced-zone .logo-opening img {
       display: inline-block; }
-  .client-site .avatar, .advanced-zone .avatar {
-    border: .2rem solid;
-    background-color: #0e090d;
-    height: 15rem;
-    position: relative;
-    text-align: center;
-    width: 13rem; }
-    .client-site .avatar:after, .advanced-zone .avatar:after {
-      content: '';
-      margin: -2px;
-      outline: .1rem solid #ac7926;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 5; }
-    .client-site .avatar .photo, .advanced-zone .avatar .photo {
-      height: 100%;
-      width: 100%; }
-    .client-site .avatar .unknown, .advanced-zone .avatar .unknown {
-      margin: 3.7rem 3.6rem; }
   .client-site .staff-info, .advanced-zone .staff-info {
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -6200,11 +6178,10 @@ button.toast-close-button {
     justify-content: center; }
     .client-site .staff-info .info, .advanced-zone .staff-info .info {
       font-size: 2rem; }
-      .client-site .staff-info .info .txt-nickname, .advanced-zone .staff-info .info .txt-nickname {
-        font-weight: bold;
-        margin: 0; }
-  .client-site .alert, .advanced-zone .alert {
-    margin-top: 2rem;
+  .client-site .message-box, .advanced-zone .message-box {
+    font-weight: bold;
+    margin: 0;
+    position: absolute;
     border-radius: unset; }
 
 .client-site .box-container {
@@ -6256,48 +6233,10 @@ button.toast-close-button {
       outline-color: #ac7926; }
   .client-site.default-client .photo {
     border: 0.1rem solid #ac7926; }
-.client-site.pink-client {
-  color: #fd7fbc; }
-  .client-site.pink-client .avatar {
-    border-color: #f8aad1;
-    -webkit-box-shadow: 0 0 1.6rem #f0549e;
-    -khtml-box-shadow: 0 0 1.6rem #f0549e;
-    -moz-box-shadow: 0 0 1.6rem #f0549e;
-    -ms-box-shadow: 0 0 1.6rem #f0549e;
-    -o-box-shadow: 0 0 1.6rem #f0549e;
-    box-shadow: 0 0 1.6rem #f0549e; }
-    .client-site.pink-client .avatar:after {
-      outline-color: #f0549e; }
-  .client-site.pink-client .photo {
-    border: 0.1rem solid #f0549e; }
-.client-site.green-client {
-  color: #42e884; }
-  .client-site.green-client .avatar {
-    border-color: #8de1af;
-    -webkit-box-shadow: 0 0 1.6rem #19c25d;
-    -khtml-box-shadow: 0 0 1.6rem #19c25d;
-    -moz-box-shadow: 0 0 1.6rem #19c25d;
-    -ms-box-shadow: 0 0 1.6rem #19c25d;
-    -o-box-shadow: 0 0 1.6rem #19c25d;
-    box-shadow: 0 0 1.6rem #19c25d; }
-    .client-site.green-client .avatar:after {
-      outline-color: #19c25d; }
-  .client-site.green-client .photo {
-    border: 0.1rem solid #19c25d; }
-.client-site.blue-client {
-  color: #5e7bf3; }
-  .client-site.blue-client .avatar {
-    border-color: #95a8f7;
-    -webkit-box-shadow: 0 0 1.6rem #284eef;
-    -khtml-box-shadow: 0 0 1.6rem #284eef;
-    -moz-box-shadow: 0 0 1.6rem #284eef;
-    -ms-box-shadow: 0 0 1.6rem #284eef;
-    -o-box-shadow: 0 0 1.6rem #284eef;
-    box-shadow: 0 0 1.6rem #284eef; }
-    .client-site.blue-client .avatar:after {
-      outline-color: #284eef; }
-  .client-site.blue-client .photo {
-    border: 0.1rem solid #284eef; }
+.client-site .message-box {
+  bottom: -62px;
+  left: -10px;
+  right: -10px; }
 
 .advanced-zone .row {
   margin: 0; }
@@ -6305,65 +6244,15 @@ button.toast-close-button {
   min-height: 60rem;
   width: 50%;
   margin-top: 5rem; }
-  .advanced-zone .box-container .default-staff, .advanced-zone .box-container .pink-staff, .advanced-zone .box-container .green-staff, .advanced-zone .box-container .blue-staff {
-    padding-left: 2rem;
-    padding-right: 2rem; }
-  .advanced-zone .box-container .default-staff, .advanced-zone .box-container .default-staff .label {
-    color: #ffe898; }
-    .advanced-zone .box-container .default-staff .avatar, .advanced-zone .box-container .default-staff .label .avatar {
-      border-color: #ffe898;
-      -webkit-box-shadow: 0 0 1.6rem #ac7926;
-      -khtml-box-shadow: 0 0 1.6rem #ac7926;
-      -moz-box-shadow: 0 0 1.6rem #ac7926;
-      -ms-box-shadow: 0 0 1.6rem #ac7926;
-      -o-box-shadow: 0 0 1.6rem #ac7926;
-      box-shadow: 0 0 1.6rem #ac7926; }
-      .advanced-zone .box-container .default-staff .avatar:after, .advanced-zone .box-container .default-staff .label .avatar:after {
-        outline-color: #ac7926; }
-    .advanced-zone .box-container .default-staff .photo, .advanced-zone .box-container .default-staff .label .photo {
-      border: 0.1rem solid #ac7926; }
-  .advanced-zone .box-container .pink-staff, .advanced-zone .box-container .pink-staff .label {
-    color: #fd7fbc; }
-    .advanced-zone .box-container .pink-staff .avatar, .advanced-zone .box-container .pink-staff .label .avatar {
-      border-color: #f8aad1;
-      -webkit-box-shadow: 0 0 1.6rem #f0549e;
-      -khtml-box-shadow: 0 0 1.6rem #f0549e;
-      -moz-box-shadow: 0 0 1.6rem #f0549e;
-      -ms-box-shadow: 0 0 1.6rem #f0549e;
-      -o-box-shadow: 0 0 1.6rem #f0549e;
-      box-shadow: 0 0 1.6rem #f0549e; }
-      .advanced-zone .box-container .pink-staff .avatar:after, .advanced-zone .box-container .pink-staff .label .avatar:after {
-        outline-color: #f0549e; }
-    .advanced-zone .box-container .pink-staff .photo, .advanced-zone .box-container .pink-staff .label .photo {
-      border: 0.1rem solid #f0549e; }
-  .advanced-zone .box-container .green-staff, .advanced-zone .box-container .green-staff .label {
-    color: #42e884; }
-    .advanced-zone .box-container .green-staff .avatar, .advanced-zone .box-container .green-staff .label .avatar {
-      border-color: #8de1af;
-      -webkit-box-shadow: 0 0 1.6rem #19c25d;
-      -khtml-box-shadow: 0 0 1.6rem #19c25d;
-      -moz-box-shadow: 0 0 1.6rem #19c25d;
-      -ms-box-shadow: 0 0 1.6rem #19c25d;
-      -o-box-shadow: 0 0 1.6rem #19c25d;
-      box-shadow: 0 0 1.6rem #19c25d; }
-      .advanced-zone .box-container .green-staff .avatar:after, .advanced-zone .box-container .green-staff .label .avatar:after {
-        outline-color: #19c25d; }
-    .advanced-zone .box-container .green-staff .photo, .advanced-zone .box-container .green-staff .label .photo {
-      border: 0.1rem solid #19c25d; }
-  .advanced-zone .box-container .blue-staff, .advanced-zone .box-container .blue-staff .label {
-    color: #5e7bf3; }
-    .advanced-zone .box-container .blue-staff .avatar, .advanced-zone .box-container .blue-staff .label .avatar {
-      border-color: #95a8f7;
-      -webkit-box-shadow: 0 0 1.6rem #284eef;
-      -khtml-box-shadow: 0 0 1.6rem #284eef;
-      -moz-box-shadow: 0 0 1.6rem #284eef;
-      -ms-box-shadow: 0 0 1.6rem #284eef;
-      -o-box-shadow: 0 0 1.6rem #284eef;
-      box-shadow: 0 0 1.6rem #284eef; }
-      .advanced-zone .box-container .blue-staff .avatar:after, .advanced-zone .box-container .blue-staff .label .avatar:after {
-        outline-color: #284eef; }
-    .advanced-zone .box-container .blue-staff .photo, .advanced-zone .box-container .blue-staff .label .photo {
-      border: 0.1rem solid #284eef; }
+  .advanced-zone .box-container .form-control {
+    -webkit-border-radius: 0;
+    -khtml-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    border-radius: 0; }
+    .advanced-zone .box-container .form-control:focus {
+      border-color: #ffe898; }
   .advanced-zone .box-container .search-autocomplete {
     margin-bottom: 2rem; }
     .advanced-zone .box-container .search-autocomplete ul.ui-autocomplete {
@@ -6371,16 +6260,19 @@ button.toast-close-button {
       overflow-y: auto;
       overflow-x: hidden; }
       .advanced-zone .box-container .search-autocomplete ul.ui-autocomplete li.ui-menu-item {
-        border-bottom: .1rem solid #cccccc; }
+        border-bottom: .1rem solid #ccc; }
         .advanced-zone .box-container .search-autocomplete ul.ui-autocomplete li.ui-menu-item.ui-state-focus {
           background-color: #ffe898; }
         .advanced-zone .box-container .search-autocomplete ul.ui-autocomplete li.ui-menu-item:last-child {
           border-bottom: none; }
-  .advanced-zone .box-container .staff-info .info {
-    margin-top: 2rem; }
-    .advanced-zone .box-container .staff-info .info .label {
-      font-size: inherit;
-      text-align: left; }
+  .advanced-zone .box-container .staff-info {
+    margin: 4rem 0 2rem; }
+    .advanced-zone .box-container .staff-info .info {
+      margin-top: 3rem; }
+.advanced-zone .message-box {
+  bottom: 0;
+  left: 0;
+  right: 0; }
 
 .modal-secure {
   -webkit-display: flex !important;
@@ -6400,24 +6292,24 @@ button.toast-close-button {
 
 @media (max-width: 1366px) {
   .advanced-zone .box-container {
-    width: 80%;
-    padding: .5rem 0;
-    margin: 0; } }
+    min-height: 52rem;
+    padding: 3rem 0; }
+
+  .client-site .box-container, .advanced-zone .box-container {
+    width: 80%; } }
 @media (max-width: 1024px) {
-  .advanced-zone .box-container {
+  .advanced-zone .box-container, .client-site .box-container {
     width: 95%;
-    padding: .5rem 0;
-    margin: 0; } }
+    padding: 1.5rem 0; }
+
+  .client-site .staff-info .info {
+    margin-top: 3rem; } }
 @media (max-width: 960px) {
-  .advanced-zone {
-    padding: 10rem; }
-    .advanced-zone .box-container {
-      width: 95%; } }
+  .advanced-zone, .client-site {
+    padding: 10rem; } }
 @media (max-width: 768px) {
-  .advanced-zone {
-    padding: 8rem; }
-    .advanced-zone .box-container {
-      height: 95%; } }
+  .advanced-zone, .client-site {
+    padding: 8rem; } }
 body {
   background-color: #000; }
 
@@ -6449,9 +6341,53 @@ body {
     top: 2rem; }
   .server-site.opening .list-prize-opening {
     bottom: 7.5rem; }
-  .server-site .listPrize {
-    float: none;
-    width: 100%;
+  .server-site.super-grand-prize {
+    background: url(../Images/bg-supergrandprize.jpg) no-repeat center center fixed; }
+  .server-site.grand-prize {
+    background: url(../Images/bg-grandprize.jpg) no-repeat center center fixed; }
+  .server-site.major-prize {
+    background: url(../Images/bg-majorprize.jpg) no-repeat center center fixed; }
+  .server-site.cash-prize {
+    background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed; }
+  .server-site.cash-prize, .server-site.major-prize, .server-site.grand-prize, .server-site.super-grand-prize, .server-site.winner-details, .server-site.super-grand-winner-details, .server-site.adhoc-prize {
+    padding: 5rem;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    align-items: center;
+    -webkit-align-content: center;
+    -moz-align-content: center;
+    -ms-flex-line-pack: center;
+    align-content: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    -webkit-background-size: cover;
+    -khtml-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
+  .server-site.cash-prize .box-container, .server-site.major-prize .box-container, .server-site.grand-prize .box-container, .server-site.super-grand-prize .box-container {
+    padding-left: 18rem;
     -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
@@ -6481,16 +6417,6 @@ body {
     -webkit-justify-content: center;
     -moz-justify-content: center;
     justify-content: center; }
-    .server-site .listPrize .prize {
-      margin: 0.8rem; }
-  .server-site.super-grand-prize {
-    background: url(../Images/bg-supergrandprize.jpg) no-repeat center center fixed; }
-  .server-site.grand-prize {
-    background: url(../Images/bg-grandprize.jpg) no-repeat center center fixed; }
-  .server-site.major-prize {
-    background: url(../Images/bg-majorprize.jpg) no-repeat center center fixed; }
-  .server-site.cash-prize {
-    background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed; }
   .server-site.winner-details .box-container, .server-site.super-grand-winner-details .box-container {
     padding-left: 16.4rem;
     padding-right: 6rem;
@@ -6553,6 +6479,16 @@ body {
     -webkit-justify-content: center;
     -moz-justify-content: center;
     justify-content: center; }
+  .server-site.winner-details .staff-info, .server-site.super-grand-winner-details .staff-info {
+    margin: 2.4rem 1.6rem 2.4rem 0; }
+    .server-site.winner-details .staff-info .info, .server-site.super-grand-winner-details .staff-info .info {
+      font-size: 2rem;
+      padding-left: 2rem; }
+      .server-site.winner-details .staff-info .info .txt-nickname, .server-site.super-grand-winner-details .staff-info .info .txt-nickname {
+        font-weight: bold;
+        font-size: 3rem; }
+      .server-site.winner-details .staff-info .info .txt-fullname, .server-site.super-grand-winner-details .staff-info .info .txt-fullname {
+        margin-bottom: 3rem; }
   .server-site.super-grand-winner-details .prizePhoto {
     -webkit-box-align: start;
     -ms-flex-align: start;
@@ -6589,17 +6525,6 @@ body {
       -moz-align-self: flex-end;
       -ms-flex-item-align: end;
       align-self: flex-end; }
-  .server-site.super-grand-winner-details .staff-info.focus .avatar {
-    border-color: #fafafa;
-    outline: .1rem solid #f5f5f5;
-    -webkit-box-shadow: 0 0 1.6rem #f5f5f5;
-    -khtml-box-shadow: 0 0 1.6rem #f5f5f5;
-    -moz-box-shadow: 0 0 1.6rem #f5f5f5;
-    -ms-box-shadow: 0 0 1.6rem #f5f5f5;
-    -o-box-shadow: 0 0 1.6rem #f5f5f5;
-    box-shadow: 0 0 1.6rem #f5f5f5; }
-  .server-site.super-grand-winner-details .staff-info.focus .photo {
-    border: .1rem solid #fafafa; }
   .server-site.super-grand-winner-details .avatar {
     position: relative; }
   .server-site.super-grand-winner-details .prize-number {
@@ -6652,8 +6577,7 @@ body {
       .server-site.adhoc-prize .staff-info .info {
         padding-left: 0; }
     .server-site.adhoc-prize .current-winner .staff-info {
-      color: #efe548;
-      margin: 0; }
+      color: #efe548; }
       .server-site.adhoc-prize .current-winner .staff-info .avatar {
         width: 30.6rem;
         height: 34.4rem; }
@@ -6662,19 +6586,17 @@ body {
       .server-site.adhoc-prize .current-winner .staff-info .info {
         font-size: 3.2rem;
         margin: 5rem 0 1rem;
-        text-align: center; }
+        text-align: center;
+        min-height: 10rem; }
         .server-site.adhoc-prize .current-winner .staff-info .info .txt-nickname {
           font-size: 4.5rem; }
-        .server-site.adhoc-prize .current-winner .staff-info .info .txt-fullname {
-          margin-bottom: 0; }
     .server-site.adhoc-prize .quantity {
       font-size: 10rem;
       font-weight: bold;
       color: #efe548;
-      left: 17rem;
       text-align: center;
-      position: absolute;
-      bottom: 3rem; }
+      position: relative;
+      bottom: -7rem; }
     .server-site.adhoc-prize .list-winner {
       margin-left: 3rem;
       -webkit-box-align: start;
@@ -6706,31 +6628,21 @@ body {
       -webkit-justify-content: flex-start;
       -moz-justify-content: flex-start;
       justify-content: flex-start; }
+      .server-site.adhoc-prize .list-winner:first-child {
+        margin-bottom: 4rem; }
       .server-site.adhoc-prize .list-winner .winner {
         margin-left: 1rem;
         margin-right: 1rem; }
         .server-site.adhoc-prize .list-winner .winner .staff-info {
-          margin-top: 0;
           -webkit-box-align: start;
           -ms-flex-align: start;
           -webkit-align-items: flex-start;
           -moz-align-items: flex-start;
           align-items: flex-start; }
-          .server-site.adhoc-prize .list-winner .winner .staff-info.focus .avatar {
-            border-color: #fafafa;
-            outline: .1rem solid #f5f5f5;
-            -webkit-box-shadow: 0 0 1.6rem #f5f5f5;
-            -khtml-box-shadow: 0 0 1.6rem #f5f5f5;
-            -moz-box-shadow: 0 0 1.6rem #f5f5f5;
-            -ms-box-shadow: 0 0 1.6rem #f5f5f5;
-            -o-box-shadow: 0 0 1.6rem #f5f5f5;
-            box-shadow: 0 0 1.6rem #f5f5f5; }
-          .server-site.adhoc-prize .list-winner .winner .staff-info.focus .photo {
-            border: .1rem solid #fafafa; }
         .server-site.adhoc-prize .list-winner .winner .info {
           font-size: 1.6rem;
-          margin: 2.5rem 0 1rem;
-          min-height: 14rem;
+          margin: 3rem 0 0;
+          min-height: 13rem;
           position: relative;
           width: 100%; }
           .server-site.adhoc-prize .list-winner .winner .info .txt-nickname, .server-site.adhoc-prize .list-winner .winner .info .txt-department {
@@ -6740,46 +6652,9 @@ body {
           .server-site.adhoc-prize .list-winner .winner .info .txt-department {
             position: absolute;
             bottom: 0; }
-  .server-site.cash-prize, .server-site.major-prize, .server-site.grand-prize, .server-site.super-grand-prize, .server-site.winner-details, .server-site.super-grand-winner-details, .server-site.adhoc-prize {
-    padding: 5rem;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    align-items: center;
-    -webkit-align-content: center;
-    -moz-align-content: center;
-    -ms-flex-line-pack: center;
-    align-content: center;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    -webkit-flex-direction: row;
-    -moz-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: wrap;
-    -moz-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    justify-content: center;
-    -webkit-background-size: cover;
-    -khtml-background-size: cover;
-    -moz-background-size: cover;
-    -ms-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; }
-  .server-site.cash-prize .box-container, .server-site.major-prize .box-container, .server-site.grand-prize .box-container, .server-site.super-grand-prize .box-container {
-    padding-left: 18rem;
-    padding-right: 18rem;
+  .server-site .listPrize {
+    float: none;
+    width: 100%;
     -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
@@ -6809,6 +6684,8 @@ body {
     -webkit-justify-content: center;
     -moz-justify-content: center;
     justify-content: center; }
+    .server-site .listPrize .prize {
+      margin: 0.8rem; }
   .server-site .logo-prize {
     position: absolute;
     z-index: 5; }
@@ -6834,119 +6711,126 @@ body {
     z-index: 5; }
     .server-site .logo-small img {
       float: right; }
-  .server-site .staff-info {
-    margin: 2.4rem 1.6rem 2.4rem 0;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    align-items: center;
-    -webkit-align-content: center;
-    -moz-align-content: center;
-    -ms-flex-line-pack: center;
-    align-content: center;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    -webkit-flex-direction: row;
-    -moz-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: wrap;
-    -moz-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    -webkit-justify-content: flex-start;
-    -moz-justify-content: flex-start;
-    justify-content: flex-start; }
-    .server-site .staff-info .avatar {
-      border: .2rem solid #f6ee89;
-      background-color: #0e090d;
-      height: 14.6rem;
-      position: relative;
-      text-align: center;
-      width: 12.6rem;
-      -webkit-box-shadow: 0 0 1.6rem #ffea99;
-      -khtml-box-shadow: 0 0 1.6rem #ffea99;
-      -moz-box-shadow: 0 0 1.6rem #ffea99;
-      -ms-box-shadow: 0 0 1.6rem #ffea99;
-      -o-box-shadow: 0 0 1.6rem #ffea99;
-      box-shadow: 0 0 1.6rem #ffea99; }
-      .server-site .staff-info .avatar:after {
-        content: '';
-        margin: -2px;
-        outline: .1rem solid #ac7926;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 5; }
-      .server-site .staff-info .avatar .photo {
-        height: 100%;
-        width: 100%; }
-      .server-site .staff-info .avatar .unknown {
-        margin: 3.7rem 3.6rem; }
-    .server-site .staff-info.pink-staff {
-      color: #fd7fbc; }
-      .server-site .staff-info.pink-staff .avatar {
-        border-color: #f8aad1;
-        -webkit-box-shadow: 0 0 1.6rem #f0549e;
-        -khtml-box-shadow: 0 0 1.6rem #f0549e;
-        -moz-box-shadow: 0 0 1.6rem #f0549e;
-        -ms-box-shadow: 0 0 1.6rem #f0549e;
-        -o-box-shadow: 0 0 1.6rem #f0549e;
-        box-shadow: 0 0 1.6rem #f0549e; }
-        .server-site .staff-info.pink-staff .avatar:after {
-          outline-color: #f0549e; }
-      .server-site .staff-info.pink-staff .photo {
-        border: 0.1rem solid #f0549e; }
-    .server-site .staff-info.green-staff {
-      color: #42e884; }
-      .server-site .staff-info.green-staff .avatar {
-        border-color: #8de1af;
-        -webkit-box-shadow: 0 0 1.6rem #19c25d;
-        -khtml-box-shadow: 0 0 1.6rem #19c25d;
-        -moz-box-shadow: 0 0 1.6rem #19c25d;
-        -ms-box-shadow: 0 0 1.6rem #19c25d;
-        -o-box-shadow: 0 0 1.6rem #19c25d;
-        box-shadow: 0 0 1.6rem #19c25d; }
-        .server-site .staff-info.green-staff .avatar:after {
-          outline-color: #19c25d; }
-      .server-site .staff-info.green-staff .photo {
-        border: 0.1rem solid #19c25d; }
-    .server-site .staff-info.blue-staff {
-      color: #5e7bf3; }
-      .server-site .staff-info.blue-staff .avatar {
-        border-color: #95a8f7;
-        -webkit-box-shadow: 0 0 1.6rem #284eef;
-        -khtml-box-shadow: 0 0 1.6rem #284eef;
-        -moz-box-shadow: 0 0 1.6rem #284eef;
-        -ms-box-shadow: 0 0 1.6rem #284eef;
-        -o-box-shadow: 0 0 1.6rem #284eef;
-        box-shadow: 0 0 1.6rem #284eef; }
-        .server-site .staff-info.blue-staff .avatar:after {
-          outline-color: #284eef; }
-      .server-site .staff-info.blue-staff .photo {
-        border: 0.1rem solid #284eef; }
-    .server-site .staff-info .info {
-      font-weight: 600;
-      font-size: 2rem;
-      padding-left: 2rem; }
-      .server-site .staff-info .info .txt-nickname {
-        font-weight: bold;
-        font-size: 3rem;
-        margin: 0; }
-      .server-site .staff-info .info p {
-        margin-bottom: 0; }
-      .server-site .staff-info .info .txt-fullname {
-        margin-bottom: 3rem; }
+
+.staff-info {
+  color: #ffe898;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: flex-start;
+  -moz-justify-content: flex-start;
+  justify-content: flex-start; }
+  .staff-info .avatar {
+    border: 0.2rem solid #ffe898;
+    background-color: #0e090d;
+    height: 14.6rem;
+    position: relative;
+    text-align: center;
+    width: 12.6rem;
+    -webkit-box-shadow: 0 0 1.6rem #ac7926;
+    -khtml-box-shadow: 0 0 1.6rem #ac7926;
+    -moz-box-shadow: 0 0 1.6rem #ac7926;
+    -ms-box-shadow: 0 0 1.6rem #ac7926;
+    -o-box-shadow: 0 0 1.6rem #ac7926;
+    box-shadow: 0 0 1.6rem #ac7926; }
+    .staff-info .avatar:after {
+      bottom: 0;
+      content: '';
+      left: 0;
+      margin: -2px;
+      outline: 0.1rem solid #ac7926;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 5; }
+    .staff-info .avatar .photo {
+      height: 100%;
+      width: 100%; }
+    .staff-info .avatar .unknown {
+      margin: 3.7rem 3rem; }
+  .staff-info.pink-staff {
+    color: #fd7fbc; }
+    .staff-info.pink-staff .avatar {
+      border-color: #f8aad1;
+      -webkit-box-shadow: 0 0 1.6rem #f0549e;
+      -khtml-box-shadow: 0 0 1.6rem #f0549e;
+      -moz-box-shadow: 0 0 1.6rem #f0549e;
+      -ms-box-shadow: 0 0 1.6rem #f0549e;
+      -o-box-shadow: 0 0 1.6rem #f0549e;
+      box-shadow: 0 0 1.6rem #f0549e; }
+      .staff-info.pink-staff .avatar:after {
+        outline-color: #f0549e; }
+    .staff-info.pink-staff .photo {
+      border: 0.1rem solid #f0549e; }
+  .staff-info.green-staff {
+    color: #42e884; }
+    .staff-info.green-staff .avatar {
+      border-color: #8de1af;
+      -webkit-box-shadow: 0 0 1.6rem #19c25d;
+      -khtml-box-shadow: 0 0 1.6rem #19c25d;
+      -moz-box-shadow: 0 0 1.6rem #19c25d;
+      -ms-box-shadow: 0 0 1.6rem #19c25d;
+      -o-box-shadow: 0 0 1.6rem #19c25d;
+      box-shadow: 0 0 1.6rem #19c25d; }
+      .staff-info.green-staff .avatar:after {
+        outline-color: #19c25d; }
+    .staff-info.green-staff .photo {
+      border: 0.1rem solid #19c25d; }
+  .staff-info.blue-staff {
+    color: #5e7bf3; }
+    .staff-info.blue-staff .avatar {
+      border-color: #95a8f7;
+      -webkit-box-shadow: 0 0 1.6rem #284eef;
+      -khtml-box-shadow: 0 0 1.6rem #284eef;
+      -moz-box-shadow: 0 0 1.6rem #284eef;
+      -ms-box-shadow: 0 0 1.6rem #284eef;
+      -o-box-shadow: 0 0 1.6rem #284eef;
+      box-shadow: 0 0 1.6rem #284eef; }
+      .staff-info.blue-staff .avatar:after {
+        outline-color: #284eef; }
+    .staff-info.blue-staff .photo {
+      border: 0.1rem solid #284eef; }
+  .staff-info.focus .avatar {
+    border-color: #fafafa;
+    outline: 0.1rem solid #f5f5f5;
+    -webkit-box-shadow: 0 0 1.6rem #f5f5f5;
+    -khtml-box-shadow: 0 0 1.6rem #f5f5f5;
+    -moz-box-shadow: 0 0 1.6rem #f5f5f5;
+    -ms-box-shadow: 0 0 1.6rem #f5f5f5;
+    -o-box-shadow: 0 0 1.6rem #f5f5f5;
+    box-shadow: 0 0 1.6rem #f5f5f5; }
+  .staff-info.focus .photo {
+    border: 0.1rem solid #fafafa; }
+  .staff-info .info {
+    font-weight: 600; }
+    .staff-info .info .txt-nickname {
+      font-weight: bold;
+      margin: 0; }
+    .staff-info .info p {
+      margin-bottom: 0; }
 
 .box-container {
   background: rgba(0, 0, 0, 0.9);
@@ -6974,7 +6858,7 @@ body {
     -ms-flex-item-align: start;
     align-self: flex-start; } }
 /* Resolution */
-@media (min-width: 320px) and (max-width: 1599px), (min-height: 768px) and (max-height: 899px) {
+@media (min-width: 321px) and (max-width: 1599px), (min-height: 768px) and (max-height: 899px) {
   .server-site .logo-prize.super-grand img, .server-site .logo-prize.grand img, .server-site .logo-prize.major img, .server-site .logo-prize.cash img, .server-site .logo-prize.adhoc img {
     width: 70%; }
   .server-site .logo-prize.adhoc {
@@ -7007,7 +6891,7 @@ body {
       font-size: 1.4rem;
       min-height: 9rem; }
       .server-site.adhoc-prize .list-winner .winner .info .txt-nickname, .server-site.adhoc-prize .list-winner .winner .info .txt-department {
-        font-size: 1.8rem; }
+        font-size: adhoc-nickname-font-size-md; }
   .server-site.adhoc-prize .current-winner .staff-info .avatar {
     width: 20.6rem;
     height: 24.4rem; }
@@ -7187,28 +7071,28 @@ body {
 /* slide in from the right */
 @keyframes slideInRight {
   from {
-    transform: translateX(100%); }
+    transform: translateX(90%); }
   to {
     transform: translateX(0); } }
 @-moz-keyframes slideInRight {
   from {
-    -moz-transform: translateX(100%); }
+    -moz-transform: translateX(90%); }
   to {
     -moz-transform: translateX(0); } }
 @-webkit-keyframes slideInRight {
   from {
-    -webkit-transform: translateX(100%); }
+    -webkit-transform: translateX(90%); }
   to {
     -webkit-transform: translateX(0); } }
 /* slide in from the bottom */
 @keyframes slideOutLeft {
   to {
-    transform: translateX(-100%); } }
+    transform: translateX(-90%); } }
 @-moz-keyframes slideOutLeft {
   to {
-    -moz-transform: translateX(-100%); } }
+    -moz-transform: translateX(-90%); } }
 @-webkit-keyframes slideOutLeft {
   to {
-    -webkit-transform: translateX(-100%); } }
+    -webkit-transform: translateX(-90%); } }
 
 /*# sourceMappingURL=Site.css.map */
