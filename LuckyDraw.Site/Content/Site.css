@@ -7052,47 +7052,26 @@ body {
 .main-view.ng-enter {
   z-index: 8888; }
 
-.main-view.ng-leave {
-  -webkit-animation: slideOutLeft 0.5s both ease-in;
-  -khtml-animation: slideOutLeft 0.5s both ease-in;
-  -moz-animation: slideOutLeft 0.5s both ease-in;
-  -ms-animation: slideOutLeft 0.5s both ease-in;
-  -o-animation: slideOutLeft 0.5s both ease-in;
-  animation: slideOutLeft 0.5s both ease-in; }
-
 .main-view.ng-enter {
-  -webkit-animation: slideInRight 0.5s both ease-in;
-  -khtml-animation: slideInRight 0.5s both ease-in;
-  -moz-animation: slideInRight 0.5s both ease-in;
-  -ms-animation: slideInRight 0.5s both ease-in;
-  -o-animation: slideInRight 0.5s both ease-in;
-  animation: slideInRight 0.5s both ease-in; }
+  -webkit-animation: scaleUp 0.3s both ease-in;
+  -khtml-animation: scaleUp 0.3s both ease-in;
+  -moz-animation: scaleUp 0.3s both ease-in;
+  -ms-animation: scaleUp 0.3s both ease-in;
+  -o-animation: scaleUp 0.3s both ease-in;
+  animation: scaleUp 0.3s both ease-in; }
 
-/* slide in from the right */
-@keyframes slideInRight {
+/* scale up */
+@keyframes scaleUp {
   from {
-    transform: translateX(90%); }
-  to {
-    transform: translateX(0); } }
-@-moz-keyframes slideInRight {
+    opacity: 0.3;
+    transform: scale(0.8); } }
+@-moz-keyframes scaleUp {
   from {
-    -moz-transform: translateX(90%); }
-  to {
-    -moz-transform: translateX(0); } }
-@-webkit-keyframes slideInRight {
+    opacity: 0.3;
+    -moz-transform: scale(0.8); } }
+@-webkit-keyframes scaleUp {
   from {
-    -webkit-transform: translateX(90%); }
-  to {
-    -webkit-transform: translateX(0); } }
-/* slide in from the bottom */
-@keyframes slideOutLeft {
-  to {
-    transform: translateX(-90%); } }
-@-moz-keyframes slideOutLeft {
-  to {
-    -moz-transform: translateX(-90%); } }
-@-webkit-keyframes slideOutLeft {
-  to {
-    -webkit-transform: translateX(-90%); } }
+    opacity: 0.3;
+    -webkit-transform: scale(0.8); } }
 
 /*# sourceMappingURL=Site.css.map */
