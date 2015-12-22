@@ -16,11 +16,11 @@
 
 /* scale up */
 @keyframes scaleUp {
-    from        { opacity: 0.3; transform: scale(0.8); }
+    from        { opacity: 0.3; transform: scale(0.6); }
 }
 @-moz-keyframes scaleUp {
-    from        { opacity: 0.3; -moz-transform: scale(0.8); }
+    from        { opacity: 0.3; -moz-transform: scale(0.6); }
 }
 @-webkit-keyframes scaleUp {
-    from        { opacity: 0.3; -webkit-transform: scale(0.8); }
+    from        { opacity: 0.3; -webkit-transform: scale(0.6); }
 }

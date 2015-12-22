@@ -51,34 +51,6 @@
         }
     }
 
-	&.pink-client {        
-        @include avatar-border-color($border-color-pink, $outline-color-pink);
-
-		.staff-info {
-			color: $text-color-pink;
-		}
-    }
-
-    &.green-client {
-        @include avatar-border-color($border-color-green, $outline-color-green);
-
-		.staff-info {
-			color: $text-color-green;
-		}
-    }
-
-    &.blue-client {
-        @include avatar-border-color($border-color-blue, $outline-color-blue);
-
-		.staff-info {
-			color: $text-color-blue;
-		}
-    }
-
-    &.default-client {
-        @include avatar-border-color($border-color-default, $outline-color-default);
-    }
-
 	.message-box {
 		bottom: -62px;
 		left: -10px;

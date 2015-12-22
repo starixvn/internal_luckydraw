@@ -6219,60 +6219,6 @@ button.toast-close-button {
 .client-site .staff-info .info {
   padding-left: 2rem;
   width: 50rem; }
-.client-site.pink-client .avatar {
-  border-color: #f8aad1;
-  -webkit-box-shadow: 0 0 1.6rem #f0549e;
-  -khtml-box-shadow: 0 0 1.6rem #f0549e;
-  -moz-box-shadow: 0 0 1.6rem #f0549e;
-  -ms-box-shadow: 0 0 1.6rem #f0549e;
-  -o-box-shadow: 0 0 1.6rem #f0549e;
-  box-shadow: 0 0 1.6rem #f0549e; }
-  .client-site.pink-client .avatar:after {
-    outline-color: #f0549e; }
-.client-site.pink-client .photo {
-  border: 0.1rem solid #f0549e; }
-.client-site.pink-client .staff-info {
-  color: #fd7fbc; }
-.client-site.green-client .avatar {
-  border-color: #8de1af;
-  -webkit-box-shadow: 0 0 1.6rem #19c25d;
-  -khtml-box-shadow: 0 0 1.6rem #19c25d;
-  -moz-box-shadow: 0 0 1.6rem #19c25d;
-  -ms-box-shadow: 0 0 1.6rem #19c25d;
-  -o-box-shadow: 0 0 1.6rem #19c25d;
-  box-shadow: 0 0 1.6rem #19c25d; }
-  .client-site.green-client .avatar:after {
-    outline-color: #19c25d; }
-.client-site.green-client .photo {
-  border: 0.1rem solid #19c25d; }
-.client-site.green-client .staff-info {
-  color: #42e884; }
-.client-site.blue-client .avatar {
-  border-color: #95a8f7;
-  -webkit-box-shadow: 0 0 1.6rem #284eef;
-  -khtml-box-shadow: 0 0 1.6rem #284eef;
-  -moz-box-shadow: 0 0 1.6rem #284eef;
-  -ms-box-shadow: 0 0 1.6rem #284eef;
-  -o-box-shadow: 0 0 1.6rem #284eef;
-  box-shadow: 0 0 1.6rem #284eef; }
-  .client-site.blue-client .avatar:after {
-    outline-color: #284eef; }
-.client-site.blue-client .photo {
-  border: 0.1rem solid #284eef; }
-.client-site.blue-client .staff-info {
-  color: #5e7bf3; }
-.client-site.default-client .avatar {
-  border-color: #ffe898;
-  -webkit-box-shadow: 0 0 1.6rem #ac7926;
-  -khtml-box-shadow: 0 0 1.6rem #ac7926;
-  -moz-box-shadow: 0 0 1.6rem #ac7926;
-  -ms-box-shadow: 0 0 1.6rem #ac7926;
-  -o-box-shadow: 0 0 1.6rem #ac7926;
-  box-shadow: 0 0 1.6rem #ac7926; }
-  .client-site.default-client .avatar:after {
-    outline-color: #ac7926; }
-.client-site.default-client .photo {
-  border: 0.1rem solid #ac7926; }
 .client-site .message-box {
   bottom: -62px;
   left: -10px;
@@ -7092,14 +7038,14 @@ body {
 @keyframes scaleUp {
   from {
     opacity: 0.3;
-    transform: scale(0.8); } }
+    transform: scale(0.6); } }
 @-moz-keyframes scaleUp {
   from {
     opacity: 0.3;
-    -moz-transform: scale(0.8); } }
+    -moz-transform: scale(0.6); } }
 @-webkit-keyframes scaleUp {
   from {
     opacity: 0.3;
-    -webkit-transform: scale(0.8); } }
+    -webkit-transform: scale(0.6); } }
 
 /*# sourceMappingURL=Site.css.map */

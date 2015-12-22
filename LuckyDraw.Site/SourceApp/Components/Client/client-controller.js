@@ -28,24 +28,24 @@ function ($scope, $window, $location, $routeParams, CommonModel, baseUrl) {
 
     vm.initialize();
 
-    vm.getClient = function () {
-        var client = 'default-client';
+    vm.getCssClass = function () {
+        var result = '';
 
         if (vm.grade) {
             switch (vm.grade) {
                 case 10:
-                    client = 'pink-client';
+                    result = 'pink-staff';
                     break;
                 case 11:
-                    client = 'green-client';
+                    result = 'green-staff';
                     break;
                 case 12:
-                    client = 'blue-client';
+                    result = 'blue-staff';
                     break;
             }
         }
 
-        return client;
+        return result;
     };
 
     vm.checkStaffCodeByGrade = function (staffCode) {
