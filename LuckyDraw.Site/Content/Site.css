@@ -6138,6 +6138,8 @@ button.toast-close-button {
   -ms-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
+  .client-site .box-container, .advanced-zone .box-container {
+    width: 70%; }
   .client-site .logo-opening, .advanced-zone .logo-opening {
     left: 0;
     right: 0;
@@ -6146,47 +6148,19 @@ button.toast-close-button {
     text-align: center; }
     .client-site .logo-opening img, .advanced-zone .logo-opening img {
       display: inline-block; }
-  .client-site .staff-info, .advanced-zone .staff-info {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    align-items: center;
-    -webkit-align-content: center;
-    -moz-align-content: center;
-    -ms-flex-line-pack: center;
-    align-content: center;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-direction: normal;
-    -webkit-box-orient: horizontal;
-    -webkit-flex-direction: row;
-    -moz-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-flex-wrap: wrap;
-    -moz-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    justify-content: center; }
-    .client-site .staff-info .info, .advanced-zone .staff-info .info {
-      font-size: 2rem; }
   .client-site .message-box, .advanced-zone .message-box {
+    background-color: #00020a;
+    border: .1rem solid #c5b35a;
+    color: #cc1c19;
+    font-size: 2.4rem;
     font-weight: bold;
     margin: 0;
+    padding: 1.5rem;
     position: absolute;
     border-radius: unset; }
 
 .client-site .box-container {
   min-height: 50rem;
-  width: 70%;
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
@@ -6216,21 +6190,56 @@ button.toast-close-button {
   -webkit-justify-content: center;
   -moz-justify-content: center;
   justify-content: center; }
-.client-site .staff-info .info {
-  padding-left: 2rem;
-  width: 50rem; }
+.client-site .staff-info {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  align-items: center;
+  -webkit-align-content: center;
+  -moz-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  justify-content: center; }
+  .client-site .staff-info .info {
+    font-size: 2rem;
+    line-height: 3rem;
+    padding-left: 2rem;
+    width: 60rem; }
 .client-site .message-box {
-  bottom: -62px;
-  left: -10px;
-  right: -10px; }
+  bottom: -8rem;
+  left: -1rem;
+  right: -1rem; }
 
-.advanced-zone .row {
-  margin: 0; }
 .advanced-zone .box-container {
   min-height: 60rem;
-  width: 50%;
-  margin-top: 5rem; }
+  margin-top: 5rem;
+  padding-top: 4rem; }
   .advanced-zone .box-container .form-control {
+    background-color: #02040f;
+    border: .1rem solid #c5b35a;
+    color: #8e886a;
+    font-size: 1.8rem;
+    height: 5rem;
     -webkit-border-radius: 0;
     -khtml-border-radius: 0;
     -moz-border-radius: 0;
@@ -6239,22 +6248,51 @@ button.toast-close-button {
     border-radius: 0; }
     .advanced-zone .box-container .form-control:focus {
       border-color: #ffe898; }
+    .advanced-zone .box-container .form-control::-webkit-input-placeholder {
+      color: #8e886a; }
+    .advanced-zone .box-container .form-control:-moz-placeholder {
+      /* FF 4-18 */
+      color: #8e886a; }
+    .advanced-zone .box-container .form-control::-moz-placeholder {
+      /* FF 19+ */
+      color: #8e886a; }
+    .advanced-zone .box-container .form-control:-ms-input-placeholder {
+      /* IE 10+ */
+      color: #8e886a; }
   .advanced-zone .box-container .search-autocomplete {
     margin-bottom: 2rem; }
     .advanced-zone .box-container .search-autocomplete ul.ui-autocomplete {
+      background: rgba(0, 0, 0, 0.9);
+      border: .1rem solid #c5b35a;
+      color: #fee047;
+      font-size: 1.6rem;
       max-height: 33rem;
       overflow-y: auto;
       overflow-x: hidden; }
       .advanced-zone .box-container .search-autocomplete ul.ui-autocomplete li.ui-menu-item {
-        border-bottom: .1rem solid #ccc; }
+        border-bottom: .1rem solid #c5b35a;
+        padding: 1rem; }
         .advanced-zone .box-container .search-autocomplete ul.ui-autocomplete li.ui-menu-item.ui-state-focus {
           background-color: #ffe898; }
         .advanced-zone .box-container .search-autocomplete ul.ui-autocomplete li.ui-menu-item:last-child {
           border-bottom: none; }
   .advanced-zone .box-container .staff-info {
-    margin: 4rem 0 2rem; }
+    margin: 5rem 0 2rem;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column; }
     .advanced-zone .box-container .staff-info .info {
-      margin-top: 3rem; }
+      font-size: 2.4rem;
+      margin-top: 2.5rem;
+      text-align: center; }
 .advanced-zone .message-box {
   bottom: 0;
   left: 0;
@@ -6280,6 +6318,10 @@ button.toast-close-button {
   .advanced-zone .box-container {
     min-height: 52rem;
     padding: 3rem 0; }
+    .advanced-zone .box-container .staff-info {
+      margin-top: 3.5rem; }
+      .advanced-zone .box-container .staff-info .info {
+        margin-top: 1.5rem; }
 
   .client-site .box-container, .advanced-zone .box-container {
     width: 80%; } }

@@ -21,16 +21,12 @@
                     <div class="col-sm-8" ng-bind="clientCtrl.staff.FullName"></div>
                 </div>
                 <div class="col-sm-12 line">
-                    <div class="col-sm-4" data-translate="Code"></div>
-                    <div class="col-sm-8" ng-bind="clientCtrl.staff.BarCode"></div>
-                </div>
-                <div class="col-sm-12 line">
                     <div class="col-sm-4" data-translate="Department"></div>
                     <div class="col-sm-8" ng-bind="clientCtrl.staff.Department.Name"></div>
                 </div>
             </div>
         </div>
-        <div class="alert alert-danger message-box" role="alert" ng-if="clientCtrl.message">
+        <div class="message-box" role="alert" ng-if="clientCtrl.message">
             <div class="text-center" ng-bind="clientCtrl.message"></div>
         </div>
     </div>

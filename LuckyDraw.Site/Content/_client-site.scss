@@ -8,6 +8,10 @@
     @include align-with-flex(center, center, row, center);
     @include background-size(cover);
 
+	.box-container {
+		width: 70%;
+	}
+	
     .logo-opening {
         left: 0;
         right: 0;
@@ -20,60 +24,82 @@
         }
     }
 
-    .staff-info {
-        @include align-with-flex(center, center, row, center);
-
-        .info {
-            font-size: 2rem;
-        }
-    }
-
 	.message-box {
-		font-weight: bold;
+		background-color: #00020a;
+		border: .1rem solid #c5b35a;
+		color: #cc1c19;
+		font: {
+			size: 2.4rem;
+			weight: bold;
+		}
 		margin: 0;
+		padding: 1.5rem;
 		position: absolute;
         border-radius: unset;
 	}
-
 }
 
 .client-site {
     .box-container {
         min-height: 50rem;
-        width: 70%;
         @include align-with-flex(center, center, row, center);
     }
 
     .staff-info {
+		@include align-with-flex(center, center, row, center);
+
         .info {
+			font-size: 2rem;
+			line-height: 3rem;
             padding-left: 2rem;
-            width: 50rem;
+            width: 60rem;
         }
     }
 
 	.message-box {
-		bottom: -62px;
-		left: -10px;
-		right: -10px;
+		bottom: -8rem;
+		left: -1rem;
+		right: -1rem;
 	}
 }
 
 
 .advanced-zone {
-    .row {
-        margin: 0;
-    }
-
     .box-container {
-        min-height: 60rem;
-        width: 50%;
+        min-height: 60rem;        
         margin-top: 5rem;
+		padding-top: 4rem;
+		
 
 		.form-control {
+			background-color: #02040f;
+			border: .1rem solid #c5b35a;
+			color: #8e886a;
+			font-size: 1.8rem;
+			height: 5rem;
 			@include border-radius(0);
 
 			&:focus {
 				border-color: #ffe898;
+			}
+
+			&::-webkit-input-placeholder {
+				color: #8e886a;
+			}
+
+			&:-moz-placeholder {
+				/* FF 4-18 */
+			   color: #8e886a;
+			}
+
+			&::-moz-placeholder {
+				/* FF 19+ */
+				color: #8e886a;
+			}
+
+			&:-ms-input-placeholder {
+				/* IE 10+ */
+				color: #8e886a;
 			}
 		}
 
@@ -81,12 +107,17 @@
             margin-bottom: 2rem;
 
             ul.ui-autocomplete {
+				background: rgba(0, 0, 0, .9);
+				border: .1rem solid #c5b35a;
+				color: #fee047;
+				font-size: 1.6rem;
                 max-height: 33rem;
                 overflow-y: auto;
                 overflow-x: hidden;
 
                 li.ui-menu-item {
-                    border-bottom: .1rem solid #ccc;
+                    border-bottom: .1rem solid #c5b35a;
+					padding: 1rem;
 
                     &.ui-state-focus {
                         background-color: #ffe898;
@@ -100,16 +131,20 @@
         }
 
         .staff-info {
-			margin: 4rem 0 2rem;
+			margin: 5rem 0 2rem;
+			@include justify-content(center);
+			@include flex-direction(column);
 
             .info {
-                margin-top: 3rem;
+				font-size: 2.4rem;
+                margin-top: 2.5rem;
+				text-align: center;
             }
         }
     }
 
-	.message-box {
-		bottom: 0;
+	.message-box {		
+		bottom: 0;		
 		left: 0;
 		right: 0;
 	}
@@ -139,6 +174,14 @@
     .advanced-zone .box-container {
 		min-height: 52rem;
         padding: 3rem 0;
+
+		.staff-info {
+			margin-top: 3.5rem;
+
+			.info {
+				margin-top: 1.5rem;
+			}
+		}
     }
 
 	.client-site .box-container, .advanced-zone .box-container {
