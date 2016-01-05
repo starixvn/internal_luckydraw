@@ -7173,7 +7173,8 @@ body {
         margin: 5rem 2.6rem;
         width: 55%; }
     .server-site.adhoc-prize .current-winner .staff-info .info {
-      font-size: 2.2rem; }
+      font-size: 2.2rem;
+      margin: 3rem 0 3rem; }
       .server-site.adhoc-prize .current-winner .staff-info .info .txt-nickname {
         font-size: 3.5rem; }
     .server-site.adhoc-prize .quantity {
