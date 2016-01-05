@@ -6742,6 +6742,8 @@ body {
     justify-content: center; }
     .server-site .listPrize .prize {
       margin: 0.8rem; }
+    .server-site .listPrize .transparent {
+      opacity: .5; }
   .server-site .logo-prize {
     position: absolute;
     z-index: 5; }
@@ -6871,13 +6873,14 @@ body {
       border: 0.1rem solid #284eef; }
   .staff-info.focus .avatar {
     border-color: #fafafa;
-    outline: 0.1rem solid #f5f5f5;
     -webkit-box-shadow: 0 0 1.6rem #f5f5f5;
     -khtml-box-shadow: 0 0 1.6rem #f5f5f5;
     -moz-box-shadow: 0 0 1.6rem #f5f5f5;
     -ms-box-shadow: 0 0 1.6rem #f5f5f5;
     -o-box-shadow: 0 0 1.6rem #f5f5f5;
     box-shadow: 0 0 1.6rem #f5f5f5; }
+    .staff-info.focus .avatar:after {
+      outline: 0.1rem solid #f5f5f5; }
   .staff-info.focus .photo {
     border: 0.1rem solid #fafafa; }
   .staff-info .info {
@@ -7152,7 +7155,7 @@ body {
       top: -13rem; }
     .server-site .logo-small {
       right: -2.4rem;
-      bottom: -4rem; }
+      bottom: -4.5rem; }
       .server-site .logo-small img {
         width: 85%; }
     .server-site.adhoc-prize .staff-info .avatar {

@@ -224,6 +224,10 @@ body {
         .prize {
             margin: 0.8rem;
         }
+
+		.transparent {
+			opacity: .5;
+		}
     }
 
     .logo-prize {
@@ -321,8 +325,11 @@ body {
 	&.focus {
 		.avatar {
 			border-color: $border-color-focus;
-			outline: .1rem solid $outline-color-focus;
 			@include box-shadow(0, 0, 1.6rem, $outline-color-focus);
+
+			&:after {
+				outline: .1rem solid $outline-color-focus;				
+			}
 		}
 
 		.photo {
@@ -696,7 +703,7 @@ body {
 
 		.logo-small {
 			right: -2.4rem;
-			bottom: -4rem;
+			bottom: -4.5rem;
 
 			img {
 				width: 85%;
