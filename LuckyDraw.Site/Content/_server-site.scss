@@ -23,7 +23,7 @@ body {
         }
 
         .logo-opening {
-            top: 2rem;
+            top: 5rem;
         }
 
         .list-prize-opening {
@@ -128,6 +128,7 @@ body {
 
 		.box-container {
 			padding: 3.5rem 3rem 3.5rem 5rem;
+			@include align-with-flex(center, center, row, center);
 		}
 
 		.staff-info {
@@ -358,8 +359,12 @@ body {
 @media (max-width: 1599px) {	
 	.server-site {
 		&.opening {
-			.logo-opening img {
-				width: 35%;
+			.logo-opening {
+				top: 5rem;
+
+				img {
+					width: 30%;
+				}
 			}
 
 			.list-prize-opening img {
@@ -367,15 +372,9 @@ body {
 			}
 	   }
 
-		&.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize {
-			 .box-container {
-				padding: 3rem;
-			 }
-		}
-
 		&.winner-details, &.super-grand-winner-details, &.adhoc-prize {
 			.box-container {
-				padding: 6rem 0 6rem 6rem;
+				padding: 3rem 0 3rem 4rem;
 			}
 
 			.staff-info {
@@ -470,6 +469,7 @@ body {
 		&.adhoc-prize {
 			.box-container {
 				padding: 4rem 0 4rem 4rem;
+				@include align-with-flex(center, center, row, center);
 			}
 
 			.list-winner {
@@ -631,5 +631,126 @@ body {
 		&.winner-details, &.super-grand-winner-details, &.adhoc-prize {
 			height: 100%;
 		}		
+	}
+}
+
+@media (width: 1600px) and (height: 800px) {
+	.server-site {
+		border-image-slices: 26;
+		
+		&.opening {
+			.logo-opening img {
+				width: 30%;
+			}
+
+			.list-prize-opening img {
+				width: 47%;
+			}
+	   }
+
+		.box-container {
+			padding-top: 3rem;
+			padding-bottom: 3rem;
+		}
+
+		.listPrize .prize {
+			width: 16%;
+		}
+
+		.prizePhoto img {
+			width: 70%;
+		}
+
+		.logo-prize {
+			&.super-grand, &.grand, &.major, &.cash, &.adhoc {
+				img {
+					width: 85%;
+				}
+			}
+
+			&.adhoc {
+				right: -34.6rem;
+				top: -18rem;
+			}
+
+			&.super-grand {
+				left: -13rem;
+				top: -10rem;
+			}
+
+			&.cash {
+				left: -13rem;
+				top: -10.8rem;
+			}
+        
+			&.major {
+				left: -14.6rem;
+				top: -13rem;
+			}
+        
+			&.grand {
+				left: -14rem;
+				top: -13rem;
+			}
+		}
+
+		.logo-small {
+			right: -2.4rem;
+			bottom: -4rem;
+
+			img {
+				width: 85%;
+			}
+		}
+
+		&.adhoc-prize {
+
+			.staff-info .avatar {
+				height: 12.6rem;
+				width: 10.8rem; 
+
+				.unknown {
+					margin: 2.4rem 1.6rem;
+				}
+			}
+
+			.list-winner {
+				.winner .info {
+					font-size: 1.4rem;
+					min-height: 9rem;
+					margin-top: 2rem;
+
+					.txt-nickname, .txt-department {
+						font-size: 1.8rem;
+					}
+				}
+			}
+
+			.current-winner .staff-info {
+				.avatar {
+					width: 24.4rem;
+					height: 27.4rem;
+
+					.unknown-lg {
+						margin: 5rem 2.6rem;
+						width: 55%;
+					}
+				}				
+
+				.info {
+					font-size: 2.2rem;
+
+					.txt-nickname {
+						font-size: 3.5rem;
+					}
+				}
+			}
+
+			.quantity {
+				bottom: 1rem;
+				font-size: 8rem;
+				line-height: 6.8rem;
+			}
+		}
 	}
 }
