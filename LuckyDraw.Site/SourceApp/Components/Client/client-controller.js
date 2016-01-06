@@ -53,8 +53,13 @@ function ($scope, $window, $location, $routeParams, CommonModel, baseUrl) {
 
         if (!vm.grade) {
             isValid = true;
-        } else if (parseInt(staffCode.substring(0, 2)) === vm.grade) {
-            isValid = true;
+        } else {
+            if (parseInt(staffCode.substring(0, 2)) === vm.grade) {
+                isValid = true;
+            } else {
+                isValid = false;
+                vm.message = 'Wrong group.';
+            }
         }
 
         return isValid;
@@ -83,7 +88,7 @@ function ($scope, $window, $location, $routeParams, CommonModel, baseUrl) {
         if (vm.grade && grade === vm.grade) {
             vm.message = message;
             $scope.$apply();
-        } else {
+        } else if (!vm.grade) {
             vm.message = message;
             $scope.$apply();
         }

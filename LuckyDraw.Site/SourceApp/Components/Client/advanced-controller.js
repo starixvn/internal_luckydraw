@@ -42,6 +42,7 @@ function ($window, $scope, AdvancedModel, CommonModel, baseUrl) {
 
     vm.sendStaffCode = function () {
         if (vm.staff) {
+            vm.message = null;
             hubProxy.server.sendStaffCode(vm.staff.StaffCode);
         }
     };
