@@ -59,6 +59,7 @@ function ($scope, $window, $location, $routeParams, CommonModel, baseUrl) {
             } else {
                 isValid = false;
                 vm.message = 'Wrong group.';
+                $scope.$apply();
             }
         }
 
