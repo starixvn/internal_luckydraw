@@ -93,5 +93,25 @@ namespace LuckyDraw.Hubs
         {
             Clients.All.getSignalCtrlD();
         }
+
+        public void SendSignalFromServerControlToServer()
+        {
+            Clients.All.getSignalAtServerFromServerControl();
+        }
+
+        public void SendSignalFromServerToClient()
+        {
+            Clients.All.getSignalAtClientFromServer();
+        }
+
+        public void SendSignalFromClientToServer(int number)
+        {
+            Clients.All.getSignalAtServerFromClient(number);
+        }
+
+        public void SendSignalServerToServerControl(int number)
+        {
+            Clients.All.getSignalAtServerControlFromServer(number);
+        }
     }
 }

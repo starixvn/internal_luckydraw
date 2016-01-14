@@ -95,5 +95,9 @@ function ($scope, $window, $location, $routeParams, CommonModel, baseUrl) {
         }
     };
 
+    hubProxy.client.getSignalAtClientFromServer = function () {
+        hubProxy.server.sendSignalFromClientToServer(vm.grade);
+    };
+
     $.connection.hub.start();
 } ]);

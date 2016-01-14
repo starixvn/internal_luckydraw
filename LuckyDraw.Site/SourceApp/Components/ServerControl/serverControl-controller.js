@@ -72,6 +72,14 @@ function (ServerControlModel) {
         }
     }
 
+    vm.checkConnection = function () {
+        hubProxy.server.sendSignalFromServerControlToServer();
+    }
+
+    hubProxy.client.getSignalAtServerControlFromServer = function (number) {
+        alert(number);
+    };
+
     $.connection.hub.start();
 } ]);
 

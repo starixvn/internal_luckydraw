@@ -219,6 +219,18 @@ function ($window, $scope, ServerModel, CommonModel, baseUrl) {
         vm.keyDownArrowEvent();
     };
 
+    hubProxy.client.getSignalAtServerFromServerControl = function () {
+        hubProxy.server.sendSignalFromServerToClient();
+    };
+
+    hubProxy.client.getSignalAtServerFromClient = function (number) {
+        hubProxy.server.sendSignalServerToServerControl(number);
+    };
+
+    hubProxy.client.getSignalEsc = function () {
+        vm.redirectToServerIndex();
+    };
+
     hubProxy.client.getSignalConfirmFromServerControl = function (isOk, key) {
         if (isOk && key === 'remove') {
             ServerModel.removeAdhocWinner(vm, vm.staffInfoRemove);

@@ -46,6 +46,14 @@ function ($window, CommonModel, baseUrl) {
         }
     };
 
+    hubProxy.client.getSignalAtServerFromServerControl = function () {
+        hubProxy.server.sendSignalFromServerToClient();
+    };
+
+    hubProxy.client.getSignalAtServerFromClient = function (number) {
+        hubProxy.server.sendSignalServerToServerControl(number);
+    };
+
     $.connection.hub.start();
 } ]);
 
