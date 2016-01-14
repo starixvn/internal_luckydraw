@@ -35,11 +35,11 @@
             padding: 2px 0;
         }
         .color10 {
-            background: #FD7FBC;
+            background: #f39cc6;
             color: #fff;
         }
         .color11 {
-            background: #2ED279;
+            background: #80f3b4;
             color: #fff;
         }
         .color12 {
@@ -60,14 +60,7 @@
     @foreach (var item in Model)
     {
         index++;
-		if (item.Barcode == "11790037")
-		{
-			item.Barcode = "12790037";
-		}
-		if (item.Barcode == "11790040")
-		{
-			item.Barcode = "12790040";
-		}
+        
         <div class="barcode">
             <div class="barcode_name color@(item.Barcode.Substring(0, 2))">
                 @item.Name (@item.Nick)
