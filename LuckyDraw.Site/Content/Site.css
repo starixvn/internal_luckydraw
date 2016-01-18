@@ -6648,6 +6648,12 @@ body {
         min-height: 10rem; }
         .server-site.adhoc-prize .current-winner .staff-info .info .txt-nickname {
           font-size: 4.5rem; }
+      .server-site.adhoc-prize .current-winner .staff-info.pink-staff {
+        color: #fd7fbc; }
+      .server-site.adhoc-prize .current-winner .staff-info.green-staff {
+        color: #42e884; }
+      .server-site.adhoc-prize .current-winner .staff-info.blue-staff {
+        color: #5e7bf3; }
     .server-site.adhoc-prize .quantity {
       font-size: 10rem;
       font-weight: bold;

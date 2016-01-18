@@ -162,6 +162,18 @@ body {
 						font-size: $adhoc-current-nickname-font-size-lg;
 					}
 				}
+
+				&.pink-staff {
+					color: $text-color-pink;
+				}
+
+				&.green-staff {
+					color: $text-color-green;
+				}
+
+				&.blue-staff {
+					color: $text-color-blue;
+				}
             }            
         }
 
