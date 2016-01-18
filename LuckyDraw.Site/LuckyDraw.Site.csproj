@@ -197,6 +197,7 @@
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\adhoc\voucher.png" />
     <Content Include="Images\bg-cashprize.jpg" />
     <Content Include="Images\bg-grandprize.jpg" />
     <Content Include="Images\bg-majorprize.jpg" />
@@ -352,6 +353,7 @@
     <Content Include="SourceApp\Components\Server\server-winnerDetail-controller.js" />
     <Content Include="SourceApp\Components\Server\server-controller.js" />
     <Content Include="SourceApp\Components\Server\Templates\adhocPrize.html" />
+    <Content Include="SourceApp\Components\Server\Templates\adhocPrize_Old.html" />
     <Content Include="SourceApp\Components\Server\Templates\index.html" />
     <Content Include="SourceApp\Components\Server\Templates\modalConfirmRemoveWinner.html" />
     <Content Include="SourceApp\Components\Server\Templates\prizeList.html" />

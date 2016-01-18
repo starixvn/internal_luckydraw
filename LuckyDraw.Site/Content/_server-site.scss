@@ -214,6 +214,10 @@ body {
 				}
             }
         }
+
+		.prizePhoto {
+			@include align-with-flex(center, center, row, center);
+		}
     }
 
 	.listPrize {
