@@ -1,7 +1,10 @@
 @import "Common/jquery-ui.min.css";
 
+$color-textInput: #7d9999;
+$color-border: #00d1f9;
+
 .client-site, .advanced-zone {
-    background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;
+    background: url(../Images/bg-AdvanceZone.png) no-repeat center center fixed;
     height: 100vh;
     padding: 20rem;
     width: 100vw;
@@ -16,7 +19,7 @@
         left: 0;
         right: 0;
         position: absolute;
-        top: 3rem;
+        top: 1rem;
         text-align: center;
 
         img {
@@ -26,13 +29,13 @@
 
 	.message-box {
 		background-color: #00020a;
-		border: .1rem solid #c5b35a;
+		border: .1rem solid $color-border;
 		color: #cc1c19;
 		font: {
 			size: 2.4rem;
 			weight: bold;
 		}
-		margin: 0;
+		margin: 1rem;
 		padding: 1.5rem;
 		position: absolute;
         border-radius: unset;
@@ -73,33 +76,33 @@
 
 		.form-control {
 			background-color: #02040f;
-			border: .1rem solid #c5b35a;
-			color: #8e886a;
+			border: .1rem solid $color-border;
+			color: $color-textInput;
 			font-size: 1.8rem;
 			height: 5rem;
 			@include border-radius(0);
 
 			&:focus {
-				border-color: #ffe898;
+				border-color: #20c7c4;
 			}
 
 			&::-webkit-input-placeholder {
-				color: #8e886a;
+				color: $color-textInput;
 			}
 
 			&:-moz-placeholder {
 				/* FF 4-18 */
-			   color: #8e886a;
+			   color: $color-textInput;
 			}
 
 			&::-moz-placeholder {
 				/* FF 19+ */
-				color: #8e886a;
+				color: $color-textInput;
 			}
 
 			&:-ms-input-placeholder {
 				/* IE 10+ */
-				color: #8e886a;
+				color: $color-textInput;
 			}
 		}
 
@@ -107,20 +110,22 @@
             margin-bottom: 2rem;
 
             ul.ui-autocomplete {
-				background: rgba(0, 0, 0, .9);
-				border: .1rem solid #c5b35a;
-				color: #fee047;
+				background: rgba(2, 4, 15, .9);
+				border: .1rem solid #1db0ad;
+				color: #2efffb;
 				font-size: 1.6rem;
                 max-height: 33rem;
                 overflow-y: auto;
                 overflow-x: hidden;
 
                 li.ui-menu-item {
-                    border-bottom: .1rem solid #c5b35a;
+                    border-bottom: .1rem solid #1db0ad;
 					padding: 1rem;
 
                     &.ui-state-focus {
-                        background-color: #ffe898;
+                        background-color: rgba(46,255,251,.8);
+                        border-top-color: transparent;
+                        color: #000;
                     }
 
                     &:last-child {

@@ -3,11 +3,11 @@ body {
 }
 
 .server-site {
-    background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;
-    border: 2rem solid transparent;
+    background: url(../Images/bg-home.jpg) no-repeat center center fixed;
+    //border: 2rem solid transparent;
     height: 100vh;
-    width: 100vw; 
-    @include border-image(url(../Images/border.png), 29%, repeat );
+    width: 100vw;
+    //@include border-image(url(../Images/border.png), 29%, repeat );
     @include background-size('cover');
 
     &.opening {
@@ -23,43 +23,47 @@ body {
         }
 
         .logo-opening {
-            top: 5rem;
+            top: -1rem;
         }
 
         .list-prize-opening {
             bottom: 7.5rem;
         }
     }
-    
+
+    &.adhoc-prize {
+        background: url(../Images/bg_Adhoc.png) no-repeat center center fixed;
+    }
+
     &.super-grand-prize {
-        background: url(../Images/bg-supergrandprize.jpg) no-repeat center center fixed;
+        background: url(../Images/bg_SuperGrand.png) no-repeat center center fixed;
     }
 
     &.grand-prize {
-        background: url(../Images/bg-grandprize.jpg) no-repeat center center fixed;
+        background: url(../Images/bg_Grand.png) no-repeat center center fixed;
     }
 
     &.major-prize {
-        background: url(../Images/bg-majorprize.jpg) no-repeat center center fixed;
+        background: url(../Images/bg_Major.png) no-repeat center center fixed;
     }
 
     &.cash-prize {
-        background: url(../Images/bg-cashprize.jpg) no-repeat center center fixed;
+        background: url(../Images/bg_Cash.png) no-repeat center center fixed;
     }
 
-	&.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
-	&.winner-details, &.super-grand-winner-details, &.adhoc-prize {
-        padding: 5rem;
+    &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
+    &.winner-details, &.super-grand-winner-details, &.adhoc-prize {
+        padding: 8.8rem;
         @include align-with-flex(center, center, row, center);
         @include background-size(cover);
     }
 
     &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize {
-         .box-container {
+        .box-container {
             @include align-with-flex(center, center, row, center);
-         }
+        }
     }
-    
+
     &.winner-details, &.super-grand-winner-details {
         .box-container {
             padding-left: 16.4rem;
@@ -71,32 +75,32 @@ body {
             @include align-with-flex(flex-start, flex-start, column, center);
         }
 
-		.staff-info {
-			margin: 2.4rem 1.6rem 2.4rem 0;
+        .staff-info {
+            margin: 2.4rem 1.6rem 2.4rem 0;
 
-			.info {
-				font-size: $info-font-size-lg;
-				padding-left: 2rem;
+            .info {
+                font-size: $info-font-size-lg;
+                padding-left: 2rem;
 
-				.txt-nickname {
-					font: {
-						weight: bold;
-						size: $nickname-font-size-lg;
-					}
-				}            
+                .txt-nickname {
+                    font: {
+                        weight: bold;
+                        size: $nickname-font-size-lg;
+                    }
+                }
 
-				.txt-fullname {
-					margin-bottom: 3rem;
-				}
-			}
-		}
+                .txt-fullname {
+                    margin-bottom: 3rem;
+                }
+            }
+        }
     }
 
     &.super-grand-winner-details {
         .prizePhoto {
-             @include align-with-flex(flex-start, flex-start, column, center);
+            @include align-with-flex(flex-start, flex-start, column, center);
 
-             .prize-order {
+            .prize-order {
                 &:nth-child(2) {
                     margin-right: 6rem;
                     @include align-self(flex-end);
@@ -124,126 +128,127 @@ body {
     }
 
     &.adhoc-prize {
-		overflow: hidden;
+        overflow: hidden;
 
-		.box-container {
-			padding: 3.5rem 3rem 3.5rem 5rem;
-			@include align-with-flex(center, center, row, center);
-		}
+        .box-container {
+            padding: 3.5rem 3rem 3.5rem 5rem;
+            @include align-with-flex(center, center, row, center);
+        }
 
-		.staff-info {
-			@include flex-direction(column);
+        .staff-info {
+            @include flex-direction(column);
 
-			.info {
-				padding-left: 0;
-			}
-		}
+            .info {
+                padding-left: 0;
+            }
+        }
 
         .current-winner {
             .staff-info {
-				color: #efe548;
+                color: #efe548;
 
                 .avatar {
                     width: 30.6rem;
                     height: 34.4rem;
 
-					.unknown-lg {
-						margin: 3.7rem 3.6rem;
-					}
+                    .unknown-lg {
+                        margin: 3.7rem 3.6rem;
+                    }
                 }
 
-				.info {
-					font-size: $adhoc-current-info-font-size-lg;
-					margin: 5rem 0 1rem;
-					text-align: center;
-					min-height: 10rem;
+                .info {
+                    font-size: $adhoc-current-info-font-size-lg;
+                    margin: 5rem 0 1rem;
+                    text-align: center;
+                    min-height: 10rem;
 
-					.txt-nickname {
-						font-size: $adhoc-current-nickname-font-size-lg;
-					}
-				}
+                    .txt-nickname {
+                        font-size: $adhoc-current-nickname-font-size-lg;
+                    }
+                }
 
-				&.pink-staff {
-					color: $text-color-pink;
-				}
+                &.pink-staff {
+                    color: $text-color-pink;
+                }
 
-				&.green-staff {
-					color: $text-color-green;
-				}
+                &.green-staff {
+                    color: $text-color-green;
+                }
 
-				&.blue-staff {
-					color: $text-color-blue;
-				}
-            }            
-        }
-
-		.quantity {
-            font: {
-			    size: $adhoc-quantity-font-size-lg;
-				weight: bold;
-			}
-			color: #efe548;
-			text-align: center;
-			position: relative;
-			bottom: -4rem;
-        }
-
-        .list-winner {
-			margin-left: 3rem;
-			@include align-with-flex(flex-start, flex-start, row, flex-start);
-
-			&:first-child {
-				margin-bottom: 4rem;
-			}
-
-            .winner {
-				margin-left: 1rem;
-				margin-right: 1rem;
-
-                .staff-info {			
-					@include align-items(flex-start);					
-				}
-
-				.info {
-					font-size: $adhoc-info-font-size-lg;
-					margin: 3rem 0 0;
-					min-height: 13rem;
-					position: relative;
-					width: 100%;
-
-					.txt-nickname, .txt-department {
-						font-size: $adhoc-nickname-font-size-lg;
-					}
-
-					.txt-fullname {
-						margin-bottom: 1rem;
-					}
-
-					.txt-department {
-						position: absolute;
-						bottom: 0;
-					}
-				}
+                &.blue-staff {
+                    color: $text-color-blue;
+                }
             }
         }
 
-		.prizePhoto {
-			@include align-with-flex(center, center, row, center);
-		}
+        .quantity {
+            font: {
+                size: $adhoc-quantity-font-size-lg;
+                weight: bold;
+            }
+
+            color: #efe548;
+            text-align: center;
+            position: relative;
+            bottom: -4rem;
+        }
+
+        .list-winner {
+            margin-left: 3rem;
+            @include align-with-flex(flex-start, flex-start, row, flex-start);
+
+            &:first-child {
+                margin-bottom: 4rem;
+            }
+
+            .winner {
+                margin-left: 1rem;
+                margin-right: 1rem;
+
+                .staff-info {
+                    @include align-items(flex-start);
+                }
+
+                .info {
+                    font-size: $adhoc-info-font-size-lg;
+                    margin: 3rem 0 0;
+                    min-height: 13rem;
+                    position: relative;
+                    width: 100%;
+
+                    .txt-nickname, .txt-department {
+                        font-size: $adhoc-nickname-font-size-lg;
+                    }
+
+                    .txt-fullname {
+                        margin-bottom: 1rem;
+                    }
+
+                    .txt-department {
+                        position: absolute;
+                        bottom: 0;
+                    }
+                }
+            }
+        }
+
+        .prizePhoto {
+            @include align-with-flex(center, center, row, center);
+        }
     }
 
-	.listPrize {
+    .listPrize {
         float: none;
-		width: 100%;
+        width: 100%;
         @include align-with-flex(center, center, row, center);
 
         .prize {
             margin: 0.8rem;
         }
 
-		.transparent {
-			opacity: .5;
-		}
+        .transparent {
+            opacity: .5;
+        }
     }
 
     .logo-prize {
@@ -251,45 +256,45 @@ body {
         z-index: 5;
 
         &.cash {
-			left: -15rem;
-			top: -12.6rem;
+            left: -5.6rem;
+            top: -7.4rem;
         }
 
         &.major {
-			left: -17rem;
-			top: -14.6rem;
+            left: -9rem;
+            top: -8.6rem;
         }
 
         &.grand {
-			left: -16.5rem;
-			top: -15rem;
+            left: -8rem;
+            top: -8.8rem;
         }
 
         &.super-grand {
-			left: -15.6rem;
-			top: -11rem;
+            left: -3.6rem;
+            top: -8.8rem;
         }
 
-		&.adhoc {
-			right: -27rem;
-			top: -20rem;
-		}
+        &.adhoc {
+            left: -9rem;
+            top: -9rem;
+        }
     }
 
     .logo-small {
-        right: -2.4rem;
+        right: -8.4rem;
         position: absolute;
-        bottom: -5rem;
+        bottom: -8rem;
         z-index: 5;
 
-		img {
-			float: right;
-		}
+        img {
+            float: right;
+        }
     }
 }
 
 .staff-info {
-	color: $text-color-default;        
+    color: $text-color-default;
     @include align-with-flex(center, center, row, flex-start);
 
     .avatar {
@@ -302,14 +307,14 @@ body {
         @include box-shadow(0, 0, 1.6rem, $outline-color-default);
 
         &:after {
-			bottom: 0;
+            bottom: 0;
             content: '';
-			left: 0;
+            left: 0;
             margin: -2px;
             outline: .1rem solid $outline-color-default;
-            position: absolute;                                
+            position: absolute;
             right: 0;
-			top: 0;             
+            top: 0;
             z-index: 5;
         }
 
@@ -338,280 +343,283 @@ body {
         @include avatar-border-color($border-color-blue, $outline-color-blue);
     }
 
-	&.focus {
-		.avatar {
-			border-color: $border-color-focus;
-			@include box-shadow(0, 0, 1.6rem, $outline-color-focus);
+    &.focus {
+        .avatar {
+            border-color: $border-color-focus;
+            @include box-shadow(0, 0, 1.6rem, $outline-color-focus);
 
-			&:after {
-				outline: .1rem solid $outline-color-focus;				
-			}
-		}
+            &:after {
+                outline: .1rem solid $outline-color-focus;
+            }
+        }
 
-		.photo {
-			border: .1rem solid $border-color-focus;
-		}
-	}
+        .photo {
+            border: .1rem solid $border-color-focus;
+        }
+    }
 
-	.info {
-		font-weight: 600;
-			
-		.txt-nickname {
-			font-weight: bold;
-			margin: 0;
-		}
+    .info {
+        font-weight: 600;
 
-		p {
+        .txt-nickname {
+            font-weight: bold;
+            margin: 0;
+        }
+
+        p {
             margin-bottom: 0;
         }
-	}
+    }
 }
 
 .box-container {
-    background: rgba(0, 0, 0, .9);
+    background: rgba(2, 4, 15, .9);
     min-height: 100%;
     padding-top: 6rem;
     padding-bottom: 6rem;
     position: relative;
     width: 100%;
-    border: 1rem solid transparent;
-    @include border-image(url(../Images/border-rope.png), 10%, repeat );
+    border: 2px solid transparent;
+    //@include border-image(url(../Images/border-rope.png), 10%, repeat );
+    -moz-border-image: -moz-linear-gradient(top right, #d1f2ff 0%, #1da1d8 100%);
+    -webkit-border-image: -webkit-linear-gradient(top right, #d1f2ff 0%, #1da1d8 100%);
+    border-image: linear-gradient(to bottom left, #d1f2ff 0%, #1da1d8 100%);
+    border-image-slice: 1;
 }
 
 /* Resolution */
-@media (max-width: 1599px) {	
-	.server-site {
-		&.opening {
-			.logo-opening {
-				top: 5rem;
+@media (max-width: 1599px) {
+    .server-site {
+        &.opening {
+            .logo-opening {
+                top: 5rem;
 
-				img {
-					width: 30%;
-				}
-			}
+                img {
+                    width: 30%;
+                }
+            }
 
-			.list-prize-opening img {
-				width: 47%;
-			}
-	   }
-
-		&.winner-details, &.super-grand-winner-details, &.adhoc-prize {
-			.box-container {
-				padding: 3rem 0 3rem 4rem;
-			}
-
-			.staff-info {
-				margin: 1.4rem 1.6rem 1.4rem 0;
-
-				.avatar {
-					height: 11rem;
-					width: 9rem;
-
-					.unknown {
-						margin: 1.7rem 0.6rem;
-					}
-				}
-
-				.info {
-					font-size: $info-font-size-md;
-
-					.txt-nickname {
-						font-size: $nickname-font-size-md;
-					}
-				}
-			}
-	   }
-
-		&.super-grand-winner-details {
-			.prizePhoto {		
-				.prize-order {
-					&:nth-child(2) {
-						margin-right: 0;
-						@include align-self(flex-start);
-					}
-				}	
-			}
-
-			.prize-number {
-				left: -2.5rem;
-				top: -2rem;
-				width: 50%;
-			}
-		}
-
-		.listPrize .prize {
-			width: 22%;
-		}
-
-		.logo-prize {
-			&.super-grand, &.grand, &.major, &.cash, &.adhoc {
-				img {
-					width: 70%;
-				}
-			}
-
-			&.adhoc {
-				right: -42.6rem;
-				top: -15rem;
-			}
-
-			&.super-grand {
-				left: -10.6rem;
-				top: -8rem;
-			}
-
-			&.cash {
-				left: -11rem;
-				top: -9rem;
-			}
-        
-			&.major {
-				left: -12rem;
-				top: -10.6rem;
-			}
-        
-			&.grand {
-				left: -12rem;
-				top: -11rem;
-			}
-		}
-
-		.prizePhoto img {
-			width: 63%;
-		}
-
-		.logo-small {
-			right: -2.4rem;
-			bottom: -4rem;
-
-			img {
-				width: 70%;
-			}
-		}
-
-		&.adhoc-prize {
-			.box-container {
-				padding: 4rem 0 4rem 4rem;
-				@include align-with-flex(center, center, row, center);
-			}
-
-			.list-winner {
-				margin-left: 0;
-
-				.winner .info {
-					font-size: 1.4rem;
-					min-height: 9rem;
-
-					.txt-nickname, .txt-department {
-						font-size: 1.8rem;
-					}
-				}
-			}
-
-			.current-winner .staff-info {
-				.avatar {
-					width: 20.6rem;
-					height: 24.4rem;
-
-					.unknown-lg {
-						margin: 2rem 2.6rem;
-						width: 76%;
-					}
-				}
-
-				.info {
-					font-size: 2.2rem;
-
-					.txt-nickname {
-						font-size: 3.5rem;
-					}
-				}
-			}
-
-			.quantity {
-				bottom: 1rem;
-				font-size: $adhoc-quantity-font-size-md;
-			}
-		}
-	}
-}
-
-@media (max-width: 1200px) { 
-	.server-site.adhoc-prize {
-		height: 100%;
-
-		.box-container {
-			padding-top: 12.5rem;
-		}
-
-		.current-winner {
-			margin-bottom: 1rem;
-		}
-
-		.prizePhoto img {
-			width: 76%;
-		}
-
-		.quantity {
-			bottom: 0;			
-		}
-
-		.list-winner .winner .staff-info {
-			margin-bottom: 3.2rem;
-			white-space: nowrap;
-			@include align-with-flex(center, center, row, flex-start);
-
-			.info {
-				width: auto;
-				margin-left: 2rem;
-				min-height: initial;
-
-				.txt-department {
-					position: static;
-				}
-			}
-		}
-	}
-}
-
- @media (max-width: 992px) {
-   .server-site {
-	 &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
-	 &.winner-details, &.super-grand-winner-details {
-		height: 100%;
-	 }
-
-     &.winner-details, &.super-grand-winner-details
-	 {	 
-        .box-container {
-            padding-left: 1.6rem;
-            padding-right: 1.6rem;
+            .list-prize-opening img {
+                width: 47%;
+            }
         }
 
-        .winnerList {
-            margin-top: 4rem;
-            @include order(1);
+        &.winner-details, &.super-grand-winner-details, &.adhoc-prize {
+            .box-container {
+                padding: 3rem 0 3rem 4rem;
+            }
+
+            .staff-info {
+                margin: 1.4rem 1.6rem 1.4rem 0;
+
+                .avatar {
+                    height: 11rem;
+                    width: 9rem;
+
+                    .unknown {
+                        margin: 1.7rem 0.6rem;
+                    }
+                }
+
+                .info {
+                    font-size: $info-font-size-md;
+
+                    .txt-nickname {
+                        font-size: $nickname-font-size-md;
+                    }
+                }
+            }
         }
 
-        .staff-info {
-            margin-bottom: 1.6rem;
-            @include justify-content(center);
+        &.super-grand-winner-details {
+            .prizePhoto {
+                .prize-order {
+                    &:nth-child(2) {
+                        margin-right: 0;
+                        @include align-self(flex-start);
+                    }
+                }
+            }
+
+            .prize-number {
+                left: -2.5rem;
+                top: -2rem;
+                width: 50%;
+            }
         }
 
-        .prizePhoto {
-            margin-top: 4rem;
-            @include justify-content(center);
-            @include order(0);
+        .listPrize .prize {
+            width: 22%;
+        }
+
+        .logo-prize {
+            &.super-grand, &.grand, &.major, &.cash, &.adhoc {
+                img {
+                    width: 70%;
+                }
+            }
+
+            &.adhoc {
+                right: -42.6rem;
+                top: -15rem;
+            }
+
+            &.super-grand {
+                left: -10.6rem;
+                top: -8rem;
+            }
+
+            &.cash {
+                left: -11rem;
+                top: -9rem;
+            }
+
+            &.major {
+                left: -12rem;
+                top: -10.6rem;
+            }
+
+            &.grand {
+                left: -12rem;
+                top: -11rem;
+            }
+        }
+
+        .prizePhoto img {
+            width: 63%;
         }
 
         .logo-small {
-            @include order(3);
+            right: -2.4rem;
+            bottom: -4rem;
+
+            img {
+                width: 70%;
+            }
         }
-     }
-   }
+
+        &.adhoc-prize {
+            .box-container {
+                padding: 4rem 0 4rem 4rem;
+                @include align-with-flex(center, center, row, center);
+            }
+
+            .list-winner {
+                margin-left: 0;
+
+                .winner .info {
+                    font-size: 1.4rem;
+                    min-height: 9rem;
+
+                    .txt-nickname, .txt-department {
+                        font-size: 1.8rem;
+                    }
+                }
+            }
+
+            .current-winner .staff-info {
+                .avatar {
+                    width: 20.6rem;
+                    height: 24.4rem;
+
+                    .unknown-lg {
+                        margin: 2rem 2.6rem;
+                        width: 76%;
+                    }
+                }
+
+                .info {
+                    font-size: 2.2rem;
+
+                    .txt-nickname {
+                        font-size: 3.5rem;
+                    }
+                }
+            }
+
+            .quantity {
+                bottom: 1rem;
+                font-size: $adhoc-quantity-font-size-md;
+            }
+        }
+    }
 }
 
-  @media (max-width: 320px) {
+@media (max-width: 1200px) {
+    .server-site.adhoc-prize {
+        height: 100%;
+
+        .box-container {
+            padding-top: 12.5rem;
+        }
+
+        .current-winner {
+            margin-bottom: 1rem;
+        }
+
+        .prizePhoto img {
+            width: 76%;
+        }
+
+        .quantity {
+            bottom: 0;
+        }
+
+        .list-winner .winner .staff-info {
+            margin-bottom: 3.2rem;
+            white-space: nowrap;
+            @include align-with-flex(center, center, row, flex-start);
+
+            .info {
+                width: auto;
+                margin-left: 2rem;
+                min-height: initial;
+
+                .txt-department {
+                    position: static;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .server-site {
+        &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
+        &.winner-details, &.super-grand-winner-details {
+            height: 100%;
+        }
+
+        &.winner-details, &.super-grand-winner-details {
+            .box-container {
+                padding-left: 1.6rem;
+                padding-right: 1.6rem;
+            }
+
+            .winnerList {
+                margin-top: 4rem;
+                @include order(1);
+            }
+
+            .staff-info {
+                margin-bottom: 1.6rem;
+                @include justify-content(center);
+            }
+
+            .prizePhoto {
+                margin-top: 4rem;
+                @include justify-content(center);
+                @include order(0);
+            }
+
+            .logo-small {
+                @include order(3);
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
     .server-site {
         &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
         &.winner-details, &.super-grand-winner-details, &.adhoc-prize {
@@ -620,7 +628,7 @@ body {
             }
         }
     }
-		
+
     .server-site {
         .logo-prize {
             height: auto;
@@ -646,135 +654,135 @@ body {
             }
         }
     }
- }
+}
 
 @media (max-height: 767px) {
-	.server-site {
-		&.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
-		&.winner-details, &.super-grand-winner-details, &.adhoc-prize {
-			height: 100%;
-		}		
-	}
+    .server-site {
+        &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
+        &.winner-details, &.super-grand-winner-details, &.adhoc-prize {
+            height: 100%;
+        }
+    }
 }
 
 @media (width: 1600px) and (height: 800px) {
-	.server-site {
-		border-image-slices: 26;
-		
-		&.opening {
-			.logo-opening img {
-				width: 30%;
-			}
+    .server-site {
+        border-image-slices: 26;
 
-			.list-prize-opening img {
-				width: 47%;
-			}
-	   }
+        &.opening {
+            .logo-opening img {
+                width: 30%;
+            }
 
-		.box-container {
-			padding-top: 3rem;
-			padding-bottom: 3rem;
-		}
+            .list-prize-opening img {
+                width: 47%;
+            }
+        }
 
-		.listPrize .prize {
-			width: 16%;
-		}
+        .box-container {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
 
-		.prizePhoto img {
-			width: 70%;
-		}
+        .listPrize .prize {
+            width: 16%;
+        }
 
-		.logo-prize {
-			&.super-grand, &.grand, &.major, &.cash, &.adhoc {
-				img {
-					width: 85%;
-				}
-			}
+        .prizePhoto img {
+            width: 70%;
+        }
 
-			&.adhoc {
-				right: -34.6rem;
-				top: -18rem;
-			}
+        /*.logo-prize {
+            &.super-grand, &.grand, &.major, &.cash, &.adhoc {
+                img {
+                    //width: 85%;
+                }
+            }
 
-			&.super-grand {
-				left: -13rem;
-				top: -10rem;
-			}
+            &.adhoc {
+                right: -42.6rem;
+                top: -15rem;
+            }
 
-			&.cash {
-				left: -13rem;
-				top: -10.8rem;
-			}
-        
-			&.major {
-				left: -14.6rem;
-				top: -13rem;
-			}
-        
-			&.grand {
-				left: -14rem;
-				top: -13rem;
-			}
-		}
+            &.super-grand {
+                left: -10.6rem;
+                top: -8rem;
+            }
 
-		.logo-small {
-			right: -2.4rem;
-			bottom: -4.5rem;
+            &.cash {
+                left: -11rem;
+                top: -9rem;
+            }
 
-			img {
-				width: 85%;
-			}
-		}
+            &.major {
+                left: -12rem;
+                top: -10.6rem;
+            }
 
-		&.adhoc-prize {
+            &.grand {
+                left: -12rem;
+                top: -11rem;
+            }
+        }*/
 
-			.staff-info .avatar {
-				height: 12.6rem;
-				width: 10.8rem; 
+        .logo-small {
+            right: -2.4rem;
+            bottom: -4.5rem;
 
-				.unknown {
-					margin: 2.4rem 1.6rem;
-				}
-			}
+            img {
+                width: 85%;
+            }
+        }
 
-			.list-winner {
-				.winner .info {
-					font-size: 1.4rem;
-					min-height: 9rem;
-					margin-top: 2rem;
+        &.adhoc-prize {
 
-					.txt-nickname, .txt-department {
-						font-size: 1.8rem;
-					}
-				}
-			}
+            .staff-info .avatar {
+                height: 12.6rem;
+                width: 10.8rem;
 
-			.current-winner .staff-info {
-				.avatar {
-					width: 24.4rem;
-					height: 27.4rem;
+                .unknown {
+                    margin: 2.4rem 1.6rem;
+                }
+            }
 
-					.unknown-lg {
-						margin: 5rem 2.6rem;
-						width: 55%;
-					}
-				}				
+            .list-winner {
+                .winner .info {
+                    font-size: 1.4rem;
+                    min-height: 9rem;
+                    margin-top: 2rem;
 
-				.info {
-					font-size: 2.2rem;
-					margin: 3rem 0 3rem;
+                    .txt-nickname, .txt-department {
+                        font-size: 1.8rem;
+                    }
+                }
+            }
 
-					.txt-nickname {
-						font-size: 3.5rem;
-					}
-				}
-			}
+            .current-winner .staff-info {
+                .avatar {
+                    width: 24.4rem;
+                    height: 27.4rem;
 
-			.quantity {
-				bottom: 1rem;
-				font-size: 8rem;
-				line-height: 6.8rem;
-			}
-		}
-	}
+                    .unknown-lg {
+                        margin: 5rem 2.6rem;
+                        width: 55%;
+                    }
+                }
+
+                .info {
+                    font-size: 2.2rem;
+                    margin: 3rem 0 3rem;
+
+                    .txt-nickname {
+                        font-size: 3.5rem;
+                    }
+                }
+            }
+
+            .quantity {
+                bottom: 1rem;
+                font-size: 8rem;
+                line-height: 6.8rem;
+            }
+        }
+    }
 }
