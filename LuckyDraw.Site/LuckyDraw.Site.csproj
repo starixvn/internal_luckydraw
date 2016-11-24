@@ -201,6 +201,9 @@
     <Content Include="Content\server-control-site.css">
       <DependentUpon>server-control-site.scss</DependentUpon>
     </Content>
+    <Content Include="Content\server-control-site.min.css">
+      <DependentUpon>server-control-site.css</DependentUpon>
+    </Content>
     <Content Include="Content\Site.css">
       <DependentUpon>Site.scss</DependentUpon>
     </Content>
@@ -210,22 +213,27 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Images\adhoc\voucher.png" />
+    <Content Include="Images\bg-UIControl.png" />
     <Content Include="Images\bg_Adhoc.png" />
     <Content Include="Images\bg_Cash.png" />
     <Content Include="Images\bg_Grand.png" />
     <Content Include="Images\bg_Major.png" />
     <Content Include="Images\bg_SuperGrand.png" />
+    <Content Include="Images\borderiron.png" />
+    <Content Include="Images\Frame_blue.png" />
+    <Content Include="Images\Frame_green.png" />
+    <Content Include="Images\Frame_pink.png" />
+    <Content Include="Images\Frame_purple.png" />
+    <Content Include="Images\Frame_red.png" />
+    <Content Include="Images\Frame_yellow.png" />
     <Content Include="Images\prizeListMain.png" />
     <Content Include="Images\bg-home.jpg" />
     <Content Include="Images\bg-AdvanceZone.png" />
-    <Content Include="Images\bg-grandprize.jpg" />
-    <Content Include="Images\bg-majorprize.jpg" />
-    <Content Include="Images\bg-supergrandprize.jpg" />
     <Content Include="Images\border-rope.png" />
     <Content Include="Images\border.png" />
     <Content Include="Images\logo-2017.png" />
     <Content Include="Images\logo-Luckydraw.png" />
-    <Content Include="Images\luckdraw-opening-bg.jpg" />
+    <Content Include="Images\tag.png" />
     <Content Include="Images\Title\1-after.png" />
     <Content Include="Images\Title\1-before.png" />
     <Content Include="Images\Title\1.png" />

@@ -7,12 +7,16 @@
 	padding-right: 0.6rem;
 }
 
+.container-fluid {
+    overflow: hidden;
+}
+
 .row {
 	margin-bottom: 0;
 }
 
 .server-control {
-	background: url(../Images/luckdraw-opening-bg.jpg) no-repeat center center fixed;
+	background: #000 url(../Images/bg-UIControl.png) no-repeat 0 0 fixed;
     height: 100vh;
 	padding-top: 1.6rem;
 	padding-bottom: 1.6rem;
@@ -30,21 +34,23 @@
 	}
 
 	.btn {
-		background-color: #f7c524;
-		color: #03030b;
-		font-size: 2.4rem;
-		height: 8rem;
+		background-color: rgba(0,0,0,0.8);
+		color: #00fcf6;
+		font-size: 3rem;
+        font-weight: bold;
+		height: 9rem;
 		margin-bottom: 1.2rem;
 		width: 100%;
+        border: 2px solid #00fcf6;
 		@include border-radius(0);
 
 		&:hover {
-			background-color: #c29b1d;
+			background-color: rgba(0,20,20,0.9);
 		}
 	}
 
 	.box-container {
-		background: rgba(0, 0, 0, .8);
+		//background: rgba(0, 0, 0, .8);
 		min-height: 100%;
 		padding: 2rem;
 		position: relative;

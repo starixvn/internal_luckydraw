@@ -284,12 +284,12 @@
         border-color: $border-color-light;
         @include box-shadow(0, 0, 1.6rem, $border-color-dark);
 
-		&:after {
+		/*&:after {
 			outline-color: $border-color-dark;
-		}
+		}*/
     }
 
     .photo {
-        border: .1rem solid $border-color-dark;
+        //border: .1rem solid $border-color-dark;
     }
 }

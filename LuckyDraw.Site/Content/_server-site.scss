@@ -2,6 +2,10 @@ body {
     background-color: $site-background-color;
 }
 
+.container-fluid {
+    overflow: hidden;
+}
+
 .server-site {
     background: url(../Images/bg-home.jpg) no-repeat center center fixed;
     //border: 2rem solid transparent;
@@ -32,23 +36,23 @@ body {
     }
 
     &.adhoc-prize {
-        background: url(../Images/bg_Adhoc.png) no-repeat center center fixed;
+        background: url(../Images/bg_Adhoc.png) no-repeat 0 0 fixed;
     }
 
     &.super-grand-prize {
-        background: url(../Images/bg_SuperGrand.png) no-repeat center center fixed;
+        background: url(../Images/bg_SuperGrand.png) no-repeat 0 0 fixed;
     }
 
     &.grand-prize {
-        background: url(../Images/bg_Grand.png) no-repeat center center fixed;
+        background: url(../Images/bg_Grand.png) no-repeat 0 0 fixed;
     }
 
     &.major-prize {
-        background: url(../Images/bg_Major.png) no-repeat center center fixed;
+        background: url(../Images/bg_Major.png) no-repeat 0 0 fixed;
     }
 
     &.cash-prize {
-        background: url(../Images/bg_Cash.png) no-repeat center center fixed;
+        background: url(../Images/bg_Cash.png) no-repeat 0 0 fixed;
     }
 
     &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
@@ -72,6 +76,7 @@ body {
         }
 
         .winnerList {
+            padding-left: 7rem;
             @include align-with-flex(flex-start, flex-start, column, center);
         }
 
@@ -300,27 +305,30 @@ body {
     .avatar {
         border: .2rem solid $border-color-default;
         background-color: $background-color-default;
-        height: 14.6rem;
+        height: 146px;
         position: relative;
         text-align: center;
-        width: 12.6rem;
+        width: 130px;
         @include box-shadow(0, 0, 1.6rem, $outline-color-default);
 
         &:after {
             bottom: 0;
             content: '';
             left: 0;
-            margin: -2px;
-            outline: .1rem solid $outline-color-default;
+            margin: -9px;
             position: absolute;
             right: 0;
-            top: 0;
+            top: -8px;
             z-index: 5;
+            background: url(../Images/Frame_yellow.png) no-repeat;
         }
 
         .photo {
-            height: 100%;
-            width: 100%;
+            height: 142px;
+            width: 126px;
+            border: 3px solid #000;
+            margin: auto;
+            object-fit: cover;
         }
 
         .unknown {
@@ -331,16 +339,28 @@ body {
     &.pink-staff {
         color: $text-color-pink;
         @include avatar-border-color($border-color-pink, $outline-color-pink);
+
+        .avatar:after {
+            background: url(../Images/Frame_pink.png) no-repeat;
+        }
     }
 
     &.green-staff {
         color: $text-color-green;
         @include avatar-border-color($border-color-green, $outline-color-green);
+
+        .avatar:after {
+            background: url(../Images/Frame_green.png) no-repeat;
+        }
     }
 
     &.blue-staff {
         color: $text-color-blue;
         @include avatar-border-color($border-color-blue, $outline-color-blue);
+
+        .avatar:after {
+            background: url(../Images/Frame_purple.png) no-repeat;
+        }
     }
 
     &.focus {
@@ -375,8 +395,6 @@ body {
 .box-container {
     background: rgba(2, 4, 15, .9);
     min-height: 100%;
-    padding-top: 6rem;
-    padding-bottom: 6rem;
     position: relative;
     width: 100%;
     border: 2px solid transparent;
@@ -691,7 +709,6 @@ body {
         .prizePhoto img {
             width: 70%;
         }
-
         /*.logo-prize {
             &.super-grand, &.grand, &.major, &.cash, &.adhoc {
                 img {
@@ -724,7 +741,6 @@ body {
                 top: -11rem;
             }
         }*/
-
         .logo-small {
             right: -2.4rem;
             bottom: -4.5rem;
