@@ -419,10 +419,6 @@ namespace LuckyDraw.Site.Controllers.API
 
             switch (prizeIndex)
             {
-                case (int)MajorPrizeIndex.Prize40To42:
-                    imagePath = "Images/Title/40-41-42-after.png";
-                    break;
-
                 case (int)MajorPrizeIndex.Prize43To45:
                     imagePath = "Images/Title/43-44-45-after.png";
                     break;
@@ -465,10 +461,6 @@ namespace LuckyDraw.Site.Controllers.API
 
             switch (prizeIndex)
             {
-                case (int)MajorPrizeIndex.Prize40To42:
-                    imagePath = "Images/Title/40-41-42-before.png";
-                    break;
-
                 case (int)MajorPrizeIndex.Prize43To45:
                     imagePath = "Images/Title/43-44-45-before.png";
                     break;
@@ -551,6 +543,10 @@ namespace LuckyDraw.Site.Controllers.API
                     imagePath = "Images/Title/37-38-39-after.png";
                     break;
 
+                case (int)GrandPrizeIndex.Prize40To42:
+                    imagePath = "Images/Title/40-41-42-after.png";
+                    break;
+
                 default:
                     imagePath = "Images/Title/blank-ticket-b.png";
                     break;
@@ -603,6 +599,10 @@ namespace LuckyDraw.Site.Controllers.API
 
                 case (int)GrandPrizeIndex.Prize37To39:
                     imagePath = "Images/Title/37-38-39-before.png";
+                    break;
+
+                case (int)GrandPrizeIndex.Prize40To42:
+                    imagePath = "Images/Title/40-41-42-before.png";
                     break;
 
                 default:

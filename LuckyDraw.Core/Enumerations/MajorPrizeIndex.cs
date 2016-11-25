@@ -12,13 +12,12 @@ namespace LuckyDraw.Core.Enumerations
     public enum MajorPrizeIndex : int
     {
         None = 0,
-        Prize40To42 = 1,
-        Prize43To45 = 2,
-        Prize46To48 = 3,
-        Prize49To51 = 4,
-        Prize52To54 = 5,
-        Prize55To57 = 6,
-        Prize58To60 = 7,
-        Prize61To63 = 8
+        Prize43To45 = 1,
+        Prize46To48 = 2,
+        Prize49To51 = 3,
+        Prize52To54 = 4,
+        Prize55To57 = 5,
+        Prize58To60 = 6,
+        Prize61To63 = 7
     }
 }

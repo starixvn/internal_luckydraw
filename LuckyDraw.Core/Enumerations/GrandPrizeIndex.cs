@@ -21,6 +21,7 @@ namespace LuckyDraw.Core.Enumerations
         Prize28To30 = 7,
         Prize31To33 = 8,
         Prize34To36 = 9,
-        Prize37To39 = 10
+        Prize37To39 = 10,
+        Prize40To42 = 11,
     }
 }
