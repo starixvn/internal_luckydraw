@@ -227,6 +227,7 @@
     <Content Include="Images\Frame_purple.png" />
     <Content Include="Images\Frame_red.png" />
     <Content Include="Images\Frame_yellow.png" />
+    <Content Include="Images\bg-home-2.jpg" />
     <Content Include="Images\prizeListMain.png" />
     <Content Include="Images\bg-home.jpg" />
     <Content Include="Images\bg-AdvanceZone.png" />
