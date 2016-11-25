@@ -220,6 +220,7 @@
     <Content Include="Images\bg_Major.png" />
     <Content Include="Images\bg_SuperGrand.png" />
     <Content Include="Images\borderiron.png" />
+    <Content Include="Images\borderironbig.png" />
     <Content Include="Images\Frame_blue.png" />
     <Content Include="Images\Frame_green.png" />
     <Content Include="Images\Frame_pink.png" />

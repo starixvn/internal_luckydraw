@@ -153,8 +153,28 @@ body {
                 color: #efe548;
 
                 .avatar {
-                    width: 30.6rem;
-                    height: 34.4rem;
+                    width: 300px;
+                    height: 324px;
+
+
+                    &:after {
+                        bottom: 0;
+                        content: '';
+                        left: -7px;
+                        position: absolute;
+                        right: 0;
+                        top: -8px;
+                        z-index: 5;
+                        background: url(../Images/borderironbig.png) no-repeat;
+                    }
+
+                    .photo {
+                        height: 322px;
+                        width: 306px;
+                        border: 3px solid #000;
+                        margin: auto;
+                        object-fit: cover;
+                    }
 
                     .unknown-lg {
                         margin: 3.7rem 3.6rem;
@@ -252,7 +272,7 @@ body {
         }
 
         .transparent {
-            opacity: .5;
+            opacity: .8;
         }
     }
 
@@ -309,7 +329,7 @@ body {
         position: relative;
         text-align: center;
         width: 130px;
-        @include box-shadow(0, 0, 1.6rem, $outline-color-default);
+        @include box-shadow(0, 0, 1rem, $outline-color-default);
 
         &:after {
             bottom: 0;
@@ -365,11 +385,11 @@ body {
 
     &.focus {
         .avatar {
-            border-color: $border-color-focus;
+            //border-color: $border-color-focus;
             @include box-shadow(0, 0, 1.6rem, $outline-color-focus);
 
             &:after {
-                outline: .1rem solid $outline-color-focus;
+                //outline: .1rem solid $outline-color-focus;
             }
         }
 
@@ -392,6 +412,7 @@ body {
     }
 }
 
+
 .box-container {
     background: rgba(2, 4, 15, .9);
     min-height: 100%;
@@ -413,12 +434,12 @@ body {
                 top: 5rem;
 
                 img {
-                    width: 30%;
+                    width: 50%;
                 }
             }
 
             .list-prize-opening img {
-                width: 47%;
+                width: 65%;
             }
         }
 
@@ -427,12 +448,17 @@ body {
                 padding: 3rem 0 3rem 4rem;
             }
 
+            .winnerList {
+                padding-left: 15rem;
+            }
+
             .staff-info {
                 margin: 1.4rem 1.6rem 1.4rem 0;
 
                 .avatar {
-                    height: 11rem;
-                    width: 9rem;
+                    /*height: 11rem;
+                    width: 9rem;*/
+                    margin-bottom: 1rem;
 
                     .unknown {
                         margin: 1.7rem 0.6rem;
@@ -473,46 +499,46 @@ body {
         .logo-prize {
             &.super-grand, &.grand, &.major, &.cash, &.adhoc {
                 img {
-                    width: 70%;
+                    width: 80%;
                 }
             }
 
             &.adhoc {
-                right: -42.6rem;
-                top: -15rem;
-            }
-
-            &.super-grand {
-                left: -10.6rem;
+                left: -7rem;
                 top: -8rem;
             }
 
+            &.super-grand {
+                left: -5rem;
+                top: -7rem;
+            }
+
             &.cash {
-                left: -11rem;
-                top: -9rem;
+                left: -8rem;
+                top: -7rem;
             }
 
             &.major {
-                left: -12rem;
-                top: -10.6rem;
+                left: -9rem;
+                top: -7rem;
             }
 
             &.grand {
-                left: -12rem;
-                top: -11rem;
+                left: -9rem;
+                top: -7rem;
             }
         }
 
         .prizePhoto img {
-            width: 63%;
+            width: 75%;
         }
 
         .logo-small {
-            right: -2.4rem;
-            bottom: -4rem;
+            right: -7.4rem;
+            bottom: -6rem;
 
             img {
-                width: 70%;
+                width: 80%;
             }
         }
 
@@ -537,8 +563,27 @@ body {
 
             .current-winner .staff-info {
                 .avatar {
-                    width: 20.6rem;
-                    height: 24.4rem;
+                    width: 200px;
+                    height: 225px;
+
+                    &:after {
+                        bottom: 0;
+                        content: '';
+                        left: -21px;
+                        position: absolute;
+                        right: 0;
+                        top: -22px;
+                        z-index: 5;
+                        background: url(../Images/borderiron.png) no-repeat;
+                    }
+
+                    .photo {
+                        height: 223px;
+                        width: 200px;
+                        border: 3px solid #000;
+                        margin: auto;
+                        object-fit: cover;
+                    }
 
                     .unknown-lg {
                         margin: 2rem 2.6rem;
@@ -564,37 +609,83 @@ body {
 }
 
 @media (max-width: 1200px) {
-    .server-site.adhoc-prize {
-        height: 100%;
+    .server-site {
+        &.adhoc-prize {
+            height: 100%;
 
-        .box-container {
-            padding-top: 12.5rem;
+            .box-container {
+                padding-top: 12.5rem;
+            }
+
+            .current-winner {
+                margin-bottom: 1rem;
+            }
+
+            .prizePhoto img {
+                width: 76%;
+            }
+
+            .quantity {
+                bottom: 0;
+            }
+
+            .list-winner .winner .staff-info {
+                margin-bottom: 3.2rem;
+                white-space: nowrap;
+                @include align-with-flex(center, center, row, flex-start);
+
+                .info {
+                    width: auto;
+                    margin-left: 2rem;
+                    min-height: initial;
+
+                    .txt-department {
+                        position: static;
+                    }
+                }
+            }
         }
 
-        .current-winner {
-            margin-bottom: 1rem;
-        }
+        &.winner-details, &.super-grand-winner-details {
+            .box-container {
+                padding: 3rem 0 3rem 4rem;
+            }
 
-        .prizePhoto img {
-            width: 76%;
-        }
+            .winnerList {
+                padding-left: 8rem;
+                padding-right: 0;
+            }
 
-        .quantity {
-            bottom: 0;
-        }
+            .staff-info {
+                margin: 1.4rem 0 1.4rem 0;
 
-        .list-winner .winner .staff-info {
-            margin-bottom: 3.2rem;
-            white-space: nowrap;
-            @include align-with-flex(center, center, row, flex-start);
+                .avatar {
+                    height: 100px;
+                    width: 89px;
 
-            .info {
-                width: auto;
-                margin-left: 2rem;
-                min-height: initial;
+                    &:after {
+                        background-size: 99px 115px;
+                        top: -4px;
+                        left: 2px;
+                    }
 
-                .txt-department {
-                    position: static;
+                    .photo {
+                        height: 96px;
+                        width: 85px;
+                    }
+
+                    .unknown {
+                        margin: 1.7rem 0.6rem;
+                    }
+                }
+
+                .info {
+                    font-size: $info-font-size-md;
+                    padding-left: 1.5rem;
+
+                    .txt-nickname {
+                        font-size: $nickname-font-size-md;
+                    }
                 }
             }
         }

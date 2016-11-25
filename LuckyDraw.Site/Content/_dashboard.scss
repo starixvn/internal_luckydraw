@@ -75,7 +75,18 @@
     .server {
         margin-bottom: 5rem;
     }
+
+    @media (max-width: 1366px) {
+        padding: 4rem;
+
+        .box-container {
+            width: 100%;
+            margin-top: 10rem;
+        }
+    }
 }
+
+
 
 @media (max-width: 768px) {
     .dashboard {
