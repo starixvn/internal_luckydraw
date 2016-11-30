@@ -109,7 +109,11 @@ body {
                 &:nth-child(2) {
                     margin-right: 6rem;
                     @include align-self(flex-end);
-                }
+               }
+            }
+
+            :not(.prize-order) {
+                @include align-self(center);
             }
         }
 
@@ -361,7 +365,7 @@ body {
         @include avatar-border-color($border-color-pink, $outline-color-pink);
 
         .avatar:after {
-            background: url(../Images/Frame_pink.png) no-repeat;
+            background: url(../Images/Frame_red.png) no-repeat;
         }
     }
 
@@ -530,7 +534,17 @@ body {
         }
 
         .prizePhoto img {
-            width: 75%;
+            width: 70%;
+
+            &.prize-order {
+                width: 90%;
+            }
+        }
+
+        &.cash-prize {
+            .prizePhoto img {
+                width: 75%;
+            }
         }
 
         .logo-small {

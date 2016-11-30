@@ -6109,8 +6109,8 @@ button.toast-close-button {
     .dashboard .btn.btn-default {
       background-color: #ffe898; }
     .dashboard .btn.btn-pink {
-      background-color: #f8aad1;
-      border-color: #f0549e; }
+      background-color: #ff4268;
+      border-color: #ff4268; }
     .dashboard .btn.btn-green {
       background-color: #8de1af;
       border-color: #19c25d; }
@@ -6593,6 +6593,11 @@ body {
       -moz-align-self: flex-end;
       -ms-flex-item-align: end;
       align-self: flex-end; }
+    .server-site.super-grand-winner-details .prizePhoto :not(.prize-order) {
+      -webkit-align-self: center;
+      -moz-align-self: center;
+      -ms-flex-item-align: center;
+      align-self: center; }
   .server-site.super-grand-winner-details .avatar {
     position: relative; }
   .server-site.super-grand-winner-details .prize-number {
@@ -6703,7 +6708,7 @@ body {
         .server-site.adhoc-prize .current-winner .staff-info .info .txt-nickname {
           font-size: 4.5rem; }
       .server-site.adhoc-prize .current-winner .staff-info.pink-staff {
-        color: #fd7fba; }
+        color: #ff4268; }
       .server-site.adhoc-prize .current-winner .staff-info.green-staff {
         color: #29ffbb; }
       .server-site.adhoc-prize .current-winner .staff-info.blue-staff {
@@ -6925,30 +6930,30 @@ body {
     .staff-info .avatar .unknown {
       margin: 3.7rem 3rem; }
   .staff-info.pink-staff {
-    color: #fd7fba; }
+    color: #ff4268; }
     .staff-info.pink-staff .avatar {
-      border-color: #fd7fba;
-      -webkit-box-shadow: 0 0 1.6rem #fd7fba;
-      -khtml-box-shadow: 0 0 1.6rem #fd7fba;
-      -moz-box-shadow: 0 0 1.6rem #fd7fba;
-      -ms-box-shadow: 0 0 1.6rem #fd7fba;
-      -o-box-shadow: 0 0 1.6rem #fd7fba;
-      box-shadow: 0 0 1.6rem #fd7fba;
+      border-color: #ff4268;
+      -webkit-box-shadow: 0 0 1rem #ff4268;
+      -khtml-box-shadow: 0 0 1rem #ff4268;
+      -moz-box-shadow: 0 0 1rem #ff4268;
+      -ms-box-shadow: 0 0 1rem #ff4268;
+      -o-box-shadow: 0 0 1rem #ff4268;
+      box-shadow: 0 0 1rem #ff4268;
       /*&:after {
 			outline-color: $border-color-dark;
 		}*/ }
     .staff-info.pink-staff .avatar:after {
-      background: url(../Images/Frame_pink.png) no-repeat; }
+      background: url(../Images/Frame_red.png) no-repeat; }
   .staff-info.green-staff {
     color: #29ffbb; }
     .staff-info.green-staff .avatar {
       border-color: #29ffbb;
-      -webkit-box-shadow: 0 0 1.6rem #29ffbb;
-      -khtml-box-shadow: 0 0 1.6rem #29ffbb;
-      -moz-box-shadow: 0 0 1.6rem #29ffbb;
-      -ms-box-shadow: 0 0 1.6rem #29ffbb;
-      -o-box-shadow: 0 0 1.6rem #29ffbb;
-      box-shadow: 0 0 1.6rem #29ffbb;
+      -webkit-box-shadow: 0 0 1rem #29ffbb;
+      -khtml-box-shadow: 0 0 1rem #29ffbb;
+      -moz-box-shadow: 0 0 1rem #29ffbb;
+      -ms-box-shadow: 0 0 1rem #29ffbb;
+      -o-box-shadow: 0 0 1rem #29ffbb;
+      box-shadow: 0 0 1rem #29ffbb;
       /*&:after {
 			outline-color: $border-color-dark;
 		}*/ }
@@ -6958,12 +6963,12 @@ body {
     color: #5e7af2; }
     .staff-info.blue-staff .avatar {
       border-color: #5e7af2;
-      -webkit-box-shadow: 0 0 1.6rem #5e7af2;
-      -khtml-box-shadow: 0 0 1.6rem #5e7af2;
-      -moz-box-shadow: 0 0 1.6rem #5e7af2;
-      -ms-box-shadow: 0 0 1.6rem #5e7af2;
-      -o-box-shadow: 0 0 1.6rem #5e7af2;
-      box-shadow: 0 0 1.6rem #5e7af2;
+      -webkit-box-shadow: 0 0 1rem #5e7af2;
+      -khtml-box-shadow: 0 0 1rem #5e7af2;
+      -moz-box-shadow: 0 0 1rem #5e7af2;
+      -ms-box-shadow: 0 0 1rem #5e7af2;
+      -o-box-shadow: 0 0 1rem #5e7af2;
+      box-shadow: 0 0 1rem #5e7af2;
       /*&:after {
 			outline-color: $border-color-dark;
 		}*/ }
@@ -7051,6 +7056,10 @@ body {
     left: -9rem;
     top: -7rem; }
   .server-site .prizePhoto img {
+    width: 70%; }
+    .server-site .prizePhoto img.prize-order {
+      width: 90%; }
+  .server-site.cash-prize .prizePhoto img {
     width: 75%; }
   .server-site .logo-small {
     right: -7.4rem;
