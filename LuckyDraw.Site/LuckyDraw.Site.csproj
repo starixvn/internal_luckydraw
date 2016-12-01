@@ -325,11 +325,11 @@
     <Content Include="Images\Winner\logo-Luckydraw-small.png" />
     <Content Include="Images\Winner\majorprize-small.png" />
     <Content Include="Images\Winner\supergrandprize-small.png" />
-    <Content Include="Images\Winner\winner-pic-lg.png" />
     <Content Include="Images\Winner\winner-pic.png" />
     <Content Include="Images\Winner\winnerimage-blue.png" />
     <Content Include="Images\Winner\winnerimage-green.png" />
     <Content Include="Images\Winner\winnerimage-pink.png" />
+    <Content Include="Images\Winner\winner-pic-lg.png" />
     <Content Include="Libs\angular-animate.js" />
     <Content Include="Libs\angular-animate.min.js" />
     <Content Include="Libs\angular-resource.js" />
