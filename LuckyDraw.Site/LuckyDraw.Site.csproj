@@ -212,7 +212,6 @@
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Images\adhoc\voucher.png" />
     <Content Include="Images\bg-UIControl.png" />
     <Content Include="Images\bg_Adhoc.png" />
     <Content Include="Images\bg_Cash.png" />
@@ -413,8 +412,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\ServerControl.cshtml" />
     <Content Include="Views\Shared\_LayoutServerControl.cshtml" />
+    <None Include="Properties\PublishProfiles\LuckyDraw.pubxml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\adhoc\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
