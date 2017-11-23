@@ -27,11 +27,11 @@ body {
         }
 
         .logo-opening {
-            top: -1rem;
+            top: 4rem;
         }
 
         .list-prize-opening {
-            bottom: 16rem;
+            bottom: 5rem;
         }
     }
 
@@ -287,22 +287,22 @@ body {
 
         &.cash {
             left: -5.6rem;
-            top: -7.4rem;
+            top: -7rem;
         }
 
         &.major {
-            left: -9rem;
-            top: -8.6rem;
+            left: -8rem;
+            top: -6.8rem;
         }
 
         &.grand {
             left: -8rem;
-            top: -8.8rem;
+            top: -4.8rem;
         }
 
         &.super-grand {
-            left: -3.6rem;
-            top: -8.8rem;
+            left: -9rem;
+            top: -5.8rem;
         }
 
         &.adhoc {
@@ -335,8 +335,7 @@ body {
         text-align: center;
         width: 130px;
         @include box-shadow(0, 0, 1rem, $outline-color-default);
-
-        &:after {
+        /*&:after {
             bottom: 0;
             content: '';
             left: 0;
@@ -346,8 +345,7 @@ body {
             top: -8px;
             z-index: 5;
             background: url(../Images/Frame_yellow.png) no-repeat;
-        }
-
+        }*/
         .photo {
             height: 142px;
             width: 126px;
@@ -364,28 +362,25 @@ body {
     &.pink-staff {
         color: $text-color-pink;
         @include avatar-border-color($border-color-pink, $outline-color-pink);
-
-        .avatar:after {
-            background: url(../Images/Frame_red.png) no-repeat;
-        }
+        /*.avatar:after {
+            background: url(../Images/pink.png) no-repeat;
+        }*/
     }
 
     &.green-staff {
         color: $text-color-green;
         @include avatar-border-color($border-color-green, $outline-color-green);
-
-        .avatar:after {
-            background: url(../Images/Frame_green.png) no-repeat;
-        }
+        /*.avatar:after {
+            background: url(../Images/green.png) no-repeat;
+        }*/
     }
 
     &.blue-staff {
         color: $text-color-blue;
         @include avatar-border-color($border-color-blue, $outline-color-blue);
-
-        .avatar:after {
-            background: url(../Images/Frame_purple.png) no-repeat;
-        }
+        /*.avatar:after {
+            background: url(../Images/purple.png) no-repeat;
+        }*/
     }
 
     &.focus {
@@ -424,12 +419,13 @@ body {
     min-height: 100%;
     position: relative;
     width: 100%;
-    border: 2px solid transparent;
+    border: 2px solid #701378;
     //@include border-image(url(../Images/border-rope.png), 10%, repeat );
-    -moz-border-image: -moz-linear-gradient(top right, #d1f2ff 0%, #1da1d8 100%);
-    -webkit-border-image: -webkit-linear-gradient(top right, #d1f2ff 0%, #1da1d8 100%);
-    border-image: linear-gradient(to bottom left, #d1f2ff 0%, #1da1d8 100%);
-    border-image-slice: 1;
+    //-moz-border-image: -moz-linear-gradient(top right, #d1f2ff 0%, #1da1d8 100%);
+    //-webkit-border-image: -webkit-linear-gradient(top right, #d1f2ff 0%, #1da1d8 100%);
+    //border-image: linear-gradient(to bottom left, #d1f2ff 0%, #1da1d8 100%);
+    //border-image-slice: 1;
+    box-shadow: 0 0 1rem #701378;
 }
 
 /* Resolution */
@@ -515,8 +511,8 @@ body {
             }
 
             &.super-grand {
-                left: -5rem;
-                top: -7rem;
+                left: -9rem;
+                top: -5.8rem;
             }
 
             &.cash {
@@ -552,10 +548,9 @@ body {
         .logo-small {
             right: -7.4rem;
             bottom: -6rem;
-
-            img {
+            /*img {
                 width: 75%;
-            }
+            }*/
         }
 
         &.adhoc-prize {
@@ -628,7 +623,6 @@ body {
     .server-site {
         &.adhoc-prize {
             //height: 100%;
-
             .box-container {
                 padding-top: 4rem;
                 padding-bottom: 1rem;
@@ -663,6 +657,7 @@ body {
                         //margin-left: 2rem;
                         min-height: initial;
                         margin-top: 1rem;
+
                         .txt-department {
                             position: static;
                         }
@@ -701,7 +696,6 @@ body {
                 .info {
                     font-size: $info-font-size-md;
                     //padding-left: 1.5rem;
-
                     .txt-nickname {
                         font-size: $nickname-font-size-md;
                     }
@@ -840,8 +834,7 @@ body {
 @media (width: 1600px) and (height: 800px) {
     .server-site {
         border-image-slices: 26;
-
-        &.opening {
+        /*&.opening {
             .logo-opening img {
                 width: 30%;
             }
@@ -849,8 +842,7 @@ body {
             .list-prize-opening img {
                 width: 47%;
             }
-        }
-
+        }*/
         .box-container {
             padding-top: 3rem;
             padding-bottom: 3rem;
@@ -860,9 +852,9 @@ body {
             width: 16%;
         }
 
-        .prizePhoto img {
+        /*.prizePhoto img {
             width: 70%;
-        }
+        }*/
         /*.logo-prize {
             &.super-grand, &.grand, &.major, &.cash, &.adhoc {
                 img {
@@ -896,12 +888,11 @@ body {
             }
         }*/
         .logo-small {
-            right: -2.4rem;
-            bottom: -4.5rem;
-
-            img {
+            right: -9rem;
+            bottom: -6.5rem;
+            /*img {
                 width: 85%;
-            }
+            }*/
         }
 
         &.adhoc-prize {

@@ -227,6 +227,10 @@
     <Content Include="Images\Frame_red.png" />
     <Content Include="Images\Frame_yellow.png" />
     <Content Include="Images\bg-home-2.png" />
+    <Content Include="Images\green.png" />
+    <Content Include="Images\logo-2018-home.png" />
+    <Content Include="Images\logo-2018.png" />
+    <Content Include="Images\pink.png" />
     <Content Include="Images\prizeListMain.png" />
     <Content Include="Images\bg-home.jpg" />
     <Content Include="Images\bg-AdvanceZone.png" />
@@ -234,6 +238,7 @@
     <Content Include="Images\border.png" />
     <Content Include="Images\logo-2017.png" />
     <Content Include="Images\logo-Luckydraw.png" />
+    <Content Include="Images\purple.png" />
     <Content Include="Images\tag.png" />
     <Content Include="Images\Title\1-after.png" />
     <Content Include="Images\Title\1-before.png" />

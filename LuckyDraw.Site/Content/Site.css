@@ -6109,8 +6109,8 @@ button.toast-close-button {
     .dashboard .btn.btn-default {
       background-color: #ffe898; }
     .dashboard .btn.btn-pink {
-      background-color: #ff4268;
-      border-color: #ff4268; }
+      background-color: #fd7fba;
+      border-color: #fd7fba; }
     .dashboard .btn.btn-green {
       background-color: #8de1af;
       border-color: #19c25d; }
@@ -6405,9 +6405,9 @@ body {
     .server-site.opening .logo-opening img, .server-site.opening .list-prize-opening img {
       display: inline-block; }
   .server-site.opening .logo-opening {
-    top: -1rem; }
+    top: 4rem; }
   .server-site.opening .list-prize-opening {
-    bottom: 16rem; }
+    bottom: 5rem; }
   .server-site.adhoc-prize {
     background: url(../Images/bg_Adhoc.png) no-repeat 0 0 fixed; }
   .server-site.super-grand-prize {
@@ -6711,7 +6711,7 @@ body {
           .server-site.adhoc-prize .current-winner .staff-info .info .txt-nickname {
             font-size: 4.5rem; }
         .server-site.adhoc-prize .current-winner .staff-info.pink-staff {
-          color: #ff4268; }
+          color: #fd7fba; }
         .server-site.adhoc-prize .current-winner .staff-info.green-staff {
           color: #29ffbb; }
         .server-site.adhoc-prize .current-winner .staff-info.blue-staff {
@@ -6846,16 +6846,16 @@ body {
     z-index: 5; }
     .server-site .logo-prize.cash {
       left: -5.6rem;
-      top: -7.4rem; }
+      top: -7rem; }
     .server-site .logo-prize.major {
-      left: -9rem;
-      top: -8.6rem; }
+      left: -8rem;
+      top: -6.8rem; }
     .server-site .logo-prize.grand {
       left: -8rem;
-      top: -8.8rem; }
+      top: -4.8rem; }
     .server-site .logo-prize.super-grand {
-      left: -3.6rem;
-      top: -8.8rem; }
+      left: -9rem;
+      top: -5.8rem; }
     .server-site .logo-prize.adhoc {
       left: -9rem;
       top: -9rem; }
@@ -6910,17 +6910,18 @@ body {
     -moz-box-shadow: 0 0 1rem #ffb400;
     -ms-box-shadow: 0 0 1rem #ffb400;
     -o-box-shadow: 0 0 1rem #ffb400;
-    box-shadow: 0 0 1rem #ffb400; }
-    .staff-info .avatar:after {
-      bottom: 0;
-      content: '';
-      left: 0;
-      margin: -9px;
-      position: absolute;
-      right: 0;
-      top: -8px;
-      z-index: 5;
-      background: url(../Images/Frame_yellow.png) no-repeat; }
+    box-shadow: 0 0 1rem #ffb400;
+    /*&:after {
+            bottom: 0;
+            content: '';
+            left: 0;
+            margin: -9px;
+            position: absolute;
+            right: 0;
+            top: -8px;
+            z-index: 5;
+            background: url(../Images/Frame_yellow.png) no-repeat;
+        }*/ }
     .staff-info .avatar .photo {
       height: 142px;
       width: 126px;
@@ -6930,22 +6931,26 @@ body {
     .staff-info .avatar .unknown {
       margin: 3.7rem 3rem; }
   .staff-info.pink-staff {
-    color: #ff4268; }
+    color: #fd7fba;
+    /*.avatar:after {
+            background: url(../Images/pink.png) no-repeat;
+        }*/ }
     .staff-info.pink-staff .avatar {
-      border-color: #ff4268;
-      -webkit-box-shadow: 0 0 1rem #ff4268;
-      -khtml-box-shadow: 0 0 1rem #ff4268;
-      -moz-box-shadow: 0 0 1rem #ff4268;
-      -ms-box-shadow: 0 0 1rem #ff4268;
-      -o-box-shadow: 0 0 1rem #ff4268;
-      box-shadow: 0 0 1rem #ff4268;
+      border-color: #fd7fba;
+      -webkit-box-shadow: 0 0 1rem #fd7fba;
+      -khtml-box-shadow: 0 0 1rem #fd7fba;
+      -moz-box-shadow: 0 0 1rem #fd7fba;
+      -ms-box-shadow: 0 0 1rem #fd7fba;
+      -o-box-shadow: 0 0 1rem #fd7fba;
+      box-shadow: 0 0 1rem #fd7fba;
       /*&:after {
 			outline-color: $border-color-dark;
 		}*/ }
-    .staff-info.pink-staff .avatar:after {
-      background: url(../Images/Frame_red.png) no-repeat; }
   .staff-info.green-staff {
-    color: #29ffbb; }
+    color: #29ffbb;
+    /*.avatar:after {
+            background: url(../Images/green.png) no-repeat;
+        }*/ }
     .staff-info.green-staff .avatar {
       border-color: #29ffbb;
       -webkit-box-shadow: 0 0 1rem #29ffbb;
@@ -6957,10 +6962,11 @@ body {
       /*&:after {
 			outline-color: $border-color-dark;
 		}*/ }
-    .staff-info.green-staff .avatar:after {
-      background: url(../Images/Frame_green.png) no-repeat; }
   .staff-info.blue-staff {
-    color: #5e7af2; }
+    color: #5e7af2;
+    /*.avatar:after {
+            background: url(../Images/purple.png) no-repeat;
+        }*/ }
     .staff-info.blue-staff .avatar {
       border-color: #5e7af2;
       -webkit-box-shadow: 0 0 1rem #5e7af2;
@@ -6972,8 +6978,6 @@ body {
       /*&:after {
 			outline-color: $border-color-dark;
 		}*/ }
-    .staff-info.blue-staff .avatar:after {
-      background: url(../Images/Frame_purple.png) no-repeat; }
   .staff-info.focus .avatar {
     border-color: #fafafa;
     -webkit-box-shadow: 0 0 2rem #f5f5f5;
@@ -6999,11 +7003,8 @@ body {
   min-height: 100%;
   position: relative;
   width: 100%;
-  border: 2px solid transparent;
-  -moz-border-image: -moz-linear-gradient(top right, #d1f2ff 0%, #1da1d8 100%);
-  -webkit-border-image: -webkit-linear-gradient(top right, #d1f2ff 0%, #1da1d8 100%);
-  border-image: linear-gradient(to bottom left, #d1f2ff 0%, #1da1d8 100%);
-  border-image-slice: 1; }
+  border: 2px solid #701378;
+  box-shadow: 0 0 1rem #701378; }
 
 /* Resolution */
 @media (max-width: 1599px) {
@@ -7047,8 +7048,8 @@ body {
     left: -7rem;
     top: -8rem; }
   .server-site .logo-prize.super-grand {
-    left: -5rem;
-    top: -7rem; }
+    left: -9rem;
+    top: -5.8rem; }
   .server-site .logo-prize.cash {
     left: -8rem;
     top: -7rem; }
@@ -7066,9 +7067,10 @@ body {
     width: 75%; }
   .server-site .logo-small {
     right: -7.4rem;
-    bottom: -6rem; }
-    .server-site .logo-small img {
-      width: 75%; }
+    bottom: -6rem;
+    /*img {
+                width: 75%;
+            }*/ }
   .server-site.adhoc-prize .box-container {
     padding: 4rem 0 4rem 4rem;
     -webkit-box-align: center;
@@ -7293,6 +7295,18 @@ body {
 @media (width: 1600px) and (height: 800px) {
   .server-site {
     border-image-slices: 26;
+    /*&.opening {
+            .logo-opening img {
+                width: 30%;
+            }
+
+            .list-prize-opening img {
+                width: 47%;
+            }
+        }*/
+    /*.prizePhoto img {
+            width: 70%;
+        }*/
     /*.logo-prize {
             &.super-grand, &.grand, &.major, &.cash, &.adhoc {
                 img {
@@ -7325,22 +7339,17 @@ body {
                 top: -11rem;
             }
         }*/ }
-    .server-site.opening .logo-opening img {
-      width: 30%; }
-    .server-site.opening .list-prize-opening img {
-      width: 47%; }
     .server-site .box-container {
       padding-top: 3rem;
       padding-bottom: 3rem; }
     .server-site .listPrize .prize {
       width: 16%; }
-    .server-site .prizePhoto img {
-      width: 70%; }
     .server-site .logo-small {
-      right: -2.4rem;
-      bottom: -4.5rem; }
-      .server-site .logo-small img {
-        width: 85%; }
+      right: -9rem;
+      bottom: -6.5rem;
+      /*img {
+                width: 85%;
+            }*/ }
     .server-site.adhoc-prize .staff-info .avatar {
       height: 12.6rem;
       width: 10.8rem; }
