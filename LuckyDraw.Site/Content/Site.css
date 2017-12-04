@@ -6092,8 +6092,6 @@ $outline-color-default: #ffb400;*/
     text-align: center; }
     .dashboard .logo-opening img {
       display: inline-block; }
-  .dashboard .btn-server {
-    min-width: 15%; }
   .dashboard .client .btn {
     min-width: 15%;
     margin: 1rem 1%; }
@@ -6102,8 +6100,8 @@ $outline-color-default: #ffb400;*/
     .dashboard .client .btn:last-child {
       margin-right: 0; }
   .dashboard .btn {
-    background-color: #f8c52b;
-    border: .1rem solid #ac7926;
+    background-color: #e42cbb;
+    border: .1rem solid #e42cbb;
     color: #03030b;
     font-size: 2.4rem;
     height: 8rem;
@@ -6123,6 +6121,10 @@ $outline-color-default: #ffb400;*/
     .dashboard .btn.btn-blue {
       background-color: #95a8f7;
       border-color: #284eef; }
+    .dashboard .btn.btn-server {
+      min-width: 15%;
+      background-color: #b2b2b2;
+      border: .1rem solid #b2b2b2; }
   .dashboard .server {
     margin-bottom: 5rem; }
   @media (max-width: 1366px) {
@@ -7036,10 +7038,6 @@ body {
 @media (max-width: 1599px) {
   .server-site.opening .logo-opening {
     top: 5rem; }
-    .server-site.opening .logo-opening img {
-      width: 50%; }
-  .server-site.opening .list-prize-opening img {
-    width: 65%; }
   .server-site.winner-details .box-container, .server-site.super-grand-winner-details .box-container, .server-site.adhoc-prize .box-container {
     padding: 3rem 0 3rem 4rem; }
   .server-site.winner-details .winnerList, .server-site.super-grand-winner-details .winnerList, .server-site.adhoc-prize .winnerList {
