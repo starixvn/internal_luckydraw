@@ -6009,6 +6009,9 @@ button.toast-close-button {
     padding: 15px 15px 15px 50px;
     width: 25em; } }
 
+/*$text-color-default: #ffb400;
+$border-color-default: #ffb400;
+$outline-color-default: #ffb400;*/
 .dashboard {
   background: url(../Images/bg-AdvanceZone.png) no-repeat center center fixed;
   height: 100vh;
@@ -6107,10 +6110,13 @@ button.toast-close-button {
     margin-bottom: 1.2rem;
     border-radius: 0; }
     .dashboard .btn.btn-default {
-      background-color: #ffe898; }
+      background-color: #fd7fba; }
     .dashboard .btn.btn-pink {
       background-color: #fd7fba;
       border-color: #fd7fba; }
+    .dashboard .btn.btn-yellow {
+      background-color: #ffcc00;
+      border-color: #ffcc00; }
     .dashboard .btn.btn-green {
       background-color: #8de1af;
       border-color: #19c25d; }
@@ -6588,12 +6594,14 @@ body {
     -webkit-justify-content: center;
     -moz-justify-content: center;
     justify-content: center; }
-    .server-site.super-grand-winner-details .prizePhoto .prize-order:nth-child(2) {
-      margin-right: 6rem;
-      -webkit-align-self: flex-end;
-      -moz-align-self: flex-end;
-      -ms-flex-item-align: end;
-      align-self: flex-end; }
+    .server-site.super-grand-winner-details .prizePhoto .prize-order {
+      /*width: 85%;*/ }
+      .server-site.super-grand-winner-details .prizePhoto .prize-order:nth-child(2) {
+        margin-right: 6rem;
+        -webkit-align-self: flex-end;
+        -moz-align-self: flex-end;
+        -ms-flex-item-align: end;
+        align-self: flex-end; }
     .server-site.super-grand-winner-details .prizePhoto :not(.prize-order) {
       -webkit-align-self: center;
       -moz-align-self: center;
@@ -6682,7 +6690,7 @@ body {
     .server-site.adhoc-prize .current-winner {
       margin-top: 3rem; }
       .server-site.adhoc-prize .current-winner .staff-info {
-        color: #feb600; }
+        color: #fd7fba; }
         .server-site.adhoc-prize .current-winner .staff-info .avatar {
           width: 300px;
           height: 324px; }
@@ -6710,6 +6718,8 @@ body {
           min-height: 10rem; }
           .server-site.adhoc-prize .current-winner .staff-info .info .txt-nickname {
             font-size: 4.5rem; }
+        .server-site.adhoc-prize .current-winner .staff-info.yellow-staff {
+          color: #ffcc00; }
         .server-site.adhoc-prize .current-winner .staff-info.pink-staff {
           color: #fd7fba; }
         .server-site.adhoc-prize .current-winner .staff-info.green-staff {
@@ -6719,7 +6729,7 @@ body {
     .server-site.adhoc-prize .quantity {
       font-size: 10rem;
       font-weight: bold;
-      color: #feb600;
+      color: #fd7fba;
       text-align: center;
       position: relative;
       bottom: -4rem; }
@@ -6868,7 +6878,7 @@ body {
       float: right; }
 
 .staff-info {
-  color: #ffb400;
+  color: #fd7fba;
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
@@ -6899,18 +6909,18 @@ body {
   -moz-justify-content: flex-start;
   justify-content: flex-start; }
   .staff-info .avatar {
-    border: 0.2rem solid #ffb400;
+    border: 0.2rem solid #fd7fba;
     background-color: #0e090d;
     height: 146px;
     position: relative;
     text-align: center;
     width: 130px;
-    -webkit-box-shadow: 0 0 1rem #ffb400;
-    -khtml-box-shadow: 0 0 1rem #ffb400;
-    -moz-box-shadow: 0 0 1rem #ffb400;
-    -ms-box-shadow: 0 0 1rem #ffb400;
-    -o-box-shadow: 0 0 1rem #ffb400;
-    box-shadow: 0 0 1rem #ffb400;
+    -webkit-box-shadow: 0 0 1rem #fd7fba;
+    -khtml-box-shadow: 0 0 1rem #fd7fba;
+    -moz-box-shadow: 0 0 1rem #fd7fba;
+    -ms-box-shadow: 0 0 1rem #fd7fba;
+    -o-box-shadow: 0 0 1rem #fd7fba;
+    box-shadow: 0 0 1rem #fd7fba;
     /*&:after {
             bottom: 0;
             content: '';
@@ -6943,6 +6953,22 @@ body {
       -ms-box-shadow: 0 0 1rem #fd7fba;
       -o-box-shadow: 0 0 1rem #fd7fba;
       box-shadow: 0 0 1rem #fd7fba;
+      /*&:after {
+			outline-color: $border-color-dark;
+		}*/ }
+  .staff-info.yellow-staff {
+    color: #ffcc00;
+    /*.avatar:after {
+            background: url(../Images/pink.png) no-repeat;
+        }*/ }
+    .staff-info.yellow-staff .avatar {
+      border-color: #ffcc00;
+      -webkit-box-shadow: 0 0 1rem #ffcc00;
+      -khtml-box-shadow: 0 0 1rem #ffcc00;
+      -moz-box-shadow: 0 0 1rem #ffcc00;
+      -ms-box-shadow: 0 0 1rem #ffcc00;
+      -o-box-shadow: 0 0 1rem #ffcc00;
+      box-shadow: 0 0 1rem #ffcc00;
       /*&:after {
 			outline-color: $border-color-dark;
 		}*/ }
@@ -7303,28 +7329,14 @@ body {
             .list-prize-opening img {
                 width: 47%;
             }
-        }*/
-    /*.prizePhoto img {
-            width: 70%;
-        }*/
-    /*.logo-prize {
-            &.super-grand, &.grand, &.major, &.cash, &.adhoc {
-                img {
-                    //width: 85%;
-                }
-            }
-
-            &.adhoc {
-                right: -42.6rem;
-                top: -15rem;
-            }
-
-            &.super-grand {
-                left: -10.6rem;
-                top: -8rem;
-            }
-
-            &.cash {
+        }*/ }
+    .server-site .box-container {
+      padding-top: 3rem;
+      padding-bottom: 3rem; }
+    .server-site .listPrize .prize {
+      width: 16%; }
+    .server-site .logo-prize {
+      /*&.cash {
                 left: -11rem;
                 top: -9rem;
             }
@@ -7337,16 +7349,16 @@ body {
             &.grand {
                 left: -12rem;
                 top: -11rem;
-            }
-        }*/ }
-    .server-site .box-container {
-      padding-top: 3rem;
-      padding-bottom: 3rem; }
-    .server-site .listPrize .prize {
-      width: 16%; }
+            }*/ }
+      .server-site .logo-prize.adhoc {
+        right: -42.6rem;
+        top: -15rem; }
+      .server-site .logo-prize.super-grand {
+        left: -7.6rem;
+        top: -4rem; }
     .server-site .logo-small {
       right: -9rem;
-      bottom: -6.5rem;
+      bottom: -7.5rem;
       /*img {
                 width: 85%;
             }*/ }

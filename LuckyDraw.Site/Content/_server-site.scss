@@ -106,6 +106,7 @@ body {
             @include align-with-flex(flex-start, flex-start, column, center);
 
             .prize-order {
+                /*width: 85%;*/
                 &:nth-child(2) {
                     margin-right: 6rem;
                     @include align-self(flex-end);
@@ -156,7 +157,7 @@ body {
             margin-top: 3rem;
 
             .staff-info {
-                color: #feb600;
+                color: $text-color-default;
 
                 .avatar {
                     width: 300px;
@@ -198,6 +199,10 @@ body {
                     }
                 }
 
+                &.yellow-staff {
+                    color: $text-color-yellow;
+                }
+
                 &.pink-staff {
                     color: $text-color-pink;
                 }
@@ -218,7 +223,7 @@ body {
                 weight: bold;
             }
 
-            color: #feb600;
+            color: $text-color-default;
             text-align: center;
             position: relative;
             bottom: -4rem;
@@ -362,6 +367,14 @@ body {
     &.pink-staff {
         color: $text-color-pink;
         @include avatar-border-color($border-color-pink, $outline-color-pink);
+        /*.avatar:after {
+            background: url(../Images/pink.png) no-repeat;
+        }*/
+    }
+
+    &.yellow-staff {
+        color: $text-color-yellow;
+        @include avatar-border-color($border-color-yellow, $outline-color-yellow);
         /*.avatar:after {
             background: url(../Images/pink.png) no-repeat;
         }*/
@@ -852,10 +865,11 @@ body {
             width: 16%;
         }
 
-        /*.prizePhoto img {
-            width: 70%;
-        }*/
-        /*.logo-prize {
+        //.prizePhoto img {
+        //    width: 70%;
+        //}
+
+        .logo-prize {
             &.super-grand, &.grand, &.major, &.cash, &.adhoc {
                 img {
                     //width: 85%;
@@ -868,11 +882,11 @@ body {
             }
 
             &.super-grand {
-                left: -10.6rem;
-                top: -8rem;
+                left: -7.6rem;
+                top: -4rem;
             }
 
-            &.cash {
+            /*&.cash {
                 left: -11rem;
                 top: -9rem;
             }
@@ -885,11 +899,12 @@ body {
             &.grand {
                 left: -12rem;
                 top: -11rem;
-            }
-        }*/
+            }*/
+        }
+
         .logo-small {
             right: -9rem;
-            bottom: -6.5rem;
+            bottom: -7.5rem;
             /*img {
                 width: 85%;
             }*/

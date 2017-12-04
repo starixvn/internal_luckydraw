@@ -53,12 +53,17 @@
         border-radius: 0;
 
         &.btn-default {
-            background-color: #ffe898;
+            background-color: #fd7fba;
         }
 
         &.btn-pink {
             background-color: #fd7fba;
             border-color: #fd7fba;
+        }
+
+        &.btn-yellow {
+            background-color: #ffcc00;
+            border-color: #ffcc00;
         }
 
         &.btn-green {

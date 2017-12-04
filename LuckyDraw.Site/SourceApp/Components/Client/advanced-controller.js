@@ -20,7 +20,7 @@ function ($window, $scope, AdvancedModel, CommonModel, baseUrl) {
         if (staffCode) {
             switch (staffCode.substring(0, 2)) {
                 case '10':
-                    result = 'pink-staff';
+                    result = 'yellow-staff';
                     break;
                 case '11':
                     result = 'green-staff';
