@@ -11,7 +11,7 @@ function ($window, $scope, ServerModel, CommonModel, baseUrl) {
     vm.currentWinner = null;
     vm.currentQuantity = 0;
     vm.numRow = 2;
-    vm.numColumn = 2;
+    vm.numColumn = 3;
     vm.winners = [];
     vm.currentIndexFocus = -1;
 

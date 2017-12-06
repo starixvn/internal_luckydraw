@@ -154,17 +154,17 @@ body {
         }
 
         .current-winner {
-            margin-top: 3rem;
+            margin-top: 7rem;
 
             .staff-info {
                 color: $text-color-default;
 
                 .avatar {
-                    width: 300px;
-                    height: 324px;
+                    width: 206px;
+                    height: 230px;
 
 
-                    &:after {
+                    /*&:after {
                         bottom: 0;
                         content: '';
                         left: -7px;
@@ -173,18 +173,18 @@ body {
                         top: -8px;
                         z-index: 5;
                         background: url(../Images/borderironbig.png) no-repeat;
-                    }
+                    }*/
 
                     .photo {
-                        height: 322px;
-                        width: 306px;
-                        border: 3px solid #000;
+                        height: 225px;
+                        width: 200px;
+                        border: 3px solid rgba(0,0,0,.6);
                         margin: auto;
                         object-fit: cover;
                     }
 
                     .unknown-lg {
-                        margin: 3.7rem 3.6rem;
+                        //margin: 3.7rem 3.6rem;
                     }
                 }
 
@@ -261,7 +261,7 @@ body {
 
                     .txt-department {
                         position: absolute;
-                        bottom: 0;
+                        //bottom: 0;
                     }
                 }
             }
