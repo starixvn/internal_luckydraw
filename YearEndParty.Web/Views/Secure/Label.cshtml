@@ -1,79 +1,87 @@
 ﻿@model IEnumerable<YearEndParty.Web.Models.LabelModel>
-@{
-    Layout = null;
-}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Label</title>
-    <style type="text/css" media="screen,print">
-        body {
-            font-family: Cambria;
-            width: 900px;
-            margin: 0 auto;
-        }
-        .barcode {
-            float: left;
-            margin: 10px 0;
-            text-align: center;
-            width: 300px;
-        }
-        .barcode_name {
-            text-transform: uppercase;
-            white-space: nowrap;
-            font-weight: bold;
-            margin-bottom: 2px;
-            padding: 4px 0;
-        }
-        .barcode_image {
-            background: #fff;
-            margin-top: 4px;
-        }
-        .barcode_barcode {
-            letter-spacing: 15px;
-            font-weight: bold;
-            padding: 2px 0;
-        }
-        .color10 {
-            background: #f39cc6;
-            color: #fff;
-        }
-        .color11 {
-            background: #80f3b4;
-            color: #fff;
-        }
-        .color12 {
-            background: #5E7BF3;
-            color: #fff;
-        }
-        .page_break {
-            page-break-before: always;
-            page-break-after: always;
-            clear: both;
-        }
-    </style>
-</head>
-<body>
     @{
-        var index = 0;
+        Layout = null;
     }
-    @foreach (var item in Model)
-    {
-        index++;
-        
-        <div class="barcode">
-            <div class="barcode_name color@(item.Barcode.Substring(0, 2))">
-                @item.Name (@item.Nick)
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Label</title>
+        <style type="text/css" media="screen,print">
+            body {
+                font-family: Cambria;
+                width: 900px;
+                margin: 0 auto;
+            }
+
+            .barcode {
+                float: left;
+                margin: 10px 0;
+                text-align: center;
+                width: 300px;
+            }
+
+            .barcode_name {
+                text-transform: uppercase;
+                white-space: nowrap;
+                font-weight: bold;
+                margin-bottom: 2px;
+                padding: 4px 0;
+            }
+
+            .barcode_image {
+                background: #fff;
+                margin-top: 4px;
+            }
+
+            .barcode_barcode {
+                letter-spacing: 15px;
+                font-weight: bold;
+                padding: 2px 0;
+            }
+
+            .color10 {
+                background: #fc0;
+                color: #fff;
+            }
+
+            .color11 {
+                background: #8de1af;
+                color: #fff;
+            }
+
+            .color12 {
+                background: #95a8f7;
+                color: #fff;
+            }
+
+            .page_break {
+                page-break-before: always;
+                page-break-after: always;
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        @{
+            var index = 0;
+        }
+        @foreach (var item in Model)
+        {
+            index++;
+
+            <div class="barcode">
+                <div class="barcode_name color@(item.Barcode.Substring(0, 2))">
+                    @item.Name (@item.Nick)
+                </div>
+                <div class="barcode_image">
+                    <img src="/home/barcodeimage?barcode=@(item.Barcode)" alt="" />
+                </div>
+                <div class="barcode_barcode color@(item.Barcode.Substring(0, 2))">
+                    @item.Barcode
+                </div>
             </div>
-            <div class="barcode_image">
-                <img src="/home/barcodeimage?barcode=@(item.Barcode)" alt="" />
+            <div class="@(index % 27 == 0 ? "page_break" : "")">
             </div>
-            <div class="barcode_barcode color@(item.Barcode.Substring(0, 2))">
-                @item.Barcode
-            </div>
-        </div>
-        <div class="@(index % 27 == 0 ? "page_break" : "")">
-        </div>
-    }
-</body>
+        }
+    </body>
 </html>
