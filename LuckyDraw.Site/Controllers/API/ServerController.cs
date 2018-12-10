@@ -233,7 +233,7 @@ namespace LuckyDraw.Site.Controllers.API
                 for (int j = 0; j < numColumn; j++)
                 {
                     int index = (i * numColumn) + j;
-                    bool isDone = (index + 1 > currentPrize) ? true : false;
+                    bool isDone = index + 1 > currentPrize;
                     string imagePath = string.Empty;
 
                     if (index < total)
@@ -355,6 +355,10 @@ namespace LuckyDraw.Site.Controllers.API
                     imagePath = "Images/Title/88-89-90-after.png";
                     break;
 
+                case (int)CashPrizeIndex.Prize91To93:
+                    imagePath = "Images/Title/91-92-93-after.png";
+                    break;
+
                 default:
                     imagePath = "Images/Title/blank-ticket-b.png";
                     break;
@@ -403,6 +407,10 @@ namespace LuckyDraw.Site.Controllers.API
 
                 case (int)CashPrizeIndex.Prize88To90:
                     imagePath = "Images/Title/88-89-90-before.png";
+                    break;
+
+                case (int)CashPrizeIndex.Prize91To93:
+                    imagePath = "Images/Title/91-92-93-before.png";
                     break;
 
                 default:

@@ -9,7 +9,7 @@
 
 namespace LuckyDraw.Core.Enumerations
 {
-    public enum CashPrizeIndex : int
+    public enum CashPrizeIndex
     {
         None = 0,
         Prize64To66 = 1,
@@ -20,6 +20,7 @@ namespace LuckyDraw.Core.Enumerations
         Prize79To81 = 6,
         Prize82To84 = 7,
         Prize85To87 = 8,
-        Prize88To90 = 9
+        Prize88To90 = 9,
+        Prize91To93 = 10
     }
 }
