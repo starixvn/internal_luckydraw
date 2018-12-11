@@ -215,12 +215,15 @@
     <Content Include="Global.asax" />
     <Content Include="Images\bg-UIControl.png" />
     <Content Include="Images\bg_Adhoc.png" />
+    <Content Include="Images\bg_Cash.jpg" />
     <Content Include="Images\bg_Cash.png" />
-    <Content Include="Images\bg_Grand.png" />
-    <Content Include="Images\bg_Major.png" />
+    <Content Include="Images\bg_Grand.jpg" />
+    <Content Include="Images\bg_Major.jpg" />
     <Content Include="Images\bg_SuperGrand.png" />
     <Content Include="Images\borderiron.png" />
     <Content Include="Images\borderironbig.png" />
+    <Content Include="Images\border_left.png" />
+    <Content Include="Images\border_right.png" />
     <Content Include="Images\Frame_blue.png" />
     <Content Include="Images\Frame_green.png" />
     <Content Include="Images\Frame_pink.png" />
@@ -230,6 +233,7 @@
     <Content Include="Images\bg-home-2.png" />
     <Content Include="Images\logo-2018-home.png" />
     <Content Include="Images\logo-2018.png" />
+    <Content Include="Images\logo-2019-home.png" />
     <Content Include="Images\prizeListMain.png" />
     <Content Include="Images\bg-home.jpg" />
     <Content Include="Images\bg-AdvanceZone.png" />
@@ -321,8 +325,8 @@
     <Content Include="Images\Title\9-after.png" />
     <Content Include="Images\Title\9-before.png" />
     <Content Include="Images\Title\9.png" />
-    <Content Include="Images\Title\blank-ticket-a.png" />
-    <Content Include="Images\Title\blank-ticket-b.png" />
+    <Content Include="Images\Title\91-92-93-after.png" />
+    <Content Include="Images\Title\92-92-93-before.png" />
     <Content Include="Images\Winner\adhocprize-small.png" />
     <Content Include="Images\Winner\cashprize-small.png" />
     <Content Include="Images\Winner\grandprize-small.png" />

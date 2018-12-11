@@ -7,11 +7,9 @@ body {
 }
 
 .server-site {
-    background: url(../Images/bg-home-2.png) no-repeat center center fixed;
-    //border: 2rem solid transparent;
+    background: url(../Images/bg-home-2.png) no-repeat center center fixed;   
     height: 100vh;
-    width: 100vw;
-    //@include border-image(url(../Images/border.png), 29%, repeat );
+    width: 100vw;    
     @include background-size('cover');
 
     &.opening {
@@ -31,33 +29,33 @@ body {
         }
 
         .list-prize-opening {
-            bottom: 5rem;
+            bottom: 23rem;
         }
     }
 
     &.adhoc-prize {
-        background: url(../Images/bg_Adhoc.png) no-repeat 0 0 fixed;
+        background: url(../Images/bg_Adhoc.png) no-repeat center center fixed;
     }
 
     &.super-grand-prize {
-        background: url(../Images/bg_SuperGrand.png) no-repeat 0 0 fixed;
+        background: url(../Images/bg_SuperGrand.png) no-repeat center center fixed;
     }
 
     &.grand-prize {
-        background: url(../Images/bg_Grand.png) no-repeat 0 0 fixed;
+        background: url(../Images/bg_Grand.jpg) no-repeat center center fixed;
     }
 
     &.major-prize {
-        background: url(../Images/bg_Major.png) no-repeat 0 0 fixed;
+        background: url(../Images/bg_Major.jpg) no-repeat center center fixed;
     }
 
     &.cash-prize {
-        background: url(../Images/bg_Cash.png) no-repeat 0 0 fixed;
+        background: url(../Images/bg_Cash.jpg) no-repeat center center fixed;
     }
 
     &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
     &.winner-details, &.super-grand-winner-details, &.adhoc-prize {
-        padding: 8.8rem;
+        padding: 4.5rem 62rem 20rem;
         @include align-with-flex(center, center, row, center);
         @include background-size(cover);
     }
@@ -106,7 +104,8 @@ body {
             @include align-with-flex(flex-start, flex-start, column, center);
 
             .prize-order {
-                /*width: 85%;*/
+                width: 77%;
+
                 &:nth-child(2) {
                     margin-right: 6rem;
                     @include align-self(flex-end);
@@ -123,11 +122,11 @@ body {
         }
 
         .prize-number {
-            left: -2.8rem;
-            margin: 0;
             position: absolute;
-            z-index: 6;
-            top: -2.8rem;
+            left: -4.5rem;
+            bottom: -3.8rem;
+            margin: 0;           
+            z-index: 6;            
         }
     }
 
@@ -288,23 +287,23 @@ body {
         z-index: 5;
 
         &.cash {
-            left: -5.6rem;
-            top: -7rem;
+            left: -11rem;
+            top: -5rem;
         }
 
         &.major {
-            left: -8rem;
-            top: -6.8rem;
+            left: -11rem;
+            top: -3.8rem;
         }
 
         &.grand {
-            left: -8rem;
+            left: -20rem;
             top: -4.8rem;
         }
 
         &.super-grand {
-            left: -9rem;
-            top: -5.8rem;
+            left: -15rem;
+            top: -3.8rem;
         }
 
         &.adhoc {
@@ -316,7 +315,7 @@ body {
     .logo-small {
         right: -8.4rem;
         position: absolute;
-        bottom: -8rem;
+        bottom: -4rem;
         z-index: 5;
 
         img {
@@ -423,19 +422,41 @@ body {
     }
 }
 
-
-.box-container {
-    background: rgba(0, 0, 0, .7);
-    min-height: 100%;
+.box-container {       
     position: relative;
     width: 100%;
-    border: 2px solid #701378;
+    min-height: 100%;
+    padding: 0;
+    background: rgba(11, 13, 15, .85);
+    border: 3px solid #8c7452;
+    box-shadow: 0 0 1rem #8c7452;
     //@include border-image(url(../Images/border-rope.png), 10%, repeat );
     //-moz-border-image: -moz-linear-gradient(top right, #d1f2ff 0%, #1da1d8 100%);
     //-webkit-border-image: -webkit-linear-gradient(top right, #d1f2ff 0%, #1da1d8 100%);
     //border-image: linear-gradient(to bottom left, #d1f2ff 0%, #1da1d8 100%);
-    //border-image-slice: 1;
-    box-shadow: 0 0 1rem #701378;
+    //border-image-slice: 1;    
+
+    &:before {
+        content:"";
+        position: absolute;
+        left: 5px;
+        bottom: 3px;
+        display: block;
+        width: 5rem;
+        height: 5rem;
+        background: url(../Images/border_left.png) no-repeat;
+    }
+
+    &:after {
+        content:"";
+        position: absolute;
+        right: 3px;
+        top: 5px;
+        display: block;
+        width: 5rem;
+        height: 5rem;
+        background: url(../Images/border_right.png) no-repeat;
+    }
 }
 
 /* Resolution */
@@ -860,131 +881,6 @@ body {
                 .unknown {
                     margin: 0;
                 }
-            }
-        }
-    }
-}
-
-@media (max-height: 767px) {
-    .server-site {
-        &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
-        &.winner-details, &.super-grand-winner-details, &.adhoc-prize {
-            //height: 100%;
-        }
-    }
-}
-
-@media (width: 1600px) and (height: 800px) {
-    .server-site {
-        border-image-slices: 26;
-        /*&.opening {
-            .logo-opening img {
-                width: 30%;
-            }
-
-            .list-prize-opening img {
-                width: 47%;
-            }
-        }*/
-        .box-container {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
-
-        .listPrize .prize {
-            width: 16%;
-        }
-        //.prizePhoto img {
-        //    width: 70%;
-        //}
-        .logo-prize {
-            &.super-grand, &.grand, &.major, &.cash, &.adhoc {
-                img {
-                    //width: 85%;
-                }
-            }
-
-            &.adhoc {
-                right: -42.6rem;
-                top: -15rem;
-            }
-
-            &.super-grand {
-                left: -7.6rem;
-                top: -4rem;
-            }
-            /*&.cash {
-                left: -11rem;
-                top: -9rem;
-            }
-
-            &.major {
-                left: -12rem;
-                top: -10.6rem;
-            }
-
-            &.grand {
-                left: -12rem;
-                top: -11rem;
-            }*/
-        }
-
-        .logo-small {
-            right: -9rem;
-            bottom: -7.5rem;
-            /*img {
-                width: 85%;
-            }*/
-        }
-
-        &.adhoc-prize {
-
-            .staff-info .avatar {
-                height: 12.6rem;
-                width: 10.8rem;
-
-                .unknown {
-                    margin: 2.4rem 1.6rem;
-                }
-            }
-
-            .list-winner {
-                .winner .info {
-                    font-size: 1.4rem;
-                    min-height: 9rem;
-                    margin-top: 2rem;
-
-                    .txt-nickname, .txt-department {
-                        font-size: 1.8rem;
-                    }
-                }
-            }
-
-            .current-winner .staff-info {
-                .avatar {
-                    width: 24.4rem;
-                    height: 27.4rem;
-
-                    .unknown-lg {
-                        margin: 5rem 2.6rem;
-                        width: 55%;
-                    }
-                }
-
-                .info {
-                    font-size: 2.2rem;
-                    margin: 3rem 0 3rem;
-
-                    .txt-nickname {
-                        font-size: 3.5rem;
-                    }
-                }
-            }
-
-            .quantity {
-                bottom: 1rem;
-                font-size: 8rem;
-                line-height: 6.8rem;
             }
         }
     }
