@@ -213,7 +213,9 @@
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\bg-Adhoc.jpg" />
     <Content Include="Images\bg-AdvanceZone.jpg" />
+    <Content Include="Images\bg-AdvanceZone.png" />
     <Content Include="Images\bg-UIControl.jpg" />
     <Content Include="Images\bg-UIControl.png" />
     <Content Include="Images\bg_Adhoc.png" />
