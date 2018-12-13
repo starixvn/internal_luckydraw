@@ -55,7 +55,7 @@ body {
 
     &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
     &.winner-details, &.super-grand-winner-details, &.adhoc-prize {
-        padding: 4.5rem 62rem 20rem;
+        padding: 4.5rem 15rem 20rem;
         @include align-with-flex(center, center, row, center);
         @include background-size(cover);
     }
@@ -460,6 +460,15 @@ body {
 }
 
 /* Resolution */
+@media screen and (min-width: 2000px) {
+    .server-site {
+        &.cash-prize, &.major-prize, &.grand-prize, &.super-grand-prize,
+        &.winner-details, &.super-grand-winner-details, &.adhoc-prize {
+            padding: 4.5rem 62rem 20rem;
+        }
+    }
+}
+
 @media (max-width: 1599px) {
     .server-site {
         &.opening {
@@ -482,7 +491,7 @@ body {
             }
 
             .winnerList {
-                padding-left: 20rem;
+                padding-left: 14rem;
             }
 
             .staff-info {
@@ -530,40 +539,16 @@ body {
         }
 
         .listPrize .prize {
-            width: 16%;
+            width: 20%;
         }
 
         .logo-prize {
             &.super-grand, &.grand, &.major, &.cash, &.adhoc {
                 img {
                     width: 70%;
+                    margin: 0 auto;
                 }
-            }
-
-            &.adhoc {
-                left: -7rem;
-                top: -5.5rem;
-            }
-
-            &.super-grand {
-                left: -8rem;
-                top: -3.8rem;
-            }
-
-            &.cash {
-                left: -4rem;
-                top: -4.8rem;
-            }
-
-            &.major {
-                left: -5.7rem;
-                top: -4.5rem;
-            }
-
-            &.grand {
-                left: -6rem;
-                top: -3.5rem;
-            }
+            }            
         }
 
         .prizePhoto img {
@@ -580,13 +565,8 @@ body {
             }
         }        
 
-        .logo-small {
-            right: -7.4rem;
-            bottom: -6rem;
-
-            img {
-                width: 80%;
-            }
+        .logo-small img {    
+           width: 80%;            
         }
 
         &.adhoc-prize {
@@ -685,8 +665,7 @@ body {
 
 @media (max-width: 1200px) {
     .server-site {
-        &.adhoc-prize {
-            //height: 100%;
+        &.adhoc-prize {            
             .box-container {
                 padding-top: 4rem;
                 padding-bottom: 1rem;
