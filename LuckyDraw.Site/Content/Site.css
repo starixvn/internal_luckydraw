@@ -6596,7 +6596,7 @@ body {
     -moz-justify-content: center;
     justify-content: center; }
     .server-site.super-grand-winner-details .prizePhoto .prize-order {
-      width: 77%; }
+      width: 66%; }
       .server-site.super-grand-winner-details .prizePhoto .prize-order:nth-child(2) {
         margin-right: 6rem;
         -webkit-align-self: flex-end;
@@ -7061,8 +7061,10 @@ body {
     top: 5rem; }
     .server-site.opening .logo-opening img {
       width: 50%; }
-  .server-site.opening .list-prize-opening img {
-    width: 70%; }
+  .server-site.opening .list-prize-opening {
+    bottom: 8rem; }
+    .server-site.opening .list-prize-opening img {
+      width: 70%; }
   .server-site.winner-details .box-container, .server-site.super-grand-winner-details .box-container {
     padding: 1rem; }
   .server-site.winner-details .winnerList, .server-site.super-grand-winner-details .winnerList {
@@ -7081,21 +7083,30 @@ body {
       font-size: 1.4rem; }
       .server-site.winner-details .staff-info .info .txt-nickname, .server-site.super-grand-winner-details .staff-info .info .txt-nickname {
         font-size: 2rem; }
-  .server-site.super-grand-winner-details .prizePhoto .prize-order:nth-child(2) {
-    margin-right: 0;
-    -webkit-align-self: flex-start;
-    -moz-align-self: flex-start;
-    -ms-flex-item-align: start;
-    align-self: flex-start; }
-  .server-site.super-grand-winner-details .prize-number {
-    left: -2.5rem;
-    top: -2rem;
-    width: 50%; }
+  .server-site.super-grand-winner-details {
+    /*.prizePhoto {
+                .prize-order {
+                    &:nth-child(2) {
+                        margin-right: 0;
+                        @include align-self(flex-start);
+                    }
+                }
+            }*/ }
+    .server-site.super-grand-winner-details .prize-number {
+      left: -2.5rem;
+      top: -2rem;
+      width: 50%; }
   .server-site .listPrize .prize {
-    width: 20%; }
+    width: 18%; }
   .server-site .logo-prize.super-grand img, .server-site .logo-prize.grand img, .server-site .logo-prize.major img, .server-site .logo-prize.cash img, .server-site .logo-prize.adhoc img {
     width: 70%;
     margin: 0 auto; }
+  .server-site .logo-prize.grand {
+    top: -3.8rem; }
+  .server-site .logo-prize.cash {
+    top: -4rem; }
+  .server-site .logo-prize.adhoc {
+    left: -13rem; }
   .server-site .prizePhoto img {
     width: 65%; }
     .server-site .prizePhoto img.prize-order {

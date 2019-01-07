@@ -7,9 +7,9 @@ body {
 }
 
 .server-site {
-    background: url(../Images/bg-home-2.png) no-repeat center center fixed;   
+    background: url(../Images/bg-home-2.png) no-repeat center center fixed;
     height: 100vh;
-    width: 100vw;    
+    width: 100vw;
     @include background-size('cover');
 
     &.opening {
@@ -104,7 +104,7 @@ body {
             @include align-with-flex(flex-start, flex-start, column, center);
 
             .prize-order {
-                width: 77%;
+                width: 66%;
 
                 &:nth-child(2) {
                     margin-right: 6rem;
@@ -125,8 +125,8 @@ body {
             position: absolute;
             left: -4.5rem;
             bottom: -3.8rem;
-            margin: 0;           
-            z-index: 6;            
+            margin: 0;
+            z-index: 6;
         }
     }
 
@@ -228,11 +228,9 @@ body {
         .list-winner {
             margin-left: 3rem;
             @include align-with-flex(flex-start, flex-start, row, flex-start);
-
             /*&:first-child {
                 margin-bottom: 4rem;
             }*/
-
             .winner {
                 //margin-left: 1rem;
                 //margin-right: 1rem;
@@ -422,7 +420,7 @@ body {
     }
 }
 
-.box-container {       
+.box-container {
     position: relative;
     width: 100%;
     min-height: 100%;
@@ -434,10 +432,9 @@ body {
     //-moz-border-image: -moz-linear-gradient(top right, #d1f2ff 0%, #1da1d8 100%);
     //-webkit-border-image: -webkit-linear-gradient(top right, #d1f2ff 0%, #1da1d8 100%);
     //border-image: linear-gradient(to bottom left, #d1f2ff 0%, #1da1d8 100%);
-    //border-image-slice: 1;    
-
+    //border-image-slice: 1;
     &:before {
-        content:"";
+        content: "";
         position: absolute;
         left: 5px;
         bottom: 3px;
@@ -448,7 +445,7 @@ body {
     }
 
     &:after {
-        content:"";
+        content: "";
         position: absolute;
         right: 3px;
         top: 5px;
@@ -480,8 +477,12 @@ body {
                 }
             }
 
-            .list-prize-opening img {
-                width: 70%;
+            .list-prize-opening {
+                bottom: 8rem;
+
+                img {
+                    width: 70%;
+                }
             }
         }
 
@@ -522,14 +523,14 @@ body {
         }
 
         &.super-grand-winner-details {
-            .prizePhoto {
+            /*.prizePhoto {
                 .prize-order {
                     &:nth-child(2) {
                         margin-right: 0;
                         @include align-self(flex-start);
                     }
                 }
-            }
+            }*/
 
             .prize-number {
                 left: -2.5rem;
@@ -539,7 +540,7 @@ body {
         }
 
         .listPrize .prize {
-            width: 20%;
+            width: 18%;
         }
 
         .logo-prize {
@@ -548,7 +549,19 @@ body {
                     width: 70%;
                     margin: 0 auto;
                 }
-            }            
+            }
+
+            &.grand {
+                top: -3.8rem;
+            }
+
+            &.cash {
+                top: -4rem;
+            }
+
+            &.adhoc {
+                left: -13rem;
+            }
         }
 
         .prizePhoto img {
@@ -563,10 +576,10 @@ body {
             .prizePhoto img {
                 width: 65%;
             }
-        }        
+        }
 
-        .logo-small img {    
-           width: 80%;            
+        .logo-small img {
+            width: 80%;
         }
 
         &.adhoc-prize {
@@ -628,7 +641,7 @@ body {
                     .avatar {
                         width: 150px;
                         height: 167px;
-                        
+
                         .photo {
                             height: 163px;
                             width: 150px;
@@ -646,7 +659,7 @@ body {
                     .info {
                         margin-top: 3rem;
                         font-size: 2rem;
-                        min-height: 8rem;                       
+                        min-height: 8rem;
 
                         .txt-nickname {
                             font-size: 3rem;
@@ -665,7 +678,7 @@ body {
 
 @media (max-width: 1200px) {
     .server-site {
-        &.adhoc-prize {            
+        &.adhoc-prize {
             .box-container {
                 padding-top: 4rem;
                 padding-bottom: 1rem;
