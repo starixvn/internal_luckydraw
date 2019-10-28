@@ -24,6 +24,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -212,14 +213,20 @@
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\bg-Adhoc.jpg" />
+    <Content Include="Images\bg-AdvanceZone.jpg" />
+    <Content Include="Images\bg-AdvanceZone.png" />
+    <Content Include="Images\bg-UIControl.jpg" />
     <Content Include="Images\bg-UIControl.png" />
     <Content Include="Images\bg_Adhoc.png" />
-    <Content Include="Images\bg_Cash.png" />
-    <Content Include="Images\bg_Grand.png" />
-    <Content Include="Images\bg_Major.png" />
+    <Content Include="Images\bg_Cash.jpg" />
+    <Content Include="Images\bg_Grand.jpg" />
+    <Content Include="Images\bg_Major.jpg" />
     <Content Include="Images\bg_SuperGrand.png" />
     <Content Include="Images\borderiron.png" />
     <Content Include="Images\borderironbig.png" />
+    <Content Include="Images\border_left.png" />
+    <Content Include="Images\border_right.png" />
     <Content Include="Images\Frame_blue.png" />
     <Content Include="Images\Frame_green.png" />
     <Content Include="Images\Frame_pink.png" />
@@ -227,15 +234,10 @@
     <Content Include="Images\Frame_red.png" />
     <Content Include="Images\Frame_yellow.png" />
     <Content Include="Images\bg-home-2.png" />
-    <Content Include="Images\logo-2018-home.png" />
-    <Content Include="Images\logo-2018.png" />
+    <Content Include="Images\logo-2019-home.png" />
     <Content Include="Images\prizeListMain.png" />
-    <Content Include="Images\bg-home.jpg" />
-    <Content Include="Images\bg-AdvanceZone.png" />
     <Content Include="Images\border-rope.png" />
     <Content Include="Images\border.png" />
-    <Content Include="Images\logo-2017.png" />
-    <Content Include="Images\logo-Luckydraw.png" />
     <Content Include="Images\tag.png" />
     <Content Include="Images\Title\1-after.png" />
     <Content Include="Images\Title\1-before.png" />
@@ -314,12 +316,14 @@
     <Content Include="Images\Title\85-86-87-after.png" />
     <Content Include="Images\Title\85-86-87-before.png" />
     <Content Include="Images\Title\88-89-90-after.png" />
+    <Content Include="Images\Title\91-92-93-after.png" />
+    <Content Include="Images\Title\91-92-93-before.png" />
     <Content Include="Images\Title\88-89-90-before.png" />
     <Content Include="Images\Title\9-after.png" />
     <Content Include="Images\Title\9-before.png" />
     <Content Include="Images\Title\9.png" />
-    <Content Include="Images\Title\blank_ticket_a.png" />
-    <Content Include="Images\Title\blank_ticket_b.png" />
+    <Content Include="Images\Title\blank-ticket-a.png" />
+    <Content Include="Images\Title\blank-ticket-b.png" />
     <Content Include="Images\Winner\adhocprize-small.png" />
     <Content Include="Images\Winner\cashprize-small.png" />
     <Content Include="Images\Winner\grandprize-small.png" />

@@ -5833,7 +5833,7 @@ button.close {
   margin-bottom: 0; }
 
 .server-control {
-  background: #000 url(../Images/bg-UIControl.png) no-repeat 0 0 fixed;
+  background: #000 url(../Images/bg-UIControl.png) no-repeat bottom center fixed;
   height: 100vh;
   padding-top: 1.6rem;
   padding-bottom: 1.6rem;
@@ -5888,4 +5888,3 @@ button.close {
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .server-control {
     height: 100%; } }
-
