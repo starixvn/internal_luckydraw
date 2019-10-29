@@ -12,3 +12,7 @@ LuckyDraw/bin/*
 LuckyDraw/obj/*
 /.vs
 
+/packages
+/cireport
+/UnitTestCoverage*
+/UnitTestResult*

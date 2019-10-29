@@ -151,7 +151,7 @@
     <value>New Game started!</value>
   </data>
   <data name="PositiveStartIndexAlert" xml:space="preserve">
-    <value>"Prize Start Index must be a positive number"</value>
+    <value>Prize Start Index must be a positive number</value>
   </data>
   <data name="Random" xml:space="preserve">
     <value>Random</value>

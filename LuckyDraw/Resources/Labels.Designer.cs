@@ -169,7 +169,7 @@ namespace LuckyDraw.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;Prize Start Index must be a positive number&quot;.
+        ///   Looks up a localized string similar to Prize Start Index must be a positive number.
         /// </summary>
         internal static string PositiveStartIndexAlert {
             get {

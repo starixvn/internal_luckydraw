@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuckyDraw", "LuckyDraw\LuckyDraw.csproj", "{1997ECAF-0F3A-4842-A50F-E72F91431EB8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LuckyDraw.UnitTests", "LuckyDraw.UnitTests\LuckyDraw.UnitTests.csproj", "{FCD3F077-E28D-4BFE-9198-6E10E0B28BD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{1997ECAF-0F3A-4842-A50F-E72F91431EB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1997ECAF-0F3A-4842-A50F-E72F91431EB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1997ECAF-0F3A-4842-A50F-E72F91431EB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCD3F077-E28D-4BFE-9198-6E10E0B28BD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCD3F077-E28D-4BFE-9198-6E10E0B28BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCD3F077-E28D-4BFE-9198-6E10E0B28BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCD3F077-E28D-4BFE-9198-6E10E0B28BD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

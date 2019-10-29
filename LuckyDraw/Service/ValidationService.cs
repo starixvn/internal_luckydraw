@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace LuckyDraw.Service
 {
-    static class ValidationService
+    public static class ValidationService
     {
         public static string ValidatePrizes(IEnumerable<ViewPrize> prizes)
         {
