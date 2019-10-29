@@ -28,7 +28,7 @@ namespace LuckyDraw.Model
             }
         }
 
-        private BitmapImage BitmapFromUri(Uri source)
+        private static BitmapImage BitmapFromUri(Uri source)
         {
             var bitmap = new BitmapImage();
             bitmap.BeginInit();
@@ -36,8 +36,8 @@ namespace LuckyDraw.Model
             bitmap.CacheOption = BitmapCacheOption.OnLoad;
             bitmap.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
 
-            bitmap.DecodePixelHeight = 50;
-            bitmap.DecodePixelWidth = 50;
+            bitmap.DecodePixelHeight = Constants.ImageHeight;
+            bitmap.DecodePixelWidth = Constants.ImageWidth;
             bitmap.EndInit();
             return bitmap;
         }

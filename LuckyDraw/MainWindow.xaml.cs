@@ -67,7 +67,7 @@ namespace LuckyDraw
                     pLabel.Content = r.PrizeName;
                     rLabel.Content = r.Random == string.Empty ? "000" : r.Random;
                     var image = TaskImg(r.PrizeId.ToString() + ".png");
-                    imageItem.Source = image != null ? image : TaskImg("prize.png");
+                    imageItem.Source = image?? TaskImg("prize.png");
                     cItem.Visibility = Visibility.Visible;
                 }
 
@@ -97,8 +97,8 @@ namespace LuckyDraw
             bitmap.UriSource = source;
             bitmap.CacheOption = BitmapCacheOption.OnLoad;
             bitmap.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
-            bitmap.DecodePixelHeight = 50;
-            bitmap.DecodePixelWidth = 50;
+            bitmap.DecodePixelHeight = Constants.ImageHeight;
+            bitmap.DecodePixelWidth = Constants.ImageWidth;
             bitmap.EndInit();
 
             return bitmap;
@@ -107,18 +107,16 @@ namespace LuckyDraw
 
         private string CreateRandomNumber(){
             Random rnd = new Random();
-            var random = "000";
-            for(var i = 0; i < 10000; i++)
+            for(var i = 0; i < Constants.MaxRandomTrials; i++)
             {
-                var r = rnd.Next(this.runningService.Setting.RandomFrom, this.runningService.Setting.RandomTo + 1).ToString("000");
-                if (!this.runningService.IsExistRandom(r))
+                var random = rnd.Next(this.runningService.Setting.RandomFrom, this.runningService.Setting.RandomTo + 1).ToString("000");
+                if (!this.runningService.IsExistRandom(random))
                 {
-                    random = r;
-                    break;
+                    return random;
                 }
             }
 
-            return random;
+            return "000";
         }     
 
         private async Task RunRandoms() {
@@ -126,10 +124,10 @@ namespace LuckyDraw
                 if (this.runningService.CurrentList[i].Status == 0)
                 {
                     var label = (Label)this.FindName("textRandom" + (i + 1));
-                    await AnimateRandom(1000, string.Empty, label);
+                    await AnimateRandom(Constants.RangeThreeDigits, string.Empty, label);
                     string random = CreateRandomNumber();
-                    await AnimateRandom(100, random.Substring(0, 1), label);
-                    await AnimateRandom(10, random.Substring(0, 2), label);
+                    await AnimateRandom(Constants.RangeTwoDigits, random.Substring(0, 1), label);
+                    await AnimateRandom(Constants.RangeOneDigit, random.Substring(0, 2), label);
 
                     label.Content = random;
 
@@ -220,7 +218,7 @@ namespace LuckyDraw
             if (op.ShowDialog() == true)
             {
                 var fileSize = (new FileInfo(op.FileName)).Length;
-                if (fileSize > 5000000) {
+                if (fileSize > Constants.MaxFileSize) {
                     MessageBox.Show(Labels.FileSizeAlert, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);
                     
                     return;
@@ -296,7 +294,7 @@ namespace LuckyDraw
         private async Task AnimateRandom(int range, string subRandom, Label l)
         {
             Random rnd = new Random();
-            for (var i = 0; i < 100; i++)
+            for (var i = 0; i < Constants.AnimationLoops; i++)
             {
                 int random = rnd.Next(1, range);
                 await Task.Delay(1);

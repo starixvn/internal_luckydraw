@@ -109,6 +109,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Constants.cs" />
     <Compile Include="Model\ViewLog.cs" />
     <Compile Include="Model\ViewPrize.cs" />
     <Compile Include="PasswordDialog.xaml.cs">

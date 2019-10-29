@@ -13,7 +13,7 @@ namespace LuckyDraw.Service
             return hashPass == Hash(password);
         }
 
-        public string Hash(string password)
+        private static string Hash(string password)
         {
             var bytes = new UTF8Encoding().GetBytes(password);
             var hashBytes = SHA256.Create().ComputeHash(bytes);
