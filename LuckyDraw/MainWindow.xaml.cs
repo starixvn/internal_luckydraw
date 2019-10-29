@@ -71,7 +71,7 @@ namespace LuckyDraw
                     cItem.Visibility = Visibility.Visible;
                 }
 
-                for (var i = this.runningService.CurrentList.Count; i < 10; i++) {
+                for (var i = this.runningService.CurrentList.Count; i < Constants.MaxRoundItems; i++) {
                     var cItem = (Canvas)this.FindName("canvasItem" + (i + 1));
                     cItem.Visibility = Visibility.Hidden;
                 }

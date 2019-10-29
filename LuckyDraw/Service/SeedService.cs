@@ -27,12 +27,12 @@ namespace LuckyDraw.Service
 
         private void GeneratePrizes()
         {
-            var prizeName1 = "Gold";
-            var prizeName2 = "Iphone";
-            var prizeName3 = "5 Million";
-            var roundName1 = "Gold Prize";
-            var roundName2 = "Silver Prize";
-            var roundName3 = "Cash Prize";
+            const string prizeName1 = "Gold";
+            const string prizeName2 = "Iphone";
+            const string prizeName3 = "5 Million";
+            const string roundName1 = "Gold Prize";
+            const string roundName2 = "Silver Prize";
+            const string roundName3 = "Cash Prize";
 
             var prizes = new List<Prize>
             {
