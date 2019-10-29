@@ -22,6 +22,7 @@ namespace LuckyDraw
         public PasswordDialog()
         {
             InitializeComponent();
+            this.txtPassword.Focus();
         }
 
         private void BtnOK_Click(object sender, RoutedEventArgs e)
