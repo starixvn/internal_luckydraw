@@ -8,3 +8,7 @@ build/
 bld/
 [Bb]in/
 [Oo]bj/
+LuckyDraw/bin/*
+LuckyDraw/obj/*
+/.vs
+
