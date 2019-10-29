@@ -3,47 +3,43 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local1="clr-namespace:LuckyDraw.Model"
         mc:Ignorable="d"
         Title="Lucky Draw" Height="743.15" Width="1222.45" WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None">
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem Header="Home" Click="HomeMenu_Click">
                 <MenuItem.Icon >
-                    <Image Source="Resources/home-icon.ico" />
+                    <Image Source="Resources/Images/home.ico" />
                 </MenuItem.Icon>
             </MenuItem>            
             <MenuItem Header="Settings" Click="SettingMenu_Click">
                 <MenuItem.Icon >
-                    <Image Source="Resources/Settings-icon.ico" />
+                    <Image Source="Resources/Images/setting.ico" />
                 </MenuItem.Icon>
             </MenuItem>
             <MenuItem Header="Result" Click="ResultMenu_Click">
                 <MenuItem.Icon >
-                    <Image Source="Resources/results.ico" />
+                    <Image Source="Resources/Images/results.ico" />
                 </MenuItem.Icon>
             </MenuItem>
             <MenuItem Header="Log" Click="LogMenu_Click">
                 <MenuItem.Icon >
-                    <Image Source="Resources/log.ico" />
+                    <Image Source="Resources/Images/log.ico" />
                 </MenuItem.Icon>
             </MenuItem>
             <MenuItem Header="Minimize" Click="MinimizeMenu_Click">
                 <MenuItem.Icon >
-                    <Image Source="Resources/minimize.ico" />
+                    <Image Source="Resources/Images/minimize.ico" />
                 </MenuItem.Icon>
             </MenuItem>
             <Separator />
             <MenuItem Header="Exit" Click="ExitMenu_Click" >
                 <MenuItem.Icon >
-                    <Image Source="Resources/exit.ico" />
+                    <Image Source="Resources/Images/exit.ico" />
                 </MenuItem.Icon>
             </MenuItem>
         </ContextMenu>
-    </Window.ContextMenu>
-    <Window.DataContext>
-        <local1:ViewModel/>
-    </Window.DataContext>
+    </Window.ContextMenu>    
     <TabControl x:Name="mainTab" Grid.ColumnSpan="2" BorderBrush="{x:Null}" SelectionChanged="TabControl_SelectionChanged">
         <TabItem x:Name="tabHome" Header="Home" BorderBrush="{x:Null}" Visibility="Collapsed">
             <Grid Margin="50,-2,74,-1">
@@ -127,13 +123,12 @@
         <TabItem x:Name="tabSetting" Header="Settings" BorderBrush="{x:Null}" Visibility="Collapsed">
             <Grid>
                 <Label Content="Settings" Canvas.Left="185" Canvas.Top="23"  FontSize="20" Margin="30,0,0,0" FontWeight="Bold" Foreground="#FF6C5B5B"/>
-                <TabControl Grid.ColumnSpan="2" Margin="33,50,30,30" SelectionChanged="SettingTabControl_SelectionChanged">
-
+                <TabControl Grid.ColumnSpan="2" Margin="33,50,30,30" >
                     <TabItem x:Name="tabPrize" Header="Prizes">
                         <Grid Background="#FFE5E5E5">
                             <DataGrid x:Name="prizeDataGrid"  
                                       AutoGenerateColumns="False"
-                                      ItemsSource="{Binding Path=PrizeList}" Margin="33.418,10,302,75" 
+                                      Margin="33.418,10,302,75" 
                                       CanUserAddRows ="True" Grid.Column="1"
                                       >
                                 <DataGrid.Columns>
@@ -169,7 +164,7 @@
                         <Grid Background="#FFE5E5E5">
                             <DataGrid x:Name="rangeDataGrid"  
                                       AutoGenerateColumns="False"
-                                      ItemsSource="{Binding Path=SettingList}" Margin="33.418,10,302,75" 
+                                      Margin="33.418,10,302,75" 
                                       CanUserAddRows ="False" Grid.Column="1"
                                       
                                       >
@@ -186,8 +181,8 @@
                     <TabItem x:Name="tabIgnoredList" Header="Ignored List">
                         <Grid Background="#FFE5E5E5">
                             <DataGrid x:Name="ignoredListDataGrid"  
-                          AutoGenerateColumns="False"
-                                  ItemsSource="{Binding Path=SettingList}" Margin="33.418,10,302,75" 
+                                    AutoGenerateColumns="False"
+                                   Margin="33.418,10,302,75" 
                                   CanUserAddRows ="False" 
                                   >
                                 <DataGrid.Columns>
@@ -216,9 +211,8 @@
                 <Label Content="Result" Canvas.Left="185" Canvas.Top="23"  FontSize="20" Margin="30,10,0,0" FontWeight="Bold" Foreground="#FF6C5B5B"/>
                 <DataGrid x:Name="resultDataGrid"  
                             SelectionChanged="ResultDataGrid_SelectionChanged"
-                                  Margin="33.418,60,30,30" 
-                                ItemsSource="{Binding Path=ResultList}"
-                                  CanUserAddRows ="False" Grid.Column="1"
+                                 Margin="33.418,60,30,30"                                 
+                                  IsReadOnly="True" Grid.Column="1"
                                   />
             </Grid>
         </TabItem>
@@ -228,8 +222,7 @@
                 <DataGrid x:Name="logDataGrid" 
                           SelectionChanged="LogDataGrid_SelectionChanged"
                                   Margin="33,60,30,30" 
-                                ItemsSource="{Binding Path=LogList}"
-                                  CanUserAddRows ="False" 
+                                IsReadOnly="True"
                                   />
             </Grid>
         </TabItem>

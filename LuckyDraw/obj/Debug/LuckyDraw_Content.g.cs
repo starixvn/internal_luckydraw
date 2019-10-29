@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("appdata/images/hand2.cur")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("appdata/images/prize.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("appdata/luckydraw.mdf")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("appdata/luckydraw_log.ldf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("appdata/images/hand.cur")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("appdata/images/prize.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("appdata/db/luckydraw.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("appdata/db/luckydraw_log.ldf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("luckydrawmodel.context.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("luckydrawmodel.tt")]
 

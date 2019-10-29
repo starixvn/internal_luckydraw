@@ -29,10 +29,6 @@ C:\Users\scofield.huynh\source\repos\WpfApp1\WpfApp1\obj\Debug\LuckyDraw.csprojA
 C:\Users\scofield.huynh\source\repos\WpfApp1\WpfApp1\obj\Debug\LuckyDraw.Properties.Resources.resources
 C:\Users\scofield.huynh\source\repos\WpfApp1\WpfApp1\bin\Debug\AppData\LuckyDraw.mdf
 C:\Users\scofield.huynh\source\repos\WpfApp1\WpfApp1\bin\Debug\AppData\LuckyDraw_log.ldf
-D:\Nexcel\Project\LuckyDraw\LuckyDraw\bin\Debug\AppData\Images\hand2.cur
-D:\Nexcel\Project\LuckyDraw\LuckyDraw\bin\Debug\AppData\Images\prize.jpg
-D:\Nexcel\Project\LuckyDraw\LuckyDraw\bin\Debug\AppData\LuckyDraw.mdf
-D:\Nexcel\Project\LuckyDraw\LuckyDraw\bin\Debug\AppData\LuckyDraw_log.ldf
 D:\Nexcel\Project\LuckyDraw\LuckyDraw\bin\Debug\LuckyDraw.exe.config
 D:\Nexcel\Project\LuckyDraw\LuckyDraw\bin\Debug\LuckyDraw.exe.manifest
 D:\Nexcel\Project\LuckyDraw\LuckyDraw\bin\Debug\LuckyDraw.application
@@ -50,7 +46,6 @@ D:\Nexcel\Project\LuckyDraw\LuckyDraw\obj\Debug\MainWindow.g.cs
 D:\Nexcel\Project\LuckyDraw\LuckyDraw\obj\Debug\PasswordDialog.g.cs
 D:\Nexcel\Project\LuckyDraw\LuckyDraw\obj\Debug\App.g.cs
 D:\Nexcel\Project\LuckyDraw\LuckyDraw\obj\Debug\LuckyDraw_Content.g.cs
-D:\Nexcel\Project\LuckyDraw\LuckyDraw\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Nexcel\Project\LuckyDraw\LuckyDraw\obj\Debug\LuckyDraw_MarkupCompile.cache
 D:\Nexcel\Project\LuckyDraw\LuckyDraw\obj\Debug\LuckyDraw_MarkupCompile.lref
 D:\Nexcel\Project\LuckyDraw\LuckyDraw\obj\Debug\MainWindow.baml
@@ -64,3 +59,8 @@ D:\Nexcel\Project\LuckyDraw\LuckyDraw\obj\Debug\LuckyDraw.application
 D:\Nexcel\Project\LuckyDraw\LuckyDraw\obj\Debug\LuckyDraw.csproj.CopyComplete
 D:\Nexcel\Project\LuckyDraw\LuckyDraw\obj\Debug\LuckyDraw.exe
 D:\Nexcel\Project\LuckyDraw\LuckyDraw\obj\Debug\LuckyDraw.pdb
+D:\Nexcel\Project\luckydraw\LuckyDraw\bin\Debug\AppData\Images\hand.cur
+D:\Nexcel\Project\luckydraw\LuckyDraw\bin\Debug\AppData\DB\LuckyDraw.mdf
+D:\Nexcel\Project\luckydraw\LuckyDraw\bin\Debug\AppData\DB\LuckyDraw_log.ldf
+D:\Nexcel\Project\luckydraw\LuckyDraw\obj\Debug\LuckyDraw.Resources.Labels.resources
+D:\Nexcel\Project\luckydraw\LuckyDraw\bin\Debug\AppData\Images\prize.png

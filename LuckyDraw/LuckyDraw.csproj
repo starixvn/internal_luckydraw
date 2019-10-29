@@ -70,7 +70,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\e3413b5dea4c51584cab6a9c30382527.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Images\logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -84,6 +84,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
@@ -108,9 +109,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\RunningModel.cs" />
-    <Compile Include="Model\SeedModel.cs" />
-    <Compile Include="Model\ValidationModel.cs" />
     <Compile Include="Model\ViewLog.cs" />
     <Compile Include="Model\ViewPrize.cs" />
     <Compile Include="PasswordDialog.xaml.cs">
@@ -120,11 +118,20 @@
       <DependentUpon>LuckyDrawModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Repository\CommonRepository.cs" />
-    <Compile Include="Model\ViewModel.cs" />
     <Compile Include="Model\ViewResult.cs" />
+    <Compile Include="Resources\Labels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Labels.resx</DependentUpon>
+    </Compile>
     <Compile Include="Result.cs">
       <DependentUpon>LuckyDrawModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Service\AuthenticationService.cs" />
+    <Compile Include="Service\CommonService.cs" />
+    <Compile Include="Service\RunningService.cs" />
+    <Compile Include="Service\SeedService.cs" />
+    <Compile Include="Service\ValidationService.cs" />
     <Compile Include="Setting.cs">
       <DependentUpon>LuckyDrawModel.tt</DependentUpon>
     </Compile>
@@ -178,6 +185,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Labels.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Labels.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EntityDeploy Include="LuckyDrawModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>LuckyDrawModel.Designer.cs</LastGenOutput>
@@ -195,31 +206,29 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Service\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\question.png" />
-    <Resource Include="Resources\ignore.ico" />
-    <Resource Include="Resources\log.ico" />
-    <Resource Include="Resources\minimize.ico" />
-    <Resource Include="Resources\results.ico" />
-    <Resource Include="Resources\Settings-icon.ico" />
-    <Resource Include="Resources\home-icon.ico" />
-    <Resource Include="Resources\exit.ico" />
-    <Resource Include="Resources\e3413b5dea4c51584cab6a9c30382527.ico">
+    <Resource Include="Resources\Images\question.png" />
+    <Resource Include="Resources\Images\ignore.ico" />
+    <Resource Include="Resources\Images\log.ico" />
+    <Resource Include="Resources\Images\minimize.ico" />
+    <Resource Include="Resources\Images\results.ico" />
+    <Resource Include="Resources\Images\setting.ico" />
+    <Resource Include="Resources\Images\home.ico" />
+    <Resource Include="Resources\Images\exit.ico" />
+    <Resource Include="Resources\Images\logo.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Content Include="AppData\Images\hand2.cur">
+    <Content Include="AppData\Images\hand.cur">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="AppData\Images\prize.jpg">
+    <Content Include="AppData\Images\prize.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="AppData\LuckyDraw.mdf">
+    <Content Include="AppData\DB\LuckyDraw.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="AppData\LuckyDraw_log.ldf">
+    <Content Include="AppData\DB\LuckyDraw_log.ldf">
       <DependentUpon>LuckyDraw.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

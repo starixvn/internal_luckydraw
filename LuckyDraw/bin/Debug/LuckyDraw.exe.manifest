@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
   <asmv1:assemblyIdentity name="LuckyDraw.exe" version="1.0.0.14" publicKeyToken="0000000000000000" language="aa" processorArchitecture="msil" type="win32" />
-  <description asmv2:iconFile="Resources\e3413b5dea4c51584cab6a9c30382527.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <description asmv2:iconFile="Resources\Images\logo.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
     <assemblyIdentity name="LuckyDraw" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
@@ -79,14 +79,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LuckyDraw.exe" size="882648">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="LuckyDraw.exe" size="885208">
       <assemblyIdentity name="LuckyDraw" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>f66sOjHHEfgbFvCqgc43273JOtHR2dyz+IQnFYI6ajU=</dsig:DigestValue>
+        <dsig:DigestValue>X6L1GFBLxsgMLe5RfXc7eJN18SRWerF7IhdXj2uL9oQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -102,7 +102,25 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="AppData\Images\hand2.cur" size="4286">
+  <file name="AppData\DB\LuckyDraw.mdf" size="3276800" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>i/xoTNWHVNLZXcEtV5TgLvO8+qCk+To7vn3bcdG/qa0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="AppData\DB\LuckyDraw_log.ldf" size="786432" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>3WQyGmAkHjTa1CYNvu7EuDljZmISUoUOBkiJjZycuow=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="AppData\Images\hand.cur" size="4286">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -111,7 +129,7 @@
       <dsig:DigestValue>e9ghA72qxCBKaMk4k+6etK/5xzDpPzl935vQMa3htjY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="AppData\Images\prize.jpg" size="13902">
+  <file name="AppData\Images\prize.png" size="13902">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -120,31 +138,13 @@
       <dsig:DigestValue>cwm5neRQHfQIoT+IB8mCQAjE1WV1CmPinY3JlTuFVs0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="AppData\LuckyDraw.mdf" size="3276800" writeableType="applicationData">
+  <file name="LuckyDraw.exe.config" size="2367">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>b3/tddbfwQIBVyHz6wXUkJtnzGNXW0garoDtHLGrFwU=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="AppData\LuckyDraw_log.ldf" size="786432" writeableType="applicationData">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>i6kGLVD1xVU3hPzKWy091aeFCfOci6eb4Sb6H4ZxLQc=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="LuckyDraw.exe.config" size="2259">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>aWC4ZPdNtzNf8v4af3buKU1y3DwRLdonFLXPi8MRw40=</dsig:DigestValue>
+      <dsig:DigestValue>aCB0uFLWf/vtsyr/RATeMoRVkonmmQC68L3NlQD3IVs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="LuckyDrawModel.Context.tt" size="22938">
@@ -165,7 +165,7 @@
       <dsig:DigestValue>i54Rm6KLZonnHwiuEDBK4ZruaqxHwn1uOEAXBhNhKdI=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\e3413b5dea4c51584cab6a9c30382527.ico" size="270398">
+  <file name="Resources\Images\logo.ico" size="270398">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />

@@ -1,17 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace LuckyDraw.Model
 {
     public class ViewPrize
     {      
-
         public int Id { get; set; }
         public string PrizeName { get; set; }
         public string RoundName { get; set; }
@@ -22,17 +16,13 @@ namespace LuckyDraw.Model
         {
             get
             {
-                var directoryPath = AppDomain.CurrentDomain.BaseDirectory + @"\AppData\Images";
-                var path = directoryPath + @"\" + Id.ToString() + @".png";
-
-
+                var path = String.Format("{0}\\AppData\\Images\\{1}.png", AppDomain.CurrentDomain.BaseDirectory, Id.ToString());                
                 BitmapImage image = null;
 
                 if (File.Exists(path))
                 {
                     image = BitmapFromUri(new Uri(path));
                 }
-
 
                 return image;
             }

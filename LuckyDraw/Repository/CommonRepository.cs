@@ -1,10 +1,7 @@
-﻿using LuckyDraw;
-using LuckyDraw.Model;
+﻿using LuckyDraw.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LuckyDraw.Repository
 {
@@ -99,6 +96,122 @@ namespace LuckyDraw.Repository
                 }
 
                 db.SaveChanges();
+            }
+        }
+
+        public void UpdateRandom(int id, string random) {
+            using (var db = new LuckyDrawEntities())
+            {
+                var r = db.Results.Find(id);
+                r.Random = random;
+                r.Status = 1;
+                r.UpdatedTime = DateTime.Now;
+                db.SaveChanges();
+            }
+        }
+
+        public bool IsDBReady()
+        {
+            using (var db = new LuckyDrawEntities())
+            {
+                return db.Results.Count() != 0 && db.Settings.Count() != 0;                
+            }
+        }
+
+        public Setting GetSetting()
+        {
+            using (var db = new LuckyDrawEntities())
+            {
+                return db.Settings.First();
+            }
+        }
+
+        public int GetMaxFlag()
+        {
+            using (var db = new LuckyDrawEntities())
+            {
+                return db.Results.Max(i => i.Flag);
+            }
+        }
+
+        public List<Result> GetCurrentResultList(int startIndex)
+        {
+            using (var db = new LuckyDrawEntities())
+            {
+                if (db.Results.Count() > 0) { 
+                    var flag = db.Results.Max(i => i.Flag);
+                    return db.Results.Where(i => i.Flag == flag && i.PrizeIndex >= startIndex).ToList();
+                }
+                else
+                {
+                    return new List<Result>();
+                }
+            }
+        }
+
+        public List<Prize> GetPrizeList()
+        {
+            using (var db = new LuckyDrawEntities())
+            {
+                return db.Prizes.ToList();
+            }
+        }
+
+        public List<Setting> GetSettingList()
+        {
+            using (var db = new LuckyDrawEntities())
+            {
+                return db.Settings.ToList();
+            }
+        }
+
+        public List<Result> GetResultList()
+        {
+            return GetCurrentResultList(1);
+        }
+
+        public List<Result> GetLogList() {
+            using (var db = new LuckyDrawEntities())
+            {
+                return db.Results.ToList();
+            }
+        }
+
+        public void AddPrizes(List<Prize> prizes)
+        {
+            using (var db = new LuckyDrawEntities())
+            {
+                foreach (var p in prizes)
+                {
+                    db.Prizes.Add(p);
+                }
+
+                db.SaveChanges();
+            }
+        }
+
+        public bool IsEmptyPrize()
+        {
+            using (var db = new LuckyDrawEntities())
+            {
+                return db.Prizes.Count() == 0;
+            }
+        }
+
+        public void AddSetting(Setting setting)
+        {
+            using (var db = new LuckyDrawEntities())
+            {
+                db.Settings.Add(setting);
+                db.SaveChanges();
+            }
+        }
+
+        public bool IsEmptySetting()
+        {
+            using (var db = new LuckyDrawEntities())
+            {
+                return db.Settings.Count() == 0;
             }
         }
     }

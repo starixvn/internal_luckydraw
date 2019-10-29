@@ -1,91 +1,77 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
+﻿using LuckyDraw.Model;
+using LuckyDraw.Resources;
+using LuckyDraw.Service;
+using Microsoft.Win32;
+using System;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using LuckyDraw.Model;
-using LuckyDraw.Repository;
-using Microsoft.Win32;
 
 namespace LuckyDraw
-{   
+{
     public partial class MainWindow : Window
     {
-        private SeedModel seedModel;
-        private RunningModel runningModel;
-        private CommonRepository commonRepository;
+        private CommonService commonService;
+        private SeedService seedService;
+        private RunningService runningService;
         private bool isLoading;
-
+        private string baseDirectory;
+        private AuthenticationService authenticationService;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            seedModel = new SeedModel();
-            runningModel = new RunningModel();
-            commonRepository = new CommonRepository();
-            isLoading = false;
+            commonService = new CommonService();
+            seedService = new SeedService();
+            runningService = new RunningService();
+            authenticationService = new AuthenticationService();
+            isLoading = false;     
+            baseDirectory = String.Format("{0}\\AppData\\Images\\", AppDomain.CurrentDomain.BaseDirectory);
 
-            //var directoryPath = AppDomain.CurrentDomain.BaseDirectory + @"\AppData\Images";
-            //var path = directoryPath + @"\hand2.cur";
-            //this.Cursor = new Cursor(path);           
-
-            seedModel.GenerateSeedData();
+            seedService.GenerateSeedData();
             LoadSettings();
         }
 
         private void LoadSettings()
         {
-            var viewModel = new ViewModel();
-            this.prizeDataGrid.ItemsSource = null;
-            this.prizeDataGrid.ItemsSource = viewModel.PrizeList;
-            this.rangeDataGrid.ItemsSource = null;
-            this.rangeDataGrid.ItemsSource = viewModel.SettingList;
-            this.ignoredListDataGrid.ItemsSource = null;
-            this.ignoredListDataGrid.ItemsSource = viewModel.SettingList;
+            this.prizeDataGrid.ItemsSource = commonService.GetPrizeList();
+            this.rangeDataGrid.ItemsSource = commonService.GetSettingList();
+            this.ignoredListDataGrid.ItemsSource = commonService.GetSettingList();
         }
 
         private void UpdateIgnoredListText() {
-            this.textIgnored.Content = "Ignored: " + this.runningModel.Setting.Excluded;
+            this.textIgnored.Content = String.Format("{0}: {1}", Labels.Ignored, this.runningService.Setting.Excluded);
         }
 
         private void UpdateRandomRangeText() {
-            this.textRandomRange.Content = "Random: from " + this.runningModel.Setting.RandomFrom.ToString() + " to " + this.runningModel.Setting.RandomTo.ToString();
+            var randomFrom = this.runningService.Setting.RandomFrom.ToString();
+            var randomTo = this.runningService.Setting.RandomTo.ToString();
+            this.textRandomRange.Content = String.Format("{0}: {1} {2} {3} {4}", Labels.Random, Labels.From, randomFrom, Labels.To, randomTo );
         }
 
         private void BuildRoundUI() {
-            if (this.runningModel.IsValid) {
+            if (this.runningService.IsValid) {
                 UpdateIgnoredListText();
                 UpdateRandomRangeText();
-                this.textRound.Content = this.runningModel.GetRoundName();
-                for (var i = 0; i < this.runningModel.CurrentList.Count; i++) {
+                this.textRound.Content = this.runningService.GetRoundName();
+                for (var i = 0; i < this.runningService.CurrentList.Count; i++) {
                     var pLabel = (Label)this.FindName("textPrize" + (i + 1));
                     var rLabel = (Label)this.FindName("textRandom" + (i + 1));
                     var imageItem = (Image)this.FindName("img" + (i + 1));
                     var cItem = (Canvas)this.FindName("canvasItem" + (i + 1));
-                    var r = this.runningModel.CurrentList[i];
+                    var r = this.runningService.CurrentList[i];
                     pLabel.Content = r.PrizeName;
                     rLabel.Content = r.Random == string.Empty ? "000" : r.Random;
                     var image = TaskImg(r.PrizeId.ToString() + ".png");
-                    imageItem.Source = image != null ? image : TaskImg("prize.jpg");
+                    imageItem.Source = image != null ? image : TaskImg("prize.png");
                     cItem.Visibility = Visibility.Visible;
                 }
 
-                for (var i = this.runningModel.CurrentList.Count; i < 10; i++) {
+                for (var i = this.runningService.CurrentList.Count; i < 10; i++) {
                     var cItem = (Canvas)this.FindName("canvasItem" + (i + 1));
                     cItem.Visibility = Visibility.Hidden;
                 }
@@ -94,9 +80,8 @@ namespace LuckyDraw
 
         private BitmapImage TaskImg(string imageName)
         {            
-            var path = AppDomain.CurrentDomain.BaseDirectory + @"\AppData\Images\" + imageName;
+            var path = String.Format("{0}{1}", baseDirectory, imageName);
             BitmapImage image = null;
-
             if (File.Exists(path))
             {
                 image = BitmapFromUri(new Uri(path));
@@ -125,8 +110,8 @@ namespace LuckyDraw
             var random = "000";
             for(var i = 0; i < 10000; i++)
             {
-                var r = rnd.Next(this.runningModel.Setting.RandomFrom, this.runningModel.Setting.RandomTo + 1).ToString("000");
-                if (!this.runningModel.IsExistRandom(r))
+                var r = rnd.Next(this.runningService.Setting.RandomFrom, this.runningService.Setting.RandomTo + 1).ToString("000");
+                if (!this.runningService.IsExistRandom(r))
                 {
                     random = r;
                     break;
@@ -137,8 +122,8 @@ namespace LuckyDraw
         }     
 
         private async Task RunRandoms() {
-            for (var i = 0; i < this.runningModel.CurrentList.Count; i++) {                
-                if (this.runningModel.CurrentList[i].Status == 0)
+            for (var i = 0; i < this.runningService.CurrentList.Count; i++) {                
+                if (this.runningService.CurrentList[i].Status == 0)
                 {
                     var label = (Label)this.FindName("textRandom" + (i + 1));
                     await AnimateRandom(1000, string.Empty, label);
@@ -150,7 +135,7 @@ namespace LuckyDraw
 
                     if (random != "000")
                     {
-                        this.runningModel.UpdateRandom(random, i);
+                        this.runningService.UpdateRandom(random, i);
                     }
                 }
             }
@@ -161,11 +146,13 @@ namespace LuckyDraw
                 return;
             }
 
-
-
-            this.isLoading = true;
-            await RunRandoms();
-            this.isLoading = false;
+            MessageBoxResult messageBoxResult = MessageBox.Show(Labels.ConfirmRun, Labels.Confirmation, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                this.isLoading = true;
+                await RunRandoms();
+                this.isLoading = false;
+            }  
         }
 
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
@@ -175,7 +162,7 @@ namespace LuckyDraw
                 return;
             }
 
-            if (this.runningModel.MoveBack()) {
+            if (this.runningService.MoveBack()) {
                 BuildRoundUI();
             }
         }
@@ -187,26 +174,24 @@ namespace LuckyDraw
                 return;
             }
 
-            if (this.runningModel.MoveNext()) {
+            if (this.runningService.MoveNext()) {
                 BuildRoundUI();
             }
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if (this.tabHome.IsSelected && this.runningModel.LoadModel())
+            if (this.tabHome.IsSelected && this.runningService.LoadModel())
             {
                 BuildRoundUI();
             }            
 
             if (this.tabResult.IsSelected) {
-                var viewModel = new ViewModel();
-                this.resultDataGrid.ItemsSource = viewModel.ResultList;
+                this.resultDataGrid.ItemsSource = commonService.GetResultList();
             }
            
             if (this.tabLog.IsSelected)
             {
-                var viewModel = new ViewModel();
-                this.logDataGrid.ItemsSource = viewModel.LogList;
+                this.logDataGrid.ItemsSource = commonService.GetLogList();
             }
         }
 
@@ -218,54 +203,38 @@ namespace LuckyDraw
         private void LogDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             e.Handled = true;
-        }
-
-        private void SettingTabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {            
-          
-        }       
+        }           
 
         private void UploadButton_Click(object sender, RoutedEventArgs e)
         {
             var viewPrize = ((Button)sender).DataContext as ViewPrize;
             if(viewPrize == null || viewPrize.Id == 0)
             {
-                MessageBox.Show("You need to save the item first!");
+                MessageBox.Show(Labels.SaveItemAlert);
                 return;
             }
 
             OpenFileDialog op = new OpenFileDialog();
-            op.Title = "Select a picture";
-            op.Filter = "All supported graphics|*.jpg;*.jpeg;*.png|" +
-              "JPEG (*.jpg;*.jpeg)|*.jpg;*.jpeg|" +
-              "Portable Network Graphic (*.png)|*.png";
+            op.Title = Labels.SelectPicture;
+            op.Filter = Labels.AllSupportedGraphics;
             if (op.ShowDialog() == true)
             {
                 var fileSize = (new FileInfo(op.FileName)).Length;
                 if (fileSize > 5000000) {
-                    MessageBox.Show("File size should be less than 5M", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(Labels.FileSizeAlert, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);
                     
                     return;
                 }
 
-                var image = new BitmapImage(new Uri(op.FileName));
-                
-
+                var image = new BitmapImage(new Uri(op.FileName));                
                 BitmapEncoder encoder = new PngBitmapEncoder();
                 encoder.Frames.Add(BitmapFrame.Create(image));
 
-                var directoryPath = AppDomain.CurrentDomain.BaseDirectory + @"\AppData\Images";
-                if (!Directory.Exists(directoryPath))
-                {
-                    DirectoryInfo di = Directory.CreateDirectory(directoryPath);
-                }
-
-                var path = directoryPath + @"\" + viewPrize.Id.ToString() + @".png";
+                var path = String.Format("{0}{1}.png", baseDirectory, viewPrize.Id.ToString());               
                 using (var fileStream = new System.IO.FileStream(path, System.IO.FileMode.Create))
                 {
                     encoder.Save(fileStream);
                 }
-
 
                 this.prizeDataGrid.Items.Refresh();                
             }
@@ -274,35 +243,34 @@ namespace LuckyDraw
         private void SavePrizesButton_Click(object sender, RoutedEventArgs e)
         {
             var prizes = this.prizeDataGrid.Items.OfType<ViewPrize>();
-            var validation = ValidationModel.ValidatePrizes(prizes);
+            var validation = ValidationService.ValidatePrizes(prizes);
             if (string.IsNullOrEmpty(validation))
             {
-                this.commonRepository.UpdatePrize(prizes);
-                this.prizeDataGrid.ItemsSource = null;
-                this.prizeDataGrid.ItemsSource = (new ViewModel()).PrizeList;               
+                this.commonService.UpdatePrize(prizes);
+                this.prizeDataGrid.ItemsSource = commonService.GetPrizeList();               
 
-                MessageBox.Show("Saved successfully!", "Inform", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
             {
-                MessageBox.Show(validation, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(validation, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private void SaveIgnoredListButton_Click(object sender, RoutedEventArgs e)
         {
-            this.commonRepository.UpdateIgnoredList(this.ignoredListDataGrid.Items.OfType<Setting>());
-            this.runningModel.LoadSetting();
+            this.commonService.UpdateIgnoredList(this.ignoredListDataGrid.Items.OfType<Setting>());
+            this.runningService.LoadSetting();
             UpdateIgnoredListText();
-            MessageBox.Show("Saved successfully!", "Inform", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void SaveRangeButton_Click(object sender, RoutedEventArgs e)
         {
-            this.commonRepository.UpdateRange(this.rangeDataGrid.Items.OfType<Setting>());
-            this.runningModel.LoadSetting();
+            this.commonService.UpdateRange(this.rangeDataGrid.Items.OfType<Setting>());
+            this.runningService.LoadSetting();
             UpdateRandomRangeText();
-            MessageBox.Show("Saved successfully!", "Inform", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void NewGameButton_Click(object sender, RoutedEventArgs e)
@@ -310,18 +278,18 @@ namespace LuckyDraw
             var startIndex = 0;
             if (int.TryParse(this.textPrizeStartIndex.Text, out startIndex) && startIndex > 0)
             {
-                MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to start over a new game?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                MessageBoxResult messageBoxResult = MessageBox.Show(Labels.ConfirmNewGame, Labels.Confirmation, MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
-                    this.commonRepository.UpdateStartIndex(startIndex);
-                    this.commonRepository.StartNewGame();
-                    this.runningModel.ResetModel();
-                    MessageBox.Show("New Game started!", "Inform", MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.commonService.UpdateStartIndex(startIndex);
+                    this.commonService.StartNewGame();
+                    this.runningService.ResetModel();
+                    MessageBox.Show(Labels.InformNewGame, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             else
             {
-                MessageBox.Show("Prize Start Index must be a positive number", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Labels.PositiveStartIndexAlert, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }        
 
@@ -360,12 +328,12 @@ namespace LuckyDraw
                 return;
             }
                 
-            if (passwordDialog.Answer == "123") {
+            if (authenticationService.Authenticate(passwordDialog.Answer)) {
                 this.mainTab.SelectedIndex = 1;
             }
             else
             {
-                MessageBox.Show("Wrong password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Labels.WrongPassword, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);
             }            
         }
 
@@ -406,7 +374,7 @@ namespace LuckyDraw
                 return;
             }
 
-            MessageBoxResult messageBoxResult = MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult messageBoxResult = MessageBox.Show(Labels.ConfirmExit, Labels.Confirmation, MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (messageBoxResult == MessageBoxResult.Yes)
             {
