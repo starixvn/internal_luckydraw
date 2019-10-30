@@ -249,8 +249,9 @@ namespace LuckyDraw
             {
                 MessageBox.Show(Labels.PositiveStartIndexAlert, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }        
+        }
 
+        [SuppressMessage("csharpsquid", "S2325:Methods and properties that don't access instance data can be static to prevent any misunderstanding about the contract of the method.")]
         private async Task AnimateRandom(int range, string subRandom, Label l)
         {
             Random rnd = new Random();
