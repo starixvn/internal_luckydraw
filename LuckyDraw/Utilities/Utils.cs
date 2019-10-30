@@ -5,9 +5,36 @@ using System.Windows.Media.Imaging;
 
 namespace LuckyDraw.Utilities
 {
-    public static class Utils
+    public class Utils : IUtils
     {
-        public static BitmapImage BitmapFromUri(Uri source)
+        public BitmapImage PrizeImage(string imageName)
+        {
+            var imagePath = String.Format("{0}{1}", BaseDirectory(), imageName);
+            return File.Exists(imagePath) ? BitmapFromUri(new Uri(imagePath)) : null;
+        }
+
+        public string BaseDirectory()
+        {
+            return String.Format("{0}\\AppData\\Images\\", AppDomain.CurrentDomain.BaseDirectory);
+        }
+
+        public void SaveFile(string originPath, string destinationPath)
+        {
+            var image = new BitmapImage(new Uri(originPath));
+            BitmapEncoder encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(image));
+            using (var fileStream = new FileStream(destinationPath, FileMode.Create))
+            {
+                encoder.Save(fileStream);
+            }
+        }
+
+        public long GetFileSize(string filePath)
+        {
+            return (new FileInfo(filePath)).Length;
+        }
+
+        private BitmapImage BitmapFromUri(Uri source)
         {
             var bitmap = new BitmapImage();
             bitmap.BeginInit();
@@ -19,33 +46,6 @@ namespace LuckyDraw.Utilities
             bitmap.EndInit();
 
             return bitmap;
-        }
-
-        public static BitmapImage PrizeImage(string imageName)
-        {
-            var imagePath = String.Format("{0}{1}", BaseDirectory(), imageName);
-            return File.Exists(imagePath) ? BitmapFromUri(new Uri(imagePath)) : null;
-        }
-
-        public static string BaseDirectory()
-        {
-            return String.Format("{0}\\AppData\\Images\\", AppDomain.CurrentDomain.BaseDirectory);
-        }
-
-        public static void SaveFile(string originPath, string destinationPath)
-        {
-            var image = new BitmapImage(new Uri(originPath));
-            BitmapEncoder encoder = new PngBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(image));
-            using (var fileStream = new FileStream(destinationPath, FileMode.Create))
-            {
-                encoder.Save(fileStream);
-            }
-        }
-
-        public static long GetFileSize(string filePath)
-        {
-            return (new FileInfo(filePath)).Length;
         }
     }
 }

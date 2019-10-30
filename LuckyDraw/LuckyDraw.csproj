@@ -127,6 +127,7 @@
     </Compile>
     <Compile Include="Repository\CommonRepository.cs" />
     <Compile Include="Model\ViewResult.cs" />
+    <Compile Include="Repository\ICommonRepository.cs" />
     <Compile Include="Resources\Labels.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -137,12 +138,18 @@
     </Compile>
     <Compile Include="Service\AuthenticationService.cs" />
     <Compile Include="Service\CommonService.cs" />
+    <Compile Include="Service\IAuthenticationService.cs" />
+    <Compile Include="Service\ICommonService.cs" />
+    <Compile Include="Service\IRunningService.cs" />
+    <Compile Include="Service\ISeedService.cs" />
+    <Compile Include="Service\IValidationService.cs" />
     <Compile Include="Service\RunningService.cs" />
     <Compile Include="Service\SeedService.cs" />
     <Compile Include="Service\ValidationService.cs" />
     <Compile Include="Setting.cs">
       <DependentUpon>LuckyDrawModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\IUtils.cs" />
     <Compile Include="Utilities\Utils.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

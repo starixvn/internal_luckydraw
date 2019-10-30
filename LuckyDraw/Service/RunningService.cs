@@ -4,18 +4,21 @@ using System.Linq;
 
 namespace LuckyDraw.Service
 {
-    class RunningService
+    public class RunningService : IRunningService
     {
-        public int CurrentRound { get; private set; }
-        public List<Result> CurrentList { get; private set; }
-        public int MaxRound { get; private set; }
+        private readonly ICommonRepository commonRepository;
         private List<List<Result>> runningList { get; set; }
         private List<string> roundList { get; set; }
+
+        public int CurrentRound { get; private set; }
+        public List<Result> CurrentList { get; private set; }
+        public int MaxRound { get; private set; }        
         public bool IsValid { get; private set; }
         public Setting Setting { get; private set; }
 
         public RunningService()
         {
+            this.commonRepository = new CommonRepository();
             this.CurrentList = new List<Result>();
             this.runningList = new List<List<Result>>();
             this.roundList = new List<string>();
@@ -33,18 +36,18 @@ namespace LuckyDraw.Service
 
         public void LoadSetting()
         {
-            this.Setting = CommonRepository.GetSetting();
+            this.Setting = commonRepository.GetSetting();
         }
 
         public bool LoadModel()
         {
-            if (this.IsValid || !CommonRepository.IsDBReady())
+            if (this.IsValid || !commonRepository.IsDBReady())
             {
                 return false;
             }
 
-            this.Setting = CommonRepository.GetSetting();
-            var resultList = CommonRepository.GetCurrentResultList(this.Setting.StartIndex);
+            this.Setting = commonRepository.GetSetting();
+            var resultList = commonRepository.GetCurrentResultList(this.Setting.StartIndex);
             var rounds = resultList.Select(i => new { i.RoundName, i.RoundIndex }).Distinct().OrderBy(i => i.RoundIndex).Select(i => i.RoundName).ToList();
 
             if (rounds.Count > 0)
@@ -71,7 +74,7 @@ namespace LuckyDraw.Service
         {
             this.CurrentList[index].Random = random;
             this.CurrentList[index].Status = 1;
-            CommonRepository.UpdateRandom(this.CurrentList[index].Id, random);
+            commonRepository.UpdateRandom(this.CurrentList[index].Id, random);
         }
 
         public bool MoveNext()

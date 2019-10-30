@@ -5,9 +5,9 @@ using System.Text;
 
 namespace LuckyDraw.Service
 {
-    public static class AuthenticationService
+    public class AuthenticationService : IAuthenticationService
     {
-        public static bool Authenticate(string password)
+        public bool Authenticate(string password)
         {
             var hashPass = ConfigurationManager.AppSettings["password"];
             return hashPass == Hash(password);

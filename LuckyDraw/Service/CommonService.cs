@@ -6,36 +6,43 @@ using System.Linq;
 
 namespace LuckyDraw.Service
 {
-    public static class CommonService
+    public class CommonService : ICommonService
     {
-        public static void UpdateIgnoredList(IEnumerable<Setting> settings)
+        private readonly ICommonRepository commonRepository;
+
+        public CommonService()
         {
-            CommonRepository.UpdateIgnoredList(settings);
+            commonRepository = new CommonRepository();
         }
 
-        public static void UpdatePrize(IEnumerable<ViewPrize> viewPrizes)
+        public void UpdateIgnoredList(IEnumerable<Setting> settings)
         {
-            CommonRepository.UpdatePrize(viewPrizes);
+            commonRepository.UpdateIgnoredList(settings);
         }
 
-        public static void UpdateRange(IEnumerable<Setting> settings)
+        public void UpdatePrize(IEnumerable<ViewPrize> viewPrizes)
         {
-            CommonRepository.UpdateRange(settings);
+            commonRepository.UpdatePrize(viewPrizes);
         }
 
-        public static void UpdateStartIndex(int startIndex)
+        public void UpdateRange(IEnumerable<Setting> settings)
         {
-            CommonRepository.UpdateStartIndex(startIndex);
+            commonRepository.UpdateRange(settings);
         }
 
-        public static void StartNewGame()
+        public void UpdateStartIndex(int startIndex)
         {
-            CommonRepository.StartNewGame();
+            commonRepository.UpdateStartIndex(startIndex);
         }
 
-        public static ObservableCollection<ViewPrize> GetPrizeList()
+        public void StartNewGame()
         {
-            var prizeList = CommonRepository.GetPrizeList();
+            commonRepository.StartNewGame();
+        }
+
+        public ObservableCollection<ViewPrize> GetPrizeList()
+        {
+            var prizeList = commonRepository.GetPrizeList();
                 var collection = new ObservableCollection<ViewPrize>();
                 foreach (var h in prizeList)
                 {
@@ -52,9 +59,9 @@ namespace LuckyDraw.Service
                 return collection;
         }
 
-        public static ObservableCollection<Setting> GetSettingList()
+        public ObservableCollection<Setting> GetSettingList()
         {
-            var settingList = CommonRepository.GetSettingList();
+            var settingList = commonRepository.GetSettingList();
             var collection = new ObservableCollection<Setting>();
             foreach (var h in settingList)
             {
@@ -64,9 +71,9 @@ namespace LuckyDraw.Service
             return collection;
         }
 
-        public static ObservableCollection<ViewResult> GetResultList()
+        public ObservableCollection<ViewResult> GetResultList()
         {
-            var resultList = CommonRepository.GetResultList();
+            var resultList = commonRepository.GetResultList();
                 var collection = new ObservableCollection<ViewResult>();
                 foreach (var h in resultList.ToList())
                 {
@@ -82,9 +89,9 @@ namespace LuckyDraw.Service
                 return collection;
         }
 
-        public static ObservableCollection<ViewLog> GetLogList()
+        public ObservableCollection<ViewLog> GetLogList()
         {
-            var logList = CommonRepository.GetLogList();
+            var logList = commonRepository.GetLogList();
             var collection = new ObservableCollection<ViewLog>();
             foreach (var h in logList)
             {

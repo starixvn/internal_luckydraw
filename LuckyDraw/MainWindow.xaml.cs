@@ -17,25 +17,35 @@ namespace LuckyDraw
 {
     public partial class MainWindow : Window
     {
-        private RunningService runningService;
+        private readonly ICommonService commonService;
+        private readonly ISeedService seedService;
+        private readonly IRunningService runningService;
+        private readonly IValidationService validationService;
+        private readonly IAuthenticationService authenticationService;
+        private readonly IUtils utils;
         private bool isLoading;
 
         public MainWindow()
         {
             InitializeComponent();
 
+            commonService = new CommonService();
+            seedService = new SeedService();
             runningService = new RunningService();
-            isLoading = false;     
+            validationService = new ValidationService();
+            authenticationService = new AuthenticationService();
+            utils = new Utils();
+            isLoading = false;
 
-            SeedService.GenerateSeedData();
+            seedService.GenerateSeedData();
             LoadSettings();
         }
 
         private void LoadSettings()
         {
-            this.prizeDataGrid.ItemsSource = CommonService.GetPrizeList();
-            this.rangeDataGrid.ItemsSource = CommonService.GetSettingList();
-            this.ignoredListDataGrid.ItemsSource = CommonService.GetSettingList();
+            this.prizeDataGrid.ItemsSource = commonService.GetPrizeList();
+            this.rangeDataGrid.ItemsSource = commonService.GetSettingList();
+            this.ignoredListDataGrid.ItemsSource = commonService.GetSettingList();
         }
 
         private void UpdateIgnoredListText() {
@@ -61,8 +71,8 @@ namespace LuckyDraw
                     var r = this.runningService.CurrentList[i];
                     pLabel.Content = r.PrizeName;
                     rLabel.Content = r.Random == string.Empty ? "000" : r.Random;
-                    var image = Utils.PrizeImage(r.PrizeId.ToString() + ".png");
-                    imageItem.Source = image?? Utils.PrizeImage("prize.png");
+                    var image = utils.PrizeImage(r.PrizeId.ToString() + ".png");
+                    imageItem.Source = image?? utils.PrizeImage("prize.png");
                     cItem.Visibility = Visibility.Visible;
                 }
 
@@ -153,12 +163,12 @@ namespace LuckyDraw
             }            
 
             if (this.tabResult.IsSelected) {
-                this.resultDataGrid.ItemsSource = CommonService.GetResultList();
+                this.resultDataGrid.ItemsSource = commonService.GetResultList();
             }
            
             if (this.tabLog.IsSelected)
             {
-                this.logDataGrid.ItemsSource = CommonService.GetLogList();
+                this.logDataGrid.ItemsSource = commonService.GetLogList();
             }
         }
 
@@ -186,13 +196,13 @@ namespace LuckyDraw
             OpenFileDialog op = new OpenFileDialog { Title = Labels.SelectPicture, Filter = Labels.AllSupportedGraphics };            
             if (op.ShowDialog() == true)
             {
-                if (Utils.GetFileSize(op.FileName) > Consts.MaxFileSize) {
+                if (utils.GetFileSize(op.FileName) > Consts.MaxFileSize) {
                     MessageBox.Show(Labels.FileSizeAlert, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);                    
                     return;
                 }
 
-                var path = String.Format("{0}{1}.png", Utils.BaseDirectory(), viewPrize.Id.ToString());                              
-                Utils.SaveFile(op.FileName, path);
+                var path = String.Format("{0}{1}.png", utils.BaseDirectory(), viewPrize.Id.ToString());                              
+                utils.SaveFile(op.FileName, path);
 
                 this.prizeDataGrid.Items.Refresh();                
             }
@@ -201,11 +211,11 @@ namespace LuckyDraw
         private void SavePrizesButton_Click(object sender, RoutedEventArgs e)
         {
             var prizes = this.prizeDataGrid.Items.OfType<ViewPrize>();
-            var validation = ValidationService.ValidatePrizes(prizes);
+            var validation = validationService.ValidatePrizes(prizes);
             if (string.IsNullOrEmpty(validation))
             {
-                CommonService.UpdatePrize(prizes);
-                this.prizeDataGrid.ItemsSource = CommonService.GetPrizeList();               
+                commonService.UpdatePrize(prizes);
+                this.prizeDataGrid.ItemsSource = commonService.GetPrizeList();               
 
                 MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -217,7 +227,7 @@ namespace LuckyDraw
 
         private void SaveIgnoredListButton_Click(object sender, RoutedEventArgs e)
         {
-            CommonService.UpdateIgnoredList(this.ignoredListDataGrid.Items.OfType<Setting>());
+            commonService.UpdateIgnoredList(this.ignoredListDataGrid.Items.OfType<Setting>());
             this.runningService.LoadSetting();
             UpdateIgnoredListText();
             MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
@@ -225,7 +235,7 @@ namespace LuckyDraw
 
         private void SaveRangeButton_Click(object sender, RoutedEventArgs e)
         {
-            CommonService.UpdateRange(this.rangeDataGrid.Items.OfType<Setting>());
+            commonService.UpdateRange(this.rangeDataGrid.Items.OfType<Setting>());
             this.runningService.LoadSetting();
             UpdateRandomRangeText();
             MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
@@ -239,8 +249,8 @@ namespace LuckyDraw
                 MessageBoxResult messageBoxResult = MessageBox.Show(Labels.ConfirmNewGame, Labels.Confirmation, MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
-                    CommonService.UpdateStartIndex(startIndex);
-                    CommonService.StartNewGame();
+                    commonService.UpdateStartIndex(startIndex);
+                    commonService.StartNewGame();
                     this.runningService.ResetModel();
                     MessageBox.Show(Labels.InformNewGame, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -287,7 +297,7 @@ namespace LuckyDraw
                 return;
             }
                 
-            if (AuthenticationService.Authenticate(passwordDialog.Answer)) {
+            if (authenticationService.Authenticate(passwordDialog.Answer)) {
                 this.mainTab.SelectedIndex = 1;
             }
             else

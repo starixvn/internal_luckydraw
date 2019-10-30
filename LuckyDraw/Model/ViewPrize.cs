@@ -6,7 +6,13 @@ using System.Windows.Media.Imaging;
 namespace LuckyDraw.Model
 {
     public class ViewPrize
-    {      
+    {
+        private readonly IUtils utils;
+        public ViewPrize()
+        {
+            utils = new Utils();
+        }
+
         public int Id { get; set; }
         public string PrizeName { get; set; }
         public string RoundName { get; set; }
@@ -17,7 +23,7 @@ namespace LuckyDraw.Model
         {
             get
             {
-                return Utils.PrizeImage(String.Format("{0}.png", Id.ToString()));
+                return utils.PrizeImage(String.Format("{0}.png", Id.ToString()));
             }
         }
     }

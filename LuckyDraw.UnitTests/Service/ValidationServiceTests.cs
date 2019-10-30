@@ -23,9 +23,10 @@ namespace LuckyDraw.UnitTests.Service
                 new ViewPrize { RoundIndex = 1, RoundName = "1"},
                 new ViewPrize { RoundIndex = 2, RoundName = "2"}
             };
+            var service = new ValidationService();
 
             // Act
-            var result = ValidationService.ValidatePrizes(prizes);
+            var result = service.ValidatePrizes(prizes);
 
             // Assert
             result.Should().BeEmpty();
@@ -40,9 +41,10 @@ namespace LuckyDraw.UnitTests.Service
                 new ViewPrize { RoundIndex = 1, RoundName = "3"},
                 new ViewPrize { RoundIndex = 2, RoundName = "2"}
             };
+            var service = new ValidationService();
 
             // Act
-            var result = ValidationService.ValidatePrizes(prizes);
+            var result = service.ValidatePrizes(prizes);
 
             // Assert
             result.Should().Be("Inconsistant Round Index and Round Name");
@@ -57,9 +59,10 @@ namespace LuckyDraw.UnitTests.Service
                 new ViewPrize { RoundIndex = 2, RoundName = "1"},
                 new ViewPrize { RoundIndex = 3, RoundName = "3"}
             };
+            var service = new ValidationService();
 
             // Act
-            var result = ValidationService.ValidatePrizes(prizes);
+            var result = service.ValidatePrizes(prizes);
 
             // Assert
             result.Should().Be("Inconsistant Round Index and Round Name");
