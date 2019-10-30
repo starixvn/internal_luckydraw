@@ -21,6 +21,12 @@ namespace LuckyDraw.Utilities
             return bitmap;
         }
 
+        public static BitmapImage PrizeImage(string imageName)
+        {
+            var imagePath = String.Format("{0}{1}", BaseDirectory(), imageName);
+            return File.Exists(imagePath) ? BitmapFromUri(new Uri(imagePath)) : null;
+        }
+
         public static string BaseDirectory()
         {
             return String.Format("{0}\\AppData\\Images\\", AppDomain.CurrentDomain.BaseDirectory);

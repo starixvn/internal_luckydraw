@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace LuckyDraw.Repository
 {
-    public class CommonRepository
+    public static class CommonRepository
     {
         public static void UpdatePrize(IEnumerable<ViewPrize> prizes) {
             using (var db = new LuckyDrawEntities())

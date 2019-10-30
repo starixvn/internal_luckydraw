@@ -13,12 +13,11 @@ namespace LuckyDraw.Model
         public int RoundIndex { get; set; }
         public int PrizeIndex { get; set; }
 
-        public BitmapImage TaskImg
+        public BitmapImage PrizeImage
         {
             get
             {
-                var imagePath = String.Format("{0}{1}.png", Utils.BaseDirectory(), Id.ToString());                
-                return File.Exists(imagePath) ? Utils.BitmapFromUri(new Uri(imagePath)) : null;
+                return Utils.PrizeImage(String.Format("{0}.png", Id.ToString()));
             }
         }
     }

@@ -18,7 +18,6 @@ namespace LuckyDraw
     public partial class MainWindow : Window
     {
         private RunningService runningService;
-        private AuthenticationService authenticationService;
         private bool isLoading;
 
         public MainWindow()
@@ -26,7 +25,6 @@ namespace LuckyDraw
             InitializeComponent();
 
             runningService = new RunningService();
-            authenticationService = new AuthenticationService();
             isLoading = false;     
 
             SeedService.GenerateSeedData();
@@ -63,8 +61,8 @@ namespace LuckyDraw
                     var r = this.runningService.CurrentList[i];
                     pLabel.Content = r.PrizeName;
                     rLabel.Content = r.Random == string.Empty ? "000" : r.Random;
-                    var image = TaskImg(r.PrizeId.ToString() + ".png");
-                    imageItem.Source = image?? TaskImg("prize.png");
+                    var image = Utils.PrizeImage(r.PrizeId.ToString() + ".png");
+                    imageItem.Source = image?? Utils.PrizeImage("prize.png");
                     cItem.Visibility = Visibility.Visible;
                 }
 
@@ -74,19 +72,7 @@ namespace LuckyDraw
                 }
             }
         }
-
-        private BitmapImage TaskImg(string imageName)
-        {            
-            var path = String.Format("{0}{1}", Utils.BaseDirectory(), imageName);
-            BitmapImage image = null;
-            if (File.Exists(path))
-            {
-                image = Utils.BitmapFromUri(new Uri(path));
-            }
-
-            return image;            
-        }
-
+       
         private string CreateRandomNumber(){
             Random rnd = new Random();
             for(var i = 0; i < Consts.MaxRandomTrials; i++)
@@ -108,7 +94,7 @@ namespace LuckyDraw
                     var label = (Label)this.FindName("textRandom" + (i + 1));
                     await AnimateRandom(Consts.RangeThreeDigits, string.Empty, label);
                     string random = CreateRandomNumber();
-                    var two = 2;
+                    const int two = 2;
                     await AnimateRandom(Consts.RangeTwoDigits, random.Substring(0, 1), label);
                     await AnimateRandom(Consts.RangeOneDigit, random.Substring(0, two), label);
 
@@ -300,7 +286,7 @@ namespace LuckyDraw
                 return;
             }
                 
-            if (authenticationService.Authenticate(passwordDialog.Answer)) {
+            if (AuthenticationService.Authenticate(passwordDialog.Answer)) {
                 this.mainTab.SelectedIndex = 1;
             }
             else
@@ -316,7 +302,7 @@ namespace LuckyDraw
                 return;
             }
 
-            var resultTabIndex = 2;
+            const int resultTabIndex = 2;
             this.mainTab.SelectedIndex = resultTabIndex;
         }
 
@@ -327,7 +313,7 @@ namespace LuckyDraw
                 return;
             }
 
-            var logTabIndex = 3;
+            const int logTabIndex = 3;
             this.mainTab.SelectedIndex = logTabIndex;
         }
 
