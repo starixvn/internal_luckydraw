@@ -34,7 +34,7 @@ namespace LuckyDraw.Utilities
             return (new FileInfo(filePath)).Length;
         }
 
-        private BitmapImage BitmapFromUri(Uri source)
+        private static BitmapImage BitmapFromUri(Uri source)
         {
             var bitmap = new BitmapImage();
             bitmap.BeginInit();
