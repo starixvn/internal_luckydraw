@@ -3,29 +3,22 @@ using System.Collections.Generic;
 
 namespace LuckyDraw.Service
 {
-    class SeedService
+    public static class SeedService
     {
-        private readonly CommonRepository commonRepository;
-
-        public SeedService()
+        public static void GenerateSeedData()
         {
-            this.commonRepository = new CommonRepository();
-        }
-
-        public void GenerateSeedData()
-        {
-            if (this.commonRepository.IsEmptySetting())
+            if (CommonRepository.IsEmptySetting())
             {
                 GenerateSetting();
             }
 
-            if (this.commonRepository.IsEmptyPrize())
+            if (CommonRepository.IsEmptyPrize())
             {
                 GeneratePrizes();
             }
         }
 
-        private void GeneratePrizes()
+        private static void GeneratePrizes()
         {
             const string prizeName1 = "Gold";
             const string prizeName2 = "Iphone";
@@ -58,14 +51,14 @@ namespace LuckyDraw.Service
                 new Prize { PrizeName = prizeName3, PrizeIndex = 20, RoundIndex = 3, RoundName = roundName3 }
             };
 
-            this.commonRepository.AddPrizes(prizes);
+            CommonRepository.AddPrizes(prizes);
         }
 
 
-        private void GenerateSetting()
+        private static void GenerateSetting()
         {
             var setting = new Setting { RandomFrom = 100, RandomTo = 200, Excluded = "110,120,130,140", StartIndex = 0 };
-            this.commonRepository.AddSetting(setting);
+            CommonRepository.AddSetting(setting);
         }
     }
 }

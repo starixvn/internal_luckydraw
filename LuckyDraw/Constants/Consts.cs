@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LuckyDraw.Model
+namespace LuckyDraw.Constants
 {
-    static class Constants
+    public static class Consts
     {
         public const int ImageHeight = 50;
         public const int ImageWidth = 50;

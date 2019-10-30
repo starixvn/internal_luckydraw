@@ -1,8 +1,11 @@
-﻿using LuckyDraw.Model;
+﻿using LuckyDraw.Constants;
+using LuckyDraw.Model;
 using LuckyDraw.Resources;
 using LuckyDraw.Service;
+using LuckyDraw.Utilities;
 using Microsoft.Win32;
 using System;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,33 +17,27 @@ namespace LuckyDraw
 {
     public partial class MainWindow : Window
     {
-        private CommonService commonService;
-        private SeedService seedService;
         private RunningService runningService;
-        private bool isLoading;
-        private string baseDirectory;
         private AuthenticationService authenticationService;
+        private bool isLoading;
 
         public MainWindow()
         {
             InitializeComponent();
 
-            commonService = new CommonService();
-            seedService = new SeedService();
             runningService = new RunningService();
             authenticationService = new AuthenticationService();
             isLoading = false;     
-            baseDirectory = String.Format("{0}\\AppData\\Images\\", AppDomain.CurrentDomain.BaseDirectory);
 
-            seedService.GenerateSeedData();
+            SeedService.GenerateSeedData();
             LoadSettings();
         }
 
         private void LoadSettings()
         {
-            this.prizeDataGrid.ItemsSource = commonService.GetPrizeList();
-            this.rangeDataGrid.ItemsSource = commonService.GetSettingList();
-            this.ignoredListDataGrid.ItemsSource = commonService.GetSettingList();
+            this.prizeDataGrid.ItemsSource = CommonService.GetPrizeList();
+            this.rangeDataGrid.ItemsSource = CommonService.GetSettingList();
+            this.ignoredListDataGrid.ItemsSource = CommonService.GetSettingList();
         }
 
         private void UpdateIgnoredListText() {
@@ -71,7 +68,7 @@ namespace LuckyDraw
                     cItem.Visibility = Visibility.Visible;
                 }
 
-                for (var i = this.runningService.CurrentList.Count; i < Constants.MaxRoundItems; i++) {
+                for (var i = this.runningService.CurrentList.Count; i < Consts.MaxRoundItems; i++) {
                     var cItem = (Canvas)this.FindName("canvasItem" + (i + 1));
                     cItem.Visibility = Visibility.Hidden;
                 }
@@ -80,34 +77,19 @@ namespace LuckyDraw
 
         private BitmapImage TaskImg(string imageName)
         {            
-            var path = String.Format("{0}{1}", baseDirectory, imageName);
+            var path = String.Format("{0}{1}", Utils.BaseDirectory(), imageName);
             BitmapImage image = null;
             if (File.Exists(path))
             {
-                image = BitmapFromUri(new Uri(path));
+                image = Utils.BitmapFromUri(new Uri(path));
             }
 
             return image;            
         }
 
-        private BitmapImage BitmapFromUri(Uri source)
-        {
-            var bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = source;
-            bitmap.CacheOption = BitmapCacheOption.OnLoad;
-            bitmap.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
-            bitmap.DecodePixelHeight = Constants.ImageHeight;
-            bitmap.DecodePixelWidth = Constants.ImageWidth;
-            bitmap.EndInit();
-
-            return bitmap;
-        }
-
-
         private string CreateRandomNumber(){
             Random rnd = new Random();
-            for(var i = 0; i < Constants.MaxRandomTrials; i++)
+            for(var i = 0; i < Consts.MaxRandomTrials; i++)
             {
                 var random = rnd.Next(this.runningService.Setting.RandomFrom, this.runningService.Setting.RandomTo + 1).ToString("000");
                 if (!this.runningService.IsExistRandom(random))
@@ -124,10 +106,11 @@ namespace LuckyDraw
                 if (this.runningService.CurrentList[i].Status == 0)
                 {
                     var label = (Label)this.FindName("textRandom" + (i + 1));
-                    await AnimateRandom(Constants.RangeThreeDigits, string.Empty, label);
+                    await AnimateRandom(Consts.RangeThreeDigits, string.Empty, label);
                     string random = CreateRandomNumber();
-                    await AnimateRandom(Constants.RangeTwoDigits, random.Substring(0, 1), label);
-                    await AnimateRandom(Constants.RangeOneDigit, random.Substring(0, 2), label);
+                    var two = 2;
+                    await AnimateRandom(Consts.RangeTwoDigits, random.Substring(0, 1), label);
+                    await AnimateRandom(Consts.RangeOneDigit, random.Substring(0, two), label);
 
                     label.Content = random;
 
@@ -184,20 +167,22 @@ namespace LuckyDraw
             }            
 
             if (this.tabResult.IsSelected) {
-                this.resultDataGrid.ItemsSource = commonService.GetResultList();
+                this.resultDataGrid.ItemsSource = CommonService.GetResultList();
             }
            
             if (this.tabLog.IsSelected)
             {
-                this.logDataGrid.ItemsSource = commonService.GetLogList();
+                this.logDataGrid.ItemsSource = CommonService.GetLogList();
             }
         }
 
+        [SuppressMessage("csharpsquid", "S2325:Methods and properties that don't access instance data can be static to prevent any misunderstanding about the contract of the method.")]
         private void ResultDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             e.Handled = true;
         }
 
+        [SuppressMessage("csharpsquid", "S2325:Methods and properties that don't access instance data can be static to prevent any misunderstanding about the contract of the method.")]
         private void LogDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             e.Handled = true;
@@ -212,27 +197,16 @@ namespace LuckyDraw
                 return;
             }
 
-            OpenFileDialog op = new OpenFileDialog();
-            op.Title = Labels.SelectPicture;
-            op.Filter = Labels.AllSupportedGraphics;
+            OpenFileDialog op = new OpenFileDialog { Title = Labels.SelectPicture, Filter = Labels.AllSupportedGraphics };            
             if (op.ShowDialog() == true)
             {
-                var fileSize = (new FileInfo(op.FileName)).Length;
-                if (fileSize > Constants.MaxFileSize) {
-                    MessageBox.Show(Labels.FileSizeAlert, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);
-                    
+                if (Utils.GetFileSize(op.FileName) > Consts.MaxFileSize) {
+                    MessageBox.Show(Labels.FileSizeAlert, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);                    
                     return;
                 }
 
-                var image = new BitmapImage(new Uri(op.FileName));                
-                BitmapEncoder encoder = new PngBitmapEncoder();
-                encoder.Frames.Add(BitmapFrame.Create(image));
-
-                var path = String.Format("{0}{1}.png", baseDirectory, viewPrize.Id.ToString());               
-                using (var fileStream = new System.IO.FileStream(path, System.IO.FileMode.Create))
-                {
-                    encoder.Save(fileStream);
-                }
+                var path = String.Format("{0}{1}.png", Utils.BaseDirectory(), viewPrize.Id.ToString());                              
+                Utils.SaveFile(op.FileName, path);
 
                 this.prizeDataGrid.Items.Refresh();                
             }
@@ -244,8 +218,8 @@ namespace LuckyDraw
             var validation = ValidationService.ValidatePrizes(prizes);
             if (string.IsNullOrEmpty(validation))
             {
-                this.commonService.UpdatePrize(prizes);
-                this.prizeDataGrid.ItemsSource = commonService.GetPrizeList();               
+                CommonService.UpdatePrize(prizes);
+                this.prizeDataGrid.ItemsSource = CommonService.GetPrizeList();               
 
                 MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
             }
@@ -257,7 +231,7 @@ namespace LuckyDraw
 
         private void SaveIgnoredListButton_Click(object sender, RoutedEventArgs e)
         {
-            this.commonService.UpdateIgnoredList(this.ignoredListDataGrid.Items.OfType<Setting>());
+            CommonService.UpdateIgnoredList(this.ignoredListDataGrid.Items.OfType<Setting>());
             this.runningService.LoadSetting();
             UpdateIgnoredListText();
             MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
@@ -265,7 +239,7 @@ namespace LuckyDraw
 
         private void SaveRangeButton_Click(object sender, RoutedEventArgs e)
         {
-            this.commonService.UpdateRange(this.rangeDataGrid.Items.OfType<Setting>());
+            CommonService.UpdateRange(this.rangeDataGrid.Items.OfType<Setting>());
             this.runningService.LoadSetting();
             UpdateRandomRangeText();
             MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
@@ -279,8 +253,8 @@ namespace LuckyDraw
                 MessageBoxResult messageBoxResult = MessageBox.Show(Labels.ConfirmNewGame, Labels.Confirmation, MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
-                    this.commonService.UpdateStartIndex(startIndex);
-                    this.commonService.StartNewGame();
+                    CommonService.UpdateStartIndex(startIndex);
+                    CommonService.StartNewGame();
                     this.runningService.ResetModel();
                     MessageBox.Show(Labels.InformNewGame, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -294,7 +268,7 @@ namespace LuckyDraw
         private async Task AnimateRandom(int range, string subRandom, Label l)
         {
             Random rnd = new Random();
-            for (var i = 0; i < Constants.AnimationLoops; i++)
+            for (var i = 0; i < Consts.AnimationLoops; i++)
             {
                 int random = rnd.Next(1, range);
                 await Task.Delay(1);
@@ -342,7 +316,8 @@ namespace LuckyDraw
                 return;
             }
 
-            this.mainTab.SelectedIndex = 2;
+            var resultTabIndex = 2;
+            this.mainTab.SelectedIndex = resultTabIndex;
         }
 
         private void LogMenu_Click(object sender, RoutedEventArgs e)
@@ -352,7 +327,8 @@ namespace LuckyDraw
                 return;
             }
 
-            this.mainTab.SelectedIndex = 3;
+            var logTabIndex = 3;
+            this.mainTab.SelectedIndex = logTabIndex;
         }
 
         private void MinimizeMenu_Click(object sender, RoutedEventArgs e)

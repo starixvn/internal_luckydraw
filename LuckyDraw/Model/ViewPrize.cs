@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LuckyDraw.Utilities;
+using System;
 using System.IO;
 using System.Windows.Media.Imaging;
 
@@ -16,30 +17,9 @@ namespace LuckyDraw.Model
         {
             get
             {
-                var path = String.Format("{0}\\AppData\\Images\\{1}.png", AppDomain.CurrentDomain.BaseDirectory, Id.ToString());                
-                BitmapImage image = null;
-
-                if (File.Exists(path))
-                {
-                    image = BitmapFromUri(new Uri(path));
-                }
-
-                return image;
+                var imagePath = String.Format("{0}{1}.png", Utils.BaseDirectory(), Id.ToString());                
+                return File.Exists(imagePath) ? Utils.BitmapFromUri(new Uri(imagePath)) : null;
             }
-        }
-
-        private static BitmapImage BitmapFromUri(Uri source)
-        {
-            var bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = source;
-            bitmap.CacheOption = BitmapCacheOption.OnLoad;
-            bitmap.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
-
-            bitmap.DecodePixelHeight = Constants.ImageHeight;
-            bitmap.DecodePixelWidth = Constants.ImageWidth;
-            bitmap.EndInit();
-            return bitmap;
         }
     }
 }

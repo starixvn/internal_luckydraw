@@ -6,43 +6,36 @@ using System.Linq;
 
 namespace LuckyDraw.Service
 {
-    public class CommonService
+    public static class CommonService
     {
-        private readonly CommonRepository commonRepository;
-
-        public CommonService()
+        public static void UpdateIgnoredList(IEnumerable<Setting> settings)
         {
-            this.commonRepository = new CommonRepository();
+            CommonRepository.UpdateIgnoredList(settings);
         }
 
-        public void UpdateIgnoredList(IEnumerable<Setting> settings)
+        public static void UpdatePrize(IEnumerable<ViewPrize> viewPrizes)
         {
-            this.commonRepository.UpdateIgnoredList(settings);
+            CommonRepository.UpdatePrize(viewPrizes);
         }
 
-        public void UpdatePrize(IEnumerable<ViewPrize> viewPrizes)
+        public static void UpdateRange(IEnumerable<Setting> settings)
         {
-            this.commonRepository.UpdatePrize(viewPrizes);
+            CommonRepository.UpdateRange(settings);
         }
 
-        public void UpdateRange(IEnumerable<Setting> settings)
+        public static void UpdateStartIndex(int startIndex)
         {
-            this.commonRepository.UpdateRange(settings);
+            CommonRepository.UpdateStartIndex(startIndex);
         }
 
-        public void UpdateStartIndex(int startIndex)
+        public static void StartNewGame()
         {
-            this.commonRepository.UpdateStartIndex(startIndex);
+            CommonRepository.StartNewGame();
         }
 
-        public void StartNewGame()
+        public static ObservableCollection<ViewPrize> GetPrizeList()
         {
-            this.commonRepository.StartNewGame();
-        }
-
-        public ObservableCollection<ViewPrize> GetPrizeList()
-        {
-            var prizeList = this.commonRepository.GetPrizeList();
+            var prizeList = CommonRepository.GetPrizeList();
                 var collection = new ObservableCollection<ViewPrize>();
                 foreach (var h in prizeList)
                 {
@@ -59,9 +52,9 @@ namespace LuckyDraw.Service
                 return collection;
         }
 
-        public ObservableCollection<Setting> GetSettingList()
+        public static ObservableCollection<Setting> GetSettingList()
         {
-            var settingList = this.commonRepository.GetSettingList();
+            var settingList = CommonRepository.GetSettingList();
             var collection = new ObservableCollection<Setting>();
             foreach (var h in settingList)
             {
@@ -71,9 +64,9 @@ namespace LuckyDraw.Service
             return collection;
         }
 
-        public ObservableCollection<ViewResult> GetResultList()
+        public static ObservableCollection<ViewResult> GetResultList()
         {
-            var resultList = this.commonRepository.GetResultList();
+            var resultList = CommonRepository.GetResultList();
                 var collection = new ObservableCollection<ViewResult>();
                 foreach (var h in resultList.ToList())
                 {
@@ -89,24 +82,24 @@ namespace LuckyDraw.Service
                 return collection;
         }
 
-        public ObservableCollection<ViewLog> GetLogList()
+        public static ObservableCollection<ViewLog> GetLogList()
         {
-            var logList = this.commonRepository.GetLogList();
-                var collection = new ObservableCollection<ViewLog>();
-                foreach (var h in logList)
-                {
-                    var r = new ViewLog();
-                    r.Flag = h.Flag;
-                    r.PrizeIndex = h.PrizeIndex;
-                    r.PrizeName = h.PrizeName;
-                    r.Random = h.Random;
-                    r.RoundName = h.RoundName;
-                    r.UpdatedTime = h.UpdatedTime;
+            var logList = CommonRepository.GetLogList();
+            var collection = new ObservableCollection<ViewLog>();
+            foreach (var h in logList)
+            {
+                var r = new ViewLog();
+                r.Flag = h.Flag;
+                r.PrizeIndex = h.PrizeIndex;
+                r.PrizeName = h.PrizeName;
+                r.Random = h.Random;
+                r.RoundName = h.RoundName;
+                r.UpdatedTime = h.UpdatedTime;
 
-                    collection.Add(r);
-                }
+                collection.Add(r);
+            }
 
-                return collection;
+            return collection;
         }
     }
 }

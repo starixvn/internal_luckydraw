@@ -6,7 +6,6 @@ namespace LuckyDraw.Service
 {
     class RunningService
     {
-        private readonly CommonRepository commonRepository;
         public int CurrentRound { get; private set; }
         public List<Result> CurrentList { get; private set; }
         public int MaxRound { get; private set; }
@@ -20,7 +19,6 @@ namespace LuckyDraw.Service
             this.CurrentList = new List<Result>();
             this.runningList = new List<List<Result>>();
             this.roundList = new List<string>();
-            this.commonRepository = new CommonRepository();
         }
 
         public string GetRoundName()
@@ -35,18 +33,18 @@ namespace LuckyDraw.Service
 
         public void LoadSetting()
         {
-            this.Setting = this.commonRepository.GetSetting();
+            this.Setting = CommonRepository.GetSetting();
         }
 
         public bool LoadModel()
         {
-            if (this.IsValid || !this.commonRepository.IsDBReady())
+            if (this.IsValid || !CommonRepository.IsDBReady())
             {
                 return false;
             }
 
-            this.Setting = this.commonRepository.GetSetting();
-            var resultList = this.commonRepository.GetCurrentResultList(this.Setting.StartIndex);
+            this.Setting = CommonRepository.GetSetting();
+            var resultList = CommonRepository.GetCurrentResultList(this.Setting.StartIndex);
             var rounds = resultList.Select(i => new { i.RoundName, i.RoundIndex }).Distinct().OrderBy(i => i.RoundIndex).Select(i => i.RoundName).ToList();
 
             if (rounds.Count > 0)
@@ -73,7 +71,7 @@ namespace LuckyDraw.Service
         {
             this.CurrentList[index].Random = random;
             this.CurrentList[index].Status = 1;
-            this.commonRepository.UpdateRandom(this.CurrentList[index].Id, random);
+            CommonRepository.UpdateRandom(this.CurrentList[index].Id, random);
         }
 
         public bool MoveNext()
