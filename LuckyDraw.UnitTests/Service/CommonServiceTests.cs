@@ -24,6 +24,13 @@ namespace LuckyDraw.UnitTests.Service
         }
 
         [Fact]
+        public void CommonService_Init_WithoutError()
+        {
+            // Act && Assert
+            new CommonService();
+        }
+
+        [Fact]
         public void UpdateIgnoredList_WhenCalled_CallUpdateIgnoredList()
         {
             // Arrange

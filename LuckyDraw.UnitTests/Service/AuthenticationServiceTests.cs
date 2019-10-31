@@ -14,6 +14,13 @@ namespace LuckyDraw.UnitTests.Service
     public class AuthenticationServiceTests
     {
         [Fact]
+        public void AuthenticationService_Init_WithoutError()
+        {
+            // Act && Assert
+            new AuthenticationService();
+        }
+
+        [Fact]
         public void Authenticate_WhenPasswordIsWrong_ReturnFalse()
         {
             // Arrange

@@ -13,6 +13,13 @@ namespace LuckyDraw.UnitTests.Service
     public class SeedServiceTests
     {
         [Fact]
+        public void SeedService_Init_WithoutError()
+        {
+            // Act && Assert
+            new SeedService();
+        }
+
+        [Fact]
         public void GenerateSeedData_WhenPrizesNotEmptyAndSettingNotEmpty_DoNothing()
         {
             // Arrange

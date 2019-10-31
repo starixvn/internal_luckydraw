@@ -15,6 +15,13 @@ namespace LuckyDraw.UnitTests.Service
     public class ValidationServiceTests
     {
         [Fact]
+        public void ValidationService_Init_WithoutError()
+        {
+            // Act && Assert
+            new ValidationService();
+        }
+
+        [Fact]
         public void ValidatePrizes_WhenValid_ReturnEmpty()
         {
             // Arrange

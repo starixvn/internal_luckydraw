@@ -25,6 +25,13 @@ namespace LuckyDraw.UnitTests.Repository
         }
 
         [Fact]
+        public void CommonRepository_Init_WithoutError()
+        {
+            // Act && Assert
+            new CommonRepository();
+        }
+
+        [Fact]
         public void UpdatePrize_WhenCalled_UpdatePrize()
         {
             // Arrange

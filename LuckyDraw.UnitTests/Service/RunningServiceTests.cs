@@ -21,6 +21,13 @@ namespace LuckyDraw.UnitTests.Service
         }
 
         [Fact]
+        public void RunningService_Init_WithoutError()
+        {
+            // Act && Assert
+            new RunningService();
+        }
+
+        [Fact]
         public void GetRoundName_WhenCalled_GetCurrentRoundName()
         {
             // Arrange

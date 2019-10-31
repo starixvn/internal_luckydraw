@@ -18,12 +18,7 @@ namespace LuckyDraw.DBContexts
 
         public LuckDrawDBContext(DbConnection connection) : base(connection, true)
         {
-        }
-
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    throw new UnintentionalCodeFirstException();
-        //}
+        }       
 
         public virtual DbSet<Prize> Prizes { get; set; }
         public virtual DbSet<Setting> Settings { get; set; }
