@@ -21,7 +21,7 @@ namespace LuckyDraw.Repository
         }
 
         public void UpdatePrize(IEnumerable<ViewPrize> prizes) {
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 var allIds = prizes.Select(i => i.Id);
                 var deletedPrizes = db.Prizes.Where(i => !allIds.Contains(i.Id));
@@ -49,7 +49,7 @@ namespace LuckyDraw.Repository
         public void UpdateIgnoredList(IEnumerable<Setting> settings)
         {
             var setting = settings.First();
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 if (db.Settings.Count() != 0)
                 {
@@ -62,7 +62,7 @@ namespace LuckyDraw.Repository
 
         public void UpdateRange(IEnumerable<Setting> settings) {
             var setting = settings.First();
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 if (db.Settings.Count() != 0)
                 {
@@ -75,7 +75,7 @@ namespace LuckyDraw.Repository
         }
 
         public void UpdateStartIndex(int startIndex) {
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 if (db.Settings.Count() != 0) {
                     var s = db.Settings.First();
@@ -86,7 +86,7 @@ namespace LuckyDraw.Repository
         }
 
         public void StartNewGame() {
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 if (db.Prizes.Count() == 0)
                 {
@@ -113,7 +113,7 @@ namespace LuckyDraw.Repository
         }
 
         public void UpdateRandom(int id, string random) {
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 var r = db.Results.Find(id);
                 r.Random = random;

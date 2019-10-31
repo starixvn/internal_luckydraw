@@ -3,6 +3,7 @@ using Effort;
 using Effort.Provider;
 using FluentAssertions;
 using LuckyDraw.DBContexts;
+using LuckyDraw.Model;
 using LuckyDraw.Repository;
 using NSubstitute;
 using System;
@@ -21,6 +22,268 @@ namespace LuckyDraw.UnitTests.Repository
         public CommonRepositoryTests()
         {
             fixture = new Fixture();
+        }
+
+        [Fact]
+        public void UpdatePrize_WhenCalled_UpdatePrize()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            var prizes = fixture.CreateMany<Prize>(5).ToList();
+            var id = 0;
+            using (var db = GetDBContext(connection))
+            {
+                db.Prizes.AddRange(prizes);
+                db.SaveChanges();
+                id = db.Prizes.First().Id;
+            }
+
+            var newPrizes = fixture.CreateMany<ViewPrize>().ToList();
+            newPrizes.First().Id = id;
+
+            // Act
+            repository.UpdatePrize(newPrizes);
+
+            // Assert
+            using (var db = GetDBContext(connection))
+            {
+                db.Prizes.Count().Should().Be(newPrizes.Count);
+                db.Prizes.Find(id).PrizeName.Should().Be(newPrizes.First().PrizeName);
+                db.Prizes.Find(id).PrizeIndex.Should().Be(newPrizes.First().PrizeIndex);
+            }
+        }
+
+        [Fact]
+        public void UpdateIgnoredList_WhenSettingEmpty_DoNothing()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            var settings = fixture.CreateMany<Setting>().ToList();
+           
+            // Act
+            repository.UpdateIgnoredList(settings);
+
+            // Assert
+            using (var db = GetDBContext(connection))
+            {
+                db.Settings.Count().Should().Be(0);
+            }
+        }
+
+        [Fact]
+        public void UpdateIgnoredList_WhenSettingNotEmpty_UpdateIgnoredList()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            var settings = fixture.CreateMany<Setting>().ToList();
+            using (var db = GetDBContext(connection))
+            {
+                db.Settings.Add(fixture.Create<Setting>());
+                db.SaveChanges();
+            }
+
+            // Act
+            repository.UpdateIgnoredList(settings);
+
+            // Assert
+            using (var db = GetDBContext(connection))
+            {
+                var s = db.Settings.First();
+                s.Excluded.Should().Be(settings.First().Excluded);
+            }
+        }
+
+        [Fact]
+        public void UpdateRange_WhenSettingEmpty_DoNothing()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            var settings = fixture.CreateMany<Setting>().ToList();
+
+            // Act
+            repository.UpdateRange(settings);
+
+            // Assert
+            using (var db = GetDBContext(connection))
+            {
+                db.Settings.Count().Should().Be(0);
+            }
+        }
+
+        [Fact]
+        public void UpdateRange_WhenCalled_UpdateRange()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            var settings = fixture.CreateMany<Setting>().ToList();
+            using (var db = GetDBContext(connection))
+            {
+                db.Settings.Add(fixture.Create<Setting>());
+                db.SaveChanges();
+            }
+
+            // Act
+            repository.UpdateRange(settings);
+
+            // Assert
+            using (var db = GetDBContext(connection))
+            {
+                var s = db.Settings.First();
+                s.RandomFrom.Should().Be(settings.First().RandomFrom);
+                s.RandomTo.Should().Be(settings.First().RandomTo);
+            }
+        }
+
+        [Fact]
+        public void UpdateStartIndex_WhenSettingEmpty_DoNothing()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            var startIndex = fixture.Create<int>();
+
+            // Act
+            repository.UpdateStartIndex(startIndex);
+
+            // Assert
+            using (var db = GetDBContext(connection))
+            {
+                db.Settings.Count().Should().Be(0);
+            }
+        }
+
+        [Fact]
+        public void UpdateStartIndex_WhenCalled_UpdateStartIndex()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            var startIndex = fixture.Create<int>();
+            var settings = fixture.CreateMany<Setting>().ToList();
+            using (var db = GetDBContext(connection))
+            {
+                db.Settings.AddRange(settings);
+                db.SaveChanges();
+            }
+
+            // Act
+            repository.UpdateStartIndex(startIndex);
+
+            // Assert
+            using (var db = GetDBContext(connection))
+            {
+                var s = db.Settings.First();
+                s.StartIndex.Should().Be(startIndex);
+            }
+        }
+
+        [Fact]
+        public void StartNewGame_WhenPrizeEmpty_DoNotUpdateResult()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            // Act
+            repository.StartNewGame();
+
+            // Assert
+            using (var db = GetDBContext(connection))
+            {
+                db.Results.Count().Should().Be(0);
+            }
+        }
+
+        [Fact]
+        public void StartNewGame_WhenPrizeNotEmptyAndResultEmpty_UpdateResult()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            var prizes = fixture.CreateMany<Prize>().ToList();
+            using (var db = GetDBContext(connection))
+            {
+                db.Prizes.AddRange(prizes);
+                db.SaveChanges();
+            }
+
+            // Act
+            repository.StartNewGame();
+
+            // Assert
+            using (var db = GetDBContext(connection))
+            {
+                db.Results.Select(i => i.Flag).Should().BeEquivalentTo(prizes.Select(i => 1));
+            }
+        }
+
+        [Fact]
+        public void StartNewGame_WhenPrizeNotEmptyAndResultNotEmpty_UpdateResult()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            var prizes = fixture.CreateMany<Prize>().ToList();
+            var results = fixture.CreateMany<Result>().ToList();
+            using (var db = GetDBContext(connection))
+            {
+                db.Prizes.AddRange(prizes);
+                db.Results.AddRange(results);
+                db.SaveChanges();
+            }
+
+            // Act
+            repository.StartNewGame();
+
+            // Assert
+            var flag = results.Max(i => i.Flag) + 1;
+            using (var db = GetDBContext(connection))
+            {
+                db.Results.Where(i => i.Flag == flag).Count().Should().Be(prizes.Count);
+            }
+        }
+
+        [Fact]
+        public void UpdateRandom_WhenCalled_UpdateRandom()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            int id = 0;
+            var random = "234";
+            using (var db = GetDBContext(connection))
+            {
+                db.Results.Add(fixture.Create<Result>());
+                db.Results.Add(fixture.Create<Result>());
+                db.SaveChanges();
+                id = db.Results.First().Id;
+            }
+
+            // Act
+            repository.UpdateRandom(id, random);
+
+            // Assert
+            using (var db = GetDBContext(connection))
+            {
+                var s = db.Results.Find(id);
+                s.Random.Should().Be(random);
+                s.Status.Should().Be(1);
+            }
         }
 
         [Fact]
