@@ -10,9 +10,13 @@ namespace LuckyDraw.Service
     {
         private readonly ICommonRepository commonRepository;
 
-        public CommonService()
+        public CommonService():this(null)
         {
-            commonRepository = new CommonRepository();
+        }
+
+        public CommonService(ICommonRepository commonRepository)
+        {
+            this.commonRepository = commonRepository ?? new CommonRepository();
         }
 
         public void UpdateIgnoredList(IEnumerable<Setting> settings)
@@ -43,20 +47,20 @@ namespace LuckyDraw.Service
         public ObservableCollection<ViewPrize> GetPrizeList()
         {
             var prizeList = commonRepository.GetPrizeList();
-                var collection = new ObservableCollection<ViewPrize>();
-                foreach (var h in prizeList)
-                {
-                    var p = new ViewPrize();
-                    p.Id = h.Id;
-                    p.PrizeIndex = h.PrizeIndex;
-                    p.PrizeName = h.PrizeName;
-                    p.RoundIndex = h.RoundIndex;
-                    p.RoundName = h.RoundName;
+            var collection = new ObservableCollection<ViewPrize>();
+            foreach (var h in prizeList)
+            {
+                var p = new ViewPrize();
+                p.Id = h.Id;
+                p.PrizeIndex = h.PrizeIndex;
+                p.PrizeName = h.PrizeName;
+                p.RoundIndex = h.RoundIndex;
+                p.RoundName = h.RoundName;
 
-                    collection.Add(p);
-                }
+                collection.Add(p);
+            }
 
-                return collection;
+            return collection;
         }
 
         public ObservableCollection<Setting> GetSettingList()

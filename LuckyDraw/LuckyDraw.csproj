@@ -116,6 +116,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Configurations\Configs.cs" />
+    <Compile Include="Configurations\IConfigs.cs" />
     <Compile Include="Constants\Consts.cs" />
     <Compile Include="Model\ViewLog.cs" />
     <Compile Include="Model\ViewPrize.cs" />

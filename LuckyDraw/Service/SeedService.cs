@@ -7,9 +7,13 @@ namespace LuckyDraw.Service
     {
         private readonly ICommonRepository commonRepository;
 
-        public SeedService()
+        public SeedService() : this(null)
         {
-            commonRepository = new CommonRepository();
+        }
+
+        public SeedService(ICommonRepository commonRepository)
+        {
+            this.commonRepository = commonRepository ?? new CommonRepository();
         }
 
         public void GenerateSeedData()

@@ -9,16 +9,19 @@ namespace LuckyDraw.Service
         private readonly ICommonRepository commonRepository;
         private List<List<Result>> runningList { get; set; }
         private List<string> roundList { get; set; }
-
         public int CurrentRound { get; private set; }
         public List<Result> CurrentList { get; private set; }
         public int MaxRound { get; private set; }        
         public bool IsValid { get; private set; }
         public Setting Setting { get; private set; }
 
-        public RunningService()
+        public RunningService():this(null)
+        {           
+        }
+
+        public RunningService(ICommonRepository commonRepository)
         {
-            this.commonRepository = new CommonRepository();
+            this.commonRepository = commonRepository ?? new CommonRepository();
             this.CurrentList = new List<Result>();
             this.runningList = new List<List<Result>>();
             this.roundList = new List<string>();
