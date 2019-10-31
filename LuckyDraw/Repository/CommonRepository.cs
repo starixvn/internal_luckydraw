@@ -1,4 +1,5 @@
-﻿using LuckyDraw.Model;
+﻿using LuckyDraw.DBContexts;
+using LuckyDraw.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,17 @@ namespace LuckyDraw.Repository
 {
     public class CommonRepository : ICommonRepository
     {
+        private readonly ILuckyDrawEntity luckyDrawEntity;
+
+        public CommonRepository():this(null)
+        {
+        }
+
+        public CommonRepository(ILuckyDrawEntity luckyDrawEntity)
+        {
+            this.luckyDrawEntity = luckyDrawEntity ?? new LuckyDrawEntity();
+        }
+
         public void UpdatePrize(IEnumerable<ViewPrize> prizes) {
             using (var db = new LuckyDrawEntities())
             {
@@ -113,7 +125,7 @@ namespace LuckyDraw.Repository
 
         public bool IsDBReady()
         {
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 return db.Results.Count() != 0 && db.Settings.Count() != 0;                
             }
@@ -121,7 +133,7 @@ namespace LuckyDraw.Repository
 
         public Setting GetSetting()
         {
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 return db.Settings.First();
             }
@@ -129,7 +141,7 @@ namespace LuckyDraw.Repository
 
         public List<Result> GetCurrentResultList(int startIndex)
         {
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 if (db.Results.Count() > 0) { 
                     var flag = db.Results.Max(i => i.Flag);
@@ -144,7 +156,7 @@ namespace LuckyDraw.Repository
 
         public List<Prize> GetPrizeList()
         {
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                return db.Prizes.ToList();
             }
@@ -152,7 +164,7 @@ namespace LuckyDraw.Repository
 
         public List<Setting> GetSettingList()
         {
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 return db.Settings.ToList();
             }
@@ -164,7 +176,7 @@ namespace LuckyDraw.Repository
         }
 
         public List<Result> GetLogList() {
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 return db.Results.ToList();
             }
@@ -172,7 +184,7 @@ namespace LuckyDraw.Repository
 
         public void AddPrizes(List<Prize> prizes)
         {
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 db.Prizes.AddRange(prizes);
                 db.SaveChanges();
@@ -181,7 +193,7 @@ namespace LuckyDraw.Repository
 
         public bool IsEmptyPrize()
         {
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 return db.Prizes.Count() == 0;
             }
@@ -189,7 +201,7 @@ namespace LuckyDraw.Repository
 
         public void AddSetting(Setting setting)
         {
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 db.Settings.Add(setting);
                 db.SaveChanges();
@@ -198,7 +210,7 @@ namespace LuckyDraw.Repository
 
         public bool IsEmptySetting()
         {
-            using (var db = new LuckyDrawEntities())
+            using (var db = luckyDrawEntity.GetDBContext())
             {
                 return db.Settings.Count() == 0;
             }
