@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Lucky Draw" Height="743.15" Width="1222.45" WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None">
+        Title="Lucky Draw" Height="743.15" Width="1222.45" WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None" Padding="0" Background="#FF080808">
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem Header="Home" Click="HomeMenu_Click">
@@ -40,68 +40,202 @@
             </MenuItem>
         </ContextMenu>
     </Window.ContextMenu>
-    <TabControl x:Name="mainTab" Grid.ColumnSpan="2" BorderBrush="{x:Null}" SelectionChanged="TabControl_SelectionChanged">
-        <TabItem x:Name="tabHome" Header="Home" BorderBrush="{x:Null}" Visibility="Collapsed">
-            <Grid Margin="50,-2,74,-1">
-                <Label x:Name="textRound" Content="Round" HorizontalAlignment="Left" Margin="110,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.27,0.293" Foreground="#FF977070" FontSize="24" BorderThickness="8,0,0,0" FontWeight="Bold"/>
-                <Canvas x:Name="canvasItem1" HorizontalAlignment="Left" Height="71" Margin="132,85,0,0" VerticalAlignment="Top" Width="398">
-                    <Label x:Name="textPrize1" Content="Prize" RenderTransformOrigin="-0.153,0.304" Foreground="#FF5A68C3" FontSize="20" Canvas.Top="23" Canvas.Left="65"/>
-                    <Image x:Name="img1" Width="50" Height="50" Canvas.Left="10" Canvas.Top="10" />
-                    <Label x:Name="textRandom1" Content="000" Canvas.Left="185" Canvas.Top="23" RenderTransformOrigin="-0.054,-0.948" Foreground="#FF9B3D33" FontSize="20"/>
+
+    <Window.Resources>
+        <Style x:Key="TransparentButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <TabControl x:Name="mainTab" Grid.ColumnSpan="2" BorderBrush="{x:Null}" SelectionChanged="TabControl_SelectionChanged" Padding="0" >
+        <TabItem x:Name="tabHome" Header="Home" BorderBrush="{x:Null}" Margin="0" Padding="0">
+            <Grid RenderTransformOrigin="0.502,0.467"  ShowGridLines="True" >
+                <Grid.Background>
+                    <ImageBrush ImageSource="Resources/Images/background.jpg"/>
+                </Grid.Background>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="7*"></RowDefinition>
+                    <RowDefinition Height="57*"></RowDefinition>
+                    <RowDefinition Height="167*"></RowDefinition>
+                    <RowDefinition Height="172*"></RowDefinition>
+                    <RowDefinition Height="125*"></RowDefinition>
+                    <RowDefinition Height="69*"></RowDefinition>
+                    <RowDefinition Height="69*"></RowDefinition>
+                    <RowDefinition Height="49*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Canvas Grid.Column="3" MinHeight="100"  Grid.Row="1" MinWidth="100" Margin="0,0,0,95" Grid.RowSpan="2">
+                    <TextBlock x:Name="textRound" MinHeight="17" Canvas.Left="24" TextWrapping="Wrap" Text="ROUND" MinWidth="92" RenderTransformOrigin="0.571,-2.265" 
+                               HorizontalAlignment="Center" TextDecorations="Underline" 
+                               Foreground="#FFEAAC06" FontSize="36"/>
                 </Canvas>
-                <Button Content="Run" HorizontalAlignment="Left" Margin="125,468,0,0" VerticalAlignment="Top" Width="74"
-                        Click="RunButton_Click"/>
-                <Button Content="Previous" HorizontalAlignment="Left" Margin="232,468,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.155,0.944"
-                        Click="PreviousButton_Click"/>
-                <Button Content="Next" HorizontalAlignment="Left" Margin="336,468,0,0" VerticalAlignment="Top" Width="74" RenderTransformOrigin="1.293,1.038"
-                        Click="NextButton_Click"/>
-                <Label x:Name="textRandomRange" Content="Range" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="#FF7C6A6A" FontSize="18" BorderThickness="8,0,0,0" Margin="110,531,0,0" />
-                <Label x:Name="textIgnored" Content="Ignored" HorizontalAlignment="Left"  VerticalAlignment="Top" Foreground="#FF7C6A6A" FontSize="18" BorderThickness="8,0,0,0" Margin="110,560,0,0"/>
-                <Canvas x:Name="canvasItem2" HorizontalAlignment="Left" Height="70" Margin="534,86,0,0" VerticalAlignment="Top" Width="398">
-                    <Label x:Name="textPrize2" Content="Prize" RenderTransformOrigin="-0.153,0.304" Foreground="#FF5A68C3" FontSize="20" Canvas.Top="23" Canvas.Left="65"/>
-                    <Image x:Name="img2" Width="50" Height="50" Canvas.Left="10" Canvas.Top="10" />
-                    <Label x:Name="textRandom2" Content="000" Canvas.Left="185" Canvas.Top="23" RenderTransformOrigin="-0.054,-0.948" Foreground="#FF9B3D33" FontSize="20"/>
+
+                <Canvas x:Name="canvasItem1" HorizontalAlignment="Left" Height="94"  VerticalAlignment="Top" Width="163" Grid.Column="1" Grid.Row="2">
+                    <Image x:Name="img1" Width="100" Height="100" Canvas.Left="87" Canvas.Top="2" 
+                           RenderTransformOrigin="2.1,0.48" />
+                    <TextBlock x:Name="textPrize1" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="100" TextAlignment="Center"
+                               Canvas.Top="105" Canvas.Left="87"  ></TextBlock>
+                    <TextBlock x:Name="textRandom1" TextDecorations="Underline" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="22" Canvas.Left="87" Canvas.Top="130" FontWeight="Bold"></TextBlock>
                 </Canvas>
-                <Canvas x:Name="canvasItem3" HorizontalAlignment="Left" Height="70" Margin="132,162,0,0" VerticalAlignment="Top" Width="398">
-                    <Label x:Name="textPrize3" Content="Prize" RenderTransformOrigin="-0.153,0.304" Foreground="#FF5A68C3" FontSize="20" Canvas.Top="23" Canvas.Left="65"/>
-                    <Image x:Name="img3" Width="50" Height="50" Canvas.Left="10" Canvas.Top="10" />
-                    <Label x:Name="textRandom3" Content="000" Canvas.Left="185" Canvas.Top="23" RenderTransformOrigin="-0.054,-0.948" Foreground="#FF9B3D33" FontSize="20"/>
+                <Canvas x:Name="canvasItem2" HorizontalAlignment="Left" Height="94" VerticalAlignment="Top" Width="163" Grid.Column="2" Grid.Row="2">
+                    <Image x:Name="img2" Width="100" Height="100" Canvas.Left="91" Canvas.Top="2" />
+                    <TextBlock x:Name="textPrize2" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="100" TextAlignment="Center"
+                               Canvas.Top="105" Canvas.Left="87"  ></TextBlock>
+                    <TextBlock x:Name="textRandom2" TextDecorations="Underline" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="22" Canvas.Left="87" Canvas.Top="130" FontWeight="Bold"></TextBlock>
                 </Canvas>
-                <Canvas x:Name="canvasItem4" HorizontalAlignment="Left" Height="70" Margin="534,162,0,0" VerticalAlignment="Top" Width="398">
-                    <Label x:Name="textPrize4" Content="Prize" RenderTransformOrigin="-0.153,0.304" Foreground="#FF5A68C3" FontSize="20" Canvas.Top="23" Canvas.Left="65"/>
-                    <Image x:Name="img4" Width="50" Height="50" Canvas.Left="10" Canvas.Top="10" />
-                    <Label x:Name="textRandom4" Content="000" Canvas.Left="185" Canvas.Top="23" RenderTransformOrigin="-0.054,-0.948" Foreground="#FF9B3D33" FontSize="20"/>
+                <Canvas x:Name="canvasItem3" HorizontalAlignment="Left" Height="99" VerticalAlignment="Top" Width="161" Grid.Column="3" Grid.Row="2">
+                    <Image x:Name="img3" Width="100" Height="100" Canvas.Left="86" Canvas.Top="2" RenderTransformOrigin="2.14,0.39" />
+                    <TextBlock x:Name="textPrize3" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="100" TextAlignment="Center"
+                               Canvas.Top="105" Canvas.Left="87"  ></TextBlock>
+                    <TextBlock x:Name="textRandom3" TextDecorations="Underline" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="22" Canvas.Left="87" Canvas.Top="130" FontWeight="Bold"></TextBlock>
                 </Canvas>
-                <Canvas x:Name="canvasItem5" HorizontalAlignment="Left" Height="72" Margin="132,232,0,0" VerticalAlignment="Top" Width="398">
-                    <Label x:Name="textPrize5" Content="Prize" RenderTransformOrigin="-0.153,0.304" Foreground="#FF5A68C3" FontSize="20" Canvas.Top="23" Canvas.Left="65"/>
-                    <Image x:Name="img5" Width="50" Height="50" Canvas.Left="10" Canvas.Top="10" />
-                    <Label x:Name="textRandom5" Content="000" Canvas.Left="185" Canvas.Top="23" RenderTransformOrigin="-0.054,-0.948" Foreground="#FF9B3D33" FontSize="20"/>
+                <Canvas x:Name="canvasItem4" HorizontalAlignment="Left" Height="94" VerticalAlignment="Top" Width="163" Grid.Column="4" Grid.Row="2">
+                    <Image x:Name="img4" Width="100" Height="100" Canvas.Left="80" />
+                    <TextBlock x:Name="textPrize4" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="100" TextAlignment="Center"
+                               Canvas.Top="105" Canvas.Left="87"  ></TextBlock>
+                    <TextBlock x:Name="textRandom4" TextDecorations="Underline" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="22" Canvas.Left="87" Canvas.Top="130" FontWeight="Bold"></TextBlock>
                 </Canvas>
-                <Canvas x:Name="canvasItem6" HorizontalAlignment="Left" Height="72" Margin="534,232,0,0" VerticalAlignment="Top" Width="398">
-                    <Label x:Name="textPrize6" Content="Prize" RenderTransformOrigin="-0.153,0.304" Foreground="#FF5A68C3" FontSize="20" Canvas.Top="23" Canvas.Left="65"/>
-                    <Image x:Name="img6" Width="50" Height="50" Canvas.Left="10" Canvas.Top="10" />
-                    <Label x:Name="textRandom6" Content="000" Canvas.Left="185" Canvas.Top="23" RenderTransformOrigin="-0.054,-0.948" Foreground="#FF9B3D33" FontSize="20"/>
+                <Canvas x:Name="canvasItem5" HorizontalAlignment="Left" Height="94" VerticalAlignment="Top" Width="164" Grid.Column="5" Grid.Row="2">
+                    <Image x:Name="img5" Width="100" Height="100" Canvas.Left="84" />
+                    <TextBlock x:Name="textPrize5" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="100" TextAlignment="Center"
+                               Canvas.Top="105" Canvas.Left="87"  ></TextBlock>
+                    <TextBlock x:Name="textRandom5" TextDecorations="Underline" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="22" Canvas.Left="87" Canvas.Top="130" FontWeight="Bold"></TextBlock>
                 </Canvas>
-                <Canvas x:Name="canvasItem7" HorizontalAlignment="Left" Height="70" Margin="136,304,0,0" VerticalAlignment="Top" Width="398">
-                    <Label x:Name="textPrize7" Content="Prize" RenderTransformOrigin="-0.153,0.304" Foreground="#FF5A68C3" FontSize="20" Canvas.Top="23" Canvas.Left="65"/>
-                    <Image x:Name="img7" Width="50" Height="50" Canvas.Left="10" Canvas.Top="10" />
-                    <Label x:Name="textRandom7" Content="000" Canvas.Left="185" Canvas.Top="23" RenderTransformOrigin="-0.054,-0.948" Foreground="#FF9B3D33" FontSize="20"/>
+                <Canvas x:Name="canvasItem6" HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="163" Grid.Column="1" Grid.Row="3">
+                    <Image x:Name="img6" Width="100" Height="100" Canvas.Left="88" Canvas.Top="1" />
+                    <TextBlock x:Name="textPrize6" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="100" TextAlignment="Center"
+                               Canvas.Top="105" Canvas.Left="87"  ></TextBlock>
+                    <TextBlock x:Name="textRandom6" TextDecorations="Underline" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="22" Canvas.Left="87" Canvas.Top="130" FontWeight="Bold"></TextBlock>
                 </Canvas>
-                <Canvas x:Name="canvasItem8" HorizontalAlignment="Left" Height="70" Margin="534,304,0,0" VerticalAlignment="Top" Width="398">
-                    <Label x:Name="textPrize8" Content="Prize" RenderTransformOrigin="-0.153,0.304" Foreground="#FF5A68C3" FontSize="20" Canvas.Top="23" Canvas.Left="65"/>
-                    <Image x:Name="img8" Width="50" Height="50" Canvas.Left="10" Canvas.Top="10" />
-                    <Label x:Name="textRandom8" Content="000" Canvas.Left="185" Canvas.Top="23" RenderTransformOrigin="-0.054,-0.948" Foreground="#FF9B3D33" FontSize="20"/>
+                <Canvas x:Name="canvasItem7" HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="156" Grid.Column="2" Grid.Row="3">
+                    <Image x:Name="img7" Width="100" Height="100" Canvas.Left="86" />
+                    <TextBlock x:Name="textPrize7" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="100" TextAlignment="Center"
+                               Canvas.Top="105" Canvas.Left="87"  ></TextBlock>
+                    <TextBlock x:Name="textRandom7" TextDecorations="Underline" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="22" Canvas.Left="87" Canvas.Top="130" FontWeight="Bold"></TextBlock>
                 </Canvas>
-                <Canvas x:Name="canvasItem9" HorizontalAlignment="Left" Height="72" Margin="136,374,0,0" VerticalAlignment="Top" Width="398">
-                    <Label x:Name="textPrize9" Content="Prize" RenderTransformOrigin="-0.153,0.304" Foreground="#FF5A68C3" FontSize="20" Canvas.Top="23" Canvas.Left="65"/>
-                    <Image x:Name="img9" Width="50" Height="50" Canvas.Left="10" Canvas.Top="10" />
-                    <Label x:Name="textRandom9" Content="000" Canvas.Left="185" Canvas.Top="23" RenderTransformOrigin="-0.054,-0.948" Foreground="#FF9B3D33" FontSize="20"/>
+                <Canvas x:Name="canvasItem8" HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="168" Grid.Column="3" Grid.Row="3">
+                    <Image x:Name="img8" Width="100" Height="100" Canvas.Left="92" RenderTransformOrigin="2.29,0.54" />
+                    <TextBlock x:Name="textPrize8" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="100" TextAlignment="Center"
+                               Canvas.Top="105" Canvas.Left="87"  ></TextBlock>
+                    <TextBlock x:Name="textRandom8" TextDecorations="Underline" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="22" Canvas.Left="87" Canvas.Top="130" FontWeight="Bold"></TextBlock>
                 </Canvas>
-                <Canvas x:Name="canvasItem10" HorizontalAlignment="Left" Height="72" Margin="534,374,0,0" VerticalAlignment="Top" Width="398">
-                    <Label x:Name="textPrize10" Content="Prize" RenderTransformOrigin="-0.153,0.304" Foreground="#FF5A68C3" FontSize="20" Canvas.Top="23" Canvas.Left="65"/>
-                    <Image x:Name="img10" Width="50" Height="50" Canvas.Left="10" Canvas.Top="10" />
-                    <Label x:Name="textRandom10" Content="000" Canvas.Left="185" Canvas.Top="23" RenderTransformOrigin="-0.054,-0.948" Foreground="#FF9B3D33" FontSize="20"/>
+                <Canvas x:Name="canvasItem9" HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="163" Grid.Column="4" Grid.Row="3">
+                    <Image x:Name="img9" Width="100" Height="100" Canvas.Left="90" />
+                    <TextBlock x:Name="textPrize9" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="100" TextAlignment="Center"
+                               Canvas.Top="105" Canvas.Left="87"  ></TextBlock>
+                    <TextBlock x:Name="textRandom9" TextDecorations="Underline" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="22" Canvas.Left="87" Canvas.Top="130" FontWeight="Bold"></TextBlock>
                 </Canvas>
+                <Canvas x:Name="canvasItem10" HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="164" Grid.Column="5" Grid.Row="3">
+                    <Image x:Name="img10" Width="100" Height="100" Canvas.Left="88" />
+                    <TextBlock x:Name="textPrize10" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="100" TextAlignment="Center"
+                               Canvas.Top="105" Canvas.Left="87"  ></TextBlock>
+                    <TextBlock x:Name="textRandom10" Text="000" Foreground="#FFEAAC06" FontSize="22" 
+                               Width="100" TextAlignment="Center"
+                               Canvas.Left="87" Canvas.Top="130" TextDecorations="Underline" FontWeight="Bold"></TextBlock>
+                </Canvas>
+
+                <Canvas Grid.Column="2" Grid.Row="4" HorizontalAlignment="Right" Margin="0,35,80,0" Width="0">
+                    <Button Style="{StaticResource TransparentButton}" Click="PreviousButton_Click" >
+                        <StackPanel Cursor="Hand">
+                            <TextBlock Foreground="#FFD8D8D6" TextAlignment="Right" Margin="0,0,0,-10">PREVIOUS</TextBlock>
+                            <Image Width="70" Height="20" Source="Resources/Images/prev.png"></Image>
+                        </StackPanel>
+                    </Button>
+                </Canvas>
+                <Canvas Grid.Column="3" Grid.Row="4"  >
+                    <Button Width="144" Height="100" Style="{StaticResource TransparentButton}"
+                            HorizontalContentAlignment="Center" 
+                        Click="RunButton_Click" Grid.Column="3" Grid.Row="4" BorderBrush="{x:Null}" Background="{x:Null}">
+                        <StackPanel Cursor="Hand">
+                            <Image Width="144" Height="100" Source="Resources/Images/run.png"></Image>
+                        </StackPanel>
+                    </Button>
+                    <Image Width="100" Height="100" Canvas.Top="60" Canvas.Left="25" Source="Resources/Images/arrow.png"
+                           HorizontalAlignment="Center"
+                           ></Image>
+                </Canvas>
+                <Canvas Grid.Column="4" Grid.Row="4" HorizontalAlignment="Left" Margin="10,35,0,0" Width="0" >
+                    <Button Style="{StaticResource TransparentButton}" Click="NextButton_Click" >
+                        <StackPanel Cursor="Hand">
+                            <TextBlock Foreground="#FFEAAC06" Margin="0,0,0,-10">NEXT</TextBlock>
+                            <Image Width="40" Height="20" Source="Resources/Images/next.png"></Image>
+                        </StackPanel>
+                    </Button>
+                </Canvas>
+
+
+                <Canvas Grid.Column="2" MinHeight="100"  Grid.Row="5" Grid.ColumnSpan="3"  >
+                    <TextBlock Text="RANGE RANDOM" Foreground="#FFD8D8D6" 
+                            Canvas.Top="10" FontSize="20"
+                               Width="430"
+                               TextAlignment="Center"/>
+                    <TextBlock x:Name="textRandomRange" MinHeight="17" 
+                               Width="430"
+                               TextWrapping="Wrap" Text="100-200" 
+                                Canvas.Top="46"                                
+                               TextDecorations="{x:Null}" 
+                               TextAlignment="Center"
+                               Foreground="#FFEAAC06" FontSize="24"
+                               />
+                </Canvas>
+                <Canvas x:Name="canvasIgnored" MinHeight="100" HorizontalAlignment="Center"
+                        Grid.ColumnSpan="3" Grid.Column="2" Grid.Row="6" >
+                    <Label Content="----------------------------IGNORED---------------------------" Foreground="#FFD8D8D6"                            
+                           Canvas.Top="10" FontSize="16"/>
+                    <TextBlock x:Name="textIgnored" MinHeight="17" TextWrapping="Wrap"
+                               Width="430"
+                           Text="100,200,100,200,100,200,100,200,100,200,100,200,100,200,100,200," 
+                               Canvas.Top="40" 
+                              TextDecorations="{x:Null}" 
+                               Foreground="#FFEAAC06" FontSize="16"/>
+                </Canvas>
+
             </Grid>
         </TabItem>
         <TabItem x:Name="tabSetting" Header="Settings" BorderBrush="{x:Null}" Visibility="Collapsed">

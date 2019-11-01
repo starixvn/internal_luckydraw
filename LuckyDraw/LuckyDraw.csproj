@@ -231,6 +231,11 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Resources\Images\prev.png" />
+    <Resource Include="Resources\Images\next.png" />
+    <Resource Include="Resources\Images\arrow.png" />
+    <Resource Include="Resources\Images\run.png" />
+    <Resource Include="Resources\Images\background.jpg" />
     <Resource Include="Resources\Images\question.png" />
     <Resource Include="Resources\Images\ignore.ico" />
     <Resource Include="Resources\Images\log.ico" />
@@ -249,11 +254,11 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="AppData\DB\LuckyDraw.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="AppData\DB\LuckyDraw_log.ldf">
       <DependentUpon>LuckyDraw.mdf</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LuckyDrawModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

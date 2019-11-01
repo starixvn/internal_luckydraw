@@ -49,28 +49,31 @@ namespace LuckyDraw
         }
 
         private void UpdateIgnoredListText() {
-            this.textIgnored.Content = String.Format("{0}: {1}", Labels.Ignored, this.runningService.Setting.Excluded);
+            this.textIgnored.Text = string.Join(" - ", this.runningService.Setting.Excluded.Split(','));
+            this.textIgnored.TextAlignment = TextAlignment.Center;
+            this.textIgnored.UpdateLayout();
+            this.canvasIgnored.UpdateLayout();
         }
 
         private void UpdateRandomRangeText() {
             var randomFrom = this.runningService.Setting.RandomFrom.ToString();
             var randomTo = this.runningService.Setting.RandomTo.ToString();
-            this.textRandomRange.Content = String.Format("{0}: {1} {2} {3} {4}", Labels.Random, Labels.From, randomFrom, Labels.To, randomTo );
+            this.textRandomRange.Text = String.Format("{0}-{1}", randomFrom, randomTo);
         }
 
         private void BuildRoundUI() {
             if (this.runningService.IsValid) {
                 UpdateIgnoredListText();
                 UpdateRandomRangeText();
-                this.textRound.Content = this.runningService.GetRoundName();
+                this.textRound.Text = this.runningService.GetRoundName().ToUpper();
                 for (var i = 0; i < this.runningService.CurrentList.Count; i++) {
-                    var pLabel = (Label)this.FindName("textPrize" + (i + 1));
-                    var rLabel = (Label)this.FindName("textRandom" + (i + 1));
+                    var pLabel = (TextBlock)this.FindName("textPrize" + (i + 1));
+                    var rLabel = (TextBlock)this.FindName("textRandom" + (i + 1));
                     var imageItem = (Image)this.FindName("img" + (i + 1));
                     var cItem = (Canvas)this.FindName("canvasItem" + (i + 1));
                     var r = this.runningService.CurrentList[i];
-                    pLabel.Content = r.PrizeName;
-                    rLabel.Content = r.Random == string.Empty ? "000" : r.Random;
+                    pLabel.Text = r.PrizeName;
+                    rLabel.Text = r.Random == string.Empty ? "000" : r.Random;
                     var image = utils.PrizeImage(r.PrizeId.ToString() + ".png");
                     imageItem.Source = image?? utils.PrizeImage("prize.png");
                     cItem.Visibility = Visibility.Visible;
@@ -101,14 +104,14 @@ namespace LuckyDraw
             for (var i = 0; i < this.runningService.CurrentList.Count; i++) {                
                 if (this.runningService.CurrentList[i].Status == 0)
                 {
-                    var label = (Label)this.FindName("textRandom" + (i + 1));
+                    var label = (TextBlock)this.FindName("textRandom" + (i + 1));
                     await AnimateRandom(Consts.RangeThreeDigits, string.Empty, label);
                     string random = CreateRandomNumber();
                     const int two = 2;
                     await AnimateRandom(Consts.RangeTwoDigits, random.Substring(0, 1), label);
                     await AnimateRandom(Consts.RangeOneDigit, random.Substring(0, two), label);
 
-                    label.Content = random;
+                    label.Text = random;
 
                     if (random != "000")
                     {
@@ -262,14 +265,14 @@ namespace LuckyDraw
         }
 
         [SuppressMessage("csharpsquid", "S2325:Methods and properties that don't access instance data can be static to prevent any misunderstanding about the contract of the method.")]
-        private async Task AnimateRandom(int range, string subRandom, Label l)
+        private async Task AnimateRandom(int range, string subRandom, TextBlock l)
         {
             Random rnd = new Random();
             for (var i = 0; i < Consts.AnimationLoops; i++)
             {
                 int random = rnd.Next(1, range);
                 await Task.Delay(1);
-                l.Content = subRandom + random.ToString();
+                l.Text = subRandom + random.ToString();
             }
         }
 
