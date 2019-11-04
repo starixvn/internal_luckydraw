@@ -11,6 +11,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace LuckyDraw
@@ -52,7 +53,6 @@ namespace LuckyDraw
             this.textIgnored.Text = string.Join(" - ", this.runningService.Setting.Excluded.Split(','));
             this.textIgnored.TextAlignment = TextAlignment.Center;
             this.textIgnored.UpdateLayout();
-            this.canvasIgnored.UpdateLayout();
         }
 
         private void UpdateRandomRangeText() {
@@ -69,18 +69,18 @@ namespace LuckyDraw
                 for (var i = 0; i < this.runningService.CurrentList.Count; i++) {
                     var pLabel = (TextBlock)this.FindName("textPrize" + (i + 1));
                     var rLabel = (TextBlock)this.FindName("textRandom" + (i + 1));
-                    var imageItem = (Image)this.FindName("img" + (i + 1));
-                    var cItem = (Canvas)this.FindName("canvasItem" + (i + 1));
+                    var imageItem = (ImageBrush)this.FindName("img" + (i + 1));
+                    var cItem = (Viewbox)this.FindName("viewBoxItem" + (i + 1));
                     var r = this.runningService.CurrentList[i];
                     pLabel.Text = r.PrizeName;
                     rLabel.Text = r.Random == string.Empty ? "000" : r.Random;
                     var image = utils.PrizeImage(r.PrizeId.ToString() + ".png");
-                    imageItem.Source = image?? utils.PrizeImage("prize.png");
+                    imageItem.ImageSource = image?? utils.PrizeImage("prize.png");
                     cItem.Visibility = Visibility.Visible;
                 }
 
                 for (var i = this.runningService.CurrentList.Count; i < Consts.MaxRoundItems; i++) {
-                    var cItem = (Canvas)this.FindName("canvasItem" + (i + 1));
+                    var cItem = (Viewbox)this.FindName("viewBoxItem" + (i + 1));
                     cItem.Visibility = Visibility.Hidden;
                 }
             }

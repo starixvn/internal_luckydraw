@@ -8,8 +8,8 @@ namespace LuckyDraw.Constants
 {
     public static class Consts
     {
-        public const int ImageHeight = 50;
-        public const int ImageWidth = 50;
+        public const int ImageHeight = 100;
+        public const int ImageWidth = 100;
         public const int MaxRandomTrials = 10000;
         public const int AnimationLoops = 100;
         public const int MaxFileSize = 5_000_000;
