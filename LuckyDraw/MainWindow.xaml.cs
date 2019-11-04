@@ -74,8 +74,8 @@ namespace LuckyDraw
                     var r = this.runningService.CurrentList[i];
                     pLabel.Text = r.PrizeName;
                     rLabel.Text = r.Random == string.Empty ? "000" : r.Random;
-                    var image = utils.PrizeImage(r.PrizeId.ToString() + ".png");
-                    imageItem.ImageSource = image?? utils.PrizeImage("prize.png");
+                    var image = utils.PrizeImage(r.PrizeId.ToString() + ".png", Consts.HomeImageSize);
+                    imageItem.ImageSource = image?? utils.PrizeImage("prize.png", Consts.HomeImageSize);
                     cItem.Visibility = Visibility.Visible;
                 }
 

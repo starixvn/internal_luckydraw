@@ -9,7 +9,7 @@ namespace LuckyDraw.Utilities
 {
     public interface IUtils
     {
-        BitmapImage PrizeImage(string imageName);
+        BitmapImage PrizeImage(string imageName, int imageSize);
         string BaseDirectory();
         void SaveFile(string originPath, string destinationPath);
         long GetFileSize(string filePath);

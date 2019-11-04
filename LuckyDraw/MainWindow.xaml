@@ -84,10 +84,9 @@
                             <RowDefinition Height="49*"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <Viewbox Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Margin="0,15,0,0" Height="42">
+                        <Viewbox Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,10,0,10" Grid.ColumnSpan="5">
                             <StackPanel>
                                 <TextBlock x:Name="textRound" TextWrapping="Wrap" Text="ROUND" 
-                                           
                                     Foreground="#FFEAAC06" FontSize="36" FontWeight="Bold"/>
                                 <Rectangle HorizontalAlignment="Stretch" Fill="#FFEAAC06" Height="2" Margin="4,-7,3,0"/>
                                 <Rectangle Width="130" Fill="#FFEAAC06" Height="2" Margin="0,1,0,0"/>
@@ -96,7 +95,7 @@
                             
                         </Viewbox>
 
-                        <Viewbox x:Name="viewBoxItem1" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="0,0,0,0" Height="150">
+                        <Viewbox x:Name="viewBoxItem1" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
                             <StackPanel>
                                 <Border CornerRadius="5,5,5,5" Width="100" Height="100">
                                     <Border.Background>
@@ -104,15 +103,15 @@
                                     </Border.Background>
                                 </Border>
                                 <TextBlock x:Name="textPrize1" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
-                               Width="180" TextAlignment="Center"                                   
-                            ></TextBlock>
+                                           TextWrapping="Wrap"
+                                    Width="180" TextAlignment="Center" ></TextBlock>
                                 <TextBlock x:Name="textRandom1"  Text="000" Foreground="#FFEAAC06" 
                                 Width="150" TextAlignment="Center"
                                 FontSize="30" FontWeight="Bold"></TextBlock>
                                 <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
                             </StackPanel>
                         </Viewbox>
-                        <Viewbox x:Name="viewBoxItem2" Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" Margin="0,0,0,0" Height="150">
+                        <Viewbox x:Name="viewBoxItem2" Grid.Column="2" Grid.Row="2" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
                             <StackPanel>
                                 <Border CornerRadius="5,5,5,5" Width="100" Height="100">
                                     <Border.Background>
@@ -120,7 +119,7 @@
                                     </Border.Background>
                                 </Border>
                                 <TextBlock x:Name="textPrize2" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
-                               Width="180" TextAlignment="Center"
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
                                 ></TextBlock>
                                 <TextBlock x:Name="textRandom2" Text="000" Foreground="#FFEAAC06" 
                                Width="100" TextAlignment="Center"
@@ -128,7 +127,7 @@
                                 <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
                             </StackPanel>
                         </Viewbox>
-                        <Viewbox x:Name="viewBoxItem3"  Grid.Column="3" Grid.Row="2" VerticalAlignment="Top" Margin="0,0,0,0" Height="150">
+                        <Viewbox x:Name="viewBoxItem3"  Grid.Column="3" Grid.Row="2" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
                             <StackPanel>
                                 <Border CornerRadius="5,5,5,5" Width="100" Height="100">
                                     <Border.Background>
@@ -136,14 +135,14 @@
                                     </Border.Background>
                                 </Border>
                                 <TextBlock x:Name="textPrize3" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
-                               Width="180" TextAlignment="Center" ></TextBlock>
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"></TextBlock>
                                 <TextBlock x:Name="textRandom3"  Text="000" Foreground="#FFEAAC06" 
                                Width="100" TextAlignment="Center"
                                FontSize="30" FontWeight="Bold"></TextBlock>
                                 <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
                             </StackPanel>
                         </Viewbox>
-                        <Viewbox x:Name="viewBoxItem4" Grid.Column="4" Grid.Row="2" VerticalAlignment="Top" Margin="0,0,0,0" Height="150">
+                        <Viewbox x:Name="viewBoxItem4" Grid.Column="4" Grid.Row="2" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
                             <StackPanel>
                                 <Border CornerRadius="5,5,5,5" Width="100" Height="100">
                                     <Border.Background>
@@ -151,7 +150,7 @@
                                     </Border.Background>
                                 </Border>
                                 <TextBlock x:Name="textPrize4" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
-                               Width="180" TextAlignment="Center"
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
                                ></TextBlock>
                                 <TextBlock x:Name="textRandom4"  Text="000" Foreground="#FFEAAC06" 
                                Width="100" TextAlignment="Center"
@@ -159,7 +158,7 @@
                                 <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
                             </StackPanel>
                         </Viewbox>
-                        <Viewbox x:Name="viewBoxItem5" Grid.Column="5" Grid.Row="2" VerticalAlignment="Top" Height="150">
+                        <Viewbox x:Name="viewBoxItem5" Grid.Column="5" Grid.Row="2" VerticalAlignment="Top" Height="150" Margin="5,0,5,0">
                             <StackPanel>
                                 <Border CornerRadius="5,5,5,5" Width="100" Height="100">
                                     <Border.Background>
@@ -167,7 +166,7 @@
                                     </Border.Background>
                                 </Border>
                                 <TextBlock x:Name="textPrize5" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
-                               Width="180" TextAlignment="Center"
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
                                  ></TextBlock>
                                 <TextBlock x:Name="textRandom5" Text="000" Foreground="#FFEAAC06" 
                                Width="100" TextAlignment="Center"
@@ -175,7 +174,7 @@
                                 <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
                             </StackPanel>
                         </Viewbox>
-                        <Viewbox x:Name="viewBoxItem6" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="150">
+                        <Viewbox x:Name="viewBoxItem6" Grid.Column="1" Grid.Row="3" VerticalAlignment="Top" Height="150" Margin="5,0,5,0">
                             <StackPanel>
                                 <Border CornerRadius="5,5,5,5" Width="100" Height="100">
                                     <Border.Background>
@@ -183,7 +182,7 @@
                                     </Border.Background>
                                 </Border>
                                 <TextBlock x:Name="textPrize6" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
-                               Width="180" TextAlignment="Center"
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
                                 ></TextBlock>
                                 <TextBlock x:Name="textRandom6" Text="000" Foreground="#FFEAAC06" 
                                Width="100" TextAlignment="Center"
@@ -191,7 +190,7 @@
                                 <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
                             </StackPanel>
                         </Viewbox>
-                        <Viewbox x:Name="viewBoxItem7" Grid.Column="2" Grid.Row="3" VerticalAlignment="Top" Height="150">
+                        <Viewbox x:Name="viewBoxItem7" Grid.Column="2" Grid.Row="3" VerticalAlignment="Top" Height="150" Margin="5,0,5,0">
                             <StackPanel>
                                 <Border CornerRadius="5,5,5,5" Width="100" Height="100">
                                     <Border.Background>
@@ -199,7 +198,7 @@
                                     </Border.Background>
                                 </Border>
                                 <TextBlock x:Name="textPrize7" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
-                               Width="180" TextAlignment="Center"
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
                                 ></TextBlock>
                                 <TextBlock x:Name="textRandom7" Text="000" Foreground="#FFEAAC06" 
                                Width="100" TextAlignment="Center"
@@ -207,7 +206,7 @@
                                 <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
                             </StackPanel>
                         </Viewbox>
-                        <Viewbox x:Name="viewBoxItem8" Grid.Column="3" Grid.Row="3" VerticalAlignment="Top" Height="150">
+                        <Viewbox x:Name="viewBoxItem8" Grid.Column="3" Grid.Row="3" VerticalAlignment="Top" Height="150" Margin="5,0,5,0">
                             <StackPanel>
                                 <Border CornerRadius="5,5,5,5" Width="100" Height="100">
                                     <Border.Background>
@@ -215,7 +214,7 @@
                                     </Border.Background>
                                 </Border>
                                 <TextBlock x:Name="textPrize8" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
-                               Width="180" TextAlignment="Center"
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
                                  ></TextBlock>
                                 <TextBlock x:Name="textRandom8" Text="000" Foreground="#FFEAAC06" 
                                Width="100" TextAlignment="Center"
@@ -223,7 +222,7 @@
                                 <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
                             </StackPanel>
                         </Viewbox>
-                        <Viewbox x:Name="viewBoxItem9" Grid.Column="4" Grid.Row="3" VerticalAlignment="Top" Height="150">
+                        <Viewbox x:Name="viewBoxItem9" Grid.Column="4" Grid.Row="3" VerticalAlignment="Top" Height="150" Margin="5,0,5,0">
                             <StackPanel>
                                 <Border CornerRadius="5,5,5,5" Width="100" Height="100">
                                     <Border.Background>
@@ -231,7 +230,7 @@
                                     </Border.Background>
                                 </Border>
                                 <TextBlock x:Name="textPrize9" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
-                               Width="180" TextAlignment="Center"
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
                                 ></TextBlock>
                                 <TextBlock x:Name="textRandom9" Text="000" Foreground="#FFEAAC06" 
                                Width="100" TextAlignment="Center"
@@ -239,7 +238,7 @@
                                 <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
                             </StackPanel>
                         </Viewbox>
-                        <Viewbox x:Name="viewBoxItem10" Grid.Column="5" Grid.Row="3" VerticalAlignment="Top" Height="150">
+                        <Viewbox x:Name="viewBoxItem10" Grid.Column="5" Grid.Row="3" VerticalAlignment="Top" Height="150" Margin="5,0,5,0">
                             <StackPanel>
                                 <Border CornerRadius="5,5,5,5" Width="100" Height="100">
                                     <Border.Background>
@@ -247,7 +246,7 @@
                                     </Border.Background>
                                 </Border>
                                 <TextBlock x:Name="textPrize10" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
-                               Width="180" TextAlignment="Center"
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
                                 ></TextBlock>
                                 <TextBlock x:Name="textRandom10" Text="000" Foreground="#FFEAAC06" FontSize="30" 
                                Width="100" TextAlignment="Center"
@@ -316,7 +315,7 @@
                                         TextWrapping="Wrap" Width="430"
                                         Text="100,200,100,200,100,200,100,200,100,200,100,200,100,200,100,200,"                                
                                         TextDecorations="{x:Null}" 
-                                        Foreground="#FFD8D8D6" FontSize="16"/>   
+                                        Foreground="#FFD8D8D6" FontSize="20"/>   
                             </StackPanel>
                         </Viewbox>
                     </Grid>
@@ -339,7 +338,7 @@
                                     <DataGridTemplateColumn Header="Image" Width="SizeToCells" IsReadOnly="True">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Image Source="{Binding PrizeImage}" Stretch="None" Width="100" Height="100" />
+                                                <Image Source="{Binding PrizeImage}" Stretch="None" Width="50" Height="50" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>

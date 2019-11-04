@@ -1,4 +1,5 @@
-﻿using LuckyDraw.Utilities;
+﻿using LuckyDraw.Constants;
+using LuckyDraw.Utilities;
 using System;
 using System.IO;
 using System.Windows.Media.Imaging;
@@ -23,7 +24,7 @@ namespace LuckyDraw.Model
         {
             get
             {
-                return utils.PrizeImage(String.Format("{0}.png", Id.ToString()));
+                return utils.PrizeImage(String.Format("{0}.png", Id.ToString()), Consts.SettingImageSize);
             }
         }
     }

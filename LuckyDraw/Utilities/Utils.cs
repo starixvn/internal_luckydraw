@@ -7,10 +7,10 @@ namespace LuckyDraw.Utilities
 {
     public class Utils : IUtils
     {
-        public BitmapImage PrizeImage(string imageName)
+        public BitmapImage PrizeImage(string imageName, int imageSize)
         {
             var imagePath = String.Format("{0}{1}", BaseDirectory(), imageName);
-            return File.Exists(imagePath) ? BitmapFromUri(new Uri(imagePath)) : null;
+            return File.Exists(imagePath) ? BitmapFromUri(new Uri(imagePath), imageSize) : null;
         }
 
         public string BaseDirectory()
@@ -34,15 +34,15 @@ namespace LuckyDraw.Utilities
             return (new FileInfo(filePath)).Length;
         }
 
-        private static BitmapImage BitmapFromUri(Uri source)
+        private static BitmapImage BitmapFromUri(Uri source, int imageSize)
         {
             var bitmap = new BitmapImage();
             bitmap.BeginInit();
             bitmap.UriSource = source;
             bitmap.CacheOption = BitmapCacheOption.OnLoad;
             bitmap.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
-            bitmap.DecodePixelHeight = Consts.ImageHeight;
-            bitmap.DecodePixelWidth = Consts.ImageWidth;
+            bitmap.DecodePixelHeight = imageSize;
+            bitmap.DecodePixelWidth = imageSize;
             bitmap.EndInit();
 
             return bitmap;
