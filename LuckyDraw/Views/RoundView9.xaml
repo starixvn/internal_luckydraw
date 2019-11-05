@@ -1,0 +1,189 @@
+﻿<UserControl x:Class="LuckyDraw.Views.RoundView9"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LuckyDraw.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="16*"></ColumnDefinition>
+            <ColumnDefinition Width="16*"></ColumnDefinition>
+            <ColumnDefinition Width="16*"></ColumnDefinition>
+            <ColumnDefinition Width="16*"></ColumnDefinition>
+            <ColumnDefinition Width="16*"></ColumnDefinition>
+            <ColumnDefinition Width="16*"></ColumnDefinition>
+            <ColumnDefinition Width="16*"></ColumnDefinition>
+            <ColumnDefinition Width="16*"></ColumnDefinition>
+            <ColumnDefinition Width="16*"></ColumnDefinition>
+            <ColumnDefinition Width="16*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Viewbox Grid.Column="0" Grid.Row="0" Height="30" Width="60" ></Viewbox>
+        <Viewbox Grid.Column="1" Grid.Row="0" Height="30" Width="60" ></Viewbox>
+        <Viewbox Grid.Column="2" Grid.Row="0" Height="30" Width="60" ></Viewbox>
+        <Viewbox Grid.Column="3" Grid.Row="0" Height="30" Width="60" ></Viewbox>
+        <Viewbox Grid.Column="4" Grid.Row="0" Height="30" Width="60" ></Viewbox>
+        <Viewbox Grid.Column="5" Grid.Row="0" Height="30" Width="60" ></Viewbox>
+        <Viewbox Grid.Column="6" Grid.Row="0" Height="30" Width="60" ></Viewbox>
+        <Viewbox Grid.Column="7" Grid.Row="0" Height="30" Width="60" ></Viewbox>
+        <Viewbox Grid.Column="8" Grid.Row="0" Height="30" Width="60" ></Viewbox>
+        <Viewbox Grid.Column="9" Grid.Row="0" Height="30" Width="60" ></Viewbox>
+
+        <Viewbox Grid.Column="0" Grid.Row="2" Height="30" Grid.ColumnSpan="7"></Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="4" Height="30" Grid.ColumnSpan="7"></Viewbox>
+
+        <Viewbox x:Name="viewBoxItem1" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+            <StackPanel>
+                <Border CornerRadius="5,5,5,5" Width="100" Height="100">
+                    <Border.Background>
+                        <ImageBrush  x:Name="img1" Stretch="None" />
+                    </Border.Background>
+                </Border>
+                <TextBlock x:Name="textPrize1" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                                           TextWrapping="Wrap"
+                                    Width="180" TextAlignment="Center" ></TextBlock>
+                <TextBlock x:Name="textRandom1"  Text="000" Foreground="#FFEAAC06" 
+                                Width="150" TextAlignment="Center"
+                                FontSize="30" FontWeight="Bold"></TextBlock>
+                <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
+            </StackPanel>
+        </Viewbox>
+        <Viewbox x:Name="viewBoxItem2" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+            <StackPanel>
+                <Border CornerRadius="5,5,5,5" Width="100" Height="100">
+                    <Border.Background>
+                        <ImageBrush  x:Name="img2" Stretch="None" />
+                    </Border.Background>
+                </Border>
+                <TextBlock x:Name="textPrize2" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
+                                ></TextBlock>
+                <TextBlock x:Name="textRandom2" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="30" FontWeight="Bold"></TextBlock>
+                <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
+            </StackPanel>
+        </Viewbox>
+        <Viewbox x:Name="viewBoxItem3"  Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+            <StackPanel>
+                <Border CornerRadius="5,5,5,5" Width="100" Height="100">
+                    <Border.Background>
+                        <ImageBrush  x:Name="img3" Stretch="None" />
+                    </Border.Background>
+                </Border>
+                <TextBlock x:Name="textPrize3" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"></TextBlock>
+                <TextBlock x:Name="textRandom3"  Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="30" FontWeight="Bold"></TextBlock>
+                <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
+            </StackPanel>
+        </Viewbox>
+        <Viewbox x:Name="viewBoxItem4" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+            <StackPanel>
+                <Border CornerRadius="5,5,5,5" Width="100" Height="100">
+                    <Border.Background>
+                        <ImageBrush  x:Name="img4" Stretch="None" />
+                    </Border.Background>
+                </Border>
+                <TextBlock x:Name="textPrize4" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
+                               ></TextBlock>
+                <TextBlock x:Name="textRandom4"  Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="30" FontWeight="Bold"></TextBlock>
+                <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
+            </StackPanel>
+        </Viewbox>
+        <Viewbox x:Name="viewBoxItem5" Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Height="150" Margin="5,0,5,0">
+            <StackPanel>
+                <Border CornerRadius="5,5,5,5" Width="100" Height="100">
+                    <Border.Background>
+                        <ImageBrush  x:Name="img5" Stretch="None" />
+                    </Border.Background>
+                </Border>
+                <TextBlock x:Name="textPrize5" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
+                                 ></TextBlock>
+                <TextBlock x:Name="textRandom5" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="30" FontWeight="Bold"></TextBlock>
+                <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
+            </StackPanel>
+        </Viewbox>
+        
+        <Viewbox x:Name="viewBoxItem6" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Top" Height="150" Margin="5,0,5,0">
+            <StackPanel>
+                <Border CornerRadius="5,5,5,5" Width="100" Height="100">
+                    <Border.Background>
+                        <ImageBrush  x:Name="img6" Stretch="None" />
+                    </Border.Background>
+                </Border>
+                <TextBlock x:Name="textPrize6" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
+                                ></TextBlock>
+                <TextBlock x:Name="textRandom6" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="30"  FontWeight="Bold"></TextBlock>
+                <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
+            </StackPanel>
+        </Viewbox>
+        <Viewbox x:Name="viewBoxItem7" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Top" Height="150" Margin="5,0,5,0">
+            <StackPanel>
+                <Border CornerRadius="5,5,5,5" Width="100" Height="100">
+                    <Border.Background>
+                        <ImageBrush  x:Name="img7" Stretch="None" />
+                    </Border.Background>
+                </Border>
+                <TextBlock x:Name="textPrize7" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
+                                ></TextBlock>
+                <TextBlock x:Name="textRandom7" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="30" FontWeight="Bold"></TextBlock>
+                <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
+            </StackPanel>
+        </Viewbox>
+        <Viewbox x:Name="viewBoxItem8" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Top" Height="150" Margin="5,0,5,0">
+            <StackPanel>
+                <Border CornerRadius="5,5,5,5" Width="100" Height="100">
+                    <Border.Background>
+                        <ImageBrush  x:Name="img8" Stretch="None" />
+                    </Border.Background>
+                </Border>
+                <TextBlock x:Name="textPrize8" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
+                                 ></TextBlock>
+                <TextBlock x:Name="textRandom8" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="30"  FontWeight="Bold"></TextBlock>
+                <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
+            </StackPanel>
+        </Viewbox>
+        <Viewbox x:Name="viewBoxItem9" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Top" Height="150" Margin="5,0,5,0">
+            <StackPanel>
+                <Border CornerRadius="5,5,5,5" Width="100" Height="100">
+                    <Border.Background>
+                        <ImageBrush  x:Name="img9" Stretch="None" />
+                    </Border.Background>
+                </Border>
+                <TextBlock x:Name="textPrize9" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
+                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
+                                ></TextBlock>
+                <TextBlock x:Name="textRandom9" Text="000" Foreground="#FFEAAC06" 
+                               Width="100" TextAlignment="Center"
+                               FontSize="30" FontWeight="Bold"></TextBlock>
+                <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
+            </StackPanel>
+        </Viewbox>        
+    </Grid>
+</UserControl>

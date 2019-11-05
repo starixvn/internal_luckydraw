@@ -174,4 +174,7 @@
   <data name="InconsistantRoundNames" xml:space="preserve">
     <value>Inconsistant Round Index and Round Name</value>
   </data>
+  <data name="MaxRoundSizeError" xml:space="preserve">
+    <value>Each round must have no more than 10 items!</value>
+  </data>
 </root>

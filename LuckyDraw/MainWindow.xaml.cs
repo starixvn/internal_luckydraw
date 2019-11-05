@@ -3,6 +3,7 @@ using LuckyDraw.Model;
 using LuckyDraw.Resources;
 using LuckyDraw.Service;
 using LuckyDraw.Utilities;
+using LuckyDraw.Views;
 using Microsoft.Win32;
 using System;
 using System.Diagnostics.CodeAnalysis;
@@ -66,23 +67,62 @@ namespace LuckyDraw
                 UpdateIgnoredListText();
                 UpdateRandomRangeText();
                 this.textRound.Text = this.runningService.GetRoundName().ToUpper();
-                for (var i = 0; i < this.runningService.CurrentList.Count; i++) {
-                    var pLabel = (TextBlock)this.FindName("textPrize" + (i + 1));
-                    var rLabel = (TextBlock)this.FindName("textRandom" + (i + 1));
-                    var imageItem = (ImageBrush)this.FindName("img" + (i + 1));
-                    var cItem = (Viewbox)this.FindName("viewBoxItem" + (i + 1));
-                    var r = this.runningService.CurrentList[i];
-                    pLabel.Text = r.PrizeName;
-                    rLabel.Text = r.Random == string.Empty ? "000" : r.Random;
-                    var image = utils.PrizeImage(r.PrizeId.ToString() + ".png", Consts.HomeImageSize);
-                    imageItem.ImageSource = image?? utils.PrizeImage("prize.png", Consts.HomeImageSize);
-                    cItem.Visibility = Visibility.Visible;
-                }
 
-                for (var i = this.runningService.CurrentList.Count; i < Consts.MaxRoundItems; i++) {
-                    var cItem = (Viewbox)this.FindName("viewBoxItem" + (i + 1));
-                    cItem.Visibility = Visibility.Hidden;
-                }
+                UpdateRoundUI();
+            }
+        }
+
+        private void UpdateRoundUI()
+        {
+            var roundSize = this.runningService.CurrentList.Count;
+            switch (roundSize)
+            {
+                case 1:
+                    this.roundViewBox.Child = new RoundView1();
+                    break;
+                case 2:
+                    this.roundViewBox.Child = new RoundView2();
+                    break;
+                case 3:
+                    this.roundViewBox.Child = new RoundView3();
+                    break;
+                case 4:
+                    this.roundViewBox.Child = new RoundView4();
+                    break;                
+                case 5:
+                    this.roundViewBox.Child = new RoundView5();
+                    break;
+                case 6:
+                    this.roundViewBox.Child = new RoundView6();
+                    break;
+                case 7:
+                    this.roundViewBox.Child = new RoundView7();
+                    break;
+                case 8:
+                    this.roundViewBox.Child = new RoundView8();
+                    break;
+                case 9:
+                    this.roundViewBox.Child = new RoundView9();
+                    break;
+                case 10:
+                    this.roundViewBox.Child = new RoundView10();
+                    break;
+            }
+
+            var roundView = (UserControl)this.roundViewBox.Child;  
+            for (var i = 0; i < roundSize; i++)
+            {
+                var r = this.runningService.CurrentList[i];
+
+                var pLabel = (TextBlock)roundView.FindName("textPrize" + (i + 1));
+                pLabel.Text = r.PrizeName;
+
+                var rLabel = (TextBlock)roundView.FindName("textRandom" + (i + 1));
+                rLabel.Text = r.Random == string.Empty ? "000" : r.Random;
+
+                var imageItem = (ImageBrush)roundView.FindName("img" + (i + 1));
+                var image = utils.PrizeImage(r.PrizeId.ToString() + ".png", Consts.HomeImageSize);
+                imageItem.ImageSource = image ?? utils.PrizeImage("prize.png", Consts.HomeImageSize);
             }
         }
        
@@ -101,10 +141,11 @@ namespace LuckyDraw
         }     
 
         private async Task RunRandoms() {
+            var roundView = (UserControl)this.roundViewBox.Child;
             for (var i = 0; i < this.runningService.CurrentList.Count; i++) {                
                 if (this.runningService.CurrentList[i].Status == 0)
                 {
-                    var label = (TextBlock)this.FindName("textRandom" + (i + 1));
+                    var label = (TextBlock)roundView.FindName("textRandom" + (i + 1));
                     await AnimateRandom(Consts.RangeThreeDigits, string.Empty, label);
                     string random = CreateRandomNumber();
                     const int two = 2;

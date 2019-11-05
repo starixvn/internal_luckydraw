@@ -26,6 +26,7 @@ namespace LuckyDraw.Repository
                 var allIds = prizes.Select(i => i.Id);
                 var deletedPrizes = db.Prizes.Where(i => !allIds.Contains(i.Id));
                 db.Prizes.RemoveRange(deletedPrizes);
+                db.SaveChanges();
 
                 foreach (var item in prizes)
                 {
@@ -40,9 +41,9 @@ namespace LuckyDraw.Repository
                     prize.PrizeName = item.PrizeName.Trim();
                     prize.RoundIndex = item.RoundIndex;
                     prize.RoundName = item.RoundName.Trim();
-                }
 
-                db.SaveChanges();
+                    db.SaveChanges();
+                }
             }
         }
 

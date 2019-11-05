@@ -169,6 +169,15 @@ namespace LuckyDraw.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Each round must have no more than 10 items!.
+        /// </summary>
+        internal static string MaxRoundSizeError {
+            get {
+                return ResourceManager.GetString("MaxRoundSizeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Prize Start Index must be a positive number.
         /// </summary>
         internal static string PositiveStartIndexAlert {

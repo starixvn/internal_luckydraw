@@ -74,5 +74,32 @@ namespace LuckyDraw.UnitTests.Service
             // Assert
             result.Should().Be("Inconsistant Round Index and Round Name");
         }
+
+        [Fact]
+        public void ValidatePrizes_WhenMaxRoundSize_ReturnMaxRoundSizeError()
+        {
+            // Arrange
+            var prizes = new List<ViewPrize>() {
+                new ViewPrize { RoundIndex = 2, RoundName = "2"},
+                new ViewPrize { RoundIndex = 1, RoundName = "1"},
+                new ViewPrize { RoundIndex = 1, RoundName = "1"},
+                new ViewPrize { RoundIndex = 1, RoundName = "1"},
+                new ViewPrize { RoundIndex = 1, RoundName = "1"},
+                new ViewPrize { RoundIndex = 1, RoundName = "1"},
+                new ViewPrize { RoundIndex = 1, RoundName = "1"},
+                new ViewPrize { RoundIndex = 1, RoundName = "1"},
+                new ViewPrize { RoundIndex = 1, RoundName = "1"},
+                new ViewPrize { RoundIndex = 1, RoundName = "1"},
+                new ViewPrize { RoundIndex = 1, RoundName = "1"},
+                new ViewPrize { RoundIndex = 1, RoundName = "1"}
+            };
+            var service = new ValidationService();
+
+            // Act
+            var result = service.ValidatePrizes(prizes);
+
+            // Assert
+            result.Should().Be("Each round must have no more than 10 items!");
+        }            
     }
 }

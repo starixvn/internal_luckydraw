@@ -9,6 +9,23 @@ namespace LuckyDraw.Service
     {
         public string ValidatePrizes(IEnumerable<ViewPrize> prizes)
         {
+            var duplicateRound = ValidateDuplicateRound(prizes);
+            if (!string.IsNullOrEmpty(duplicateRound))
+            {
+                return duplicateRound;
+            }
+
+            var maxRoundSize = ValidateMaxRoundSize(prizes);
+            if (!string.IsNullOrEmpty(maxRoundSize))
+            {
+                return maxRoundSize;
+            }
+
+            return string.Empty;
+        }
+
+        private string ValidateDuplicateRound(IEnumerable<ViewPrize> prizes)
+        {
             for (var i = 0; i < prizes.Count() - 1; i++)
             {
                 for (var j = i + 1; j < prizes.Count(); j++)
@@ -22,6 +39,24 @@ namespace LuckyDraw.Service
                         return Labels.InconsistantRoundNames;
                     }
                 }
+            }
+
+            return string.Empty;
+        }
+
+        private string ValidateMaxRoundSize(IEnumerable<ViewPrize> prizes)
+        {
+            var maxRoundSize = prizes
+                .GroupBy(p => p.RoundIndex)
+                .Select(group => new
+                {
+                    Metric = group.Key,
+                    Count = group.Count()
+                })
+                .Max(x => x.Count);
+            if(maxRoundSize > 10)
+            {
+                return Labels.MaxRoundSizeError;
             }
 
             return string.Empty;
