@@ -1,4 +1,5 @@
-﻿using LuckyDraw.Model;
+﻿using LuckyDraw.Constants;
+using LuckyDraw.Model;
 using LuckyDraw.Resources;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,7 +55,7 @@ namespace LuckyDraw.Service
                     Count = group.Count()
                 })
                 .Max(x => x.Count);
-            if(maxRoundSize > 10)
+            if(maxRoundSize > Consts.MaxRoundItems)
             {
                 return Labels.MaxRoundSizeError;
             }
