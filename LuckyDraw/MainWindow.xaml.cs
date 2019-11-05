@@ -28,19 +28,28 @@ namespace LuckyDraw
         private readonly IUtils utils;
         private bool isLoading;
 
-        public MainWindow()
+        public MainWindow():this(null, null, null, null, null, null)
+        {            
+        }
+
+        public MainWindow(
+            ICommonService commonService,
+            ISeedService seedService,
+            IRunningService runningService,
+            IValidationService validationService,
+            IAuthenticationService authenticationService,
+            IUtils utils)
         {
+            this.commonService = commonService ?? new CommonService();
+            this.seedService = seedService ?? new SeedService();
+            this.runningService = runningService ?? new RunningService();
+            this.validationService = validationService ?? new ValidationService();
+            this.authenticationService = authenticationService ?? new AuthenticationService();
+            this.utils = utils ?? new Utils();
+
             InitializeComponent();
-
-            commonService = new CommonService();
-            seedService = new SeedService();
-            runningService = new RunningService();
-            validationService = new ValidationService();
-            authenticationService = new AuthenticationService();
-            utils = new Utils();
-            isLoading = false;
-
-            seedService.GenerateSeedData();
+            this.isLoading = false;
+            this.seedService.GenerateSeedData();
             LoadSettings();
         }
 
@@ -51,38 +60,35 @@ namespace LuckyDraw
             this.ignoredListDataGrid.ItemsSource = commonService.GetSettingList();
         }
 
-        private void UpdateIgnoredListText() {
-            this.textIgnored.Text = string.Join(" - ", this.runningService.Setting.Excluded.Split(','));
-            this.textIgnored.TextAlignment = TextAlignment.Center;
-            this.textIgnored.UpdateLayout();
+        public void UpdateRoundText()
+        {
+            this.textRound.Text = this.runningService.GetRoundName().ToUpper(CultureInfo.CurrentCulture);
         }
 
-        private void UpdateRandomRangeText() {
-            var randomFrom = this.runningService.Setting.RandomFrom.ToString();
-            var randomTo = this.runningService.Setting.RandomTo.ToString();
-            this.textRandomRange.Text = String.Format("{0}-{1}", randomFrom, randomTo);
+        public void UpdateIgnoredListText() {
+            this.textIgnored.Text = string.Join(" - ", this.runningService.Setting.Excluded.Replace(" ", "").Split(','));
+        }
+
+        public void UpdateRandomRangeText() {
+            this.textRandomRange.Text = String.Format("{0}-{1}",
+                this.runningService.Setting.RandomFrom.ToString(),
+                this.runningService.Setting.RandomTo.ToString());
         }
 
         private void BuildRoundUI() {
             if (this.runningService.IsValid) {
                 UpdateIgnoredListText();
                 UpdateRandomRangeText();
-                this.textRound.Text = this.runningService.GetRoundName().ToUpper(CultureInfo.CurrentCulture);
-
+                UpdateRoundText();
                 UpdateRoundUI();
             }
         }
 
-        private void UpdateRoundView(int roundSize)
-        {
-            Type t = Type.GetType(string.Format("LuckyDraw.Views.RoundView{0}", roundSize));
-            this.roundViewBox.Child = (UserControl)Activator.CreateInstance(t);
-        }
-         
         private void UpdateRoundUI()
         {
             var roundSize = this.runningService.CurrentList.Count;
-            UpdateRoundView(roundSize);
+            Type roundViewType = Type.GetType(string.Format("LuckyDraw.Views.RoundView{0}", roundSize));
+            this.roundViewBox.Child = (UserControl)Activator.CreateInstance(roundViewType);            
 
             var roundView = (UserControl)this.roundViewBox.Child;  
             for (var i = 0; i < roundSize; i++)
