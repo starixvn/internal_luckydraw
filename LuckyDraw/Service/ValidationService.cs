@@ -24,7 +24,7 @@ namespace LuckyDraw.Service
             return string.Empty;
         }
 
-        private string ValidateDuplicateRound(IEnumerable<ViewPrize> prizes)
+        private static string ValidateDuplicateRound(IEnumerable<ViewPrize> prizes)
         {
             for (var i = 0; i < prizes.Count() - 1; i++)
             {
@@ -44,7 +44,7 @@ namespace LuckyDraw.Service
             return string.Empty;
         }
 
-        private string ValidateMaxRoundSize(IEnumerable<ViewPrize> prizes)
+        private static string ValidateMaxRoundSize(IEnumerable<ViewPrize> prizes)
         {
             var maxRoundSize = prizes
                 .GroupBy(p => p.RoundIndex)

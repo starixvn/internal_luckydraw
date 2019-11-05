@@ -25,9 +25,9 @@
             <RowDefinition Height="25*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Viewbox Grid.Column="0" Grid.Row="0" Height="50" Grid.ColumnSpan="7"></Viewbox>
-        <Viewbox Grid.Column="0" Grid.Row="2" Height="50" Grid.ColumnSpan="7"></Viewbox>
-        <Viewbox Grid.Column="0" Grid.Row="4" Height="50" Grid.ColumnSpan="7"></Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="0" Height="30" Grid.ColumnSpan="7"></Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="2" Height="30" Grid.ColumnSpan="7"></Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="4" Height="30" Grid.ColumnSpan="7"></Viewbox>
         
         <Viewbox x:Name="viewBoxItem1" Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
             <StackPanel>
@@ -38,7 +38,7 @@
                 </Border>
                 <TextBlock x:Name="textPrize1" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
                                            TextWrapping="Wrap"
-                                    Width="180" TextAlignment="Center" ></TextBlock>
+                                    Width="180" MaxHeight="55" TextAlignment="Center" ></TextBlock>
                 <TextBlock x:Name="textRandom1"  Text="000" Foreground="#FFEAAC06" 
                                 Width="150" TextAlignment="Center"
                                 FontSize="30" FontWeight="Bold"></TextBlock>
@@ -53,7 +53,7 @@
                     </Border.Background>
                 </Border>
                 <TextBlock x:Name="textPrize2" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
-                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
+                               Width="180" MaxHeight="55" TextAlignment="Center" TextWrapping="Wrap"
                                 ></TextBlock>
                 <TextBlock x:Name="textRandom2" Text="000" Foreground="#FFEAAC06" 
                                Width="100" TextAlignment="Center"
@@ -69,7 +69,7 @@
                     </Border.Background>
                 </Border>
                 <TextBlock x:Name="textPrize3" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
-                               Width="180" TextAlignment="Center" TextWrapping="Wrap"></TextBlock>
+                               Width="180" MaxHeight="55" TextAlignment="Center" TextWrapping="Wrap"></TextBlock>
                 <TextBlock x:Name="textRandom3"  Text="000" Foreground="#FFEAAC06" 
                                Width="100" TextAlignment="Center"
                                FontSize="30" FontWeight="Bold"></TextBlock>
@@ -84,7 +84,7 @@
                     </Border.Background>
                 </Border>
                 <TextBlock x:Name="textPrize4" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
-                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
+                               Width="180" MaxHeight="55" TextAlignment="Center" TextWrapping="Wrap"
                                ></TextBlock>
                 <TextBlock x:Name="textRandom4"  Text="000" Foreground="#FFEAAC06" 
                                Width="100" TextAlignment="Center"

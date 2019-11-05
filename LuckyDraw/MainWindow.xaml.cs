@@ -7,6 +7,7 @@ using LuckyDraw.Views;
 using Microsoft.Win32;
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -66,48 +67,22 @@ namespace LuckyDraw
             if (this.runningService.IsValid) {
                 UpdateIgnoredListText();
                 UpdateRandomRangeText();
-                this.textRound.Text = this.runningService.GetRoundName().ToUpper();
+                this.textRound.Text = this.runningService.GetRoundName().ToUpper(CultureInfo.CurrentCulture);
 
                 UpdateRoundUI();
             }
         }
 
+        private void UpdateRoundView(int roundSize)
+        {
+            Type t = Type.GetType(string.Format("LuckyDraw.Views.RoundView{0}", roundSize));
+            this.roundViewBox.Child = (UserControl)Activator.CreateInstance(t);
+        }
+         
         private void UpdateRoundUI()
         {
             var roundSize = this.runningService.CurrentList.Count;
-            switch (roundSize)
-            {
-                case 1:
-                    this.roundViewBox.Child = new RoundView1();
-                    break;
-                case 2:
-                    this.roundViewBox.Child = new RoundView2();
-                    break;
-                case 3:
-                    this.roundViewBox.Child = new RoundView3();
-                    break;
-                case 4:
-                    this.roundViewBox.Child = new RoundView4();
-                    break;                
-                case 5:
-                    this.roundViewBox.Child = new RoundView5();
-                    break;
-                case 6:
-                    this.roundViewBox.Child = new RoundView6();
-                    break;
-                case 7:
-                    this.roundViewBox.Child = new RoundView7();
-                    break;
-                case 8:
-                    this.roundViewBox.Child = new RoundView8();
-                    break;
-                case 9:
-                    this.roundViewBox.Child = new RoundView9();
-                    break;
-                case 10:
-                    this.roundViewBox.Child = new RoundView10();
-                    break;
-            }
+            UpdateRoundView(roundSize);
 
             var roundView = (UserControl)this.roundViewBox.Child;  
             for (var i = 0; i < roundSize; i++)

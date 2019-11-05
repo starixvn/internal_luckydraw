@@ -33,7 +33,7 @@
                 </Border>
                 <TextBlock x:Name="textPrize1" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
                                            TextWrapping="Wrap"
-                                    Width="180" TextAlignment="Center" ></TextBlock>
+                                    Width="180" MaxHeight="55" TextAlignment="Center" ></TextBlock>
                 <TextBlock x:Name="textRandom1"  Text="000" Foreground="#FFEAAC06" 
                                 Width="150" TextAlignment="Center"
                                 FontSize="30" FontWeight="Bold"></TextBlock>
@@ -48,7 +48,7 @@
                     </Border.Background>
                 </Border>
                 <TextBlock x:Name="textPrize2" Text="Prize" Foreground="#FFD8D8D6" FontSize="20" 
-                               Width="180" TextAlignment="Center" TextWrapping="Wrap"
+                               Width="180" MaxHeight="55" TextAlignment="Center" TextWrapping="Wrap"
                                 ></TextBlock>
                 <TextBlock x:Name="textRandom2" Text="000" Foreground="#FFEAAC06" 
                                Width="100" TextAlignment="Center"

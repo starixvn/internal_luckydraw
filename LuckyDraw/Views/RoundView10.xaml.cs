@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LuckyDraw
+namespace LuckyDraw.Views
 {
     /// <summary>
     /// Interaction logic for RoundView10.xaml
