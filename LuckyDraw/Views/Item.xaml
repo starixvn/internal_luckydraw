@@ -14,7 +14,7 @@
         </Border>
         <TextBlock x:Name="textPrize" Text="Prize" Foreground="#FFD8D8D6" 
                    FontSize="18" TextWrapping="Wrap"
-                   Width="220" MaxHeight="55" TextAlignment="Center" ></TextBlock>
+                   MaxWidth="220" MaxHeight="55" TextAlignment="Center" ></TextBlock>
         <TextBlock x:Name="textRandom"  Text="000" Foreground="#FFEAAC06" 
                     Width="150" TextAlignment="Center"
                     FontSize="30" FontWeight="Bold"></TextBlock>
