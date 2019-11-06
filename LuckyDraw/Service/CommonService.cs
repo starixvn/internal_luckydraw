@@ -34,6 +34,11 @@ namespace LuckyDraw.Service
             commonRepository.UpdateRange(settings);
         }
 
+        public void UpdateRandomTime(IEnumerable<Setting> settings)
+        {
+            commonRepository.UpdateRandomTime(settings);
+        }
+
         public void UpdateStartIndex(int startIndex)
         {
             commonRepository.UpdateStartIndex(startIndex);

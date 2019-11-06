@@ -214,6 +214,19 @@
                                     Click="SaveRangeButton_Click"/>
                         </Grid>
                     </TabItem>
+                    <TabItem x:Name="tabRandomTime" Header="Random Time">
+                        <Grid Background="#FFE5E5E5">
+                            <DataGrid x:Name="randomTimeDataGrid" Margin="33.418,10,302,75" Grid.Column="1"
+                                      AutoGenerateColumns="False" CanUserAddRows ="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Random Animation Duration" Binding="{Binding RandomAnimationDuration}"/>
+                                    <DataGridTextColumn Header="Random Transition Duration" Binding="{Binding RandomTransitionDuration}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <Button Content="Save" HorizontalAlignment="Left" Margin="33,0,0,28" VerticalAlignment="Bottom" Width="75" Grid.Column="1"
+                                    Click="SaveRandomTimeButton_Click"/>
+                        </Grid>
+                    </TabItem>
                     <TabItem x:Name="tabIgnoredList" Header="Ignored List">
                         <Grid Background="#FFE5E5E5">
                             <DataGrid x:Name="ignoredListDataGrid" AutoGenerateColumns="False" Margin="33.418,10,302,75" CanUserAddRows ="False">

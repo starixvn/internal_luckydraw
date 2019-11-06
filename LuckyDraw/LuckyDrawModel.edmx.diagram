@@ -6,8 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="40732fe325974c3ebbd5fbbfe4b959b3" Name="Diagram1">
         <EntityTypeShape EntityType="LuckyDrawModel.Prize" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="LuckyDrawModel.Setting" Width="1.5" PointX="3.375" PointY="0.75" />
         <EntityTypeShape EntityType="LuckyDrawModel.Result" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="LuckyDrawModel.Setting" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -58,6 +58,7 @@ namespace LuckyDraw
             this.prizeDataGrid.ItemsSource = commonService.GetPrizeList();
             this.rangeDataGrid.ItemsSource = commonService.GetSettingList();
             this.ignoredListDataGrid.ItemsSource = commonService.GetSettingList();
+            this.randomTimeDataGrid.ItemsSource = commonService.GetSettingList();
         }
 
         public void UpdateRoundText()
@@ -71,8 +72,8 @@ namespace LuckyDraw
 
         public void UpdateRandomRangeText() {
             this.textRandomRange.Text = String.Format("{0}-{1}",
-                this.runningService.Setting.RandomFrom.ToString(),
-                this.runningService.Setting.RandomTo.ToString());
+                this.runningService.Setting.RandomFrom.ToString("000"),
+                this.runningService.Setting.RandomTo.ToString("000"));
         }
 
         private void BuildRoundUI() {
@@ -125,17 +126,18 @@ namespace LuckyDraw
 
         private async Task RunRandoms() {
             var roundView = (UserControl)this.roundViewBox.Child;
+            var randomTrasitionTime = this.runningService.Setting.RandomTransitionDuration * 1000;
             for (var i = 0; i < this.runningService.CurrentList.Count; i++) {                
                 if (this.runningService.CurrentList[i].Status == 0)
                 {
                     var item = (Item)((Viewbox)roundView.FindName("viewBoxItem" + (i + 1))).Child;
 
                     var label = (TextBlock)item.FindName("textRandom");
-                    await AnimateRandom(Consts.RangeThreeDigits, string.Empty, label);
+                    await AnimateRandom(Consts.RangeThreeDigits, "000", string.Empty, label);
                     string random = CreateRandomNumber();
                     const int two = 2;
-                    await AnimateRandom(Consts.RangeTwoDigits, random.Substring(0, 1), label);
-                    await AnimateRandom(Consts.RangeOneDigit, random.Substring(0, two), label);
+                    await AnimateRandom(Consts.RangeTwoDigits, "00", random.Substring(0, 1), label);
+                    await AnimateRandom(Consts.RangeOneDigit, "0", random.Substring(0, two), label);
 
                     label.Text = random;
 
@@ -143,12 +145,14 @@ namespace LuckyDraw
                     {
                         this.runningService.UpdateRandom(random, i);
                     }
+
+                    await Task.Delay(randomTrasitionTime);
                 }
             }
         }
         
-        private async void RunButton_Click(object sender, RoutedEventArgs e) {
-            if (this.isLoading) {
+        private async void RunButton_Click(object sender, RoutedEventArgs e) {            
+            if (this.isLoading || !this.runningService.IsValid) {
                 return;
             }
 
@@ -270,6 +274,13 @@ namespace LuckyDraw
             MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
+        private void SaveRandomTimeButton_Click(object sender, RoutedEventArgs e)
+        {
+            commonService.UpdateRandomTime(this.randomTimeDataGrid.Items.OfType<Setting>());
+            this.runningService.LoadSetting();
+            MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
         private void NewGameButton_Click(object sender, RoutedEventArgs e)
         {
             var startIndex = 0;
@@ -291,14 +302,21 @@ namespace LuckyDraw
         }
 
         [SuppressMessage("csharpsquid", "S2325:Methods and properties that don't access instance data can be static to prevent any misunderstanding about the contract of the method.")]
-        private async Task AnimateRandom(int range, string subRandom, TextBlock l)
+        private async Task AnimateRandom(int range, string format, string subRandom, TextBlock l)
         {
             Random rnd = new Random();
-            for (var i = 0; i < Consts.AnimationLoops; i++)
+            var randomTime = this.runningService.Setting.RandomAnimationDuration*1000/3;
+            var startTime = DateTime.Now;
+            for (var i = 0; i < Consts.MaxAnimationLoops; i++)
             {
                 int random = rnd.Next(1, range);
-                await Task.Delay(1);
-                l.Text = subRandom + random.ToString();
+                await Task.Delay(30);
+                l.Text = subRandom + random.ToString(format);
+
+                if((DateTime.Now - startTime).TotalMilliseconds > randomTime)
+                {
+                    return;
+                }
             }
         }
 

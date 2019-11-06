@@ -75,6 +75,21 @@ namespace LuckyDraw.Repository
             }
         }
 
+        public void UpdateRandomTime(IEnumerable<Setting> settings)
+        {
+            var setting = settings.First();
+            using (var db = luckyDrawEntity.GetDBContext())
+            {
+                if (db.Settings.Count() != 0)
+                {
+                    var s = db.Settings.First();
+                    s.RandomAnimationDuration = setting.RandomAnimationDuration;
+                    s.RandomTransitionDuration = setting.RandomTransitionDuration;
+                    db.SaveChanges();
+                }
+            }
+        }
+
         public void UpdateStartIndex(int startIndex) {
             using (var db = luckyDrawEntity.GetDBContext())
             {
