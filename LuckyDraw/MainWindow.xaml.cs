@@ -95,13 +95,15 @@ namespace LuckyDraw
             {
                 var r = this.runningService.CurrentList[i];
 
-                var pLabel = (TextBlock)roundView.FindName("textPrize" + (i + 1));
+                var item = (Item)((Viewbox)roundView.FindName("viewBoxItem" + (i + 1))).Child;
+
+                var pLabel = (TextBlock)item.FindName("textPrize");
                 pLabel.Text = r.PrizeName;
 
-                var rLabel = (TextBlock)roundView.FindName("textRandom" + (i + 1));
+                var rLabel = (TextBlock)item.FindName("textRandom");
                 rLabel.Text = r.Random == string.Empty ? "000" : r.Random;
 
-                var imageItem = (ImageBrush)roundView.FindName("img" + (i + 1));
+                var imageItem = (ImageBrush)item.FindName("img");
                 var image = utils.PrizeImage(r.PrizeId.ToString() + ".png", Consts.HomeImageSize);
                 imageItem.ImageSource = image ?? utils.PrizeImage("prize.png", Consts.HomeImageSize);
             }
@@ -126,7 +128,9 @@ namespace LuckyDraw
             for (var i = 0; i < this.runningService.CurrentList.Count; i++) {                
                 if (this.runningService.CurrentList[i].Status == 0)
                 {
-                    var label = (TextBlock)roundView.FindName("textRandom" + (i + 1));
+                    var item = (Item)((Viewbox)roundView.FindName("viewBoxItem" + (i + 1))).Child;
+
+                    var label = (TextBlock)item.FindName("textRandom");
                     await AnimateRandom(Consts.RangeThreeDigits, string.Empty, label);
                     string random = CreateRandomNumber();
                     const int two = 2;

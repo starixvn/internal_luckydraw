@@ -54,6 +54,11 @@ namespace LuckyDraw.Service
                     Metric = group.Key,
                     Count = group.Count()
                 })
+                .DefaultIfEmpty(new
+                {
+                    Metric = 0,
+                    Count = 0
+                })
                 .Max(x => x.Count);
             if(maxRoundSize > Consts.MaxRoundItems)
             {
