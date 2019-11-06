@@ -21,6 +21,8 @@ namespace LuckyDraw.UnitTests.Repository
 
         public CommonRepositoryTests()
         {
+            //Effort.Provider.EffortProviderConfiguration.RegisterProvider();
+
             fixture = new Fixture();
         }
 
@@ -49,6 +51,8 @@ namespace LuckyDraw.UnitTests.Repository
 
             var newPrizes = fixture.CreateMany<ViewPrize>().ToList();
             newPrizes.First().Id = id;
+            newPrizes[1].Id = 0;
+            newPrizes[2].Id = 0;
 
             // Act
             repository.UpdatePrize(newPrizes);

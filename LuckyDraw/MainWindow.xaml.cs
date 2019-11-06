@@ -310,7 +310,7 @@ namespace LuckyDraw
             for (var i = 0; i < Consts.MaxAnimationLoops; i++)
             {
                 int random = rnd.Next(1, range);
-                await Task.Delay(30);
+                await Task.Delay(Consts.AnimationDelay);
                 l.Text = subRandom + random.ToString(format);
 
                 if((DateTime.Now - startTime).TotalMilliseconds > randomTime)

@@ -12,6 +12,7 @@ namespace LuckyDraw.Constants
         public const int SettingImageSize = 50;
         public const int MaxRandomTrials = 10000;
         public const int MaxAnimationLoops = 2000;
+        public const int AnimationDelay = 30;             
         public const int MaxFileSize = 5_000_000;
         public const int RangeThreeDigits = 1000;
         public const int RangeTwoDigits = 100;
