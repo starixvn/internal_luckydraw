@@ -180,4 +180,10 @@
   <data name="ExportSuccess" xml:space="preserve">
     <value>Exported Result Successfully!</value>
   </data>
+  <data name="InvalidRandomTime" xml:space="preserve">
+    <value>Invalid Random Time</value>
+  </data>
+  <data name="InvalidRange" xml:space="preserve">
+    <value>Invalid Random Range</value>
+  </data>
 </root>

@@ -32,7 +32,7 @@ namespace LuckyDraw
 
         public string Answer
         {
-            get { return this.txtPassword.Text; }
+            get { return this.txtPassword.Password; }
         }
     }
 }

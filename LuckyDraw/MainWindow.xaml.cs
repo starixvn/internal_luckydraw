@@ -236,17 +236,35 @@ namespace LuckyDraw
 
         private void SaveRangeButton_Click(object sender, RoutedEventArgs e)
         {
-            commonService.UpdateRange(this.rangeDataGrid.Items.OfType<Setting>());
-            this.runningService.LoadSetting();
-            UpdateRandomRangeText();
-            MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
+            var settings = this.rangeDataGrid.Items.OfType<Setting>();
+            var validation = this.validationService.ValidateRange(settings.First());
+            if (string.IsNullOrEmpty(validation))
+            {
+                commonService.UpdateRange(settings);
+                this.runningService.LoadSetting();
+                UpdateRandomRangeText();
+                MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(validation, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+            }   
         }
 
         private void SaveRandomTimeButton_Click(object sender, RoutedEventArgs e)
         {
-            commonService.UpdateRandomTime(this.randomTimeDataGrid.Items.OfType<Setting>());
-            this.runningService.LoadSetting();
-            MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
+            var settings = this.randomTimeDataGrid.Items.OfType<Setting>();
+            var validation = this.validationService.ValidateRandomTime(settings.First());
+            if (string.IsNullOrEmpty(validation))
+            {
+                commonService.UpdateRandomTime(this.randomTimeDataGrid.Items.OfType<Setting>());
+                this.runningService.LoadSetting();
+                MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show(validation, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+            }            
         }
 
         private void NewGameButton_Click(object sender, RoutedEventArgs e)

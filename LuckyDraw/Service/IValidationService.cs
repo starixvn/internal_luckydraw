@@ -10,5 +10,7 @@ namespace LuckyDraw.Service
     public interface IValidationService
     {
         string ValidatePrizes(IEnumerable<ViewPrize> prizes);
+        string ValidateRange(Setting setting);
+        string ValidateRandomTime(Setting setting);
     }
 }

@@ -100,6 +100,85 @@ namespace LuckyDraw.UnitTests.Service
 
             // Assert
             result.Should().Be("Each round must have no more than 10 items!");
-        }            
+        }           
+        
+        [Theory]
+        [InlineData(10, 9)]
+        [InlineData(0, 1)]
+        [InlineData(1000, 2000)]
+        [InlineData(1, 0)]
+        [InlineData(1, 1000)]
+        public void ValidateRange_WhenInvalid_ReturnError(int randomFrom, int randomTo)
+        {
+            // Arrange
+            var service = new ValidationService();
+            var setting = new Setting
+            {
+                RandomFrom = randomFrom, 
+                RandomTo = randomTo
+            };
+
+            // Act
+            var result = service.ValidateRange(setting);
+
+            // Assert
+            result.Should().Be("Invalid Random Range");
+        }
+
+        public void ValidateRange_WhenValid_ReturnEmpty()
+        {
+            // Arrange
+            var service = new ValidationService();
+            var setting = new Setting
+            {
+                RandomFrom = 9,
+                RandomTo = 9
+            };
+
+            // Act
+            var result = service.ValidateRange(setting);
+
+            // Assert
+            result.Should().Be(string.Empty);
+        }
+
+        [Theory]
+        [InlineData(0, 9)]
+        [InlineData(61, 1)]
+        [InlineData(1, -1)]
+        [InlineData(1, 61)]
+        public void ValidateRandomTime_WhenInvalid_ReturnError(int animationTime, int transitionTime)
+        {
+            // Arrange
+            var service = new ValidationService();
+            var setting = new Setting
+            {
+                RandomAnimationDuration = animationTime,
+                RandomTransitionDuration = transitionTime
+            };
+
+            // Act
+            var result = service.ValidateRandomTime(setting);
+
+            // Assert
+            result.Should().Be("Invalid Random Time");
+        }
+
+        public void ValidateRandomTime_WhenValid_ReturnEmpty()
+        {
+            // Arrange
+            var service = new ValidationService();
+            var setting = new Setting
+            {
+                RandomAnimationDuration = 10,
+                RandomTransitionDuration = 1
+            };
+
+            // Act
+            var result = service.ValidateRandomTime(setting);
+
+            // Assert
+            result.Should().Be(string.Empty);
+        }
     }
 }

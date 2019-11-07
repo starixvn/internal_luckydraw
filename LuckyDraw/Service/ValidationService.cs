@@ -25,6 +25,33 @@ namespace LuckyDraw.Service
             return string.Empty;
         }
 
+        public string ValidateRange(Setting setting)
+        {
+            if(setting.RandomFrom > setting.RandomTo || 
+                setting.RandomFrom < 1 || 
+                setting.RandomFrom > 999 || 
+                setting.RandomTo < 1 || 
+                setting.RandomTo > 999)
+            {
+                return Labels.InvalidRange;
+            }
+
+            return string.Empty;
+        }
+
+        public string ValidateRandomTime(Setting setting)
+        {
+            if(setting.RandomAnimationDuration < 1 ||
+                setting.RandomAnimationDuration > 60 ||
+                setting.RandomTransitionDuration < 0 ||
+                setting.RandomTransitionDuration > 60)
+            {
+                return Labels.InvalidRandomTime;
+            }
+
+            return string.Empty;
+        }
+
         private static string ValidateDuplicateRound(IEnumerable<ViewPrize> prizes)
         {
             for (var i = 0; i < prizes.Count() - 1; i++)

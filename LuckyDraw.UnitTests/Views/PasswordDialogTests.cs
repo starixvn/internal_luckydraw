@@ -17,7 +17,7 @@ namespace LuckyDraw.UnitTests.Views
             // Arrange
             var dialog = new PasswordDialog();
             var passwordText = "abc";
-            ((TextBox)dialog.FindName("txtPassword")).Text = passwordText;
+            ((PasswordBox)dialog.FindName("txtPassword")).Password = passwordText;
 
             // Act
             var result = dialog.Answer;

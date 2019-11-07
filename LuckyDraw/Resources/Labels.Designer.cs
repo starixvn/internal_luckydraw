@@ -178,6 +178,24 @@ namespace LuckyDraw.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalid Random Time.
+        /// </summary>
+        internal static string InvalidRandomTime {
+            get {
+                return ResourceManager.GetString("InvalidRandomTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid Random Range.
+        /// </summary>
+        internal static string InvalidRange {
+            get {
+                return ResourceManager.GetString("InvalidRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Each round must have no more than 10 items!.
         /// </summary>
         internal static string MaxRoundSizeError {
