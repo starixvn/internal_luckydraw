@@ -1,4 +1,5 @@
 ﻿using LuckyDraw.Constants;
+using LuckyDraw.Export;
 using LuckyDraw.Model;
 using LuckyDraw.Resources;
 using LuckyDraw.Service;
@@ -26,9 +27,10 @@ namespace LuckyDraw
         private readonly IValidationService validationService;
         private readonly IAuthenticationService authenticationService;
         private readonly IUtils utils;
+        private readonly IResultExporter resultExporter;
         private bool isLoading;
 
-        public MainWindow():this(null, null, null, null, null, null)
+        public MainWindow():this(null, null, null, null, null, null, null)
         {            
         }
 
@@ -38,7 +40,8 @@ namespace LuckyDraw
             IRunningService runningService,
             IValidationService validationService,
             IAuthenticationService authenticationService,
-            IUtils utils)
+            IUtils utils,
+            IResultExporter resultExporter)
         {
             this.commonService = commonService ?? new CommonService();
             this.seedService = seedService ?? new SeedService();
@@ -46,6 +49,7 @@ namespace LuckyDraw
             this.validationService = validationService ?? new ValidationService();
             this.authenticationService = authenticationService ?? new AuthenticationService();
             this.utils = utils ?? new Utils();
+            this.resultExporter = resultExporter ?? new ResultExporter();
 
             InitializeComponent();
             this.isLoading = false;
@@ -298,6 +302,23 @@ namespace LuckyDraw
             else
             {
                 MessageBox.Show(Labels.PositiveStartIndexAlert, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        
+        private void ExportResultButton_Click(object sender, RoutedEventArgs e)
+        {
+            var dlg = new SaveFileDialog();
+            dlg.FileName = $"LuckyDrawResult_{DateTime.Now.ToString("yyyyMMddHHmmss")}.xlsx";
+            dlg.DefaultExt = ".xlsx";
+            dlg.Filter = "Excel (.xlsx)|*.xlsx";
+
+            var result = dlg.ShowDialog();
+            if (result == true)
+            {
+                string filename = dlg.FileName;
+                var data = this.commonService.GetResultList();
+                resultExporter.Export(data, filename);
+                MessageBox.Show(Labels.ExportSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

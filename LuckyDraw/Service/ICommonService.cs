@@ -16,9 +16,9 @@ namespace LuckyDraw.Service
         void UpdateRandomTime(IEnumerable<Setting> settings);
         void UpdateStartIndex(int startIndex);
         void StartNewGame();
-        ObservableCollection<ViewPrize> GetPrizeList();
-        ObservableCollection<Setting> GetSettingList();
-        ObservableCollection<ViewResult> GetResultList();
-        ObservableCollection<ViewLog> GetLogList();
+        List<ViewPrize> GetPrizeList();
+        List<Setting> GetSettingList();
+        List<ViewResult> GetResultList();
+        List<ViewLog> GetLogList();
     }
 }

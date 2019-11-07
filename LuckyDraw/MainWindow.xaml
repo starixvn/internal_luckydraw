@@ -253,8 +253,11 @@
         <TabItem x:Name="tabResult" Header="Result" BorderBrush="{x:Null}" Visibility="Collapsed">
             <Grid>
                 <Label Content="Result" Canvas.Left="185" Canvas.Top="23"  FontSize="20" Margin="30,10,0,0" FontWeight="Bold" Foreground="#FF6C5B5B"/>
-                <DataGrid x:Name="resultDataGrid" Margin="33.418,60,30,30" IsReadOnly="True" Grid.Column="1"
+                <DataGrid x:Name="resultDataGrid" Margin="33.418,60,30,100" IsReadOnly="True" Grid.Column="1"
                             SelectionChanged="ResultDataGrid_SelectionChanged"/>
+                <Button Content="Export" Click="ExportResultButton_Click" Width="100" Height="50" 
+                        Cursor="Hand" FontSize="18" FontWeight="Bold"
+                        VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="33,0,0,20"></Button>
             </Grid>
         </TabItem>
         <TabItem x:Name="tabLog" Header="Log" BorderBrush="{x:Null}" Visibility="Collapsed">

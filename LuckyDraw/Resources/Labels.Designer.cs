@@ -115,6 +115,15 @@ namespace LuckyDraw.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exported Result Successfully!.
+        /// </summary>
+        internal static string ExportSuccess {
+            get {
+                return ResourceManager.GetString("ExportSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File size should be less than 5M.
         /// </summary>
         internal static string FileSizeAlert {

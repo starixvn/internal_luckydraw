@@ -110,7 +110,6 @@
     <Compile Include="Service\RunningServiceTests.cs" />
     <Compile Include="Service\SeedServiceTests.cs" />
     <Compile Include="Service\ValidationServiceTests.cs" />
-    <Compile Include="Views\MainWindowTestClass.cs" />
     <Compile Include="Views\MainWindowTests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using LuckyDraw.Export;
 using LuckyDraw.Service;
 using LuckyDraw.Utilities;
 using NSubstitute;
@@ -21,6 +22,7 @@ namespace LuckyDraw.UnitTests.Views
         private readonly IValidationService validationService;
         private readonly IAuthenticationService authenticationService;
         private readonly IUtils utils;
+        private readonly IResultExporter resultExporter;
 
         public MainWindowTests()
         {
@@ -29,6 +31,7 @@ namespace LuckyDraw.UnitTests.Views
             runningService = Substitute.For<IRunningService>();
             validationService = Substitute.For<IValidationService>();
             authenticationService = Substitute.For<IAuthenticationService>();
+            resultExporter = Substitute.For<IResultExporter>();
             utils = Substitute.For<IUtils>();
         }
 
@@ -36,7 +39,13 @@ namespace LuckyDraw.UnitTests.Views
         public void MainWindow_Init_WithoutError()
         {
             // Act && Assert
-            new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils);
+            new MainWindow(commonService, 
+                seedService, 
+                runningService, 
+                validationService, 
+                authenticationService, 
+                utils,
+                resultExporter);
         }
 
         [WpfFact]
@@ -45,7 +54,7 @@ namespace LuckyDraw.UnitTests.Views
             // Arrange
             var expectedRoundText = "abcd";
             runningService.GetRoundName().Returns(expectedRoundText);
-            var mainWindow = new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils);
+            var mainWindow = new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils, resultExporter);
 
             // Act
             mainWindow.UpdateRoundText();
@@ -65,7 +74,7 @@ namespace LuckyDraw.UnitTests.Views
             };
             var expectedIgnoredText = "100 - 200 - 300";
             runningService.Setting.Returns(setting);
-            var mainWindow = new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils);
+            var mainWindow = new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils, resultExporter);
 
             // Act
             mainWindow.UpdateIgnoredListText();
@@ -86,7 +95,7 @@ namespace LuckyDraw.UnitTests.Views
             };
             var expectedRandomText = "101-202";
             runningService.Setting.Returns(setting);
-            var mainWindow = new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils);
+            var mainWindow = new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils, resultExporter);
 
             // Act
             mainWindow.UpdateRandomRangeText();

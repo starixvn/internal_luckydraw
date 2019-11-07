@@ -177,4 +177,7 @@
   <data name="MaxRoundSizeError" xml:space="preserve">
     <value>Each round must have no more than 10 items!</value>
   </data>
+  <data name="ExportSuccess" xml:space="preserve">
+    <value>Exported Result Successfully!</value>
+  </data>
 </root>
