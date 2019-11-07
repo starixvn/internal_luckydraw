@@ -76,6 +76,21 @@ namespace LuckyDraw.UnitTests.Service
         }
 
         [Fact]
+        public void UpdateRandomTime_WhenCalled_UpdateRandomeTime()
+        {
+            // Arrange
+            var commonRepository = Substitute.For<ICommonRepository>();
+            var service = new CommonService(commonRepository);
+            var settings = fixture.CreateMany<Setting>();
+
+            // Act
+            service.UpdateRandomTime(settings);
+
+            // Assert
+            commonRepository.Received().UpdateRandomTime(settings);
+        }
+
+        [Fact]
         public void UpdateStartIndex_WhenCalled_CallUpdateStartIndex()
         {
             // Arrange

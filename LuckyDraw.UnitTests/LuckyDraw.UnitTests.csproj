@@ -111,6 +111,17 @@
     <Compile Include="Service\SeedServiceTests.cs" />
     <Compile Include="Service\ValidationServiceTests.cs" />
     <Compile Include="Views\MainWindowTests.cs" />
+    <Compile Include="Views\PasswordDialogTests.cs" />
+    <Compile Include="Views\RoundView10Test.cs" />
+    <Compile Include="Views\RoundView1Test.cs" />
+    <Compile Include="Views\RoundView2Test.cs" />
+    <Compile Include="Views\RoundView3Test.cs" />
+    <Compile Include="Views\RoundView4Test.cs" />
+    <Compile Include="Views\RoundView5Test.cs" />
+    <Compile Include="Views\RoundView6Test.cs" />
+    <Compile Include="Views\RoundView7Test.cs" />
+    <Compile Include="Views\RoundView8Test.cs" />
+    <Compile Include="Views\RoundView9Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

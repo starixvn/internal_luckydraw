@@ -156,6 +156,51 @@ namespace LuckyDraw.UnitTests.Repository
         }
 
         [Fact]
+        public void UpdateRandomTime_WhenSettingEmpty_DoNothing()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            var settings = fixture.CreateMany<Setting>().ToList();
+
+            // Act
+            repository.UpdateRandomTime(settings);
+
+            // Assert
+            using (var db = GetDBContext(connection))
+            {
+                db.Settings.Count().Should().Be(0);
+            }
+        }
+
+        [Fact]
+        public void UpdateRandomTime_WhenCalled_UpdateRandomTime()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            var settings = fixture.CreateMany<Setting>().ToList();
+            using (var db = GetDBContext(connection))
+            {
+                db.Settings.Add(fixture.Create<Setting>());
+                db.SaveChanges();
+            }
+
+            // Act
+            repository.UpdateRandomTime(settings);
+
+            // Assert
+            using (var db = GetDBContext(connection))
+            {
+                var s = db.Settings.First();
+                s.RandomAnimationDuration.Should().Be(settings.First().RandomAnimationDuration);
+                s.RandomTransitionDuration.Should().Be(settings.First().RandomTransitionDuration);
+            }
+        }
+
+        [Fact]
         public void UpdateStartIndex_WhenSettingEmpty_DoNothing()
         {
             // Arrange

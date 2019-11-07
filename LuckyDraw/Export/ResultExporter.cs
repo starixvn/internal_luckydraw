@@ -16,6 +16,11 @@ namespace LuckyDraw.Export
         protected IWorkbook workbook;
         protected ISheet sheet;
         private const string DefaultSheetName = "Sheet1";
+        private const int FontSize = 12;
+        private const int PrizeIndexCol = 0;
+        private const int PrizeNameCol = 1;
+        private const int RoundNameCol = 2;
+        private const int RandomCol = 3;
 
         public ResultExporter()
         {
@@ -57,7 +62,7 @@ namespace LuckyDraw.Export
             var headerStyle = this.workbook.CreateCellStyle();
             var headerFont = this.workbook.CreateFont();
             headerFont.IsBold = true;
-            headerFont.FontHeightInPoints = 12;
+            headerFont.FontHeightInPoints = FontSize;
             headerFont.Color = HSSFColor.White.Index;
 
             headerStyle.FillForegroundColor = HSSFColor.BlueGrey.Index;
@@ -85,26 +90,18 @@ namespace LuckyDraw.Export
             {
                 var sheetRow = this.sheet.CreateRow(i + 1);
                 var item = data[i];
-                CreateCellData(0, Convert.ToString(item.PrizeIndex), sheetRow, cellStyle);
-                CreateCellData(1, Convert.ToString(item.PrizeName), sheetRow, cellStyle);
-                CreateCellData(2, Convert.ToString(item.RoundName), sheetRow, cellStyle);
-                CreateCellData(3, Convert.ToString(item.Random), sheetRow, cellStyle);
+                CreateCellData(PrizeIndexCol, Convert.ToString(item.PrizeIndex), sheetRow, cellStyle);
+                CreateCellData(PrizeNameCol, Convert.ToString(item.PrizeName), sheetRow, cellStyle);
+                CreateCellData(RoundNameCol, Convert.ToString(item.RoundName), sheetRow, cellStyle);
+                CreateCellData(RandomCol, Convert.ToString(item.Random), sheetRow, cellStyle);
             }
         }
 
-        private void CreateCellData(int index, string cellvalue, IRow sheetRow, ICellStyle cellStyle)
+        private static void CreateCellData(int index, string cellvalue, IRow sheetRow, ICellStyle cellStyle)
         {
             ICell Row1 = sheetRow.CreateCell(index);
             Row1.CellStyle = cellStyle;
-
-            if (string.IsNullOrWhiteSpace(cellvalue))
-            {
-                Row1.SetCellValue(string.Empty);
-            }
-            else
-            {
-                Row1.SetCellValue(cellvalue);
-            }
+            Row1.SetCellValue(string.IsNullOrWhiteSpace(cellvalue) ? string.Empty : cellvalue);            
         }
     }
 }
