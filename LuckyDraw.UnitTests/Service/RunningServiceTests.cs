@@ -127,6 +127,29 @@ namespace LuckyDraw.UnitTests.Service
         }
 
         [Fact]
+        public void UpdateRandom_WhenRandomIsZero_DoNothing()
+        {
+            // Arrange
+            var commonRepository = Substitute.For<ICommonRepository>();
+            var service = new RunningService(commonRepository);
+            var results = FakeResult();
+            var setting = fixture.Create<Setting>();
+            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.IsDBReady().Returns(true);
+            commonRepository.GetSetting().Returns(setting);
+
+            var random = "000";
+            var index = 1;
+
+            // Act
+            service.LoadModel();
+            service.UpdateRandom(random, index);
+
+            // Assert
+            commonRepository.DidNotReceive().UpdateRandom(service.CurrentList[index].Id, random);
+        }
+
+        [Fact]
         public void UpdateRandom_WhenCalled_UpdateRandom()
         {
             // Arrange

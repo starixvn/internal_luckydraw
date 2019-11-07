@@ -158,6 +158,7 @@
                                 <TextBlock x:Name="textIgnored" 
                                          Margin="0,10,0,0"
                                         TextWrapping="Wrap" Width="430"
+                                        TextAlignment="Center"   
                                         Text="100,200,100,200,100,200,100,200,100,200,100,200,100,200,100,200,"                                
                                         TextDecorations="{x:Null}" 
                                         Foreground="#FFD8D8D6" FontSize="20"/>   
