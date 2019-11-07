@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NPOI.SS.UserModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,8 @@ namespace LuckyDraw.Utilities
     {
         BitmapImage PrizeImage(string imageName, int imageSize);
         string BaseDirectory();
-        void SaveFile(string originPath, string destinationPath);
+        void SaveImageFile(string originPath, string destinationPath);
         long GetFileSize(string filePath);
+        void SaveExportFile(IWorkbook workbook, string filePath);
     }
 }

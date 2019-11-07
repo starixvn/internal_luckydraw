@@ -1,4 +1,5 @@
 ﻿using LuckyDraw.Constants;
+using NPOI.SS.UserModel;
 using System;
 using System.IO;
 using System.Windows.Media.Imaging;
@@ -18,7 +19,7 @@ namespace LuckyDraw.Utilities
             return String.Format("{0}\\AppData\\Images\\", AppDomain.CurrentDomain.BaseDirectory);
         }
 
-        public void SaveFile(string originPath, string destinationPath)
+        public void SaveImageFile(string originPath, string destinationPath)
         {
             var image = new BitmapImage(new Uri(originPath));
             BitmapEncoder encoder = new PngBitmapEncoder();
@@ -46,6 +47,13 @@ namespace LuckyDraw.Utilities
             bitmap.EndInit();
 
             return bitmap;
+        }
+
+        public void SaveExportFile(IWorkbook workbook, string filePath)
+        {
+            FileStream xfile = new FileStream(filePath, FileMode.Create, FileAccess.Write);
+            workbook.Write(xfile);
+            xfile.Close();
         }
     }
 }

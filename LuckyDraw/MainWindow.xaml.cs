@@ -239,7 +239,7 @@ namespace LuckyDraw
                 }
 
                 var path = String.Format("{0}{1}.png", utils.BaseDirectory(), viewPrize.Id.ToString());                              
-                utils.SaveFile(op.FileName, path);
+                utils.SaveImageFile(op.FileName, path);
 
                 this.prizeDataGrid.Items.Refresh();                
             }

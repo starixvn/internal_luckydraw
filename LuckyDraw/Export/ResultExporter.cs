@@ -1,4 +1,5 @@
 ﻿using LuckyDraw.Model;
+using LuckyDraw.Utilities;
 using NPOI.HSSF.Util;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
@@ -12,6 +13,7 @@ namespace LuckyDraw.Export
 {
     public class ResultExporter : IResultExporter
     {
+        private readonly IUtils utils;
         private readonly List<string> headers;
         protected IWorkbook workbook;
         protected ISheet sheet;
@@ -22,8 +24,13 @@ namespace LuckyDraw.Export
         private const int RoundNameCol = 2;
         private const int RandomCol = 3;
 
-        public ResultExporter()
+        public ResultExporter():this(null)
+        {            
+        }
+
+        public ResultExporter(IUtils utils)
         {
+            this.utils = utils ?? new Utils();
             headers = new List<string>
             {
                 "Prize Index", "Prize Name", "Round Name", "Random"
@@ -37,14 +44,7 @@ namespace LuckyDraw.Export
 
             CreateHeader();
             WriteData(data);
-            SaveFile(filePath);
-        }
-
-        private void SaveFile(string filePath)
-        {
-            FileStream xfile = new FileStream(filePath, FileMode.Create, FileAccess.Write);
-            this.workbook.Write(xfile);
-            xfile.Close();
+            this.utils.SaveExportFile(this.workbook, filePath);            
         }
 
         private void CreateHeader()
