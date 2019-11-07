@@ -67,17 +67,15 @@ namespace LuckyDraw
 
         public void UpdateRoundText()
         {
-            this.textRound.Text = this.runningService.GetRoundName().ToUpper(CultureInfo.CurrentCulture);
+            this.textRound.Text = this.runningService.GetRoundName();
         }
 
         public void UpdateIgnoredListText() {
-            this.textIgnored.Text = string.Join(" - ", this.runningService.Setting.Excluded.Replace(" ", "").Split(','));
+            this.textIgnored.Text = this.runningService.GetIgnoredListText();
         }
 
         public void UpdateRandomRangeText() {
-            this.textRandomRange.Text = String.Format("{0}-{1}",
-                this.runningService.Setting.RandomFrom.ToString("000"),
-                this.runningService.Setting.RandomTo.ToString("000"));
+            this.textRandomRange.Text = this.runningService.GetRandomRangeText();
         }
 
         private void BuildRoundUI() {
@@ -89,67 +87,33 @@ namespace LuckyDraw
             }
         }
 
+        private Item FindItem(int index)
+        {
+            var roundView = (UserControl)this.roundViewBox.Child;
+            return (Item)((Viewbox)roundView.FindName("viewBoxItem" + (index + 1))).Child;
+        }
+
         private void UpdateRoundUI()
         {
             var roundSize = this.runningService.CurrentList.Count;
             Type roundViewType = Type.GetType(string.Format("LuckyDraw.Views.RoundView{0}", roundSize));
             this.roundViewBox.Child = (UserControl)Activator.CreateInstance(roundViewType);            
 
-            var roundView = (UserControl)this.roundViewBox.Child;  
             for (var i = 0; i < roundSize; i++)
             {
-                var r = this.runningService.CurrentList[i];
-
-                var item = (Item)((Viewbox)roundView.FindName("viewBoxItem" + (i + 1))).Child;
-
-                var pLabel = (TextBlock)item.FindName("textPrize");
-                pLabel.Text = r.PrizeName;
-
-                var rLabel = (TextBlock)item.FindName("textRandom");
-                rLabel.Text = r.Random == string.Empty ? "000" : r.Random;
-
-                var imageItem = (ImageBrush)item.FindName("img");
-                var image = utils.PrizeImage(r.PrizeId.ToString() + ".png", Consts.HomeImageSize);
-                imageItem.ImageSource = image ?? utils.PrizeImage("prize.png", Consts.HomeImageSize);
+                FindItem(i).LoadItemData(this.runningService.CurrentList[i]);
             }
-        }
-       
-        private string CreateRandomNumber(){
-            Random rnd = new Random();
-            for(var i = 0; i < Consts.MaxRandomTrials; i++)
-            {
-                var random = rnd.Next(this.runningService.Setting.RandomFrom, this.runningService.Setting.RandomTo + 1).ToString("000");
-                if (!this.runningService.IsExistRandom(random))
-                {
-                    return random;
-                }
-            }
-
-            return "000";
-        }     
+        }        
 
         private async Task RunRandoms() {
-            var roundView = (UserControl)this.roundViewBox.Child;
             var randomTrasitionTime = this.runningService.Setting.RandomTransitionDuration * 1000;
+            var randomTime = this.runningService.Setting.RandomAnimationDuration * 1000 / 3;
             for (var i = 0; i < this.runningService.CurrentList.Count; i++) {                
                 if (this.runningService.CurrentList[i].Status == 0)
-                {
-                    var item = (Item)((Viewbox)roundView.FindName("viewBoxItem" + (i + 1))).Child;
-
-                    var label = (TextBlock)item.FindName("textRandom");
-                    await AnimateRandom(Consts.RangeThreeDigits, "000", string.Empty, label);
-                    string random = CreateRandomNumber();
-                    const int two = 2;
-                    await AnimateRandom(Consts.RangeTwoDigits, "00", random.Substring(0, 1), label);
-                    await AnimateRandom(Consts.RangeOneDigit, "0", random.Substring(0, two), label);
-
-                    label.Text = random;
-
-                    if (random != "000")
-                    {
-                        this.runningService.UpdateRandom(random, i);
-                    }
-
+                {                    
+                    string random = this.runningService.CreateRandomNumber();
+                    await FindItem(i).RunRandom(random, randomTime);
+                    this.runningService.UpdateRandom(random, i);
                     await Task.Delay(randomTrasitionTime);
                 }
             }
@@ -319,25 +283,6 @@ namespace LuckyDraw
                 var data = this.commonService.GetResultList();
                 resultExporter.Export(data, filename);
                 MessageBox.Show(Labels.ExportSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-        }
-
-        [SuppressMessage("csharpsquid", "S2325:Methods and properties that don't access instance data can be static to prevent any misunderstanding about the contract of the method.")]
-        private async Task AnimateRandom(int range, string format, string subRandom, TextBlock l)
-        {
-            Random rnd = new Random();
-            var randomTime = this.runningService.Setting.RandomAnimationDuration*1000/3;
-            var startTime = DateTime.Now;
-            for (var i = 0; i < Consts.MaxAnimationLoops; i++)
-            {
-                int random = rnd.Next(1, range);
-                await Task.Delay(Consts.AnimationDelay);
-                l.Text = subRandom + random.ToString(format);
-
-                if((DateTime.Now - startTime).TotalMilliseconds > randomTime)
-                {
-                    return;
-                }
             }
         }
 

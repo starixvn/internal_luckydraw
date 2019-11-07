@@ -21,5 +21,8 @@ namespace LuckyDraw.Service
         bool MoveNext();
         bool MoveBack();
         bool IsExistRandom(string random);
+        string CreateRandomNumber();
+        string GetIgnoredListText();
+        string GetRandomRangeText();
     }
 }

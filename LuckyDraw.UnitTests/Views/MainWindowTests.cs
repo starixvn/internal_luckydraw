@@ -61,19 +61,15 @@ namespace LuckyDraw.UnitTests.Views
 
             // Assert
             var textRound = (TextBlock)mainWindow.FindName("textRound");
-            textRound.Text.Should().Be(expectedRoundText.ToUpper());
+            textRound.Text.Should().Be(expectedRoundText);
         }
 
         [WpfFact]
         public void UpdateIgnoredListText_WhenCalled_UpdateIgnoredListText()
         {
-            // Arrange
-            var setting = new Setting
-            {
-                Excluded = "100, 200, 300"
-            };
+            // Arrange            
             var expectedIgnoredText = "100 - 200 - 300";
-            runningService.Setting.Returns(setting);
+            runningService.GetIgnoredListText().Returns(expectedIgnoredText);
             var mainWindow = new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils, resultExporter);
 
             // Act
@@ -87,14 +83,9 @@ namespace LuckyDraw.UnitTests.Views
         [WpfFact]
         public void UpdateRandomRangeText_WhenCalled_UpdateRandomRangeText()
         {
-            // Arrange
-            var setting = new Setting
-            {
-                RandomFrom = 101,
-                RandomTo = 202
-            };
+            // Arrange           
             var expectedRandomText = "101-202";
-            runningService.Setting.Returns(setting);
+            runningService.GetRandomRangeText().Returns(expectedRandomText);
             var mainWindow = new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils, resultExporter);
 
             // Act

@@ -1,5 +1,8 @@
-﻿using LuckyDraw.Repository;
+﻿using LuckyDraw.Constants;
+using LuckyDraw.Repository;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace LuckyDraw.Service
@@ -29,7 +32,17 @@ namespace LuckyDraw.Service
 
         public string GetRoundName()
         {
-            return this.roundList[this.CurrentRound];
+            return this.roundList[this.CurrentRound].ToUpper(CultureInfo.CurrentCulture);
+        }
+
+        public string GetIgnoredListText()
+        {
+            return string.Join(" - ", this.Setting.Excluded.Replace(" ", "").Split(','));
+        }
+
+        public string GetRandomRangeText()
+        {
+            return string.Format("{0}-{1}", this.Setting.RandomFrom.ToString("000"), this.Setting.RandomTo.ToString("000"));
         }
 
         public void ResetModel()
@@ -75,6 +88,11 @@ namespace LuckyDraw.Service
 
         public void UpdateRandom(string random, int index)
         {
+            if (random == "000")
+            {
+                return;
+            }
+
             this.CurrentList[index].Random = random;
             this.CurrentList[index].Status = 1;
             commonRepository.UpdateRandom(this.CurrentList[index].Id, random);
@@ -117,6 +135,21 @@ namespace LuckyDraw.Service
             var existingRandoms = this.runningList.SelectMany(l1 => l1.Select(l2 => l2.Random)).ToList();
             var excludedRandoms = this.Setting.Excluded.Split(',').Select(i => i.Trim()).ToList();
             return existingRandoms.Contains(random) || excludedRandoms.Contains(random);
+        }
+
+        public string CreateRandomNumber()
+        {
+            Random rnd = new Random();
+            for (var i = 0; i < Consts.MaxRandomTrials; i++)
+            {
+                var random = rnd.Next(this.Setting.RandomFrom, this.Setting.RandomTo + 1).ToString("000");
+                if (!this.IsExistRandom(random))
+                {
+                    return random;
+                }
+            }
+
+            return "000";
         }
     }
 }

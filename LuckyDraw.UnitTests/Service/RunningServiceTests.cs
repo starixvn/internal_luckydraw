@@ -44,7 +44,50 @@ namespace LuckyDraw.UnitTests.Service
             var result = service.GetRoundName();
 
             // Assert
-            result.Should().Be("a1");
+            result.Should().Be(results.First().RoundName.ToUpper());
+        }
+
+        [Fact]
+        public void GetIgnoredListText_WhenCalled_ReturnGetIgnoredListText()
+        {
+            // Arrange
+            var commonRepository = Substitute.For<ICommonRepository>();
+            var service = new RunningService(commonRepository);
+            var setting = new Setting
+            {
+                Excluded = "100, 200, 300"
+            };
+            commonRepository.GetSetting().Returns(setting);
+            var expectedIgnoredListText = "100 - 200 - 300";
+
+            // Act
+            service.LoadSetting();
+            var result = service.GetIgnoredListText();
+
+            // Assert
+            result.Should().Be(expectedIgnoredListText);
+        }
+
+        [Fact]
+        public void GetRandomRangeText_WhenCalled_ReturnGetRandomRangeText()
+        {
+            // Arrange
+            var commonRepository = Substitute.For<ICommonRepository>();
+            var service = new RunningService(commonRepository);
+            var setting = new Setting
+            {
+                RandomFrom = 101,
+                RandomTo = 202
+            };
+            commonRepository.GetSetting().Returns(setting);
+            var expectedRandomRange = "101-202";
+
+            // Act
+            service.LoadSetting();
+            var result = service.GetRandomRangeText();
+
+            // Assert
+            result.Should().Be(expectedRandomRange);
         }
 
         [Fact]
@@ -273,6 +316,7 @@ namespace LuckyDraw.UnitTests.Service
         [Fact]
         public void IsExistRandom_WhenExistInRunningList_ReturnTrue()
         {
+            // Arrange
             var commonRepository = Substitute.For<ICommonRepository>();
             var service = new RunningService(commonRepository);
             var results = new List<Result>
@@ -402,6 +446,63 @@ namespace LuckyDraw.UnitTests.Service
             service.MaxRound.Should().Be(expectedMaxRound);
             service.CurrentRound.Should().Be(expectedCurrentRound);
             service.CurrentList.Should().BeEquivalentTo(expectedCurrentList);
+        }
+
+        [Fact]
+        public void CreateRandomNumber_WhenCanNotFindRandom_ReturnZero()
+        {
+            // Arrange
+            var commonRepository = Substitute.For<ICommonRepository>();
+            var service = new RunningService(commonRepository);
+            var results = new List<Result>
+            {
+                new Result { RoundIndex = 1, RoundName = "a1", Random = "010" },
+                new Result { RoundIndex = 2, RoundName = "a2", Random = "012" }
+            };
+            var setting = new Setting { Excluded = "011", RandomFrom = 10, RandomTo = 12 };
+            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.IsDBReady().Returns(true);
+            commonRepository.GetSetting().Returns(setting);
+
+            // Act
+            service.LoadModel();
+            var result = service.CreateRandomNumber();
+
+            // Assert
+            result.Should().Be("000");
+        }
+
+        [Fact]
+        public void CreateRandomNumber_WhenCanFindRandom_ReturnRandom()
+        {
+            // Arrange
+            var commonRepository = Substitute.For<ICommonRepository>();
+            var service = new RunningService(commonRepository);
+            var results = new List<Result>
+            {
+                new Result { RoundIndex = 1, RoundName = "a1", Random = "010" },
+                new Result { RoundIndex = 2, RoundName = "a2", Random = "012" }
+            };
+            var excluded = string.Empty;
+            var expectedRandom = 920;
+            for(var i = 1; i < 1000; i++)
+            {
+                if (i != expectedRandom)
+                {
+                    excluded = excluded + "," + i.ToString("000");
+                }
+            }
+            var setting = new Setting { Excluded = excluded, RandomFrom = 1, RandomTo = 999 };
+            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.IsDBReady().Returns(true);
+            commonRepository.GetSetting().Returns(setting);
+
+            // Act
+            service.LoadModel();
+            var result = service.CreateRandomNumber();
+
+            // Assert
+            result.Should().Be(expectedRandom.ToString("000"));
         }
 
         private List<Result> FakeResult()
