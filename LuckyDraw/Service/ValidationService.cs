@@ -27,11 +27,9 @@ namespace LuckyDraw.Service
 
         public string ValidateRange(Setting setting)
         {
-            if(setting.RandomFrom > setting.RandomTo || 
-                setting.RandomFrom < 1 || 
-                setting.RandomFrom > 999 || 
-                setting.RandomTo < 1 || 
-                setting.RandomTo > 999)
+            var invalidRandomFrom = setting.RandomFrom < 1 || setting.RandomFrom > Consts.MaxRandom;
+            var invalidRandomTo = setting.RandomTo < 1 || setting.RandomTo > Consts.MaxRandom;
+            if (setting.RandomFrom > setting.RandomTo || invalidRandomFrom || invalidRandomTo)
             {
                 return Labels.InvalidRange;
             }
@@ -41,10 +39,9 @@ namespace LuckyDraw.Service
 
         public string ValidateRandomTime(Setting setting)
         {
-            if(setting.RandomAnimationDuration < 1 ||
-                setting.RandomAnimationDuration > 60 ||
-                setting.RandomTransitionDuration < 0 ||
-                setting.RandomTransitionDuration > 60)
+            var invalidAnimationDuration = setting.RandomAnimationDuration < 1 || setting.RandomAnimationDuration > Consts.MaxRandomDuration;
+            var invalidTransitionDuration = setting.RandomTransitionDuration < 0 || setting.RandomTransitionDuration > Consts.MaxRandomDuration;
+            if (invalidAnimationDuration || invalidTransitionDuration)
             {
                 return Labels.InvalidRandomTime;
             }

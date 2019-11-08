@@ -18,5 +18,7 @@ namespace LuckyDraw.Constants
         public const int RangeTwoDigits = 100;
         public const int RangeOneDigit = 10;
         public const int MaxRoundItems = 10;
+        public const int MaxRandom = 999;
+        public const int MaxRandomDuration = 60;
     }
 }
