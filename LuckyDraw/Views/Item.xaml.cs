@@ -23,25 +23,19 @@ namespace LuckyDraw.Views
 
         public void LoadItemData(Result itemData)
         {
-            var pLabel = (TextBlock)this.FindName("textPrize");
-            pLabel.Text = itemData.PrizeName;
-
-            var rLabel = (TextBlock)this.FindName("textRandom");
-            rLabel.Text = itemData.Random == string.Empty ? "000" : itemData.Random;
-
-            var imageItem = (ImageBrush)this.FindName("img");
+            this.textPrize.Text = itemData.PrizeName;
+            this.textRandom.Text = itemData.Random == string.Empty ? "000" : itemData.Random;
             var image = utils.PrizeImage(itemData.PrizeId.ToString() + ".png", Consts.HomeImageSize);
-            imageItem.ImageSource = image ?? utils.PrizeImage("prize.png", Consts.HomeImageSize);
+            this.img.ImageSource = image ?? utils.PrizeImage("prize.png", Consts.HomeImageSize);
         }
 
         public async Task RunRandom(string random, int randomTime)
         {
             const int two = 2;
-            var label = (TextBlock)this.FindName("textRandom");
-            await AnimateRandom(Consts.RangeThreeDigits, "000", string.Empty, label, randomTime);
-            await AnimateRandom(Consts.RangeTwoDigits, "00", random.Substring(0, 1), label, randomTime);
-            await AnimateRandom(Consts.RangeOneDigit, "0", random.Substring(0, two), label, randomTime);
-            label.Text = random;
+            await AnimateRandom(Consts.RangeThreeDigits, "000", string.Empty, this.textRandom, randomTime);
+            await AnimateRandom(Consts.RangeTwoDigits, "00", random.Substring(0, 1), this.textRandom, randomTime);
+            await AnimateRandom(Consts.RangeOneDigit, "0", random.Substring(0, two), this.textRandom, randomTime);
+            this.textRandom.Text = random;
         }
 
         [SuppressMessage("csharpsquid", "S2325:Methods and properties that don't access instance data can be static to prevent any misunderstanding about the contract of the method.")]
