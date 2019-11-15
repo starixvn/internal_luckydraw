@@ -90,12 +90,12 @@ namespace LuckyDraw.Repository
             }
         }
 
-        public void UpdateStartIndex(int startIndex) {
+        public void UpdateRunningIndex(int runningIndex) {
             using (var db = luckyDrawEntity.GetDBContext())
             {
                 if (db.Settings.Count() != 0) {
                     var s = db.Settings.First();
-                    s.StartIndex = startIndex;
+                    s.RunningIndex = runningIndex;
                     db.SaveChanges();
                 }
             }
@@ -139,6 +139,33 @@ namespace LuckyDraw.Repository
             }
         }
 
+        public void WriteLog(int resultId, string random)
+        {
+            using (var db = luckyDrawEntity.GetDBContext())
+            {
+                var l = new Log
+                {
+                    ResultId = resultId,
+                    Random = random
+                };
+
+                db.Logs.Add(l);
+                db.SaveChanges();
+            }
+        }
+
+        public void ResetRandom(int resultId)
+        {
+            using (var db = luckyDrawEntity.GetDBContext())
+            {
+                var r = db.Results.Find(resultId);
+                r.Random = string.Empty;
+                r.Status = 0;
+                r.UpdatedTime = DateTime.Now;
+                db.SaveChanges();
+            }
+        }
+
         public bool IsDBReady()
         {
             using (var db = luckyDrawEntity.GetDBContext())
@@ -155,13 +182,13 @@ namespace LuckyDraw.Repository
             }
         }
 
-        public List<Result> GetCurrentResultList(int startIndex)
+        public List<Result> GetCurrentResultList()
         {
             using (var db = luckyDrawEntity.GetDBContext())
             {
                 if (db.Results.Count() > 0) { 
                     var flag = db.Results.Max(i => i.Flag);
-                    return db.Results.Where(i => i.Flag == flag && i.PrizeIndex >= startIndex).ToList();
+                    return db.Results.Where(i => i.Flag == flag).ToList();
                 }
                 else
                 {
@@ -188,13 +215,22 @@ namespace LuckyDraw.Repository
 
         public List<Result> GetResultList()
         {
-            return GetCurrentResultList(1);
+            return GetCurrentResultList();
         }
 
         public List<Result> GetLogList() {
             using (var db = luckyDrawEntity.GetDBContext())
             {
-                return db.Results.ToList();
+                var logs = new List<Result>();
+                var logData = db.Logs.ToList();
+                foreach(var log in logData)
+                {
+                    var r = db.Results.Find(log.ResultId);
+                    r.Random = log.Random;
+                    logs.Add(r);
+                }
+                
+                return logs;
             }
         }
 

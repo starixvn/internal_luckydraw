@@ -15,9 +15,13 @@
         <TextBlock x:Name="textPrize" Text="Prize" Foreground="#FFD8D8D6" 
                    FontSize="18" TextWrapping="Wrap"
                    MaxWidth="220" MaxHeight="55" TextAlignment="Center" ></TextBlock>
+
         <TextBlock x:Name="textRandom"  Text="000" Foreground="#FFEAAC06" 
                     Width="150" TextAlignment="Center"
                     FontSize="30" FontWeight="Bold"></TextBlock>
-        <Rectangle Width="40" Fill="#FFEAAC06" Height="2" Margin="0,-2,0,0"/>
+        <Border x:Name="border1" BorderThickness="2 2 0 0" BorderBrush="#FFEAAC06" Width="10" Height="10" Margin="-50,-50,10,10"/>
+        <Border x:Name="border2" BorderThickness="0 2 2 0" BorderBrush="#FFEAAC06" Width="10" Height="10" Margin="70,-50,10,10"/>
+        <Border x:Name="border3" BorderThickness="0 0 2 2" BorderBrush="#FFEAAC06" Width="10" Height="10" Margin="70,-10,10,10"/>
+        <Border x:Name="border4" BorderThickness="2 0 0 2" BorderBrush="#FFEAAC06" Width="10" Height="10" Margin="-50,-20,10,10"/>
     </StackPanel>
 </UserControl>

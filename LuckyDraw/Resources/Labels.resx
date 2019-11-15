@@ -150,8 +150,8 @@
   <data name="InformNewGame" xml:space="preserve">
     <value>New Game started!</value>
   </data>
-  <data name="PositiveStartIndexAlert" xml:space="preserve">
-    <value>Prize Start Index must be a positive number</value>
+  <data name="WrongRunningIndex" xml:space="preserve">
+    <value>Running Index must be a positive number</value>
   </data>
   <data name="Random" xml:space="preserve">
     <value>Random</value>
@@ -185,5 +185,14 @@
   </data>
   <data name="InvalidRange" xml:space="preserve">
     <value>Invalid Random Range</value>
+  </data>
+  <data name="ConfirmResetRandom" xml:space="preserve">
+    <value>Are you sure you want to reset random at this index?</value>
+  </data>
+  <data name="ConfirmUpdateRunningIndex" xml:space="preserve">
+    <value>Are you sure you want to update running index?</value>
+  </data>
+  <data name="RunningIndexOutOfRange" xml:space="preserve">
+    <value>Index is out of range</value>
   </data>
 </root>

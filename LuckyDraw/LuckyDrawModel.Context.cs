@@ -27,6 +27,7 @@ namespace LuckyDraw
     
         public virtual DbSet<Prize> Prizes { get; set; }
         public virtual DbSet<Result> Results { get; set; }
+        public virtual DbSet<Log> Logs { get; set; }
         public virtual DbSet<Setting> Settings { get; set; }
     }
 }

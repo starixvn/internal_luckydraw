@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="LuckyDrawModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResultId" Type="int" Nullable="false" />
+          <Property Name="Random" Type="nvarchar" MaxLength="1000" Nullable="false" />
+        </EntityType>
         <EntityType Name="Prizes">
           <Key>
             <PropertyRef Name="Id" />
@@ -38,11 +46,12 @@
           <Property Name="RandomFrom" Type="int" Nullable="false" />
           <Property Name="RandomTo" Type="int" Nullable="false" />
           <Property Name="Excluded" Type="nvarchar" MaxLength="1000" />
-          <Property Name="StartIndex" Type="int" Nullable="false" />
+          <Property Name="RunningIndex" Type="int" Nullable="false" />
           <Property Name="RandomTransitionDuration" Type="int" Nullable="false" />
           <Property Name="RandomAnimationDuration" Type="int" Nullable="false" />
         </EntityType>
         <EntityContainer Name="LuckyDrawModelStoreContainer">
+          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Prizes" EntityType="Self.Prizes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Results" EntityType="Self.Results" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
@@ -54,6 +63,7 @@
         <EntityContainer Name="LuckyDrawEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Prizes" EntityType="LuckyDrawModel.Prize" />
           <EntitySet Name="Results" EntityType="LuckyDrawModel.Result" />
+          <EntitySet Name="Logs" EntityType="LuckyDrawModel.Log" />
           <EntitySet Name="Settings" EntityType="LuckyDrawModel.Setting" />
         </EntityContainer>
         <EntityType Name="Prize">
@@ -81,6 +91,14 @@
           <Property Name="UpdatedTime" Type="DateTime" Precision="3" />
           <Property Name="PrizeId" Type="Int32" Nullable="false" />
         </EntityType>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResultId" Type="Int32" Nullable="false" />
+          <Property Name="Random" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="Setting">
           <Key>
             <PropertyRef Name="Id" />
@@ -89,7 +107,7 @@
           <Property Name="RandomFrom" Type="Int32" Nullable="false" />
           <Property Name="RandomTo" Type="Int32" Nullable="false" />
           <Property Name="Excluded" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
-          <Property Name="StartIndex" Type="Int32" Nullable="false" />
+          <Property Name="RunningIndex" Type="Int32" Nullable="false" />
           <Property Name="RandomTransitionDuration" Type="Int32" Nullable="false" />
           <Property Name="RandomAnimationDuration" Type="Int32" Nullable="false" />
         </EntityType>
@@ -126,12 +144,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="LuckyDrawModel.Log">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="Random" ColumnName="Random" />
+                <ScalarProperty Name="ResultId" ColumnName="ResultId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Settings">
             <EntityTypeMapping TypeName="LuckyDrawModel.Setting">
               <MappingFragment StoreEntitySet="Settings">
                 <ScalarProperty Name="RandomAnimationDuration" ColumnName="RandomAnimationDuration" />
                 <ScalarProperty Name="RandomTransitionDuration" ColumnName="RandomTransitionDuration" />
-                <ScalarProperty Name="StartIndex" ColumnName="StartIndex" />
+                <ScalarProperty Name="RunningIndex" ColumnName="RunningIndex" />
                 <ScalarProperty Name="Excluded" ColumnName="Excluded" />
                 <ScalarProperty Name="RandomTo" ColumnName="RandomTo" />
                 <ScalarProperty Name="RandomFrom" ColumnName="RandomFrom" />

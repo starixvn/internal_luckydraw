@@ -55,5 +55,17 @@ namespace LuckyDraw.Views
                 }
             }
         }
+
+        public void BlurItem()
+        {
+            var opacity = 0.4;
+            this.textPrize.Opacity = opacity;
+            this.textRandom.Opacity = opacity;
+            this.img.Opacity = opacity;
+            this.border1.Opacity = opacity;
+            this.border2.Opacity = opacity;
+            this.border3.Opacity = opacity;
+            this.border4.Opacity = opacity;
+        }
     }
 }

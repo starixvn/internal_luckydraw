@@ -63,7 +63,7 @@ namespace LuckyDraw.Service
             }
 
             this.Setting = commonRepository.GetSetting();
-            var resultList = commonRepository.GetCurrentResultList(this.Setting.StartIndex);
+            var resultList = commonRepository.GetCurrentResultList();
             var rounds = resultList.Select(i => new { i.RoundName, i.RoundIndex }).Distinct().OrderBy(i => i.RoundIndex).Select(i => i.RoundName).ToList();
 
             if (rounds.Count > 0)
@@ -96,6 +96,7 @@ namespace LuckyDraw.Service
             this.CurrentList[index].Random = random;
             this.CurrentList[index].Status = 1;
             commonRepository.UpdateRandom(this.CurrentList[index].Id, random);
+            commonRepository.WriteLog(this.CurrentList[index].Id, random);
         }
 
         public bool MoveNext()
@@ -151,5 +152,31 @@ namespace LuckyDraw.Service
 
             return "000";
         }
+
+        public bool ResetRandom(int index)
+        {            
+            var resultList = this.runningList.SelectMany(r => r).ToList();
+            if ((index-1) < resultList.Count)
+            {
+                var result = resultList.ToList()[index-1];
+                this.commonRepository.ResetRandom(result.Id);
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool IsSkipped(Result item)
+        {
+            var resultList = this.runningList.SelectMany(r => r).ToList();
+            var index = resultList.FindIndex(r => r.Id == item.Id) + 1;
+
+            return index < this.Setting.RunningIndex;
+        }
+
+        public bool IsRunnable(Result item)
+        {
+            return !IsSkipped(item) && item.Status == 0;
+        }             
     }
 }

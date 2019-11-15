@@ -141,6 +141,9 @@
     <Compile Include="DBContext\LuckyDrawEntity.cs" />
     <Compile Include="Export\IResultExporter.cs" />
     <Compile Include="Export\ResultExporter.cs" />
+    <Compile Include="Log.cs">
+      <DependentUpon>LuckyDrawModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ViewLog.cs" />
     <Compile Include="Model\ViewPrize.cs" />
     <Compile Include="Views\Item.xaml.cs">

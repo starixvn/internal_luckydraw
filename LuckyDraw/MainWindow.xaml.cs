@@ -101,15 +101,20 @@ namespace LuckyDraw
 
             for (var i = 0; i < roundSize; i++)
             {
-                FindItem(i).LoadItemData(this.runningService.CurrentList[i]);
+                var item = FindItem(i);
+                item.LoadItemData(this.runningService.CurrentList[i]);
+                if (this.runningService.IsSkipped(this.runningService.CurrentList[i]))
+                {
+                    item.BlurItem();
+                }
             }
         }        
 
         private async Task RunRandoms() {
             var randomTrasitionTime = this.runningService.Setting.RandomTransitionDuration * 1000;
             var randomTime = this.runningService.Setting.RandomAnimationDuration * 1000 / 3;
-            for (var i = 0; i < this.runningService.CurrentList.Count; i++) {                
-                if (this.runningService.CurrentList[i].Status == 0)
+            for (var i = 0; i < this.runningService.CurrentList.Count; i++) {
+                if (this.runningService.IsRunnable(this.runningService.CurrentList[i]))
                 {                    
                     string random = this.runningService.CreateRandomNumber();
                     await FindItem(i).RunRandom(random, randomTime);
@@ -269,24 +274,61 @@ namespace LuckyDraw
 
         private void NewGameButton_Click(object sender, RoutedEventArgs e)
         {
-            var startIndex = 0;
-            if (int.TryParse(this.textPrizeStartIndex.Text, out startIndex) && startIndex > 0)
+            MessageBoxResult messageBoxResult = MessageBox.Show(Labels.ConfirmNewGame, Labels.Confirmation, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (messageBoxResult == MessageBoxResult.Yes)
             {
-                MessageBoxResult messageBoxResult = MessageBox.Show(Labels.ConfirmNewGame, Labels.Confirmation, MessageBoxButton.YesNo, MessageBoxImage.Question);
+                commonService.StartNewGame();
+                this.runningService.ResetModel();
+                MessageBox.Show(Labels.InformNewGame, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            
+        }
+
+        private void UpdateRunningIndexButton_Click(object sender, RoutedEventArgs e)
+        {
+            int runningIndex = 0;
+            if (int.TryParse(this.textRunningIndex.Text, out runningIndex) && runningIndex > 0)
+            {
+                MessageBoxResult messageBoxResult = MessageBox.Show(Labels.ConfirmUpdateRunningIndex, Labels.Confirmation, MessageBoxButton.YesNo, MessageBoxImage.Question);
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
-                    commonService.UpdateStartIndex(startIndex);
-                    commonService.StartNewGame();
+                    commonService.UpdateRunningIndex(runningIndex);
+                    MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
                     this.runningService.ResetModel();
-                    MessageBox.Show(Labels.InformNewGame, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             else
             {
-                MessageBox.Show(Labels.PositiveStartIndexAlert, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(Labels.WrongRunningIndex, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }        
+
+        private void ResetRandomButton_Click(object sender, RoutedEventArgs e)
+        {
+            int index = 0;
+            if (!(int.TryParse(this.textResetRandoms.Text, out index) && index > 0))
+            {
+                MessageBox.Show(Labels.WrongRunningIndex, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            MessageBoxResult messageBoxResult = MessageBox.Show(Labels.ConfirmResetRandom, Labels.Confirmation, MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (messageBoxResult == MessageBoxResult.Yes)
+            {
+                var result = this.runningService.ResetRandom(index);
+                if (result)
+                {
+                    MessageBox.Show(Labels.SaveSuccess, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
+                    this.runningService.ResetModel();
+                }
+                else
+                {
+                    MessageBox.Show(Labels.RunningIndexOutOfRange, Labels.Error, MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
-        
+
+
         private void ExportResultButton_Click(object sender, RoutedEventArgs e)
         {
             var dlg = new SaveFileDialog();

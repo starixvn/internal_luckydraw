@@ -93,7 +93,7 @@
                                 <Rectangle Width="130" Fill="#FFEAAC06" Height="2" Margin="0,1,0,0"/>
                                 <Rectangle Width="70" Fill="#FFEAAC06" Height="2" Margin="0,3,0,0"/>
                             </StackPanel>
-                            
+
                         </Viewbox>
 
                         <Viewbox x:Name="roundViewBox" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="7" >
@@ -147,30 +147,32 @@
 
                         <Viewbox Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Margin="60,0,59,0">
                             <StackPanel>
-                                <TextBlock FontSize="20">
-                                    <Line X1="0" Y1="0" X2="200" Y2="0" Stroke="#aa8dc5" StrokeThickness="1"/>
-                                    <TextBlock Text=" IGNORED " VerticalAlignment="Center" Foreground="#aa8dc5" 
-                                               FontWeight="Bold"
-                                               HorizontalAlignment="Center" Margin="0,0,0,-35"/>
-                                    <Line X1="0" Y1="0" X2="200" Y2="0" Stroke="#FFD8D8D6" StrokeThickness="1"/>
-                                </TextBlock>                                
-                                
-                                <TextBlock x:Name="textIgnored" 
-                                         Margin="0,10,0,0"
-                                        TextWrapping="Wrap" Width="430"
-                                        TextAlignment="Center"   
-                                        Text="100,200,100,200,100,200,100,200,100,200,100,200,100,200,100,200,"                                
-                                        TextDecorations="{x:Null}" 
-                                        Foreground="#FFD8D8D6" FontSize="20"/>   
+                                <TextBlock Text=" IGNORED " VerticalAlignment="Center" Foreground="#aa8dc5" 
+                                               FontWeight="Bold" FontSize="20"
+                                               HorizontalAlignment="Center" Margin="0,0,0,5"/>
+                                <Border BorderBrush="#FF787171" BorderThickness="1" Opacity="0.6">
+                                    <TextBlock x:Name="textIgnored" 
+                                            Margin="0,0,0,0"
+                                            Padding="5"      
+                                            TextWrapping="Wrap" Width="430"
+                                            TextAlignment="Center"   
+                                            Text="100,200,100,200,100,200,100,200,100,200,100,200,100,200,100,200,"                                
+                                            TextDecorations="{x:Null}" 
+                                            Foreground="#FFD8D8D6" FontSize="20" Opacity="0.6">
+                                        <TextBlock.Background>
+                                            <SolidColorBrush Color="Gray" Opacity="0.1" />
+                                        </TextBlock.Background>
+                                    </TextBlock>
+                                </Border>
                             </StackPanel>
                         </Viewbox>
                     </Grid>
                 </Viewbox>
             </Grid>
         </TabItem>
-        <TabItem x:Name="tabSetting" Header="Settings" BorderBrush="{x:Null}" Visibility="Collapsed">
+        <TabItem x:Name="tabSetting" Header="Settings" BorderBrush="{x:Null}" Visibility="Visible">
             <Grid>
-                <Label Content="Settings" Canvas.Left="185" Canvas.Top="23"  FontSize="20" Margin="30,0,0,0" FontWeight="Bold" Foreground="#FF6C5B5B"/>
+                <Label Canvas.Left="185" Canvas.Top="23"  FontSize="20" Margin="30,0,0,0" FontWeight="Bold" Foreground="#FF6C5B5B"/>
                 <TabControl Grid.ColumnSpan="2" Margin="33,50,30,30" >
                     <TabItem x:Name="tabPrize" Header="Prizes">
                         <Grid Background="#FFE5E5E5">
@@ -239,13 +241,29 @@
                                 Click="SaveIgnoredListButton_Click"/>
                         </Grid>
                     </TabItem>
-                    <TabItem x:Name="tabRun" Header="Run" >
+                    <TabItem x:Name="tabRun" Header="New Game" >
                         <Grid Margin="10,-2,74,-1">
-                            <Button Content="Start New Game" Height="28" Width="100" Margin="70,125,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                            <Button Content="Start New Game" Height="28" Width="100" Margin="62,48,0,0" 
+                                    HorizontalAlignment="Left" VerticalAlignment="Top" 
                                     Click="NewGameButton_Click" />
-                            <Label Content="Start Prize Index" HorizontalAlignment="Left" Margin="70,75,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.395,1.154"/>
-                            <TextBox x:Name="textPrizeStartIndex" HorizontalAlignment="Left" Height="23" Margin="170,79,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.554,0.913"/>
-                            <TextBlock HorizontalAlignment="Left" Margin="315,70,0,0" TextWrapping="Wrap" Text="You should always keep this value 1 unless you really need to start at a specific prize index. All prizes less than this start index will be ignored." VerticalAlignment="Top" Height="39" Width="482" Foreground="#FFDA0707"/>
+                        </Grid>
+                    </TabItem>
+                    <TabItem x:Name="tabRunningIndex" Header="Running Index" >
+                        <Grid Margin="10,-2,74,-1">
+                            <Label Content="Running Index" HorizontalAlignment="Left" Margin="70,52,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="textRunningIndex" Height="23" TextWrapping="Wrap" Width="120" Margin="183,52,756,531"
+                                     HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Button Content="Update" Height="22" Width="77" Margin="183,104,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                                    Click="UpdateRunningIndexButton_Click" />
+                        </Grid>
+                    </TabItem>
+                    <TabItem x:Name="tabResetRandom" Header="Reset Randoms" >
+                        <Grid Margin="10,-2,74,-1">
+                            <Label Content="Reset Randoms At Index" Margin="52,35,851,542" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <TextBox x:Name="textResetRandoms" Height="23" TextWrapping="Wrap" Margin="213,35,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="205" />
+                            <Button Content="Update" Height="24" Width="80" Margin="213,76,0,0" 
+                                    Click="ResetRandomButton_Click" RenderTransformOrigin="1.46,-0.857" 
+                                    HorizontalAlignment="Left" VerticalAlignment="Top" />
                         </Grid>
                     </TabItem>
                 </TabControl>

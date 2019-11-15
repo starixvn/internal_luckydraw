@@ -39,9 +39,9 @@ namespace LuckyDraw.Service
             commonRepository.UpdateRandomTime(settings);
         }
 
-        public void UpdateStartIndex(int startIndex)
+        public void UpdateRunningIndex(int startIndex)
         {
-            commonRepository.UpdateStartIndex(startIndex);
+            commonRepository.UpdateRunningIndex(startIndex);
         }
 
         public void StartNewGame()

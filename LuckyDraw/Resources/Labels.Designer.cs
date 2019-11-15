@@ -97,11 +97,29 @@ namespace LuckyDraw.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to reset random at this index?.
+        /// </summary>
+        internal static string ConfirmResetRandom {
+            get {
+                return ResourceManager.GetString("ConfirmResetRandom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to run this round?.
         /// </summary>
         internal static string ConfirmRun {
             get {
                 return ResourceManager.GetString("ConfirmRun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to update running index?.
+        /// </summary>
+        internal static string ConfirmUpdateRunningIndex {
+            get {
+                return ResourceManager.GetString("ConfirmUpdateRunningIndex", resourceCulture);
             }
         }
         
@@ -205,20 +223,20 @@ namespace LuckyDraw.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Prize Start Index must be a positive number.
-        /// </summary>
-        internal static string PositiveStartIndexAlert {
-            get {
-                return ResourceManager.GetString("PositiveStartIndexAlert", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Random.
         /// </summary>
         internal static string Random {
             get {
                 return ResourceManager.GetString("Random", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Index is out of range.
+        /// </summary>
+        internal static string RunningIndexOutOfRange {
+            get {
+                return ResourceManager.GetString("RunningIndexOutOfRange", resourceCulture);
             }
         }
         
@@ -264,6 +282,15 @@ namespace LuckyDraw.Resources {
         internal static string WrongPassword {
             get {
                 return ResourceManager.GetString("WrongPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Running Index must be a positive number.
+        /// </summary>
+        internal static string WrongRunningIndex {
+            get {
+                return ResourceManager.GetString("WrongRunningIndex", resourceCulture);
             }
         }
     }

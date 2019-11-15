@@ -18,7 +18,7 @@ namespace LuckyDraw
         public int RandomFrom { get; set; }
         public int RandomTo { get; set; }
         public string Excluded { get; set; }
-        public int StartIndex { get; set; }
+        public int RunningIndex { get; set; }
         public int RandomTransitionDuration { get; set; }
         public int RandomAnimationDuration { get; set; }
     }
