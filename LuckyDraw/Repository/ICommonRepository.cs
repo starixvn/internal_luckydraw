@@ -13,7 +13,7 @@ namespace LuckyDraw.Repository
         void UpdateIgnoredList(IEnumerable<Setting> settings);
         void UpdateRange(IEnumerable<Setting> settings);
         void UpdateRandomTime(IEnumerable<Setting> settings);
-        void UpdateRunningIndex(int startIndex);
+        void UpdateRunningIndex(int runningIndex);
         void ResetRandom(int resultId);
         void StartNewGame();
         void UpdateRandom(int id, string random);

@@ -58,7 +58,7 @@ namespace LuckyDraw.Views
 
         public void BlurItem()
         {
-            var opacity = 0.4;
+            const double opacity = 0.4;
             this.textPrize.Opacity = opacity;
             this.textRandom.Opacity = opacity;
             this.img.Opacity = opacity;
