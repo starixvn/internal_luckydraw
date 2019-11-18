@@ -35,7 +35,7 @@ namespace LuckyDraw.UnitTests.Service
             var service = new RunningService(commonRepository);
             var results = FakeResult();
             var setting = fixture.Create<Setting>();
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -98,7 +98,7 @@ namespace LuckyDraw.UnitTests.Service
             var service = new RunningService(commonRepository);
             var results = FakeResult();
             var setting = fixture.Create<Setting>();
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -134,7 +134,7 @@ namespace LuckyDraw.UnitTests.Service
             var service = new RunningService(commonRepository);
             var results = FakeResult();
             var setting = fixture.Create<Setting>();
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -157,7 +157,7 @@ namespace LuckyDraw.UnitTests.Service
             var service = new RunningService(commonRepository);
             var results = FakeResult();
             var setting = fixture.Create<Setting>();
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -202,7 +202,7 @@ namespace LuckyDraw.UnitTests.Service
                 }
             };
             var setting = fixture.Create<Setting>();
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -222,7 +222,7 @@ namespace LuckyDraw.UnitTests.Service
             var service = new RunningService(commonRepository);
             var results = FakeResult();
             var setting = fixture.Create<Setting>();
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -270,7 +270,7 @@ namespace LuckyDraw.UnitTests.Service
                 }
             };
             var setting = fixture.Create<Setting>();
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -290,7 +290,7 @@ namespace LuckyDraw.UnitTests.Service
             var service = new RunningService(commonRepository);
             var results = FakeResult();
             var setting = fixture.Create<Setting>();
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -322,7 +322,7 @@ namespace LuckyDraw.UnitTests.Service
                 new Result { RoundIndex = 1, RoundName = "a1", Random = "200" }
             };
             var setting = new Setting { Excluded = "100" };
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -348,7 +348,7 @@ namespace LuckyDraw.UnitTests.Service
                 new Result { RoundIndex = 2, RoundName = "a2", Random = "300" }
             };
             var setting = new Setting { Excluded = "100" };
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -372,7 +372,7 @@ namespace LuckyDraw.UnitTests.Service
                 new Result { RoundIndex = 1, RoundName = "a1", Random = "200" }
             };
             var setting = new Setting { Excluded = "100, 300" };
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -394,7 +394,7 @@ namespace LuckyDraw.UnitTests.Service
             var service = new RunningService(commonRepository);
             var results = FakeResult();
             var setting = fixture.Create<Setting>();
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -429,7 +429,7 @@ namespace LuckyDraw.UnitTests.Service
             var service = new RunningService(commonRepository);
             var results = new List<Result>();
             var setting = fixture.Create<Setting>();
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -448,7 +448,7 @@ namespace LuckyDraw.UnitTests.Service
             var service = new RunningService(commonRepository);
             var results = FakeResult();
             var setting = fixture.Create<Setting>();
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -483,7 +483,7 @@ namespace LuckyDraw.UnitTests.Service
                 new Result { RoundIndex = 2, RoundName = "a2", Random = "012" }
             };
             var setting = new Setting { Excluded = "011", RandomFrom = 10, RandomTo = 12 };
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 
@@ -516,7 +516,7 @@ namespace LuckyDraw.UnitTests.Service
                 }
             }
             var setting = new Setting { Excluded = excluded, RandomFrom = 1, RandomTo = 999 };
-            commonRepository.GetCurrentResultList(Arg.Any<int>()).Returns(results);
+            commonRepository.GetCurrentResultList().Returns(results);
             commonRepository.IsDBReady().Returns(true);
             commonRepository.GetSetting().Returns(setting);
 

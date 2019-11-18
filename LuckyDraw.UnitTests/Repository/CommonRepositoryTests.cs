@@ -207,10 +207,10 @@ namespace LuckyDraw.UnitTests.Repository
             var connection = GetConnection();
             var repository = GetRepository(connection);
 
-            var startIndex = fixture.Create<int>();
+            var runningIndex = fixture.Create<int>();
 
             // Act
-            repository.UpdateStartIndex(startIndex);
+            repository.UpdateRunningIndex(runningIndex);
 
             // Assert
             using (var db = GetDBContext(connection))
@@ -220,13 +220,13 @@ namespace LuckyDraw.UnitTests.Repository
         }
 
         [Fact]
-        public void UpdateStartIndex_WhenCalled_UpdateStartIndex()
+        public void UpdateRunningIndex_WhenCalled_UpdateRunningIndex()
         {
             // Arrange
             var connection = GetConnection();
             var repository = GetRepository(connection);
 
-            var startIndex = fixture.Create<int>();
+            var runningIndex = fixture.Create<int>();
             var settings = fixture.CreateMany<Setting>().ToList();
             using (var db = GetDBContext(connection))
             {
@@ -235,13 +235,13 @@ namespace LuckyDraw.UnitTests.Repository
             }
 
             // Act
-            repository.UpdateStartIndex(startIndex);
+            repository.UpdateRunningIndex(runningIndex);
 
             // Assert
             using (var db = GetDBContext(connection))
             {
                 var s = db.Settings.First();
-                s.StartIndex.Should().Be(startIndex);
+                s.RunningIndex.Should().Be(runningIndex);
             }
         }
 
@@ -519,9 +519,17 @@ namespace LuckyDraw.UnitTests.Repository
             var repository = GetRepository(connection);
 
             var results = fixture.CreateMany<Result>().ToList();
+            var logs = new List<Log>
+            {
+                new Log { ResultId = 1, Random = "a"},
+                new Log { ResultId = 1, Random = "b"},
+                new Log { ResultId = 2, Random = "c"},
+                new Log { ResultId = 3, Random = "d"}
+            };
             using (var db = GetDBContext(connection))
             {
                 db.Results.AddRange(results);
+                db.Logs.AddRange(logs);
                 db.SaveChanges();
             }
 
@@ -529,7 +537,7 @@ namespace LuckyDraw.UnitTests.Repository
             var result = repository.GetLogList();
 
             // Assert
-            result.Count.Should().Be(results.Count);
+            result.Count.Should().Be(logs.Count);
         }
 
         [Fact]
@@ -605,7 +613,7 @@ namespace LuckyDraw.UnitTests.Repository
                 s.RandomFrom.Should().Be(setting.RandomFrom);
                 s.RandomTo.Should().Be(setting.RandomTo);
                 s.Excluded.Should().Be(setting.Excluded);
-                s.StartIndex.Should().Be(setting.StartIndex);
+                s.RunningIndex.Should().Be(setting.RunningIndex);
             }
         }
 

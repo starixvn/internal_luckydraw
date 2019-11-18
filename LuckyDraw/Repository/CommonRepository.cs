@@ -223,7 +223,7 @@ namespace LuckyDraw.Repository
             {
                 var logs = new List<Result>();
                 var logData = db.Logs.ToList();
-                foreach(var log in logData)
+                foreach (var log in logData)
                 {
                     var r = db.Results.Find(log.ResultId);
                     r.Random = log.Random;

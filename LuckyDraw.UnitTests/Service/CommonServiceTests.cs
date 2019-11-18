@@ -91,18 +91,18 @@ namespace LuckyDraw.UnitTests.Service
         }
 
         [Fact]
-        public void UpdateStartIndex_WhenCalled_CallUpdateStartIndex()
+        public void UpdateRunningIndex_WhenCalled_CallUpdateRunningIndex()
         {
             // Arrange
             var commonRepository = Substitute.For<ICommonRepository>();
             var service = new CommonService(commonRepository);
-            var startIndex = fixture.Create<int>();
+            var runningIndex = fixture.Create<int>();
 
             // Act
-            service.UpdateStartIndex(startIndex);
+            service.UpdateRunningIndex(runningIndex);
 
             // Assert
-            commonRepository.UpdateStartIndex(startIndex);
+            commonRepository.Received().UpdateRunningIndex(runningIndex);
         }
 
         [Fact]
