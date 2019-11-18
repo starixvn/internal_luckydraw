@@ -66,6 +66,7 @@ namespace LuckyDraw.Views
             this.border2.Opacity = opacity;
             this.border3.Opacity = opacity;
             this.border4.Opacity = opacity;
+            this.canvasImage.Opacity = opacity;
         }
     }
 }

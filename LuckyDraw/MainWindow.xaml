@@ -133,14 +133,14 @@
                             <StackPanel>
                                 <TextBlock Text="RANGE RANDOM" Foreground="#aa8dc5" 
                                            FontWeight="Bold"
-                             FontSize="20"                                   
-                               TextAlignment="Center"
-                                   />
+                                            FontSize="20"                                   
+                                            TextAlignment="Center" />
                                 <TextBlock x:Name="textRandomRange" 
-                               TextWrapping="Wrap" Text="100-200"                                 
-                               TextDecorations="{x:Null}" 
-                               TextAlignment="Center"
-                               Foreground="#FFEAAC06" FontSize="33"
+                                           Margin="0,-5,0,0"
+                                    TextWrapping="Wrap" Text="100-200"                                 
+                                    TextDecorations="{x:Null}" 
+                                    TextAlignment="Center"
+                                    Foreground="#FFEAAC06" FontSize="33"
                                />
                             </StackPanel>
                         </Viewbox>
@@ -150,7 +150,7 @@
                                 <TextBlock Text=" IGNORED " VerticalAlignment="Center" Foreground="#aa8dc5" 
                                                FontWeight="Bold" FontSize="20"
                                                HorizontalAlignment="Center" Margin="0,0,0,5"/>
-                                <Border BorderBrush="#FF787171" BorderThickness="1" Opacity="0.6">
+                                <Border BorderBrush="#2c2764" BorderThickness="1" Opacity="1" Margin="0,-3,0,0">
                                     <TextBlock x:Name="textIgnored" 
                                             Margin="0,0,0,0"
                                             Padding="5"      
@@ -158,9 +158,9 @@
                                             TextAlignment="Center"   
                                             Text="100,200,100,200,100,200,100,200,100,200,100,200,100,200,100,200,"                                
                                             TextDecorations="{x:Null}" 
-                                            Foreground="#FFD8D8D6" FontSize="20" Opacity="0.6">
+                                            Foreground="#6f6a9d" FontSize="20" Opacity="1">
                                         <TextBlock.Background>
-                                            <SolidColorBrush Color="Gray" Opacity="0.1" />
+                                            <SolidColorBrush Color="#1a1740" Opacity="0.2" />
                                         </TextBlock.Background>
                                     </TextBlock>
                                 </Border>
