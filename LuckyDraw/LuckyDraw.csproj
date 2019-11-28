@@ -329,6 +329,13 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Resources\Images\center.png" />
+    <Resource Include="Resources\Images\left.png" />
+    <Resource Include="Resources\Images\right.png" />
+    <Resource Include="Resources\Images\round-left.png" />
+    <Resource Include="Resources\Images\round-middle.png" />
+    <Resource Include="Resources\Images\round-right.png" />
+    <Resource Include="Resources\Images\bg.png" />
     <Resource Include="Resources\Images\prev.png" />
     <Resource Include="Resources\Images\next.png" />
     <Resource Include="Resources\Images\arrow.png" />
