@@ -78,14 +78,14 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0*"></RowDefinition>
                             <RowDefinition Height="64*"></RowDefinition>
-                            <RowDefinition Height="340*"></RowDefinition>
+                            <RowDefinition Height="370*"></RowDefinition>
                             <RowDefinition Height="125*"></RowDefinition>
                             <RowDefinition Height="69*"></RowDefinition>
                             <RowDefinition Height="69*"></RowDefinition>
                             <RowDefinition Height="49*"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <Viewbox Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,20,0,-10" Grid.ColumnSpan="5">
+                        <Viewbox Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,20,0,-5" Grid.ColumnSpan="5">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
                                 <Rectangle Width="49" Height="100" Margin="0,0,0,0">
                                     <Rectangle.Fill>
@@ -114,7 +114,7 @@
                             <luckydraw1:RoundView10 x:Name="roundView10" />
                         </Viewbox>
 
-                        <Viewbox Grid.Column="2" Grid.Row="3" Width="55" HorizontalAlignment="Right" Margin="0,0,15,0">
+                        <Viewbox Grid.Column="2" Grid.Row="3" Width="55" HorizontalAlignment="Right" Margin="0,0,5,0">
                             <Button Style="{StaticResource TransparentButton}" Click="PreviousButton_Click" >
                                 <StackPanel Cursor="Hand">
                                     <TextBlock Foreground="#aa8dc5" TextAlignment="Right" Margin="10,0,-5,-10" FontWeight="Bold">PREVIOUS</TextBlock>
@@ -134,7 +134,7 @@
                            ></Image>
                             </StackPanel>
                         </Viewbox>
-                        <Viewbox Grid.Column="4" Grid.Row="3" Width="30" HorizontalAlignment="Left" Margin="15,0,0,0">
+                        <Viewbox Grid.Column="4" Grid.Row="3" Width="30" HorizontalAlignment="Left" Margin="0,0,0,0">
                             <Button Style="{StaticResource TransparentButton}" Click="NextButton_Click" >
                                 <StackPanel Cursor="Hand">
                                     <TextBlock Foreground="#FFEAAC06" Margin="-5,0,0,-9" FontWeight="Bold">NEXT</TextBlock>
@@ -148,13 +148,15 @@
                                 <TextBlock Text="RANGE RANDOM" Foreground="#aa8dc5" 
                                            FontWeight="Bold"
                                             FontSize="12"                                   
-                                            TextAlignment="Center" />
+                                            TextAlignment="Center" 
+                                           Padding="5,0,5,0"/>
                                 <TextBlock x:Name="textRandomRange" 
-                                           Margin="0,-5,0,0"
+                                           Margin="0,-2,0,0"
                                     TextWrapping="Wrap" Text="100-200"                                 
                                     TextDecorations="{x:Null}" 
                                     TextAlignment="Center"
-                                    Foreground="#FFEAAC06" FontSize="20"
+                                    Foreground="#FFEAAC06" FontSize="15"
+                                    Padding="25,0,25,0"
                                />
                             </StackPanel>
                         </Viewbox>
