@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:luckydraw="clr-namespace:LuckyDraw"
         xmlns:luckydraw1="clr-namespace:LuckyDraw.Views"
-        mc:Ignorable="d"
-        Title="Lucky Draw" Height="743.15" Width="1222.45" WindowStartupLocation="CenterScreen" WindowState="Maximized" WindowStyle="None" Padding="0" Background="#FF080808">
+        mc:Ignorable="d"        
+        Title="Lucky Draw" Height="743.15" Width="1222.45" WindowStartupLocation="CenterOwner" Padding="0" Background="#FF080808" WindowState="Maximized">
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem Header="Home" Click="HomeMenu_Click">
@@ -80,9 +80,8 @@
                             <RowDefinition Height="64*"></RowDefinition>
                             <RowDefinition Height="370*"></RowDefinition>
                             <RowDefinition Height="125*"></RowDefinition>
-                            <RowDefinition Height="69*"></RowDefinition>
-                            <RowDefinition Height="69*"></RowDefinition>
                             <RowDefinition Height="49*"></RowDefinition>
+                            <RowDefinition Height="138*"></RowDefinition>
                         </Grid.RowDefinitions>
 
                         <Viewbox Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,20,0,-5" Grid.ColumnSpan="5">
@@ -98,6 +97,7 @@
                                     </Border.Background>                                    
                                     <TextBlock x:Name="textRound" TextWrapping="Wrap" Text="ROUND long long long" 
                                             Foreground="#FFEAAC06" FontSize="36" FontWeight="Bold" 
+                                               FontFamily="Resources/Fonts/nulshock.ttf #Nulshock Rg"
                                             Padding="0,0,0,5" VerticalAlignment="Center">                                        
                                     </TextBlock>
                                 </Border>
@@ -114,11 +114,33 @@
                             <luckydraw1:RoundView10 x:Name="roundView10" />
                         </Viewbox>
 
-                        <Viewbox Grid.Column="2" Grid.Row="3" Width="55" HorizontalAlignment="Right" Margin="0,0,5,0">
+                        <Viewbox Grid.Column="2" Grid.Row="3" Width="65" HorizontalAlignment="Right" Margin="0,-25,5,0">
                             <Button Style="{StaticResource TransparentButton}" Click="PreviousButton_Click" >
                                 <StackPanel Cursor="Hand">
-                                    <TextBlock Foreground="#aa8dc5" TextAlignment="Right" Margin="10,0,-5,-10" FontWeight="Bold">PREVIOUS</TextBlock>
-                                    <Image Width="60" Height="22" Source="Resources/Images/prev.png"></Image>
+                                    <TextBlock TextAlignment="Right" Margin="10,0,-5,-11" FontWeight="Bold" Text="PREVIOUS">                                        
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Foreground" Value="#aa8dc5"/>
+                                                 <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=StackPanel,AncestorLevel=1}, Path=IsMouseOver}" Value="True">
+                                                        <Setter Property="Foreground" Value="#FFEAAC06" />
+                                                     </DataTrigger>
+                                                 </Style.Triggers>
+                                             </Style>
+                                          </TextBlock.Style>
+                                    </TextBlock>
+                                    <Image Width="60" Height="22" >
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Setter Property="Source" Value="Resources/Images/next.png"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=StackPanel,AncestorLevel=1}, Path=IsMouseOver}" Value="True">
+                                                        <Setter Property="Source" Value="Resources/Images/prev.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
                                 </StackPanel>
                             </Button>
                         </Viewbox>
@@ -134,11 +156,33 @@
                            ></Image>
                             </StackPanel>
                         </Viewbox>
-                        <Viewbox Grid.Column="4" Grid.Row="3" Width="30" HorizontalAlignment="Left" Margin="0,0,0,0">
+                        <Viewbox Grid.Column="4" Grid.Row="3" Width="34" HorizontalAlignment="Left" Margin="0,-25,0,0">
                             <Button Style="{StaticResource TransparentButton}" Click="NextButton_Click" >
                                 <StackPanel Cursor="Hand">
-                                    <TextBlock Foreground="#FFEAAC06" Margin="-5,0,0,-9" FontWeight="Bold">NEXT</TextBlock>
-                                    <Image Width="32" Height="20" Source="Resources/Images/next.png"></Image>
+                                    <TextBlock Margin="-5,0,0,-10" FontWeight="Bold" Text="NEXT">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Foreground" Value="#aa8dc5"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=StackPanel,AncestorLevel=1}, Path=IsMouseOver}" Value="True">
+                                                        <Setter Property="Foreground" Value="#FFEAAC06" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <Image Width="32" Height="20">
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Setter Property="Source" Value="Resources/Images/prev.png"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=StackPanel,AncestorLevel=1}, Path=IsMouseOver}" Value="True">
+                                                        <Setter Property="Source" Value="Resources/Images/next.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                    </Image>
                                 </StackPanel>
                             </Button>
                         </Viewbox>
@@ -157,22 +201,26 @@
                                     TextAlignment="Center"
                                     Foreground="#FFEAAC06" FontSize="15"
                                     Padding="25,0,25,0"
+                                    FontWeight="Bold"
                                />
                             </StackPanel>
                         </Viewbox>
 
-                        <Viewbox Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Margin="60,0,59,0">
-                            <StackPanel>
+                        <Border Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Margin="60,0,60,0">
+                            <StackPanel VerticalAlignment="Center" SnapsToDevicePixels="True">
                                 <TextBlock Text=" IGNORED " VerticalAlignment="Center" Foreground="#aa8dc5" 
-                                               FontWeight="Bold" FontSize="15"
-                                               HorizontalAlignment="Center" Margin="0,0,0,5"/>
-                                <Border BorderBrush="#2c2764" BorderThickness="1" Opacity="1" Margin="0,-3,0,0">
+                                               FontWeight="Bold" FontSize="15" 
+                                               HorizontalAlignment="Center" Margin="0,0,0,5"
+                                           />
+                                <Border BorderBrush="#2c2764" BorderThickness="1" Opacity="1" Margin="0,-3,0,0" HorizontalAlignment="Center">
                                     <TextBlock x:Name="textIgnored" 
                                             Margin="0,0,0,0"
                                             Padding="5"      
-                                            TextWrapping="Wrap" Width="430"
-                                            TextAlignment="Center"   
-                                            Text="100,200,100,200,100,200,100,200,100,200,100,200,100,200,100,200,"                                
+                                            TextWrapping="Wrap" 
+                                            MinWidth="150"
+                                            TextAlignment="Center"                                                 
+                                            HorizontalAlignment="Center"
+                                            Text="100 - 200 - 300 - 200 - 300 - 200 - 300 - 200 - 300 - 200 - 300 - 200 - 300 - 200 - 300 - 200 - 300 - 200 - 300"                                
                                             TextDecorations="{x:Null}" 
                                             Foreground="#6f6a9d" FontSize="15" Opacity="1">
                                         <TextBlock.Background>
@@ -181,7 +229,7 @@
                                     </TextBlock>
                                 </Border>
                             </StackPanel>
-                        </Viewbox>
+                        </Border>
                     </Grid>
                 </Viewbox>
             </Grid>

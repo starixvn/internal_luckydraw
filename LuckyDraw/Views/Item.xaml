@@ -7,19 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
-        <Canvas  x:Name="canvasImage" Background="#2d30b0" Opacity="0.9" Width="112" Height="112">
+        <Canvas  x:Name="canvasImage" Opacity="0.9" Width="112" Height="112">
+            <Canvas.Background>
+                <ImageBrush ImageSource="/Resources/Images/item-bg.png"/>
+            </Canvas.Background>
             <Border Width="100" Height="100" Margin="6,6">
                 <Border.Background>
                     <ImageBrush  x:Name="img" Stretch="None" />
                 </Border.Background>
             </Border>
-            <Border x:Name="border5" Opacity="0.5" BorderThickness="0 4 4 0" BorderBrush="#1b1431" Width="90" Height="90" Margin="20,2,10,10"/>
-            <Border x:Name="border6" Opacity="0.5" BorderThickness="4 0 0 4" BorderBrush="#1b1431" Width="90" Height="90" Margin="2,20,10,10"/>
         </Canvas>
 
         <TextBlock x:Name="textPrize" Text="Prize" Foreground="#beb8ff" 
                    FontSize="18" TextWrapping="Wrap"
-                   MaxWidth="220" MaxHeight="55" TextAlignment="Center" ></TextBlock>
+                   MaxWidth="220" MaxHeight="55" TextAlignment="Center" FontWeight="Bold" ></TextBlock>
 
         <TextBlock x:Name="textRandom"  Text="000" Foreground="#ffd33b" 
                     Width="150" TextAlignment="Center"

@@ -31,7 +31,7 @@
     <TargetCulture>aa</TargetCulture>
     <ProductName>LuckyDraw</ProductName>
     <PublisherName>Nexus</PublisherName>
-    <ApplicationRevision>16</ApplicationRevision>
+    <ApplicationRevision>17</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -323,12 +323,14 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\Fonts\nulshock.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Resource Include="Resources\Images\item-bg.png" />
     <Resource Include="Resources\Images\center.png" />
     <Resource Include="Resources\Images\left.png" />
     <Resource Include="Resources\Images\right.png" />
