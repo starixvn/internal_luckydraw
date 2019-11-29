@@ -25,21 +25,21 @@
             <RowDefinition Height="25*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Viewbox Grid.Column="0" Grid.Row="0" Height="30" Grid.ColumnSpan="7"></Viewbox>
-        <Viewbox Grid.Column="0" Grid.Row="2" Height="30" Grid.ColumnSpan="7"></Viewbox>
-        <Viewbox Grid.Column="0" Grid.Row="4" Height="30" Grid.ColumnSpan="7"></Viewbox>
-        
-        <Viewbox x:Name="viewBoxItem1" Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+        <Viewbox Grid.Column="0" Grid.Row="0" Height="15" Grid.ColumnSpan="7"></Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="2" Height="10" Grid.ColumnSpan="7"></Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="4" Height="10" Grid.ColumnSpan="7"></Viewbox>
+
+        <StackPanel x:Name="viewBoxItem1" Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" >
             <local:Item />
-        </Viewbox>
-        <Viewbox x:Name="viewBoxItem2" Grid.Column="4" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+        </StackPanel>
+        <StackPanel x:Name="viewBoxItem2" Grid.Column="4" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" >
             <local:Item />
-        </Viewbox>
-        <Viewbox x:Name="viewBoxItem3"  Grid.Column="3" Grid.Row="3" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+        </StackPanel>
+        <StackPanel x:Name="viewBoxItem3"  Grid.Column="3" Grid.Row="3" VerticalAlignment="Top" Margin="5,0,5,0">
             <local:Item />
-        </Viewbox>
-        <Viewbox x:Name="viewBoxItem4" Grid.Column="4" Grid.Row="3" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+        </StackPanel>
+        <StackPanel x:Name="viewBoxItem4" Grid.Column="4" Grid.Row="3" VerticalAlignment="Top" Margin="5,0,5,0" >
             <local:Item />
-        </Viewbox>
+        </StackPanel>
     </Grid>
 </UserControl>

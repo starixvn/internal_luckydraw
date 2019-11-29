@@ -91,7 +91,7 @@ namespace LuckyDraw
         private Item FindItem(int index)
         {
             var roundView = (UserControl)this.roundViewBox.Child;
-            return (Item)((Viewbox)roundView.FindName("viewBoxItem" + (index + 1))).Child;
+            return (Item)((StackPanel)roundView.FindName("viewBoxItem" + (index + 1))).Children[0];
         }
 
         private void UpdateRoundUI()

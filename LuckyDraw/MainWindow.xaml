@@ -64,7 +64,7 @@
         <TabItem x:Name="tabHome" Header="Home" BorderBrush="{x:Null}" Margin="0" Padding="0" Visibility="Collapsed" >
             <Grid Background="Black">
                 <Viewbox>
-                    <Grid RenderTransformOrigin="0.502,0.467" Width="1024" Height="768" ShowGridLines="False">
+                    <Grid Width="1024" Height="768" ShowGridLines="False">
                         <Grid.Background>
                             <ImageBrush ImageSource="Resources/Images/bg.png"/>
                         </Grid.Background>
@@ -112,7 +112,7 @@
                             </StackPanel>
                         </Viewbox>
 
-                        <Viewbox x:Name="roundViewBox" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="7" >
+                        <Viewbox x:Name="roundViewBox" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="7" >                            
                             <luckydraw1:RoundView10 x:Name="roundView10" />
                         </Viewbox>
 

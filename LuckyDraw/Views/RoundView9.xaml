@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
             >
-    <Grid ShowGridLines="False">
+    <Grid ShowGridLines="False" Margin="20,0,20,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="16*"></ColumnDefinition>
             <ColumnDefinition Width="16*"></ColumnDefinition>
@@ -28,36 +28,36 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Viewbox Grid.Column="0" Grid.Row="0" Height="10" Grid.ColumnSpan="7"></Viewbox>
-        <Viewbox Grid.Column="0" Grid.Row="2" Height="20" Grid.ColumnSpan="7"></Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="0" Height="15" Grid.ColumnSpan="7"></Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="2" Height="10" Grid.ColumnSpan="7"></Viewbox>
         <Viewbox Grid.Column="0" Grid.Row="4" Height="10" Grid.ColumnSpan="7"></Viewbox>
 
-        <Viewbox x:Name="viewBoxItem1" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+        <StackPanel x:Name="viewBoxItem1" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" >
             <local:Item />
-        </Viewbox>
-        <Viewbox x:Name="viewBoxItem2" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+        </StackPanel>
+        <StackPanel x:Name="viewBoxItem2" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" >
             <local:Item />
-        </Viewbox>
-        <Viewbox x:Name="viewBoxItem3"  Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+        </StackPanel>
+        <StackPanel x:Name="viewBoxItem3"  Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0">
             <local:Item />
-        </Viewbox>
-        <Viewbox x:Name="viewBoxItem4" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+        </StackPanel>
+        <StackPanel x:Name="viewBoxItem4" Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" >
             <local:Item />
-        </Viewbox>
-        <Viewbox x:Name="viewBoxItem5" Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+        </StackPanel>
+        <StackPanel x:Name="viewBoxItem5" Grid.Column="8" Grid.ColumnSpan="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" >
             <local:Item />
-        </Viewbox>
-        <Viewbox x:Name="viewBoxItem6" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+        </StackPanel>
+        <StackPanel x:Name="viewBoxItem6" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Top" Margin="5,0,5,0" >
             <local:Item />
-        </Viewbox>
-        <Viewbox x:Name="viewBoxItem7" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+        </StackPanel>
+        <StackPanel x:Name="viewBoxItem7" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Top" Margin="5,0,5,0">
             <local:Item />
-        </Viewbox>
-        <Viewbox x:Name="viewBoxItem8" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+        </StackPanel>
+        <StackPanel x:Name="viewBoxItem8" Grid.Column="5" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Top" Margin="5,0,5,0">
             <local:Item />
-        </Viewbox>
-        <Viewbox x:Name="viewBoxItem9" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Top" Margin="5,0,5,0" Height="150">
+        </StackPanel>
+        <StackPanel x:Name="viewBoxItem9" Grid.Column="7" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Top" Margin="5,0,5,0">
             <local:Item />
-        </Viewbox>        
+        </StackPanel>        
     </Grid>
 </UserControl>
