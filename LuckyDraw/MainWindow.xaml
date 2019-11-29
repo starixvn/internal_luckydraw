@@ -6,7 +6,7 @@
         xmlns:luckydraw="clr-namespace:LuckyDraw"
         xmlns:luckydraw1="clr-namespace:LuckyDraw.Views"
         mc:Ignorable="d"        
-        Title="Lucky Draw" Height="743.15" Width="1222.45" WindowStartupLocation="CenterOwner" Padding="0" Background="#FF080808" WindowState="Maximized">
+        Title="Lucky Draw" Height="743.15" Width="1222.45" WindowStartupLocation="CenterOwner" Padding="0" Background="#FF080808" WindowState="Maximized" WindowStyle="None">
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem Header="Home" Click="HomeMenu_Click">
@@ -132,10 +132,10 @@
                                     <Image Width="60" Height="22" >
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
-                                                <Setter Property="Source" Value="Resources/Images/next.png"/>
+                                                <Setter Property="Source" Value="Resources/Images/prev.png"/>
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=StackPanel,AncestorLevel=1}, Path=IsMouseOver}" Value="True">
-                                                        <Setter Property="Source" Value="Resources/Images/prev.png"/>
+                                                        <Setter Property="Source" Value="Resources/Images/prev-hover.png"/>
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
@@ -149,11 +149,32 @@
                                 <Button Width="144" Height="100" Style="{StaticResource TransparentButton}"
                         Click="RunButton_Click" BorderBrush="{x:Null}" Background="{x:Null}">
                                     <StackPanel Cursor="Hand">
-                                        <Image Width="144" Height="100" Source="Resources/Images/run.png"></Image>
+                                        <Image Width="144" Height="100" >
+                                            <Image.Style>
+                                                <Style TargetType="{x:Type Image}">
+                                                    <Setter Property="Source" Value="Resources/Images/run.png"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=StackPanel,AncestorLevel=2}, Path=IsMouseOver}" Value="True">
+                                                            <Setter Property="Source" Value="Resources/Images/run-hover.png"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Image.Style>
+                                        </Image>
                                     </StackPanel>
                                 </Button>
-                                <Image Width="50" Height="80"  Source="Resources/Images/arrow.png" Margin="0,-50,0,0"
-                           ></Image>
+                                <Image Width="50" Height="80"  Margin="0,-50,0,0">
+                                        <Image.Style>
+                                            <Style TargetType="{x:Type Image}">
+                                                <Setter Property="Source" Value="Resources/Images/arrow.png"/>
+                                                <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=StackPanel,AncestorLevel=1}, Path=IsMouseOver}" Value="True">
+                                                        <Setter Property="Source" Value="Resources/Images/arrow-hover.png"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Image.Style>
+                                </Image>
                             </StackPanel>
                         </Viewbox>
                         <Viewbox Grid.Column="4" Grid.Row="3" Width="34" HorizontalAlignment="Left" Margin="0,-25,0,0">
@@ -174,10 +195,10 @@
                                     <Image Width="32" Height="20">
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
-                                                <Setter Property="Source" Value="Resources/Images/prev.png"/>
+                                                <Setter Property="Source" Value="Resources/Images/next.png"/>
                                                 <Style.Triggers>
                                                     <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=StackPanel,AncestorLevel=1}, Path=IsMouseOver}" Value="True">
-                                                        <Setter Property="Source" Value="Resources/Images/next.png"/>
+                                                        <Setter Property="Source" Value="Resources/Images/next-hover.png"/>
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
