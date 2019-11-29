@@ -6,7 +6,9 @@
         xmlns:luckydraw="clr-namespace:LuckyDraw"
         xmlns:luckydraw1="clr-namespace:LuckyDraw.Views"
         mc:Ignorable="d"        
-        Title="Lucky Draw" Height="743.15" Width="1222.45" WindowStartupLocation="CenterOwner" Padding="0" Background="#FF080808" WindowState="Maximized" WindowStyle="None">
+        Title="Lucky Draw" Height="743.15" Width="1222.45" WindowStartupLocation="CenterOwner" 
+        Padding="0" Background="#FF080808" WindowState="Maximized" WindowStyle="None"
+        KeyDown="HandleKeyDown">
     <Window.ContextMenu>
         <ContextMenu>
             <MenuItem Header="Home" Click="HomeMenu_Click">
@@ -115,7 +117,7 @@
                         </Viewbox>
 
                         <Viewbox Grid.Column="2" Grid.Row="3" Width="65" HorizontalAlignment="Right" Margin="0,-25,5,0">
-                            <Button Style="{StaticResource TransparentButton}" Click="PreviousButton_Click" >
+                            <Button Style="{StaticResource TransparentButton}" Click="PreviousButton_Click" Focusable="False" >
                                 <StackPanel Cursor="Hand">
                                     <TextBlock TextAlignment="Right" Margin="10,0,-5,-11" FontWeight="Bold" Text="PREVIOUS">                                        
                                         <TextBlock.Style>
@@ -147,7 +149,7 @@
                         <Viewbox Grid.Column="3" Grid.Row="3" >
                             <StackPanel>
                                 <Button Width="144" Height="100" Style="{StaticResource TransparentButton}"
-                        Click="RunButton_Click" BorderBrush="{x:Null}" Background="{x:Null}">
+                                    Click="RunButton_Click" BorderBrush="{x:Null}" Background="{x:Null}" Focusable="False" >
                                     <StackPanel Cursor="Hand">
                                         <Image Width="144" Height="100" >
                                             <Image.Style>
@@ -178,7 +180,7 @@
                             </StackPanel>
                         </Viewbox>
                         <Viewbox Grid.Column="4" Grid.Row="3" Width="34" HorizontalAlignment="Left" Margin="0,-25,0,0">
-                            <Button Style="{StaticResource TransparentButton}" Click="NextButton_Click" >
+                            <Button Style="{StaticResource TransparentButton}" Click="NextButton_Click" Focusable="False">
                                 <StackPanel Cursor="Hand">
                                     <TextBlock Margin="-5,0,0,-10" FontWeight="Bold" Text="NEXT">
                                         <TextBlock.Style>

@@ -227,7 +227,15 @@ namespace LuckyDraw.Repository
                 {
                     var r = db.Results.Find(log.ResultId);
                     r.Random = log.Random;
-                    logs.Add(r);
+
+                    var logResult = new Result
+                    {
+                        PrizeIndex = r.PrizeIndex,
+                        PrizeName = r.PrizeName,
+                        Random = r.Random,
+                        RoundName = r.RoundName
+                    };
+                    logs.Add(logResult);
                 }
                 
                 return logs;

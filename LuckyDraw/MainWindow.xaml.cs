@@ -14,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
@@ -124,8 +125,14 @@ namespace LuckyDraw
             }
         }
         
-        private async void RunButton_Click(object sender, RoutedEventArgs e) {            
-            if (this.isLoading || !this.runningService.IsValid) {
+        private async void RunButton_Click(object sender, RoutedEventArgs e) {
+            await Run(); 
+        }
+
+        private async Task Run()
+        {
+            if (this.isLoading || !this.runningService.IsValid)
+            {
                 return;
             }
 
@@ -135,30 +142,58 @@ namespace LuckyDraw
                 this.isLoading = true;
                 await RunRandoms();
                 this.isLoading = false;
-            }  
+            }
         }
 
         private void PreviousButton_Click(object sender, RoutedEventArgs e)
+        {
+            GoPrevious();
+        }
+
+        private void GoPrevious()
         {
             if (this.isLoading)
             {
                 return;
             }
 
-            if (this.runningService.MoveBack()) {
+            if (this.runningService.MoveBack())
+            {
                 BuildRoundUI();
             }
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
         {
+            GoNext();
+        }
+
+        private void GoNext()
+        {
             if (this.isLoading)
             {
                 return;
             }
 
-            if (this.runningService.MoveNext()) {
+            if (this.runningService.MoveNext())
+            {
                 BuildRoundUI();
+            }
+        }
+
+        private async void HandleKeyDown(object sender, KeyEventArgs e)
+        {            
+            if (e.Key == Key.Enter)
+            {
+                await Run();
+            }           
+            else if(e.Key == Key.Right)
+            {
+                GoNext();
+            }
+            else if(e.Key == Key.Left)
+            {
+                GoPrevious();
             }
         }
 
