@@ -97,7 +97,7 @@
                                     <Border.Background>
                                         <ImageBrush ImageSource="Resources/Images/center.png"/>
                                     </Border.Background>                                    
-                                    <TextBlock x:Name="textRound" TextWrapping="Wrap" Text="ROUND long long long" 
+                                    <TextBlock x:Name="textRound" TextWrapping="Wrap" Text="ROUND 1" 
                                             Foreground="#FFEAAC06" FontSize="36" FontWeight="Bold" 
                                                FontFamily="Resources/Fonts/nulshock.ttf #Nulshock Rg"
                                             Padding="0,0,0,5" VerticalAlignment="Center">                                        
@@ -113,7 +113,7 @@
                         </Viewbox>
 
                         <Viewbox x:Name="roundViewBox" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="7" >                            
-                            <luckydraw1:RoundView10 x:Name="roundView10" />
+                            <luckydraw1:RoundView6 x:Name="roundView6" />
                         </Viewbox>
 
                         <Viewbox Grid.Column="2" Grid.Row="3" Width="65" HorizontalAlignment="Right" Margin="0,-25,5,0">

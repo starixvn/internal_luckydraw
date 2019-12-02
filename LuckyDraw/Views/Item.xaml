@@ -18,8 +18,8 @@
             </Border>
         </Canvas>
 
-        <Border Height="29">
-            <TextBlock x:Name="textPrize" Text="Prize long long long long long long long long long long long long" 
+        <Border Height="30">
+            <TextBlock x:Name="textPrize" Text="Prize x" 
                    Foreground="#beb8ff" 
                    FontSize="13" TextWrapping="Wrap"
                    MaxWidth="160"
