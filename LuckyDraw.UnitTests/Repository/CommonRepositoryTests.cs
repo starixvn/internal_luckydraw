@@ -561,6 +561,55 @@ namespace LuckyDraw.UnitTests.Repository
         }
 
         [Fact]
+        public void WriteLog_WhenCalled_WriteLog()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            var resultId = fixture.Create<int>();
+            var random = fixture.Create<string>();
+
+            // Act
+            repository.WriteLog(resultId, random);
+
+            // Assert
+            using (var db = GetDBContext(connection))
+            {
+                var logs = db.Logs.ToList();
+                logs.Count.Should().Be(1);
+                logs[0].ResultId.Should().Be(resultId);
+                logs[0].Random.Should().Be(random);                
+            }
+        }
+
+        [Fact]
+        public void ResetRandom_WhenCalled_ResetRandom()
+        {
+            // Arrange
+            var connection = GetConnection();
+            var repository = GetRepository(connection);
+
+            var resultId = 1;
+            using (var db = GetDBContext(connection))
+            {
+                var result = new Result { };
+                db.Results.Add(result);
+                db.SaveChanges();
+            }
+
+            // Act
+            repository.ResetRandom(resultId);
+
+            // Assert
+            using (var db = GetDBContext(connection))
+            {
+                var result = db.Results.Find(resultId);
+                result.Status.Should().Be(0);
+            }
+        }
+
+        [Fact]
         public void IsEmptyPrize_WhenPrizeEmpty_ReturnTrue()
         {
             // Arrange

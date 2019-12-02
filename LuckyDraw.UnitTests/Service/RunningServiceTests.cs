@@ -508,7 +508,7 @@ namespace LuckyDraw.UnitTests.Service
             };
             var excluded = string.Empty;
             var expectedRandom = 920;
-            for(var i = 1; i < 1000; i++)
+            for (var i = 1; i < 1000; i++)
             {
                 if (i != expectedRandom)
                 {
@@ -526,6 +526,90 @@ namespace LuckyDraw.UnitTests.Service
 
             // Assert
             result.Should().Be(expectedRandom.ToString("000"));
+        }
+
+        [Theory]
+        [InlineData(2, true)]
+        [InlineData(3, false)]
+        public void ResetRandom_WhenIndexValid_ResetRandom(int index, bool expectedResult)
+        {
+            // Arrange
+            var commonRepository = Substitute.For<ICommonRepository>();
+            var service = new RunningService(commonRepository);
+            var results = new List<Result>
+            {
+                new Result { RoundIndex = 1, RoundName = "a1", Random = "010" },
+                new Result { RoundIndex = 2, RoundName = "a2", Random = "012" }
+            };
+            var setting = new Setting { Excluded = "011", RandomFrom = 10, RandomTo = 12 };
+            commonRepository.GetCurrentResultList().Returns(results);
+            commonRepository.IsDBReady().Returns(true);
+            commonRepository.GetSetting().Returns(setting);
+
+            // Act
+            service.LoadModel();
+            var result = service.ResetRandom(index);
+
+            // Assert
+            result.Should().Be(expectedResult);
+        }
+
+        [Theory]
+        [InlineData(1, false)]
+        [InlineData(3, true)]
+        public void IsSkipped_WhenCalled_CheckIfItemIsSkipped(int runningIndex, bool expectedResult)
+        {
+            // Arrange
+            var commonRepository = Substitute.For<ICommonRepository>();
+            var service = new RunningService(commonRepository);
+            var results = new List<Result>
+            {
+                new Result { Id = 2, RoundIndex = 1, RoundName = "a1", Random = "010" },
+                new Result { Id = 5, RoundIndex = 2, RoundName = "a2", Random = "012" }
+            };
+            var setting = new Setting { Excluded = "011", RandomFrom = 10, RandomTo = 12, RunningIndex = runningIndex };
+            commonRepository.GetCurrentResultList().Returns(results);
+            commonRepository.IsDBReady().Returns(true);
+            commonRepository.GetSetting().Returns(setting);
+
+            var item = new Result { Id = 5, RoundIndex = 2, RoundName = "a2", Random = "012" };
+
+            // Act
+            service.LoadModel();
+            var result = service.IsSkipped(item);
+
+            // Assert
+            result.Should().Be(expectedResult);
+        }
+
+        [Theory]
+        [InlineData(1, 0, true)]
+        [InlineData(1, 1, false)]
+        [InlineData(3, 0, false)]
+        [InlineData(3, 1, false)]
+        public void IsRunnable_WhenCalled_CheckIfItemIsRunnable(int runningIndex, int status, bool expectedResult)
+        {
+            // Arrange
+            var commonRepository = Substitute.For<ICommonRepository>();
+            var service = new RunningService(commonRepository);
+            var results = new List<Result>
+            {
+                new Result { Id = 2, RoundIndex = 1, RoundName = "a1", Random = "010" },
+                new Result { Id = 5, RoundIndex = 2, RoundName = "a2", Random = "012" }
+            };
+            var setting = new Setting { Excluded = "011", RandomFrom = 10, RandomTo = 12, RunningIndex = runningIndex };
+            commonRepository.GetCurrentResultList().Returns(results);
+            commonRepository.IsDBReady().Returns(true);
+            commonRepository.GetSetting().Returns(setting);
+
+            var item = new Result { Id = 5, RoundIndex = 2, RoundName = "a2", Random = "012", Status = status };
+
+            // Act
+            service.LoadModel();
+            var result = service.IsRunnable(item);
+
+            // Assert
+            result.Should().Be(expectedResult);
         }
 
         private List<Result> FakeResult()
