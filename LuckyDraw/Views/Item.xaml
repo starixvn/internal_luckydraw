@@ -21,7 +21,7 @@
         <Border Height="29">
             <TextBlock x:Name="textPrize" Text="Prize long long long long long long long long long long long long" 
                    Foreground="#beb8ff" 
-                   FontSize="11" TextWrapping="Wrap"
+                   FontSize="13" TextWrapping="Wrap"
                    MaxWidth="160"
                    LineStackingStrategy="BlockLineHeight"
                    LineHeight="13"
