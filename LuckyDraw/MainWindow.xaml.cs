@@ -330,6 +330,7 @@ namespace LuckyDraw
             if (messageBoxResult == MessageBoxResult.Yes)
             {
                 commonService.StartNewGame();
+                commonService.UpdateRunningIndex(1);
                 this.runningService.ResetModel();
                 MessageBox.Show(Labels.InformNewGame, Labels.Inform, MessageBoxButton.OK, MessageBoxImage.Information);
             }
