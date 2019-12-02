@@ -1,5 +1,9 @@
 ﻿using LuckyDraw.Repository;
+using NPOI.HSSF.UserModel;
+using NPOI.SS.UserModel;
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace LuckyDraw.Service
 {
@@ -31,37 +35,29 @@ namespace LuckyDraw.Service
 
         private void GeneratePrizes()
         {
-            const string prizeName1 = "Gold";
-            const string prizeName2 = "Iphone";
-            const string prizeName3 = "5 Million";
-            const string roundName1 = "Gold Prize";
-            const string roundName2 = "Silver Prize";
-            const string roundName3 = "Cash Prize";
-
-            var prizes = new List<Prize>
+            var path = String.Format("{0}\\AppData\\InitialData\\Lucky2020.xlsx", AppDomain.CurrentDomain.BaseDirectory);
+            var prizes = new List<Prize>();
+            using (MemoryStream ms = new MemoryStream(File.ReadAllBytes(path)))
             {
-                new Prize { PrizeName = prizeName1, PrizeIndex = 1, RoundIndex = 1, RoundName = roundName1 },
-                new Prize { PrizeName = prizeName1, PrizeIndex = 2, RoundIndex = 1, RoundName = roundName1 },
-                new Prize { PrizeName = prizeName1, PrizeIndex = 3, RoundIndex = 1, RoundName = roundName1 },
-                new Prize { PrizeName = prizeName1, PrizeIndex = 4, RoundIndex = 1, RoundName = roundName1 },
-                new Prize { PrizeName = prizeName1, PrizeIndex = 5, RoundIndex = 1, RoundName = roundName1 },
-                new Prize { PrizeName = prizeName2, PrizeIndex = 6, RoundIndex = 2, RoundName = roundName2 },
-                new Prize { PrizeName = prizeName2, PrizeIndex = 7, RoundIndex = 2, RoundName = roundName2 },
-                new Prize { PrizeName = prizeName2, PrizeIndex = 8, RoundIndex = 2, RoundName = roundName2 },
-                new Prize { PrizeName = prizeName2, PrizeIndex = 9, RoundIndex = 2, RoundName = roundName2 },
-                new Prize { PrizeName = prizeName2, PrizeIndex = 10, RoundIndex = 2, RoundName = roundName2 },
-                new Prize { PrizeName = prizeName3, PrizeIndex = 11, RoundIndex = 3, RoundName = roundName3 },
-                new Prize { PrizeName = prizeName3, PrizeIndex = 12, RoundIndex = 3, RoundName = roundName3 },
-                new Prize { PrizeName = prizeName3, PrizeIndex = 13, RoundIndex = 3, RoundName = roundName3 },
-                new Prize { PrizeName = prizeName3, PrizeIndex = 14, RoundIndex = 3, RoundName = roundName3 },
-                new Prize { PrizeName = prizeName3, PrizeIndex = 15, RoundIndex = 3, RoundName = roundName3 },
-                new Prize { PrizeName = prizeName3, PrizeIndex = 16, RoundIndex = 3, RoundName = roundName3 },
-                new Prize { PrizeName = prizeName3, PrizeIndex = 17, RoundIndex = 3, RoundName = roundName3 },
-                new Prize { PrizeName = prizeName3, PrizeIndex = 18, RoundIndex = 3, RoundName = roundName3 },
-                new Prize { PrizeName = prizeName3, PrizeIndex = 19, RoundIndex = 3, RoundName = roundName3 },
-                new Prize { PrizeName = prizeName3, PrizeIndex = 20, RoundIndex = 3, RoundName = roundName3 }
-            };
-
+                IWorkbook wb = NPOI.SS.UserModel.WorkbookFactory.Create(ms);
+                NPOI.SS.UserModel.ISheet sheet = wb.GetSheetAt(0);
+                for (int row = 0; row <= sheet.LastRowNum; row++)
+                {
+                    var sheetRow = sheet.GetRow(row);
+                    if (sheetRow != null)
+                    {
+                        var prize = new Prize
+                        {
+                            PrizeIndex = Convert.ToInt32(sheetRow.GetCell(0).NumericCellValue),
+                            PrizeName = sheetRow.GetCell(1).StringCellValue,
+                            RoundIndex = Convert.ToInt32(sheetRow.GetCell(2).NumericCellValue),
+                            RoundName = sheetRow.GetCell(3).StringCellValue,
+                        };
+                        prizes.Add(prize);
+                    }
+                }
+            }
+            
             commonRepository.AddPrizes(prizes);
         }
 

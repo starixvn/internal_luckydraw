@@ -31,8 +31,8 @@ namespace LuckyDraw
         private readonly IResultExporter resultExporter;
         private bool isLoading;
 
-        public MainWindow():this(null, null, null, null, null, null, null)
-        {            
+        public MainWindow() : this(null, null, null, null, null, null, null)
+        {
         }
 
         public MainWindow(
@@ -98,7 +98,7 @@ namespace LuckyDraw
         {
             var roundSize = this.runningService.CurrentList.Count;
             Type roundViewType = Type.GetType(string.Format("LuckyDraw.Views.RoundView{0}", roundSize));
-            this.roundViewBox.Child = (UserControl)Activator.CreateInstance(roundViewType);            
+            this.roundViewBox.Child = (UserControl)Activator.CreateInstance(roundViewType);
 
             for (var i = 0; i < roundSize; i++)
             {
@@ -109,7 +109,20 @@ namespace LuckyDraw
                     item.BlurItem();
                 }
             }
-        }        
+        }
+
+        private bool IsRoundFinishRun()
+        {
+            for (var i = 0; i < this.runningService.CurrentList.Count; i++)
+            {
+                if (this.runningService.IsRunnable(this.runningService.CurrentList[i]))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
 
         private async Task RunRandoms() {
             var randomTrasitionTime = this.runningService.Setting.RandomTransitionDuration * 1000;
@@ -131,7 +144,7 @@ namespace LuckyDraw
 
         private async Task Run()
         {
-            if (this.isLoading || !this.runningService.IsValid)
+            if (this.isLoading || !this.runningService.IsValid || this.IsRoundFinishRun())
             {
                 return;
             }
@@ -194,6 +207,10 @@ namespace LuckyDraw
             else if(e.Key == Key.Left)
             {
                 GoPrevious();
+            }
+            else
+            {
+                // Do nothing
             }
         }
 

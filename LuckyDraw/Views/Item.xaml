@@ -9,7 +9,7 @@
     <StackPanel>
         <Canvas  x:Name="canvasImage" Opacity="0.9" Width="87" Height="87">
             <Canvas.Background>
-                <ImageBrush ImageSource="/Resources/Images/item-bg.png"/>
+                <ImageBrush ImageSource="../Resources/Images/item-bg.png"/>
             </Canvas.Background>
             <Border Width="84" Height="86" Margin="2,0">
                 <Border.Background>
