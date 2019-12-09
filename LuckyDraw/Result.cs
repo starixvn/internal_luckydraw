@@ -22,7 +22,7 @@ namespace LuckyDraw
         public string RoundName { get; set; }
         public int PrizeIndex { get; set; }
         public int RoundIndex { get; set; }
-        public Nullable<System.DateTime> UpdatedTime { get; set; }
+        public System.DateTime UpdatedTime { get; set; }
         public int PrizeId { get; set; }
     }
 }

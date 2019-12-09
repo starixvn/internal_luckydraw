@@ -16,6 +16,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 
 namespace LuckyDraw
@@ -149,8 +150,7 @@ namespace LuckyDraw
                 return;
             }
 
-            MessageBoxResult messageBoxResult = MessageBox.Show(Labels.ConfirmRun, Labels.Confirmation, MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (messageBoxResult == MessageBoxResult.Yes)
+            if (ShowConfirm(Labels.ConfirmRun))
             {
                 this.isLoading = true;
                 await RunRandoms();
@@ -170,7 +170,7 @@ namespace LuckyDraw
                 return;
             }
 
-            if (this.runningService.MoveBack())
+            if (ShowConfirm(Labels.ConfirmBack) && this.runningService.MoveBack())
             {
                 BuildRoundUI();
             }
@@ -186,12 +186,22 @@ namespace LuckyDraw
             if (this.isLoading)
             {
                 return;
-            }
+            }           
 
-            if (this.runningService.MoveNext())
+            if (ShowConfirm(Labels.ConfirmNext) && this.runningService.MoveNext())
             {
                 BuildRoundUI();
             }
+        }
+
+        private bool ShowConfirm(string content)
+        {
+            this.Effect = new BlurEffect();
+            ConfirmDialog confirmDialog = new ConfirmDialog(content);
+            var confirm = confirmDialog.ShowDialog();
+            this.Effect = null;
+
+            return confirm == true;
         }
 
         private async void HandleKeyDown(object sender, KeyEventArgs e)

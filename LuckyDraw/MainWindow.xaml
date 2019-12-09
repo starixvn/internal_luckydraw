@@ -168,12 +168,7 @@
                                 <Image Width="50" Height="80"  Margin="0,-50,0,0">
                                         <Image.Style>
                                             <Style TargetType="{x:Type Image}">
-                                                <Setter Property="Source" Value="Resources/Images/arrow.png"/>
-                                                <Style.Triggers>
-                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=StackPanel,AncestorLevel=1}, Path=IsMouseOver}" Value="True">
-                                                        <Setter Property="Source" Value="Resources/Images/arrow-hover.png"/>
-                                                    </DataTrigger>
-                                                </Style.Triggers>
+                                                <Setter Property="Source" Value="Resources/Images/arrow.png"/>                                                
                                             </Style>
                                         </Image.Style>
                                 </Image>

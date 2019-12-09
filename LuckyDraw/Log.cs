@@ -17,5 +17,6 @@ namespace LuckyDraw
         public int Id { get; set; }
         public int ResultId { get; set; }
         public string Random { get; set; }
+        public System.DateTime UpdatedTime { get; set; }
     }
 }

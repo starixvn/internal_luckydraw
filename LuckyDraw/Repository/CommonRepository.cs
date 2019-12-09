@@ -120,6 +120,7 @@ namespace LuckyDraw.Repository
                     r.Flag = flag;
                     r.Status = 0;
                     r.Random = "000";
+                    r.UpdatedTime = DateTime.Now;
 
                     db.Results.Add(r);
                 }
@@ -146,7 +147,8 @@ namespace LuckyDraw.Repository
                 var l = new Log
                 {
                     ResultId = resultId,
-                    Random = random
+                    Random = random,
+                    UpdatedTime = DateTime.Now
                 };
 
                 db.Logs.Add(l);
@@ -226,14 +228,14 @@ namespace LuckyDraw.Repository
                 foreach (var log in logData)
                 {
                     var r = db.Results.Find(log.ResultId);
-                    r.Random = log.Random;
-
                     var logResult = new Result
                     {
                         PrizeIndex = r.PrizeIndex,
                         PrizeName = r.PrizeName,
-                        Random = r.Random,
-                        RoundName = r.RoundName
+                        Random = log.Random,
+                        RoundName = r.RoundName,
+                        UpdatedTime = log.UpdatedTime,
+                        Flag = r.Flag
                     };
                     logs.Add(logResult);
                 }

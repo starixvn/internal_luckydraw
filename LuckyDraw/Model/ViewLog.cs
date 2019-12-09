@@ -9,6 +9,6 @@ namespace LuckyDraw.Model
         public string PrizeName { get; set; }
         public string Random { get; set; }
         public string RoundName { get; set; }
-        public DateTime? UpdatedTime { get; set; }
+        public DateTime UpdatedTime { get; set; }
     }
 }

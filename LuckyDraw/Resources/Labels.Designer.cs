@@ -79,6 +79,15 @@ namespace LuckyDraw.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to go to the previous round?.
+        /// </summary>
+        internal static string ConfirmBack {
+            get {
+                return ResourceManager.GetString("ConfirmBack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to exit?.
         /// </summary>
         internal static string ConfirmExit {
@@ -93,6 +102,15 @@ namespace LuckyDraw.Resources {
         internal static string ConfirmNewGame {
             get {
                 return ResourceManager.GetString("ConfirmNewGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to go to the next round?.
+        /// </summary>
+        internal static string ConfirmNext {
+            get {
+                return ResourceManager.GetString("ConfirmNext", resourceCulture);
             }
         }
         

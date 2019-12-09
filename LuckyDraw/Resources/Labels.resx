@@ -195,4 +195,10 @@
   <data name="RunningIndexOutOfRange" xml:space="preserve">
     <value>Index is out of range</value>
   </data>
+  <data name="ConfirmBack" xml:space="preserve">
+    <value>Are you sure you want to go to the previous round?</value>
+  </data>
+  <data name="ConfirmNext" xml:space="preserve">
+    <value>Are you sure you want to go to the next round?</value>
+  </data>
 </root>
