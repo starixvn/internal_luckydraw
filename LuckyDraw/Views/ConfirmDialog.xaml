@@ -7,11 +7,10 @@
         mc:Ignorable="d"
         Height="150" Width="290" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" 
         Background="Transparent"
-        KeyDown="HandleKeyDown">    
+        AllowsTransparency="True"
+        KeyDown="HandleKeyDown">
     <Border CornerRadius="4" BorderBrush="Gray" Background="White" >
-        <Border.Effect>
-            <DropShadowEffect />
-        </Border.Effect>
+        
     <Grid>        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
