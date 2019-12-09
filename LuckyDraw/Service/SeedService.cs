@@ -64,7 +64,7 @@ namespace LuckyDraw.Service
 
         private void GenerateSetting()
         {
-            var setting = new Setting { RandomFrom = 0, RandomTo = 700, Excluded = "110,120,130,140", RunningIndex = 0, RandomAnimationDuration = 1, RandomTransitionDuration = 1 };
+            var setting = new Setting { RandomFrom = 1, RandomTo = 700, Excluded = "110,120,130,140", RunningIndex = 0, RandomAnimationDuration = 1, RandomTransitionDuration = 1 };
             commonRepository.AddSetting(setting);
         }
     }
