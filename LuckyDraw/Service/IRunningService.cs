@@ -27,5 +27,8 @@ namespace LuckyDraw.Service
         bool ResetRandom(int index);
         bool IsRunnable(Result item);
         bool IsSkipped(Result item);
+        bool IsFirstRound();
+        bool IsLastRound();
+        bool IsRoundFinishRun();
     }
 }

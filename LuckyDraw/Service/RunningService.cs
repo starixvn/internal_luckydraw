@@ -99,6 +99,16 @@ namespace LuckyDraw.Service
             commonRepository.WriteLog(this.CurrentList[index].Id, random);
         }
 
+        public bool IsFirstRound()
+        {
+            return this.CurrentRound == 0;
+        }
+
+        public bool IsLastRound()
+        {
+            return this.CurrentRound == this.MaxRound;
+        }
+
         public bool MoveNext()
         {
             if (IsValid)
@@ -177,6 +187,18 @@ namespace LuckyDraw.Service
         public bool IsRunnable(Result item)
         {
             return !IsSkipped(item) && item.Status == 0;
-        }             
+        }
+
+        public bool IsRoundFinishRun()
+        {
+            for (var i = 0; i < this.CurrentList.Count; i++)
+            {
+                if (this.IsRunnable(this.CurrentList[i]))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

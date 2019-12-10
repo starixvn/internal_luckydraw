@@ -612,6 +612,130 @@ namespace LuckyDraw.UnitTests.Service
             result.Should().Be(expectedResult);
         }
 
+        [Theory]
+        [InlineData(0, false)]
+        [InlineData(1, true)]        
+        public void IsRoundFinishRun_WhenCalled_CheckIfRoundFinishRun(int status, bool expectedResult)
+        {
+            // Arrange
+            var commonRepository = Substitute.For<ICommonRepository>();
+            var service = new RunningService(commonRepository);
+            var results = new List<Result>
+            {
+                new Result { Id = 2, RoundIndex = 1, RoundName = "a1", Random = "010", Status = status },
+                new Result { Id = 5, RoundIndex = 2, RoundName = "a2", Random = "012", Status = 1 }
+            };
+            var setting = new Setting { Excluded = "011", RandomFrom = 10, RandomTo = 12, RunningIndex = 1 };
+            commonRepository.GetCurrentResultList().Returns(results);
+            commonRepository.IsDBReady().Returns(true);
+            commonRepository.GetSetting().Returns(setting);
+
+            // Act
+            service.LoadModel();
+            var result = service.IsRoundFinishRun();
+
+            // Assert
+            result.Should().Be(expectedResult);
+        }
+
+        [Fact]
+        public void IsFirstRound_WhenFirstRound_ReturnTrue()
+        {
+            // Arrange
+            var commonRepository = Substitute.For<ICommonRepository>();
+            var service = new RunningService(commonRepository);
+            var results = new List<Result>
+            {
+                new Result { Id = 2, RoundIndex = 1, RoundName = "a1", Random = "010" },
+                new Result { Id = 5, RoundIndex = 2, RoundName = "a2", Random = "012" }
+            };
+            var setting = new Setting { Excluded = "011", RandomFrom = 10, RandomTo = 12, RunningIndex = 1 };
+            commonRepository.GetCurrentResultList().Returns(results);
+            commonRepository.IsDBReady().Returns(true);
+            commonRepository.GetSetting().Returns(setting);
+
+            // Act
+            service.LoadModel();
+            var result = service.IsFirstRound();
+
+            // Assert
+            result.Should().Be(true);
+        }
+
+        [Fact]
+        public void IsFirstRound_WhenNotFirstRound_ReturnFalse()
+        {
+            // Arrange
+            var commonRepository = Substitute.For<ICommonRepository>();
+            var service = new RunningService(commonRepository);
+            var results = new List<Result>
+            {
+                new Result { Id = 2, RoundIndex = 1, RoundName = "a1", Random = "010" },
+                new Result { Id = 5, RoundIndex = 2, RoundName = "a2", Random = "012" }
+            };
+            var setting = new Setting { Excluded = "011", RandomFrom = 10, RandomTo = 12, RunningIndex = 1 };
+            commonRepository.GetCurrentResultList().Returns(results);
+            commonRepository.IsDBReady().Returns(true);
+            commonRepository.GetSetting().Returns(setting);
+
+            // Act
+            service.LoadModel();
+            service.MoveNext();
+            var result = service.IsFirstRound();
+
+            // Assert
+            result.Should().Be(false);
+        }
+
+        [Fact]
+        public void IsLastRound_WhenLastRound_ReturnTrue()
+        {
+            // Arrange
+            var commonRepository = Substitute.For<ICommonRepository>();
+            var service = new RunningService(commonRepository);
+            var results = new List<Result>
+            {
+                new Result { Id = 2, RoundIndex = 1, RoundName = "a1", Random = "010" },
+                new Result { Id = 5, RoundIndex = 2, RoundName = "a2", Random = "012" }
+            };
+            var setting = new Setting { Excluded = "011", RandomFrom = 10, RandomTo = 12, RunningIndex = 1 };
+            commonRepository.GetCurrentResultList().Returns(results);
+            commonRepository.IsDBReady().Returns(true);
+            commonRepository.GetSetting().Returns(setting);
+
+            // Act
+            service.LoadModel();
+            service.MoveNext();
+            var result = service.IsLastRound();
+
+            // Assert
+            result.Should().Be(true);
+        }
+
+        [Fact]
+        public void IsLastRound_WhenNotLastRound_ReturnFalse()
+        {
+            // Arrange
+            var commonRepository = Substitute.For<ICommonRepository>();
+            var service = new RunningService(commonRepository);
+            var results = new List<Result>
+            {
+                new Result { Id = 2, RoundIndex = 1, RoundName = "a1", Random = "010" },
+                new Result { Id = 5, RoundIndex = 2, RoundName = "a2", Random = "012" }
+            };
+            var setting = new Setting { Excluded = "011", RandomFrom = 10, RandomTo = 12, RunningIndex = 1 };
+            commonRepository.GetCurrentResultList().Returns(results);
+            commonRepository.IsDBReady().Returns(true);
+            commonRepository.GetSetting().Returns(setting);
+
+            // Act
+            service.LoadModel();            
+            var result = service.IsLastRound();
+
+            // Assert
+            result.Should().Be(false);
+        }
+
         private List<Result> FakeResult()
         {
             return new List<Result>

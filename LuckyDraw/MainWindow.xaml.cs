@@ -110,20 +110,7 @@ namespace LuckyDraw
                     item.BlurItem();
                 }
             }
-        }
-
-        private bool IsRoundFinishRun()
-        {
-            for (var i = 0; i < this.runningService.CurrentList.Count; i++)
-            {
-                if (this.runningService.IsRunnable(this.runningService.CurrentList[i]))
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
+        }       
 
         private async Task RunRandoms() {
             var randomTrasitionTime = this.runningService.Setting.RandomTransitionDuration * 1000;
@@ -145,7 +132,7 @@ namespace LuckyDraw
 
         private async Task Run()
         {
-            if (this.isLoading || !this.runningService.IsValid || this.IsRoundFinishRun())
+            if (this.isLoading || !this.runningService.IsValid || this.runningService.IsRoundFinishRun())
             {
                 return;
             }
@@ -165,7 +152,7 @@ namespace LuckyDraw
 
         private void GoPrevious()
         {
-            if (this.isLoading)
+            if (this.isLoading || this.runningService.IsFirstRound())
             {
                 return;
             }
@@ -183,7 +170,7 @@ namespace LuckyDraw
 
         private void GoNext()
         {
-            if (this.isLoading)
+            if (this.isLoading || this.runningService.IsLastRound())
             {
                 return;
             }           
