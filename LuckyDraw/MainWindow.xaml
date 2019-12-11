@@ -146,12 +146,12 @@
                                 </StackPanel>
                             </Button>
                         </Viewbox>
-                        <Viewbox Grid.Column="3" Grid.Row="3" >
+                        <Viewbox Grid.Column="3" Grid.Row="3" Margin="0,-5,0,0">
                             <StackPanel>
-                                <Button Width="144" Height="100" Style="{StaticResource TransparentButton}"
+                                <Button Width="154" Height="100" Style="{StaticResource TransparentButton}"
                                     Click="RunButton_Click" BorderBrush="{x:Null}" Background="{x:Null}" Focusable="False" >
                                     <StackPanel Cursor="Hand">
-                                        <Image Width="144" Height="100" >
+                                        <Image Width="154" Height="100" >
                                             <Image.Style>
                                                 <Style TargetType="{x:Type Image}">
                                                     <Setter Property="Source" Value="Resources/Images/run.png"/>
