@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LuckyDraw"
         mc:Ignorable="d"
-        Height="150" Width="290" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" 
+        Height="180" Width="370" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" 
         Background="Transparent"
         AllowsTransparency="True"
         KeyDown="HandleKeyDown">
@@ -20,20 +20,20 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Border Width="290" Margin="0,30,0,0">
+        <Border Width="370" Margin="0,35,0,0">
             <TextBlock x:Name="txtContent" Grid.Row="0" Grid.Column="0" 
-               HorizontalAlignment="Center" TextAlignment="Center" Width="220"
+               HorizontalAlignment="Center" TextAlignment="Center" Width="300"
                 TextWrapping="Wrap" 
-               FontSize="15" Foreground="#28257D" FontWeight="Bold"
+               FontSize="19" Foreground="#28257D" FontWeight="Bold"
                >Are you sure?</TextBlock>
         </Border>
 
-        <Border Width="290" Margin="0,60,0,0">
+        <Border Width="370" Margin="0,80,0,0">
             <WrapPanel Grid.Row="1" Grid.Column="0"  Margin="6,36,0,-21" HorizontalAlignment="Center">
                     <Button IsDefault="True" x:Name="btnYes" Cursor="Hand"
-                            Click="BtnOK_Click" MinWidth="60" Margin="0,0,15,0" Content="         Yes"
+                            Click="BtnOK_Click" MinWidth="60" Margin="0,0,25,0" Content="          Yes"
                             Foreground="White" FontWeight="Bold"
-                            Width="90" FontSize="14" Padding="0,2,0,3" 
+                            Width="110" FontSize="16" Padding="0,2,0,3" 
                             >
                     <Button.Style>
                             <Style TargetType="{x:Type Button}">
@@ -59,8 +59,8 @@
                             </Style>
                         </Button.Style>
                 </Button>
-                    <Button x:Name="btnNo" IsCancel="True" MinWidth="60" Content="        No" FontWeight="Bold" Cursor="Hand"
-                        Width="90" FontSize="14" Padding="0,2,0,2" >
+                    <Button x:Name="btnNo" IsCancel="True" MinWidth="60" Content="          No" FontWeight="Bold" Cursor="Hand"
+                        Width="110" FontSize="16" Padding="0,2,0,2" >
                         <Button.Style>
                                 <Style TargetType="{x:Type Button}">
                                     <Setter Property="Template">

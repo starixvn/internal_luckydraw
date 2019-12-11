@@ -157,7 +157,7 @@ namespace LuckyDraw
                 return;
             }
 
-            if (ShowConfirm(Labels.ConfirmBack) && this.runningService.MoveBack())
+            if (this.runningService.MoveBack())
             {
                 BuildRoundUI();
             }
@@ -173,9 +173,11 @@ namespace LuckyDraw
             if (this.isLoading || this.runningService.IsLastRound())
             {
                 return;
-            }           
+            }
 
-            if (ShowConfirm(Labels.ConfirmNext) && this.runningService.MoveNext())
+            
+            if ((this.runningService.IsRoundFinishRun() || ShowConfirm(Labels.ConfirmNext)) && 
+                this.runningService.MoveNext())
             {
                 BuildRoundUI();
             }
