@@ -2,6 +2,7 @@
 using LuckyDraw.Utilities;
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Media;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -32,11 +33,18 @@ namespace LuckyDraw.Views
 
         public async Task RunRandom(string random, int randomTime)
         {
+            var player1 = this.utils.GetSoundPlayer("spinning.wav");
+            player1.Play();            
+
             const int two = 2;
             await AnimateRandom(Consts.RangeThreeDigits, "000", string.Empty, this.textRandom, randomTime);
             await AnimateRandom(Consts.RangeTwoDigits, "00", random.Substring(0, 1), this.textRandom, randomTime);
             await AnimateRandom(Consts.RangeOneDigit, "0", random.Substring(0, two), this.textRandom, randomTime);
             this.textRandom.Text = random;
+
+            player1.Stop();
+            var player2 = this.utils.GetSoundPlayer("ding.wav");
+            player2.Play();                                    
         }
 
         [SuppressMessage("csharpsquid", "S2325:Methods and properties that don't access instance data can be static to prevent any misunderstanding about the contract of the method.")]
