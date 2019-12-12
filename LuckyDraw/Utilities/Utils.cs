@@ -9,10 +9,10 @@ namespace LuckyDraw.Utilities
 {
     public class Utils : IUtils
     {
-        public BitmapImage PrizeImage(string imageName, int imageSize)
+        public BitmapImage PrizeImage(string imageName)
         {
             var imagePath = String.Format("{0}{1}", BaseDirectory(), imageName);
-            return File.Exists(imagePath) ? BitmapFromUri(new Uri(imagePath), imageSize) : null;
+            return File.Exists(imagePath) ? BitmapFromUri(new Uri(imagePath)) : null;
         }
 
         public string BaseDirectory()
@@ -42,18 +42,9 @@ namespace LuckyDraw.Utilities
             return (new FileInfo(filePath)).Length;
         }
 
-        private static BitmapImage BitmapFromUri(Uri source, int imageSize)
-        {
-            var bitmap = new BitmapImage();
-            bitmap.BeginInit();
-            bitmap.UriSource = source;
-            bitmap.CacheOption = BitmapCacheOption.OnLoad;
-            bitmap.CreateOptions = BitmapCreateOptions.IgnoreImageCache;
-            bitmap.DecodePixelHeight = imageSize;
-            bitmap.DecodePixelWidth = imageSize;
-            bitmap.EndInit();
-
-            return bitmap;
+        private static BitmapImage BitmapFromUri(Uri source)
+        {            
+            return new BitmapImage(source);
         }
 
         public void SaveExportFile(IWorkbook workbook, string filePath)

@@ -24,7 +24,7 @@ namespace LuckyDraw.Model
         {
             get
             {
-                return utils.PrizeImage(String.Format("{0}.png", Id.ToString()), Consts.SettingImageSize);
+                return utils.PrizeImage(String.Format("{0}.png", Id.ToString()));
             }
         }
     }

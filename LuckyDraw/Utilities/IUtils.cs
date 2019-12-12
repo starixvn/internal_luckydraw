@@ -11,7 +11,7 @@ namespace LuckyDraw.Utilities
 {
     public interface IUtils
     {
-        BitmapImage PrizeImage(string imageName, int imageSize);
+        BitmapImage PrizeImage(string imageName);
         string BaseDirectory();
         SoundPlayer GetSoundPlayer(string fileName);
         void SaveImageFile(string originPath, string destinationPath);

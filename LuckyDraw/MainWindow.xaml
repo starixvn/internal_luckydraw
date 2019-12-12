@@ -269,7 +269,7 @@
                                     <DataGridTemplateColumn Header="Image" Width="SizeToCells" IsReadOnly="True">
                                         <DataGridTemplateColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Image Source="{Binding PrizeImage}" Stretch="None" Width="50" Height="50" />
+                                                <Image Source="{Binding PrizeImage}" Stretch="Fill" Width="50" Height="50" />
                                             </DataTemplate>
                                         </DataGridTemplateColumn.CellTemplate>
                                     </DataGridTemplateColumn>

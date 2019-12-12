@@ -27,8 +27,8 @@ namespace LuckyDraw.Views
         {
             this.textPrize.Text = itemData.PrizeName;
             this.textRandom.Text = itemData.Random == string.Empty ? "000" : itemData.Random;
-            var image = utils.PrizeImage(itemData.PrizeId.ToString() + ".png", Consts.HomeImageSize);
-            this.img.ImageSource = image ?? utils.PrizeImage("prize.png", Consts.HomeImageSize);
+            var image = utils.PrizeImage(itemData.PrizeId.ToString() + ".png");
+            this.img.Source = image ?? utils.PrizeImage("prize.png");
         }
 
         public async Task RunRandom(string random, int randomTime)

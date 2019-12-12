@@ -12,9 +12,7 @@
                 <ImageBrush ImageSource="../Resources/Images/item-bg.png"/>
             </Canvas.Background>
             <Border Width="81" Height="81" Margin="2,2">
-                <Border.Background>
-                    <ImageBrush  x:Name="img" Stretch="None" />
-                </Border.Background>
+                <Image x:Name="img" Stretch="Fill" Width="79" Height="79"/>                
             </Border>
         </Canvas>
 
