@@ -18,13 +18,13 @@
             </Border>
         </Canvas>
 
-        <Border Height="35">
+        <Border Height="36">
             <TextBlock x:Name="textPrize" Text="Prize x" 
                    Foreground="#beb8ff" 
                    FontSize="13" TextWrapping="Wrap"
-                   MaxWidth="160"
+                   MaxWidth="150"
                    LineStackingStrategy="BlockLineHeight"
-                   LineHeight="14"
+                   LineHeight="15"
                    TextAlignment="Center" FontWeight="Bold"
                    Margin="0,6,0,0"                       
                        ></TextBlock>    

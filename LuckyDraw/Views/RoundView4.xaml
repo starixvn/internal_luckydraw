@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LuckyDraw.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid ShowGridLines="False">
+    <Grid ShowGridLines="False" Margin="20,0,20,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="16*"></ColumnDefinition>
             <ColumnDefinition Width="16*"></ColumnDefinition>

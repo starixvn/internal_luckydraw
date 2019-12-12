@@ -22,14 +22,15 @@
             <RowDefinition Height="25*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Viewbox Grid.Column="0" Grid.Row="0" Height="50" Grid.ColumnSpan="7"></Viewbox>
-
+        <Viewbox Grid.Column="0" Grid.Row="0" Height="70" Grid.ColumnSpan="7"></Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="2" Height="70" Grid.ColumnSpan="7"></Viewbox>
+        
         <StackPanel x:Name="viewBoxItem1" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" >
             <local:Item />
         </StackPanel>
         <StackPanel x:Name="viewBoxItem2" Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" >
             <local:Item />
         </StackPanel>
-        <Viewbox Grid.Column="0" Grid.Row="2" Height="50" Grid.ColumnSpan="7"></Viewbox>
+        
     </Grid>
 </UserControl>

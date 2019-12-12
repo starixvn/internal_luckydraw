@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LuckyDraw.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid ShowGridLines="False">
+    <Grid ShowGridLines="False" Margin="40,0,40,0">
         <Grid.ColumnDefinitions>            
             <ColumnDefinition Width="16*"></ColumnDefinition>
             <ColumnDefinition Width="16*"></ColumnDefinition>
@@ -18,8 +18,8 @@
             <RowDefinition Height="15*"></RowDefinition>
         </Grid.RowDefinitions>        
         
-        <Viewbox Grid.Column="0" Grid.Row="0" Height="50" Grid.ColumnSpan="7"></Viewbox>
-        <Viewbox Grid.Column="0" Grid.Row="2" Height="50" Grid.ColumnSpan="7"></Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="0" Height="70" Grid.ColumnSpan="7"></Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="2" Height="70" Grid.ColumnSpan="7"></Viewbox>
 
         <StackPanel x:Name="viewBoxItem1" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" >
             <local:Item />
