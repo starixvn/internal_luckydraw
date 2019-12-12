@@ -33,7 +33,7 @@ namespace LuckyDraw.Views
 
         public async Task RunRandom(string random, int randomTime)
         {
-            var player1 = this.utils.GetSoundPlayer("spinning.wav");
+            var player1 = this.utils.GetSoundPlayer("spin.wav");
             player1.Play();            
 
             const int two = 2;

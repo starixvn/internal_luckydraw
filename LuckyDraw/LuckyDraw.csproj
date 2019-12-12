@@ -384,7 +384,7 @@
       <DependentUpon>LuckyDraw.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="AppData\Sounds\spinning.wav">
+    <Content Include="AppData\Sounds\spin.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LuckyDrawModel.Context.tt">
