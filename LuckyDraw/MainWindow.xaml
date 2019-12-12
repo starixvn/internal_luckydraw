@@ -81,12 +81,12 @@
                             <RowDefinition Height="0*"></RowDefinition>
                             <RowDefinition Height="64*"></RowDefinition>
                             <RowDefinition Height="430*"></RowDefinition>
-                            <RowDefinition Height="105*"></RowDefinition>
-                            <RowDefinition Height="29*"></RowDefinition>
-                            <RowDefinition Height="108*"></RowDefinition>
+                            <RowDefinition Height="110*"></RowDefinition>
+                            <RowDefinition Height="35*"></RowDefinition>
+                            <RowDefinition Height="100*"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <Viewbox Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,20,0,-5" Grid.ColumnSpan="5">
+                        <Viewbox Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,15,0,0" Grid.ColumnSpan="5">
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
                                 <Rectangle Width="49" Height="100" Margin="0,0,0,0">
                                     <Rectangle.Fill>
@@ -100,7 +100,7 @@
                                     <TextBlock x:Name="textRound" TextWrapping="Wrap" Text="ROUND 1" 
                                             Foreground="#FFEAAC06" FontSize="36" FontWeight="Bold" 
                                                FontFamily="Resources/Fonts/nulshock.ttf #Nulshock Rg"
-                                            Padding="0,0,0,5" VerticalAlignment="Center">                                        
+                                            Padding="5,0,5,5" VerticalAlignment="Center">                                        
                                     </TextBlock>
                                 </Border>
                                 
@@ -116,7 +116,7 @@
                             <luckydraw1:RoundView6 x:Name="roundView6" />
                         </Viewbox>
 
-                        <Viewbox Grid.Column="2" Grid.Row="3" Width="65" HorizontalAlignment="Right" Margin="0,-25,5,0">
+                        <Viewbox Grid.Column="2" Grid.Row="3" Width="65" HorizontalAlignment="Right" Margin="0,-26,5,0">
                             <Button Style="{StaticResource TransparentButton}" Click="PreviousButton_Click" Focusable="False" >
                                 <StackPanel Cursor="Hand">
                                     <TextBlock TextAlignment="Right" Margin="10,0,-5,-11" FontWeight="Bold" Text="PREVIOUS">                                        
@@ -174,7 +174,7 @@
                                 </Image>
                             </StackPanel>
                         </Viewbox>
-                        <Viewbox Grid.Column="4" Grid.Row="3" Width="34" HorizontalAlignment="Left" Margin="0,-25,0,0">
+                        <Viewbox Grid.Column="4" Grid.Row="3" Width="34" HorizontalAlignment="Left" Margin="0,-27,0,0">
                             <Button Style="{StaticResource TransparentButton}" Click="NextButton_Click" Focusable="False">
                                 <StackPanel Cursor="Hand">
                                     <TextBlock Margin="-5,0,0,-10" FontWeight="Bold" Text="NEXT">
@@ -230,7 +230,7 @@
                                                FontWeight="Bold" FontSize="14" 
                                                HorizontalAlignment="Center" Margin="0,0,0,5"
                                            />
-                                <Border BorderBrush="#2c2764" BorderThickness="1" Opacity="1" Margin="0,-3,0,0" HorizontalAlignment="Center">
+                                <Border BorderBrush="#2c2764" BorderThickness="1" Opacity="1" Margin="0,-4,0,0" HorizontalAlignment="Center">
                                     <TextBlock x:Name="textIgnored" 
                                             Margin="0,0,0,0"
                                             Padding="10 2"      
@@ -240,9 +240,10 @@
                                             HorizontalAlignment="Center"
                                             Text="100 - 200 - 300 - 200 - 300 - 200 - 300 - 200 - 300 - 200 - 300 - 200 - 300 - 200 - 300 - 200 - 300 - 200 - 300"                                
                                             TextDecorations="{x:Null}" 
-                                            Foreground="#6f6a9d" FontSize="15" Opacity="1">
+                                            Foreground="#aa8dc5" FontSize="13" Opacity="1"
+                                               FontWeight="Bold">
                                         <TextBlock.Background>
-                                            <SolidColorBrush Color="#1a1740" Opacity="0.2" />
+                                            <SolidColorBrush Color="Black" Opacity="0.2" />
                                         </TextBlock.Background>
                                     </TextBlock>
                                 </Border>

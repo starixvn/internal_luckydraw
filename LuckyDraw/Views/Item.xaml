@@ -7,36 +7,37 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
-        <Canvas  x:Name="canvasImage" Opacity="1" Width="115" Height="115">
+        <Canvas  x:Name="canvasImage" Opacity="1" Width="86" Height="86">
             <Canvas.Background>
                 <ImageBrush ImageSource="../Resources/Images/item-bg.png"/>
             </Canvas.Background>
-            <Border Width="111" Height="111" Margin="2,2">
+            <Border Width="81" Height="81" Margin="2,2">
                 <Border.Background>
                     <ImageBrush  x:Name="img" Stretch="None" />
                 </Border.Background>
             </Border>
         </Canvas>
 
-        <Border Height="38">
+        <Border Height="35">
             <TextBlock x:Name="textPrize" Text="Prize x" 
                    Foreground="#beb8ff" 
-                   FontSize="14" TextWrapping="Wrap"
+                   FontSize="13" TextWrapping="Wrap"
                    MaxWidth="160"
                    LineStackingStrategy="BlockLineHeight"
-                   LineHeight="15"
+                   LineHeight="14"
                    TextAlignment="Center" FontWeight="Bold"
-                   Margin="0,7,0,0"></TextBlock>    
+                   Margin="0,6,0,0"                       
+                       ></TextBlock>    
         </Border>
         
         <TextBlock x:Name="textRandom"  Text="000" Foreground="#ffd33b" 
                     Width="150" TextAlignment="Center"
-                    FontSize="35" FontWeight="Bold"
-                   Margin="0,2,0,0"
+                    FontSize="34" FontWeight="Bold"
+                   Margin="0,0,0,0"
                    ></TextBlock>
-        <Border x:Name="border1" BorderThickness="2 2 0 0" BorderBrush="#ffd33b" Width="10" Height="10" Margin="-50,-60,10,10"/>
-        <Border x:Name="border2" BorderThickness="0 2 2 0" BorderBrush="#ffd33b" Width="10" Height="10" Margin="70,-60,10,10"/>
-        <Border x:Name="border3" BorderThickness="0 0 2 2" BorderBrush="#ffd33b" Width="10" Height="10" Margin="70,-10,10,7"/>
-        <Border x:Name="border4" BorderThickness="2 0 0 2" BorderBrush="#ffd33b" Width="10" Height="10" Margin="-50,-20,10,7"/>
+        <Border x:Name="border1" BorderThickness="2 2 0 0" BorderBrush="#ffd33b" Width="7" Height="7" Margin="-50,-60,10,10"/>
+        <Border x:Name="border2" BorderThickness="0 2 2 0" BorderBrush="#ffd33b" Width="7" Height="7" Margin="70,-60,10,10"/>
+        <Border x:Name="border3" BorderThickness="0 0 2 2" BorderBrush="#ffd33b" Width="7" Height="7" Margin="70,-10,10,7"/>
+        <Border x:Name="border4" BorderThickness="2 0 0 2" BorderBrush="#ffd33b" Width="7" Height="7" Margin="-50,-15,10,7"/>
     </StackPanel>
 </UserControl>

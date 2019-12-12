@@ -31,7 +31,7 @@
     <TargetCulture>aa</TargetCulture>
     <ProductName>LuckyDraw</ProductName>
     <PublisherName>Nexus</PublisherName>
-    <ApplicationRevision>28</ApplicationRevision>
+    <ApplicationRevision>29</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -311,6 +311,8 @@
     <Content Include="AppData\Sounds\ding.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\Fonts\Roboto-Light.ttf" />
+    <Resource Include="Resources\Fonts\Roboto-Medium.ttf" />
     <Resource Include="Resources\Images\run-hover.png" />
     <Resource Include="Resources\Images\run.png" />
     <EmbeddedResource Include="Properties\Resources.resx">
