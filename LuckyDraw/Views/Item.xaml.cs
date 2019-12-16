@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace LuckyDraw.Views
 {
@@ -27,6 +28,13 @@ namespace LuckyDraw.Views
         {
             this.textPrize.Text = itemData.PrizeName;
             this.textRandom.Text = itemData.Random == string.Empty ? "000" : itemData.Random;
+
+            if (this.textRandom.Text != "000")
+            {
+                this.textRandom.Foreground = Brushes.Yellow;
+                this.textRandom.Background = new SolidColorBrush(Colors.Gray) { Opacity = 0.1 };                
+            }
+
             var image = utils.PrizeImage(itemData.PrizeId.ToString() + ".png");
             this.img.Source = image ?? utils.PrizeImage("prize.png");
         }
@@ -44,7 +52,30 @@ namespace LuckyDraw.Views
 
             player1.Stop();
             var player2 = this.utils.GetSoundPlayer("ding.wav");
-            player2.Play();                                    
+            player2.Play();
+
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Tick += timer_Tick;
+            timer.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            timer.Start();
+            await Task.Delay(500);
+            timer.Stop();
+        }
+
+        // The timer's Tick event.
+        private bool BlinkOn = false;
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (BlinkOn)
+            {
+                this.textRandom.Foreground = Brushes.Yellow;
+                this.textRandom.Background = new SolidColorBrush(Colors.Gray) { Opacity = 0.1 }; 
+            }
+            else {                 
+                this.textRandom.Foreground = Brushes.Gray;
+                this.textRandom.Background = Brushes.White;
+            }
+            BlinkOn = !BlinkOn;
         }
 
         [SuppressMessage("csharpsquid", "S2325:Methods and properties that don't access instance data can be static to prevent any misunderstanding about the contract of the method.")]

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LuckyDraw.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="16*"></ColumnDefinition>
             <ColumnDefinition Width="16*"></ColumnDefinition>
@@ -25,14 +25,14 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Viewbox Grid.Column="0" Grid.Row="0" Height="12" Width="60" ></Viewbox>
-        <Viewbox Grid.Column="1" Grid.Row="0" Height="12" Width="60" ></Viewbox>
-        <Viewbox Grid.Column="2" Grid.Row="0" Height="12" Width="60" ></Viewbox>
-        <Viewbox Grid.Column="3" Grid.Row="0" Height="12" Width="60" ></Viewbox>
-        <Viewbox Grid.Column="4" Grid.Row="0" Height="12" Width="60" ></Viewbox>
-        <Viewbox Grid.Column="5" Grid.Row="0" Height="12" Width="60" ></Viewbox>
-        <Viewbox Grid.Column="6" Grid.Row="0" Height="12" Width="60" ></Viewbox>
-        <Viewbox Grid.Column="7" Grid.Row="0" Height="12" Width="60" ></Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="0" Height="12" Width="80" ></Viewbox>
+        <Viewbox Grid.Column="1" Grid.Row="0" Height="12" Width="80" ></Viewbox>
+        <Viewbox Grid.Column="2" Grid.Row="0" Height="12" Width="80" ></Viewbox>
+        <Viewbox Grid.Column="3" Grid.Row="0" Height="12" Width="80" ></Viewbox>
+        <Viewbox Grid.Column="4" Grid.Row="0" Height="12" Width="80" ></Viewbox>
+        <Viewbox Grid.Column="5" Grid.Row="0" Height="12" Width="80" ></Viewbox>
+        <Viewbox Grid.Column="6" Grid.Row="0" Height="12" Width="80" ></Viewbox>
+        <Viewbox Grid.Column="7" Grid.Row="0" Height="12" Width="80" ></Viewbox>
         
         <Viewbox Grid.Column="0" Grid.Row="2" Height="23" Grid.ColumnSpan="7"></Viewbox>
         <Viewbox Grid.Column="0" Grid.Row="4" Height="10" Grid.ColumnSpan="7"></Viewbox>

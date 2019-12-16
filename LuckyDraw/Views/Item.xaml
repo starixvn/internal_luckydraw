@@ -29,9 +29,9 @@
         </Border>
         
         <TextBlock x:Name="textRandom"  Text="000" Foreground="#ffd33b" 
-                    Width="150" TextAlignment="Center"
+                    Width="120" TextAlignment="Center"
                     FontSize="34" FontWeight="Bold"
-                   Margin="0,0,0,0"
+                   Margin="0,2,0,0" Padding="0"                   
                    ></TextBlock>
         <Border x:Name="border1" BorderThickness="2 2 0 0" BorderBrush="#ffd33b" Width="7" Height="7" Margin="-50,-60,10,10"/>
         <Border x:Name="border2" BorderThickness="0 2 2 0" BorderBrush="#ffd33b" Width="7" Height="7" Margin="70,-60,10,10"/>
