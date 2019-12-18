@@ -31,7 +31,7 @@
     <TargetCulture>aa</TargetCulture>
     <ProductName>LuckyDraw</ProductName>
     <PublisherName>Nexus</PublisherName>
-    <ApplicationRevision>34</ApplicationRevision>
+    <ApplicationRevision>42</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -311,6 +311,8 @@
     <Content Include="AppData\Sounds\ding.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\Images\arrow-left.png" />
+    <Resource Include="Resources\Images\arrow-right.png" />
     <Resource Include="Resources\Fonts\Roboto-Light.ttf" />
     <Resource Include="Resources\Fonts\Roboto-Medium.ttf" />
     <Resource Include="Resources\Images\run-hover.png" />
@@ -384,6 +386,9 @@
     </Content>
     <Content Include="AppData\DB\LuckyDraw_log.ldf">
       <DependentUpon>LuckyDraw.mdf</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppData\Sounds\number_counting.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="AppData\Sounds\spin.wav">

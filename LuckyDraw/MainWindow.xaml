@@ -86,29 +86,29 @@
                             <RowDefinition Height="100*"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <Viewbox Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="0,15,0,0" Grid.ColumnSpan="5">
-                            <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
-                                <Rectangle Width="49" Height="100" Margin="0,0,0,0">
-                                    <Rectangle.Fill>
+                        <Viewbox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="5" Margin="8">
+                            <StackPanel Orientation="Horizontal" >                               
+                                <Border Width="75" Height="81"  >
+                                    <Border.Background>
                                         <ImageBrush ImageSource="Resources/Images/left.png" />
-                                    </Rectangle.Fill>
-                                </Rectangle>
-                                <Border Height="100">
+                                    </Border.Background>
+                                </Border>
+                                <Border Height="81" Margin="0,0,0,0" Padding="0">
                                     <Border.Background>
                                         <ImageBrush ImageSource="Resources/Images/center.png"/>
                                     </Border.Background>                                    
                                     <TextBlock x:Name="textRound" TextWrapping="Wrap" Text="ROUND 1" 
                                             Foreground="#FFEAAC06" FontSize="36" FontWeight="Bold" 
                                                FontFamily="Resources/Fonts/nulshock.ttf #Nulshock Rg"
-                                            Padding="5,0,5,5" VerticalAlignment="Center">                                        
+                                            Padding="0,0,0,1" VerticalAlignment="Center">                                        
                                     </TextBlock>
                                 </Border>
-                                
-                                <Rectangle Width="49" Height="100" Margin="0,0,0,0">
-                                    <Rectangle.Fill>
+                                <Border Width="75" Height="81" >
+                                    <Border.Background>
                                         <ImageBrush ImageSource="Resources/Images/right.png" />
-                                    </Rectangle.Fill>
-                                </Rectangle>
+                                    </Border.Background>
+                                </Border>                               
+                               
                             </StackPanel>
                         </Viewbox>
 

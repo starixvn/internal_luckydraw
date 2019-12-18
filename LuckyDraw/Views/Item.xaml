@@ -11,8 +11,8 @@
             <Canvas.Background>
                 <ImageBrush ImageSource="../Resources/Images/item-bg.png"/>
             </Canvas.Background>
-            <Border Width="81" Height="81" Margin="2,2">
-                <Image x:Name="img" Stretch="Fill" Width="79" Height="79"/>                
+            <Border Width="82" Height="82" Margin="2,2">
+                <Image x:Name="img" Stretch="Fill" Width="78" Height="78"/>                
             </Border>
         </Canvas>
 
@@ -27,15 +27,28 @@
                    Margin="0,6,0,0"                       
                        ></TextBlock>    
         </Border>
-        
-        <TextBlock x:Name="textRandom"  Text="000" Foreground="#ffd33b" 
-                    Width="120" TextAlignment="Center"
-                    FontSize="34" FontWeight="Bold"
-                   Margin="0,2,0,0" Padding="0"                   
-                   ></TextBlock>
-        <Border x:Name="border1" BorderThickness="2 2 0 0" BorderBrush="#ffd33b" Width="7" Height="7" Margin="-50,-60,10,10"/>
-        <Border x:Name="border2" BorderThickness="0 2 2 0" BorderBrush="#ffd33b" Width="7" Height="7" Margin="70,-60,10,10"/>
-        <Border x:Name="border3" BorderThickness="0 0 2 2" BorderBrush="#ffd33b" Width="7" Height="7" Margin="70,-10,10,7"/>
-        <Border x:Name="border4" BorderThickness="2 0 0 2" BorderBrush="#ffd33b" Width="7" Height="7" Margin="-50,-15,10,7"/>
+
+        <Grid Height="50">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  VerticalAlignment="Center">
+
+                <Border x:Name="arrowLeft" Width="4" Height="12" Margin="0,4,0,0" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="../Resources/Images/arrow-left.png" />
+                    </Border.Background>
+                </Border>
+                <TextBlock x:Name="textRandom"  Text="000" Foreground="#ffd33b" 
+                           TextAlignment="Center"
+                            FontSize="25" FontWeight="Bold"
+                           Margin="2,0,2,0" Padding="0"                   
+                           ></TextBlock>
+                <Border x:Name="arrowRight" Width="4" Height="12" Margin="0,4,0,0" >
+                    <Border.Background>
+                        <ImageBrush ImageSource="../Resources/Images/arrow-right.png" />
+                    </Border.Background>
+                </Border>
+            </StackPanel>
+        </Grid>
+
+
     </StackPanel>
 </UserControl>
