@@ -54,14 +54,13 @@ namespace LuckyDraw.Views
             var delay2 = await AnimateRandom(Consts.RangeTwoDigits, "00", random.Substring(0, 1), this.textRandom, randomTime, delay1);
             await AnimateRandom(Consts.RangeOneDigit, "0", random.Substring(0, two), this.textRandom, randomTime, delay2);
             this.textRandom.Text = random;
-            await Task.Delay(200);
 
             player0.Stop();
             var player2 = this.utils.GetSoundPlayer("ding.mp3");
             player2.Play();
+            await Task.Delay(200);
 
             await AnimateFinishing();
-            this.textRandom.Background = Brushes.Transparent;
         }
 
         private async Task AnimateStarting()
@@ -106,11 +105,9 @@ namespace LuckyDraw.Views
             if (BlinkOn)
             {
                 this.textRandom.Foreground = (Brush)converter.ConvertFromString("#ffd33b");
-                this.textRandom.Background = Brushes.White;
             }
             else {                 
-                this.textRandom.Foreground = Brushes.LawnGreen;
-                this.textRandom.Background = Brushes.Gray;
+                this.textRandom.Foreground = Brushes.Orange;
             }
             BlinkOn = !BlinkOn;
         }
