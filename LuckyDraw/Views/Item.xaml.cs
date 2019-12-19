@@ -125,11 +125,12 @@ namespace LuckyDraw.Views
         private async Task<int> AnimateRandom(int range, string format, string subRandom, TextBlock l, int randomTime, int delay)
         {
             const int maxDelay = 160;
+            const int two = 2;
             Random rnd = new Random();
             var startTime = DateTime.Now;
             for (var i = 0; i < Consts.MaxAnimationLoops; i++)
             {
-                if(i%2 == 0 && delay < maxDelay)
+                if(i % two == 0 && delay < maxDelay)
                 {
                     delay += 1;
                 }                
