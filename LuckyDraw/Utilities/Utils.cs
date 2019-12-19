@@ -3,6 +3,7 @@ using NPOI.SS.UserModel;
 using System;
 using System.IO;
 using System.Media;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace LuckyDraw.Utilities
@@ -20,10 +21,12 @@ namespace LuckyDraw.Utilities
             return String.Format("{0}\\AppData\\Images\\", AppDomain.CurrentDomain.BaseDirectory);
         }
 
-        public SoundPlayer GetSoundPlayer(string fileName)
+        public MediaPlayer GetSoundPlayer(string fileName)
         {
             var path = String.Format("{0}\\AppData\\Sounds\\{1}", AppDomain.CurrentDomain.BaseDirectory, fileName);
-            return new SoundPlayer(path);
+            var mediaPlayer = new MediaPlayer();
+            mediaPlayer.Open(new Uri(path, UriKind.Absolute));
+            return mediaPlayer;
         }
 
         public void SaveImageFile(string originPath, string destinationPath)

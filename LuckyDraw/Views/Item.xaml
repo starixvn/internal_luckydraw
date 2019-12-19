@@ -36,7 +36,7 @@
                         <ImageBrush ImageSource="../Resources/Images/arrow-left.png" />
                     </Border.Background>
                 </Border>
-                <TextBlock x:Name="textRandom"  Text="000" Foreground="#ffd33b" 
+                <TextBlock x:Name="textRandom"  Text="000" Foreground="#c9c062" 
                            TextAlignment="Center"
                             FontSize="25" FontWeight="Bold"
                            Margin="2,0,2,0" Padding="0"                   

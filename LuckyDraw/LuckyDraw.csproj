@@ -308,7 +308,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="AppData\Sounds\ding.wav">
+    <Content Include="AppData\Sounds\ding.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Resource Include="Resources\Images\arrow-left.png" />
@@ -388,10 +388,13 @@
       <DependentUpon>LuckyDraw.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="AppData\Sounds\number_counting.wav">
+    <Content Include="AppData\Sounds\number_counting.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="AppData\Sounds\spin.wav">
+    <Content Include="AppData\Sounds\single_tick.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AppData\Sounds\spin.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LuckyDrawModel.Context.tt">
