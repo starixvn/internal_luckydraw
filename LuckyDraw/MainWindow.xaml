@@ -98,7 +98,7 @@
                                         <ImageBrush ImageSource="Resources/Images/center.png"/>
                                     </Border.Background>                                    
                                     <TextBlock x:Name="textRound" TextWrapping="Wrap" Text="ROUND 1" 
-                                            Foreground="#FFEAAC06" FontSize="36" FontWeight="Bold" 
+                                            Foreground="#ffd045" FontSize="36" FontWeight="Bold" 
                                                FontFamily="Resources/Fonts/nulshock.ttf #Nulshock Rg"
                                             Padding="0,0,0,1" VerticalAlignment="Center">                                        
                                     </TextBlock>
@@ -217,7 +217,7 @@
                                     TextWrapping="Wrap" Text="100-200"                                 
                                     TextDecorations="{x:Null}" 
                                     TextAlignment="Center"
-                                    Foreground="#FFEAAC06" FontSize="15"
+                                    Foreground="#ffd045" FontSize="15"
                                     Padding="25,0,25,0"
                                     FontWeight="Bold"
                                />

@@ -34,7 +34,20 @@ namespace LuckyDraw.Views
             {
                 var converter = new System.Windows.Media.BrushConverter();
                 this.textRandom.Foreground = (Brush)converter.ConvertFromString("#ffd33b");
-                this.textRandom.FontSize = fontSize;                
+                this.textRandom.FontSize = fontSize;
+
+                this.arrowLeft.Width = 6;
+                this.arrowLeft.Height = 18;
+                this.arrowRight.Width = 6;
+                this.arrowRight.Height = 18;
+
+                var margin1 = this.arrowLeft.Margin;
+                margin1.Top += 1;
+                this.arrowLeft.Margin = margin1;
+
+                var margin2 = this.arrowRight.Margin;
+                margin2.Top += 1;
+                this.arrowRight.Margin = margin2;
             }
 
             var image = utils.PrizeImage(itemData.PrizeId.ToString() + ".png");
@@ -77,16 +90,34 @@ namespace LuckyDraw.Views
                 margin.Right += 1;
                 this.textRandom.Margin = margin;
                 const int delay4 = 40;
+
+                this.arrowLeft.Width += 0.25;
+                this.arrowLeft.Height += 0.75;
+                this.arrowRight.Width += 0.25;
+                this.arrowRight.Height += 0.75;
+
+                if (i == loop - 1)
+                {
+                    var margin1 = this.arrowLeft.Margin;
+                    margin1.Top += 1;
+                    this.arrowLeft.Margin = margin1;
+
+                    var margin2 = this.arrowRight.Margin;
+                    margin2.Top += 1;
+                    this.arrowRight.Margin = margin2;
+                }
+
                 await Task.Delay(delay4);
             }
             const int delay2 = 100;
             await Task.Delay(delay2);
             for (var i = 0; i < loop; i++)
-            {
+            {                
                 var margin = this.textRandom.Margin;
-                margin.Left -= 1;
-                margin.Right -= 1;
-                this.textRandom.Margin = margin;
+                margin.Left -= 0.85;
+                margin.Right -= 0.85;
+                this.textRandom.Margin = margin;               
+
                 this.textRandom.FontSize += 1;
                 const int delay5 = 40;
                 await Task.Delay(delay5);
