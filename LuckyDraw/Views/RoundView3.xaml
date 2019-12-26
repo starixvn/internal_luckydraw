@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LuckyDraw.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid ShowGridLines="True" Margin="40,0,40,0">
+    <Grid ShowGridLines="False" Margin="40,0,40,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="16*"></ColumnDefinition>
             <ColumnDefinition Width="16*"></ColumnDefinition>
@@ -21,20 +21,22 @@
         </Grid.RowDefinitions>
 
 
-        <Viewbox Grid.Column="0" Grid.Row="0" Height="60" Width="400"></Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="0" Height="60" Width="200"></Viewbox>
         <Viewbox Grid.Column="1" Grid.Row="0" Height="60" Width="400"></Viewbox>
         <Viewbox Grid.Column="2" Grid.Row="0" Height="60" Width="400"></Viewbox>
+        <Viewbox Grid.Column="3" Grid.Row="0" Height="60" Width="400"></Viewbox>
+        <Viewbox Grid.Column="4" Grid.Row="0" Height="60" Width="200"></Viewbox>
 
         <Viewbox Grid.Column="0" Grid.Row="0" Height="60" Grid.ColumnSpan="7"></Viewbox>
         <Viewbox Grid.Column="0" Grid.Row="2" Height="20" Grid.ColumnSpan="7"></Viewbox>
 
-        <StackPanel x:Name="viewBoxItem1" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" HorizontalAlignment="Center" >
+        <StackPanel x:Name="viewBoxItem1" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" HorizontalAlignment="Center" >
             <local:Item />
         </StackPanel>
-        <StackPanel x:Name="viewBoxItem2" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,0,5,0" HorizontalAlignment="Center">
+        <StackPanel x:Name="viewBoxItem2" Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Margin="0,0,5,0" HorizontalAlignment="Center">
             <local:Item />
         </StackPanel>
-        <StackPanel x:Name="viewBoxItem3"  Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Margin="0,0,5,0" HorizontalAlignment="Center">
+        <StackPanel x:Name="viewBoxItem3"  Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Margin="0,0,5,0" HorizontalAlignment="Center">
             <local:Item />
         </StackPanel>        
     </Grid>
