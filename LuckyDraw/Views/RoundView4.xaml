@@ -6,33 +6,38 @@
              xmlns:local="clr-namespace:LuckyDraw.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid ShowGridLines="False" Margin="20,0,20,0">
-        <Grid.ColumnDefinitions>
+    <Grid ShowGridLines="False" Margin="30,0,30,0">
+        <Grid.ColumnDefinitions>            
             <ColumnDefinition Width="16*"></ColumnDefinition>
             <ColumnDefinition Width="16*"></ColumnDefinition>
             <ColumnDefinition Width="16*"></ColumnDefinition>
-            <ColumnDefinition Width="16*"></ColumnDefinition>
+            <ColumnDefinition Width="16*"></ColumnDefinition>            
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="25*"></RowDefinition>
-            <RowDefinition Height="50*"></RowDefinition>
-            <RowDefinition Height="25*"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition ></RowDefinition>
         </Grid.RowDefinitions>
-       
+
+        <Viewbox Grid.Column="0" Grid.Row="0" Height="70" Width="400"></Viewbox>
+        <Viewbox Grid.Column="1" Grid.Row="0" Height="70" Width="400"></Viewbox>
+        <Viewbox Grid.Column="2" Grid.Row="0" Height="70" Width="400"></Viewbox>
+        <Viewbox Grid.Column="3" Grid.Row="0" Height="70" Width="400"></Viewbox>
         
+
         <Viewbox Grid.Column="0" Grid.Row="0" Height="70" Grid.ColumnSpan="7"></Viewbox>
-        <Viewbox Grid.Column="0" Grid.Row="2" Height="70" Grid.ColumnSpan="7"></Viewbox>
+        <Viewbox Grid.Column="0" Grid.Row="2" Height="20" Grid.ColumnSpan="7"></Viewbox>
 
         <StackPanel x:Name="viewBoxItem1" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Margin="5,0,5,0" >
             <local:Item />
         </StackPanel>
-        <StackPanel x:Name="viewBoxItem2" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="50,0,5,0" >
+        <StackPanel x:Name="viewBoxItem2" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0,0,5,0" >
             <local:Item />
         </StackPanel>
-        <StackPanel x:Name="viewBoxItem3"  Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Margin="50,0,5,0" >
+        <StackPanel x:Name="viewBoxItem3"  Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" Margin="0,0,5,0" >
             <local:Item />
         </StackPanel>
-        <StackPanel x:Name="viewBoxItem4"  Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Margin="50,0,5,0" >
+        <StackPanel x:Name="viewBoxItem4"  Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" Margin="0,0,5,0" >
             <local:Item />
         </StackPanel>
     </Grid>

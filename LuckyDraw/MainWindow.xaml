@@ -64,18 +64,18 @@
         <TabItem x:Name="tabHome" Header="Home" BorderBrush="{x:Null}" Margin="0" Padding="0" Visibility="Collapsed" >
             <Grid Background="Black">
                 <Viewbox>
-                    <Grid Width="1024" Height="768" ShowGridLines="False">
+                    <Grid Width="1920" Height="1080" ShowGridLines="False">
                         <Grid.Background>
                             <ImageBrush ImageSource="Resources/Images/bg.png"/>
                         </Grid.Background>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
                             <ColumnDefinition Width="16*"></ColumnDefinition>
                             <ColumnDefinition Width="16*"></ColumnDefinition>
                             <ColumnDefinition Width="16*"></ColumnDefinition>
                             <ColumnDefinition Width="16*"></ColumnDefinition>
                             <ColumnDefinition Width="16*"></ColumnDefinition>
-                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="1*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0*"></RowDefinition>
@@ -86,7 +86,7 @@
                             <RowDefinition Height="100*"></RowDefinition>
                         </Grid.RowDefinitions>
 
-                        <Viewbox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="5" Margin="8">
+                        <Viewbox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="5" Margin="0,30,0,-20">
                             <StackPanel Orientation="Horizontal" >                               
                                 <Border Width="75" Height="81"  >
                                     <Border.Background>
@@ -113,7 +113,7 @@
                         </Viewbox>
 
                         <Viewbox x:Name="roundViewBox" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="7" >                            
-                            <luckydraw1:RoundView6 x:Name="roundView6" />
+                            <luckydraw1:RoundView5 x:Name="roundView5" />
                         </Viewbox>
 
                         <Viewbox Grid.Column="2" Grid.Row="3" Width="65" HorizontalAlignment="Right" Margin="0,-26,5,0">

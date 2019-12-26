@@ -26,9 +26,9 @@ namespace LuckyDraw.Views
 
         public void LoadItemData(Result itemData)
         {
-            this.textPrize.Text = itemData.PrizeName;
+            this.textPrize.Text = itemData.PrizeName.ToUpper();
             this.textRandom.Text = itemData.Random == string.Empty ? "000" : itemData.Random;
-            const int fontSize = 34;
+            const int fontSize = 73;
 
             if (this.textRandom.Text != "000")
             {
@@ -36,18 +36,18 @@ namespace LuckyDraw.Views
                 this.textRandom.Foreground = (Brush)converter.ConvertFromString("#ffd33b");
                 this.textRandom.FontSize = fontSize;
 
-                this.arrowLeft.Width = 6;
-                this.arrowLeft.Height = 18;
-                this.arrowRight.Width = 6;
-                this.arrowRight.Height = 18;
+                this.arrowLeft.Width = 10;
+                this.arrowLeft.Height = 30;
+                this.arrowRight.Width = 10;
+                this.arrowRight.Height = 30;
 
-                var margin1 = this.arrowLeft.Margin;
-                margin1.Top += 1;
-                this.arrowLeft.Margin = margin1;
+                //var margin1 = this.arrowLeft.Margin;
+                //margin1.Top += 2;
+                //this.arrowLeft.Margin = margin1;
 
-                var margin2 = this.arrowRight.Margin;
-                margin2.Top += 1;
-                this.arrowRight.Margin = margin2;
+                //var margin2 = this.arrowRight.Margin;
+                //margin2.Top += 2;
+                //this.arrowRight.Margin = margin2;
             }
 
             var image = utils.PrizeImage(itemData.PrizeId.ToString() + ".png");
@@ -81,7 +81,7 @@ namespace LuckyDraw.Views
         private async Task AnimateStarting()
         {
             const int delay1 = 500;
-            const int loop = 8;
+            const int loop = 10;
             await Task.Delay(delay1);
             for (var i = 0; i < loop; i++)
             {
@@ -91,20 +91,20 @@ namespace LuckyDraw.Views
                 this.textRandom.Margin = margin;
                 const int delay4 = 40;
 
-                this.arrowLeft.Width += 0.25;
-                this.arrowLeft.Height += 0.75;
-                this.arrowRight.Width += 0.25;
-                this.arrowRight.Height += 0.75;
+                this.arrowLeft.Width += 0.3;
+                this.arrowLeft.Height += 0.9;
+                this.arrowRight.Width += 0.3;
+                this.arrowRight.Height += 0.9;
 
                 if (i == loop - 1)
                 {
-                    var margin1 = this.arrowLeft.Margin;
-                    margin1.Top += 1;
-                    this.arrowLeft.Margin = margin1;
+                    //var margin1 = this.arrowLeft.Margin;
+                    //margin1.Top += 1;
+                    //this.arrowLeft.Margin = margin1;
 
-                    var margin2 = this.arrowRight.Margin;
-                    margin2.Top += 1;
-                    this.arrowRight.Margin = margin2;
+                    //var margin2 = this.arrowRight.Margin;
+                    //margin2.Top += 1;
+                    //this.arrowRight.Margin = margin2;
                 }
 
                 await Task.Delay(delay4);

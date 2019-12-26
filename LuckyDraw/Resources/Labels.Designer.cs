@@ -232,7 +232,7 @@ namespace LuckyDraw.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Each round must have no more than 10 items!.
+        ///   Looks up a localized string similar to Each round must have no more than 5 items!.
         /// </summary>
         internal static string MaxRoundSizeError {
             get {
