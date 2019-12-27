@@ -16,6 +16,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
 
@@ -117,11 +118,83 @@ namespace LuckyDraw
             var randomTime = this.runningService.Setting.RandomAnimationDuration * 1000 / 3;
             for (var i = 0; i < this.runningService.CurrentList.Count; i++) {
                 if (this.runningService.IsRunnable(this.runningService.CurrentList[i]))
-                {                    
+                {
+                    await Task.Delay(1000);
+                    var item = FindItem(i);                    
+                    
+                    CenterItem centerITem = new CenterItem();
+
+                    var width1 = item.ActualWidth;
+                    var height1 = item.ActualHeight;
+                    var centerX1 = item.PointToScreen(new Point(0, 0)).X;
+                    var centerY1 = item.PointToScreen(new Point(0, 0)).Y;
+
+                    centerITem.Width = width1;
+                    centerITem.Height = height1;
+                    centerITem.Left = centerX1 ;
+                    centerITem.Top = centerY1;
+
+                    centerITem.LoadItemData(this.runningService.CurrentList[i]);
+                    centerITem.Show();
+
+
+                    var delay = 1;
+                    var width2 = 544.0;// item.ActualWidth * 1.7;
+                    var height2 = 790.0;// item.ActualHeight * 1.7;
+                    var centerX2 = this.ActualWidth / 2 - width2 / 2;
+                    var centerY2 = this.ActualHeight / 2 - height2 / 2;
+                    var loop = 30;
+                    var deltaX = (centerX2 - centerX1) / loop;
+                    var deltaY = (centerY2 - centerY1) / loop;
+                    var deltaWidth = (width2 - width1) / loop;
+                    var deltaHeight = (height2 - height1) / loop;
+                    for(var j = 0; j < loop; j++)
+                    {
+                        //await Task.Delay(delay);
+                        centerITem.Left = centerITem.Left + deltaX;
+                        centerITem.Top = centerITem.Top + deltaY;
+                        centerITem.Width = centerITem.Width + deltaWidth;
+                        centerITem.Height = centerITem.Height + deltaHeight;
+                    }
+                    await Task.Delay(300);
+                    var blurX = 0;
+                    for(var j = 0; j < 10; j++)
+                    {
+                        blurX += 3;
+                        await Task.Delay(50);
+                        this.Effect = new BlurEffect() { Radius = blurX };
+                    }                    
+
                     string random = this.runningService.CreateRandomNumber();
-                    await FindItem(i).RunRandom(random, randomTime);
+
+                    await centerITem.RunRandom(random, randomTime);
+
+                    for (var j = 0; j < 10; j++)
+                    {
+                        blurX -= 3;
+                        await Task.Delay(50);
+                        this.Effect = new BlurEffect() { Radius = blurX };
+                    }
+                    //await Task.Delay(600);
+
+                    this.Effect = null;
+                    var deltaOpacity = 1.0 / loop;
+                    for (var j = 0; j < loop; j++)
+                    {
+                        //await Task.Delay(delay);
+                        centerITem.Left = centerITem.Left - deltaX;
+                        centerITem.Top = centerITem.Top - deltaY;
+                        centerITem.Width = centerITem.Width - deltaWidth;
+                        centerITem.Height = centerITem.Height - deltaHeight;
+                        centerITem.Opacity -= deltaOpacity;                        
+                    }
+                    
+                    item.UpdateRandom(random);
+                    centerITem.Close();                    
+
+                    //await FindItem(i).RunRandom(random, randomTime);
                     this.runningService.UpdateRandom(random, i);
-                    await Task.Delay(randomTrasitionTime);
+                    await Task.Delay(randomTrasitionTime);                    
                 }
             }
         }
@@ -415,8 +488,10 @@ namespace LuckyDraw
                 return;
             }
 
-            PasswordDialog passwordDialog = new PasswordDialog();
+            this.Effect = new BlurEffect();
+            PasswordDialog passwordDialog = new PasswordDialog();            
             var result = passwordDialog.ShowDialog();
+            this.Effect = null;
 
             if (result != true) {
                 return;

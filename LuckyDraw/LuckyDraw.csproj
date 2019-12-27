@@ -31,7 +31,7 @@
     <TargetCulture>aa</TargetCulture>
     <ProductName>LuckyDraw</ProductName>
     <PublisherName>Nexus</PublisherName>
-    <ApplicationRevision>46</ApplicationRevision>
+    <ApplicationRevision>49</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -146,6 +146,9 @@
     </Compile>
     <Compile Include="Model\ViewLog.cs" />
     <Compile Include="Model\ViewPrize.cs" />
+    <Compile Include="Views\CenterItem.xaml.cs">
+      <DependentUpon>CenterItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Item.xaml.cs">
       <DependentUpon>Item.xaml</DependentUpon>
     </Compile>
@@ -226,6 +229,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CenterItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Item.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -276,6 +283,7 @@
     <Content Include="AppData\Sounds\ding.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\Images\bg.jpg" />
     <Resource Include="Resources\Images\arrow-left.png" />
     <Resource Include="Resources\Images\arrow-right.png" />
     <Resource Include="Resources\Fonts\Roboto-Light.ttf" />
@@ -324,7 +332,6 @@
     <Resource Include="Resources\Images\round-left.png" />
     <Resource Include="Resources\Images\round-middle.png" />
     <Resource Include="Resources\Images\round-right.png" />
-    <Resource Include="Resources\Images\bg.png" />
     <Resource Include="Resources\Images\prev.png" />
     <Resource Include="Resources\Images\next-hover.png" />
     <Resource Include="Resources\Images\arrow.png" />

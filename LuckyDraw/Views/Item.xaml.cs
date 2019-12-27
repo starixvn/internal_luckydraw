@@ -40,14 +40,6 @@ namespace LuckyDraw.Views
                 this.arrowLeft.Height = 30;
                 this.arrowRight.Width = 10;
                 this.arrowRight.Height = 30;
-
-                //var margin1 = this.arrowLeft.Margin;
-                //margin1.Top += 2;
-                //this.arrowLeft.Margin = margin1;
-
-                //var margin2 = this.arrowRight.Margin;
-                //margin2.Top += 2;
-                //this.arrowRight.Margin = margin2;
             }
 
             var image = utils.PrizeImage(itemData.PrizeId.ToString() + ".png");
@@ -60,8 +52,8 @@ namespace LuckyDraw.Views
             var converter = new System.Windows.Media.BrushConverter();
             this.textRandom.Foreground = (Brush)converter.ConvertFromString("#ffd33b");
 
-            var player0 = this.utils.GetSoundPlayer("spin.mp3");
-            player0.Play();            
+            //var player0 = this.utils.GetSoundPlayer("spin.mp3");
+            //player0.Play();            
 
             const int two = 2;
             var delay1 = await AnimateRandom(Consts.RangeThreeDigits, "000", string.Empty, this.textRandom, randomTime, Consts.AnimationDelay1);
@@ -69,7 +61,7 @@ namespace LuckyDraw.Views
             await AnimateRandom(Consts.RangeOneDigit, "0", random.Substring(0, two), this.textRandom, randomTime, delay2);
             this.textRandom.Text = random;
 
-            player0.Stop();
+            //player0.Stop();
             var player2 = this.utils.GetSoundPlayer("ding.mp3");
             player2.Play();
             const int delay = 200;
@@ -89,27 +81,16 @@ namespace LuckyDraw.Views
                 margin.Left += 1;
                 margin.Right += 1;
                 this.textRandom.Margin = margin;
-                const int delay4 = 40;
+                const int delay4 = 30;
 
                 this.arrowLeft.Width += 0.3;
                 this.arrowLeft.Height += 0.9;
                 this.arrowRight.Width += 0.3;
                 this.arrowRight.Height += 0.9;
 
-                if (i == loop - 1)
-                {
-                    //var margin1 = this.arrowLeft.Margin;
-                    //margin1.Top += 1;
-                    //this.arrowLeft.Margin = margin1;
-
-                    //var margin2 = this.arrowRight.Margin;
-                    //margin2.Top += 1;
-                    //this.arrowRight.Margin = margin2;
-                }
-
                 await Task.Delay(delay4);
             }
-            const int delay2 = 100;
+            const int delay2 = 200;
             await Task.Delay(delay2);
             for (var i = 0; i < loop; i++)
             {                
@@ -119,10 +100,10 @@ namespace LuckyDraw.Views
                 this.textRandom.Margin = margin;               
 
                 this.textRandom.FontSize += 1;
-                const int delay5 = 40;
+                const int delay5 = 30;
                 await Task.Delay(delay5);
             }
-            const int delay3 = 100;
+            const int delay3 = 300;
             await Task.Delay(delay3);
         }
 
@@ -190,6 +171,20 @@ namespace LuckyDraw.Views
             this.arrowLeft.Opacity = opacity;
             this.arrowRight.Opacity = opacity;            
             this.canvasImage.Opacity = opacity;
+        }
+
+        public void UpdateRandom(string random)
+        {
+            const int fontSize = 73;
+            this.textRandom.Text = random;
+            var converter = new System.Windows.Media.BrushConverter();
+            this.textRandom.Foreground = (Brush)converter.ConvertFromString("#ffd33b");
+            this.textRandom.FontSize = fontSize;
+
+            this.arrowLeft.Width = 10;
+            this.arrowLeft.Height = 30;
+            this.arrowRight.Width = 10;
+            this.arrowRight.Height = 30;
         }
     }
 }
