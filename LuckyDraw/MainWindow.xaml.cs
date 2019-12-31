@@ -122,84 +122,99 @@ namespace LuckyDraw
                 {
                     var item = FindItem(i);
                     string random = this.runningService.CreateRandomNumber();
-
-                    CenterItem centerITem = new CenterItem();
-
-                    var width1 = item.ActualWidth;
-                    var height1 = item.ActualHeight;
-                    var centerX1 = item.PointToScreen(new Point(0, 0)).X;
-                    var centerY1 = item.PointToScreen(new Point(0, 0)).Y;
-
-                    centerITem.Width = width1;
-                    centerITem.Height = height1;
-                    centerITem.Left = centerX1 ;
-                    centerITem.Top = centerY1;
-                   
-                    centerITem.LoadItemData(this.runningService.CurrentList[i]);
-                    centerITem.Show();
-
-                    const double width2 = 544.0;
-                    const double height2 = 790.0;
-                    var centerX2 = this.ActualWidth / 2 - width2 / 2;
-                    var centerY2 = this.ActualHeight / 2 - height2 / 2;
-                    var loop = 30;
-                    var deltaX = (centerX2 - centerX1) / loop;
-                    var deltaY = (centerY2 - centerY1) / loop;
-                    var deltaWidth = (width2 - width1) / loop;
-                    var deltaHeight = (height2 - height1) / loop;
-                    var deltaOpacity = 1.0 / loop;
-                    for (var j = 0; j < loop; j++)
-                    {
-                        await Task.Delay(1);
-                        centerITem.Left = centerITem.Left + deltaX;
-                        centerITem.Top = centerITem.Top + deltaY;
-                        centerITem.Width = centerITem.Width + deltaWidth;
-                        centerITem.Height = centerITem.Height + deltaHeight;
-                    }
-
-                    var blurX = 0;
-                    for(var j = 0; j < 10; j++)
-                    {
-                        blurX += 3;
-                        await Task.Delay(50);
-                        this.Effect = new BlurEffect() { Radius = blurX };
-                    }
-
-                    await Task.Delay(600);
-                    await centerITem.RunRandom(random, randomTime);
-
-                    for (var j = 0; j < 7; j++)
-                    {
-                        blurX -= 3;
-                        await Task.Delay(70);
-                        this.Effect = new BlurEffect() { Radius = blurX };
-                    }
-                    
-                    for (var j = 0; j < loop; j++)
-                    {
-                        centerITem.Left = centerITem.Left - deltaX;
-                        centerITem.Top = centerITem.Top - deltaY;
-                        centerITem.Width = centerITem.Width - deltaWidth;
-                        centerITem.Height = centerITem.Height - deltaHeight;
-                        centerITem.Opacity -= deltaOpacity;                        
-                    }
-
-                    for (var j = 0; j < 3; j++)
-                    {
-                        blurX -= 3;
-                        await Task.Delay(50);
-                        this.Effect = new BlurEffect() { Radius = blurX };
-                    }
-
-                    this.Effect = null;
-
+                    await AnimateRunning(item, this.runningService.CurrentList[i], randomTime, random);
                     item.UpdateRandom(random);
-                    centerITem.Close();                    
-
                     this.runningService.UpdateRandom(random, i);
                     await Task.Delay(randomTrasitionTime);                    
                 }
             }
+        }
+
+        private async Task AnimateRunning(Item item, Result itemData, int randomTime, string random)
+        {
+            CenterItem centerITem = new CenterItem();
+
+            var width1 = item.ActualWidth;
+            var height1 = item.ActualHeight;
+            var centerX1 = item.PointToScreen(new Point(0, 0)).X;
+            var centerY1 = item.PointToScreen(new Point(0, 0)).Y;
+
+            centerITem.Width = width1;
+            centerITem.Height = height1;
+            centerITem.Left = centerX1;
+            centerITem.Top = centerY1;
+            centerITem.Opacity = 0.1;
+
+            centerITem.LoadItemData(itemData);
+            centerITem.Show();
+
+            const double ratio = 1.2026726;
+            double height2 = this.mainViewBox.ActualHeight;
+            double width2 = height2 / ratio;
+
+            var centerX2 = this.ActualWidth / 2 - width2 / 2;
+            var centerY2 = this.ActualHeight / 2 - height2 / 2;
+            var loop = 15;
+            var deltaX = (centerX2 - centerX1) / loop;
+            var deltaY = (centerY2 - centerY1) / loop;
+            var deltaWidth = (width2 - width1) / loop;
+            var deltaHeight = (height2 - height1) / loop;
+            for (var j = 0; j < loop; j++)
+            {
+                centerITem.Left = centerITem.Left + deltaX;
+                centerITem.Top = centerITem.Top + deltaY;
+                centerITem.Width = centerITem.Width + deltaWidth;
+                centerITem.Height = centerITem.Height + deltaHeight;
+            }
+
+            var blurX = 0;
+            var deltaOpacity1 = 0.9 / 10;
+            var deltaOpacity2 = 0.6 / 10;
+            for (var j = 0; j < 10; j++)
+            {
+                blurX += 5;
+                await Task.Delay(10);
+                this.Opacity -= deltaOpacity2;
+                centerITem.Opacity += deltaOpacity1;
+            }
+
+            this.Effect = new BlurEffect() { Radius = 7 };
+
+            await Task.Delay(600);
+            await centerITem.RunRandom(random, randomTime);
+            await Task.Delay(1000);
+
+            for (var j = 0; j < 3; j++)
+            {
+                blurX -= 5;
+                await Task.Delay(70);
+                this.Opacity += deltaOpacity2;
+            }
+
+            for (var j = 0; j < 10; j++)
+            {
+                centerITem.Opacity -= deltaOpacity1;
+            }
+
+            for (var j = 0; j < loop; j++)
+            {
+                centerITem.Left = centerITem.Left - deltaX;
+                centerITem.Top = centerITem.Top - deltaY;
+                centerITem.Width = centerITem.Width - deltaWidth;
+                centerITem.Height = centerITem.Height - deltaHeight;
+            }
+            centerITem.Opacity = 0;
+
+            for (var j = 0; j < 7; j++)
+            {
+                blurX -= 5;
+                await Task.Delay(10);
+                this.Opacity += deltaOpacity2;
+            }
+
+            this.Effect = null;
+            
+            centerITem.Close();
         }
         
         private async void RunButton_Click(object sender, RoutedEventArgs e) {

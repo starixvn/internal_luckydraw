@@ -62,8 +62,8 @@
 
     <TabControl x:Name="mainTab" Grid.ColumnSpan="2" BorderBrush="{x:Null}" SelectionChanged="TabControl_SelectionChanged" Padding="0" >
         <TabItem x:Name="tabHome" Header="Home" BorderBrush="{x:Null}" Margin="0" Padding="0" Visibility="Collapsed" >
-            <Grid Background="Black">
-                <Viewbox>
+            <Grid Background="Black" >
+                <Viewbox x:Name="mainViewBox">
                     <Grid Width="1920" Height="1080" ShowGridLines="False">
                         <Grid.Background>
                             <ImageBrush ImageSource="Resources/Images/bg.jpg"/>
