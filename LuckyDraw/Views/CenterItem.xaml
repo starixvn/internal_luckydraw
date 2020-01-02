@@ -4,15 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LuckyDraw.Views"
-        Width="898"
-        Height="1080"
+        Width="720"
+        Height="913"
         mc:Ignorable="d"
         Title="CenterItem" Background="Transparent" WindowStyle="None" AllowsTransparency="True">
         <Grid >            
             <Grid.Background>
-                <ImageBrush ImageSource="../Resources/Images/bg-item2.png"/>
+                <ImageBrush ImageSource="../Resources/Images/bg-item3.png"/>
             </Grid.Background>
-            <Border Margin="100,50,100,80">
+            <Border Margin="120,20,120,50">
             <Viewbox >
                 <StackPanel x:Name="viewBoxItemCenter" Grid.Column="3" Grid.Row="1" Margin="0,0,0,0">
                     <local:Item x:Name="centerItem"/>

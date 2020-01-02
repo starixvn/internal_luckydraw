@@ -175,6 +175,9 @@
     <Compile Include="Views\RoundView1.xaml.cs">
       <DependentUpon>RoundView1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RoundView10.xaml.cs">
+      <DependentUpon>RoundView10.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\RoundView2.xaml.cs">
       <DependentUpon>RoundView2.xaml</DependentUpon>
     </Compile>
@@ -202,6 +205,18 @@
     </Compile>
     <Compile Include="Utilities\IUtils.cs" />
     <Compile Include="Utilities\Utils.cs" />
+    <Compile Include="Views\RoundView6.xaml.cs">
+      <DependentUpon>RoundView6.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoundView7.xaml.cs">
+      <DependentUpon>RoundView7.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoundView8.xaml.cs">
+      <DependentUpon>RoundView8.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RoundView9.xaml.cs">
+      <DependentUpon>RoundView9.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -249,6 +264,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\RoundView10.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\RoundView2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -262,6 +281,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RoundView5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RoundView6.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RoundView7.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RoundView8.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RoundView9.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -283,6 +318,7 @@
     <Content Include="AppData\Sounds\ding.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\Images\bg-item3.png" />
     <Resource Include="Resources\Images\bg-item2.png" />
     <Resource Include="Resources\Images\bg-item.png" />
     <Resource Include="Resources\Images\bg.jpg" />

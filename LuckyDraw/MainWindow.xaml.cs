@@ -148,8 +148,8 @@ namespace LuckyDraw
             centerITem.LoadItemData(itemData);
             centerITem.Show();
 
-            const double ratio = 1.2026726;
-            double height2 = this.mainViewBox.ActualHeight * 0.8;
+            const double ratio = 1.268;
+            double height2 = this.mainViewBox.ActualHeight * 0.84;
             double width2 = height2 / ratio;
 
             var centerX2 = this.ActualWidth / 2 - width2 / 2;
@@ -161,7 +161,7 @@ namespace LuckyDraw
             var deltaHeight = (height2 - height1) / loop;
             for (var j = 0; j < loop; j++)
             {
-                await Task.Delay(5);
+                await Task.Delay(1);
                 centerITem.Left = centerITem.Left + deltaX;
                 centerITem.Top = centerITem.Top + deltaY;
                 centerITem.Width = centerITem.Width + deltaWidth;
