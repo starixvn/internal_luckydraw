@@ -35,11 +35,6 @@ namespace LuckyDraw.Views
                 var converter = new System.Windows.Media.BrushConverter();
                 this.textRandom.Foreground = (Brush)converter.ConvertFromString("#ffd33b");
                 this.textRandom.FontSize = fontSize;
-
-                this.arrowLeft.Width = 10;
-                this.arrowLeft.Height = 30;
-                this.arrowRight.Width = 10;
-                this.arrowRight.Height = 30;
             }
 
             var image = utils.PrizeImage(itemData.PrizeId.ToString() + ".png");
@@ -81,16 +76,10 @@ namespace LuckyDraw.Views
                 margin.Left += 1;
                 margin.Right += 1;
                 this.textRandom.Margin = margin;
-                const int delay4 = 30;
-
-                this.arrowLeft.Width += 0.3;
-                this.arrowLeft.Height += 0.9;
-                this.arrowRight.Width += 0.3;
-                this.arrowRight.Height += 0.9;
-
+                const int delay4 = 5;
                 await Task.Delay(delay4);
             }
-            const int delay2 = 200;
+            const int delay2 = 300;
             await Task.Delay(delay2);
             for (var i = 0; i < loop; i++)
             {                
@@ -100,10 +89,10 @@ namespace LuckyDraw.Views
                 this.textRandom.Margin = margin;               
 
                 this.textRandom.FontSize += 1;
-                const int delay5 = 30;
+                const int delay5 = 5;
                 await Task.Delay(delay5);
             }
-            const int delay3 = 300;
+            const int delay3 = 500;
             await Task.Delay(delay3);
         }
 
