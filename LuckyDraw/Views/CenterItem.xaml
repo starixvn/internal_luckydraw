@@ -10,9 +10,9 @@
         Title="CenterItem" Background="Transparent" WindowStyle="None" AllowsTransparency="True">
         <Grid >            
             <Grid.Background>
-                <ImageBrush ImageSource="../Resources/Images/bg-item.png"/>
+                <ImageBrush ImageSource="../Resources/Images/bg-item2.png"/>
             </Grid.Background>
-            <Border Margin="100,90,100,120">
+            <Border Margin="100,50,100,80">
             <Viewbox >
                 <StackPanel x:Name="viewBoxItemCenter" Grid.Column="3" Grid.Row="1" Margin="0,0,0,0">
                     <local:Item x:Name="centerItem"/>
