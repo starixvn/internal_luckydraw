@@ -12,7 +12,7 @@
             <Grid.Background>
                 <ImageBrush ImageSource="../Resources/Images/bg-item3.png"/>
             </Grid.Background>
-            <Border Margin="120,20,120,50">
+            <Border Margin="100,20,100,50">
             <Viewbox >
                 <StackPanel x:Name="viewBoxItemCenter" Grid.Column="3" Grid.Row="1" Margin="0,0,0,0">
                     <local:Item x:Name="centerItem"/>
