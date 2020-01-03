@@ -133,6 +133,7 @@ namespace LuckyDraw
         private async Task AnimateRunning(Item item, Result itemData, int randomTime, string random)
         {
             CenterItem centerITem = new CenterItem();
+            centerITem.Topmost = true;
 
             var width1 = item.ActualWidth;
             var height1 = item.ActualHeight;
