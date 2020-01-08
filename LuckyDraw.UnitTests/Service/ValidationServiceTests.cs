@@ -125,6 +125,7 @@ namespace LuckyDraw.UnitTests.Service
             result.Should().Be("Invalid Random Range");
         }
 
+        [Fact]
         public void ValidateRange_WhenValid_ReturnEmpty()
         {
             // Arrange
@@ -164,6 +165,7 @@ namespace LuckyDraw.UnitTests.Service
             result.Should().Be("Invalid Random Time");
         }
 
+        [Fact]
         public void ValidateRandomTime_WhenValid_ReturnEmpty()
         {
             // Arrange
