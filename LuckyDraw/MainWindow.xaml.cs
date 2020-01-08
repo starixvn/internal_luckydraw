@@ -116,7 +116,8 @@ namespace LuckyDraw
         private async Task RunRandoms() {
             var randomTrasitionTime = this.runningService.Setting.RandomTransitionDuration * 1000;
             var randomTime = this.runningService.Setting.RandomAnimationDuration * 1000 / 3;
-            await Task.Delay(1000);
+            const int delay1000 = 1000;
+            await Task.Delay(delay1000);
             for (var i = 0; i < this.runningService.CurrentList.Count; i++) {
                 if (this.runningService.IsRunnable(this.runningService.CurrentList[i]))
                 {
@@ -173,8 +174,8 @@ namespace LuckyDraw
 
             var blurX = 0;
             const int deltaBlur = 5;
-            var deltaOpacity1 = 0.9 / 10;
-            var deltaOpacity2 = 0.6 / 10;
+            const double deltaOpacity1 = 0.9 / 10;
+            const double deltaOpacity2 = 0.6 / 10;
             const int loopOpacity = 10;
             const int delay10 = 10;
             for (var j = 0; j < loopOpacity; j++)
@@ -186,11 +187,13 @@ namespace LuckyDraw
             }
 
             const int effectRadius = 7;
-            this.Effect = new BlurEffect() { Radius = effectRadius };
+            this.Effect = new BlurEffect { Radius = effectRadius };
 
-            await Task.Delay(600);
+            const int delay600 = 600;
+            const int delay1000 = 1000;
+            await Task.Delay(delay600);
             await centerITem.RunRandom(random, randomTime);
-            await Task.Delay(1000);
+            await Task.Delay(delay1000);
 
             const int loopBlur1 = 3;
             
