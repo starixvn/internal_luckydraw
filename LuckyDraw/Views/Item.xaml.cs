@@ -45,10 +45,7 @@ namespace LuckyDraw.Views
         {           
             await AnimateStarting();
             var converter = new System.Windows.Media.BrushConverter();
-            this.textRandom.Foreground = (Brush)converter.ConvertFromString("#ffd33b");
-
-            //var player0 = this.utils.GetSoundPlayer("spin.mp3");
-            //player0.Play();            
+            this.textRandom.Foreground = (Brush)converter.ConvertFromString("#ffd33b");                
 
             const int two = 2;
             var delay1 = await AnimateRandom(Consts.RangeThreeDigits, "000", string.Empty, this.textRandom, randomTime, Consts.AnimationDelay1);
@@ -56,7 +53,6 @@ namespace LuckyDraw.Views
             await AnimateRandom(Consts.RangeOneDigit, "0", random.Substring(0, two), this.textRandom, randomTime, delay2);
             this.textRandom.Text = random;
 
-            //player0.Stop();
             var player2 = this.utils.GetSoundPlayer("ding.mp3");
             player2.Play();
             const int delay = 200;
@@ -81,11 +77,12 @@ namespace LuckyDraw.Views
             }
             const int delay2 = 300;
             await Task.Delay(delay2);
+            const double deltaMargin = 0.85;
             for (var i = 0; i < loop; i++)
             {                
                 var margin = this.textRandom.Margin;
-                margin.Left -= 0.85;
-                margin.Right -= 0.85;
+                margin.Left -= deltaMargin;
+                margin.Right -= deltaMargin;
                 this.textRandom.Margin = margin;               
 
                 this.textRandom.FontSize += 1;
