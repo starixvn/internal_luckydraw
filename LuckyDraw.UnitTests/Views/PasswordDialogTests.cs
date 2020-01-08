@@ -24,6 +24,6 @@ namespace LuckyDraw.UnitTests.Views
 
             // Assert
             result.Should().Be(passwordText);
-        }
+        }       
     }
 }

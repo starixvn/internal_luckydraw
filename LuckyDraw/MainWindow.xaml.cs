@@ -68,6 +68,11 @@ namespace LuckyDraw
             this.randomTimeDataGrid.ItemsSource = commonService.GetSettingList();
         }
 
+        public void UpdateIsLoading(bool isLoading)
+        {
+            this.isLoading = isLoading;
+        }
+
         public void UpdateRoundText()
         {
             this.textRound.Text = this.runningService.GetRoundName();
@@ -495,7 +500,7 @@ namespace LuckyDraw
             }
         }
 
-        private void HomeMenu_Click(object sender, RoutedEventArgs e)
+        public void HomeMenu_Click(object sender, RoutedEventArgs e)
         {
             if (this.isLoading)
             {
@@ -505,7 +510,7 @@ namespace LuckyDraw
             this.mainTab.SelectedIndex = 0;
         }
       
-        private void SettingMenu_Click(object sender, RoutedEventArgs e)
+        public void SettingMenu_Click(object sender, RoutedEventArgs e)
         {
             if (this.isLoading)
             {
@@ -530,7 +535,7 @@ namespace LuckyDraw
             }            
         }
 
-        private void ResultMenu_Click(object sender, RoutedEventArgs e)
+        public void ResultMenu_Click(object sender, RoutedEventArgs e)
         {
             if (this.isLoading)
             {
@@ -541,7 +546,7 @@ namespace LuckyDraw
             this.mainTab.SelectedIndex = resultTabIndex;
         }
 
-        private void LogMenu_Click(object sender, RoutedEventArgs e)
+        public void LogMenu_Click(object sender, RoutedEventArgs e)
         {
             if (this.isLoading)
             {
@@ -552,7 +557,7 @@ namespace LuckyDraw
             this.mainTab.SelectedIndex = logTabIndex;
         }
 
-        private void MinimizeMenu_Click(object sender, RoutedEventArgs e)
+        public void MinimizeMenu_Click(object sender, RoutedEventArgs e)
         {
             if (this.isLoading)
             {
@@ -562,7 +567,7 @@ namespace LuckyDraw
             this.WindowState = WindowState.Minimized;
         }
 
-        private void ExitMenu_Click(object sender, RoutedEventArgs e)
+        public void ExitMenu_Click(object sender, RoutedEventArgs e)
         {
             if (this.isLoading)
             {

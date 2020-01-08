@@ -95,5 +95,71 @@ namespace LuckyDraw.UnitTests.Views
             var textRound = (TextBlock)mainWindow.FindName("textRandomRange");
             textRound.Text.Should().Be(expectedRandomText);
         }
+
+        [WpfFact]
+        public void HomeMenuClick_IsLoading_DoNothing()
+        {
+            // Arrange           
+            var mainWindow = new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils, resultExporter);
+            mainWindow.UpdateIsLoading(true);
+
+            // Act && Assert
+            mainWindow.HomeMenu_Click(null, null);
+        }
+
+        [WpfFact]
+        public void SettingMenuClick_IsLoading_DoNothing()
+        {
+            // Arrange           
+            var mainWindow = new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils, resultExporter);
+            mainWindow.UpdateIsLoading(true);
+
+            // Act && Assert
+            mainWindow.SettingMenu_Click(null, null);
+        }
+
+        [WpfFact]
+        public void ResultMenuClick_IsLoading_DoNothing()
+        {
+            // Arrange           
+            var mainWindow = new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils, resultExporter);
+            mainWindow.UpdateIsLoading(true);
+
+            // Act && Assert
+            mainWindow.ResultMenu_Click(null, null);
+        }
+
+        [WpfFact]
+        public void LogMenuClick_IsLoading_DoNothing()
+        {
+            // Arrange           
+            var mainWindow = new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils, resultExporter);
+            mainWindow.UpdateIsLoading(true);
+
+            // Act && Assert
+            mainWindow.LogMenu_Click(null, null);
+        }
+
+        [WpfFact]
+        public void MinimizeMenuClick_IsLoading_DoNothing()
+        {
+            // Arrange           
+            var mainWindow = new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils, resultExporter);
+            mainWindow.UpdateIsLoading(true);
+
+            // Act && Assert
+            mainWindow.MinimizeMenu_Click(null, null);
+        }
+
+        [WpfFact]
+        public void ExitMenuClick_IsLoading_DoNothing()
+        {
+            // Arrange           
+            var mainWindow = new MainWindow(commonService, seedService, runningService, validationService, authenticationService, utils, resultExporter);
+            mainWindow.UpdateIsLoading(true);
+
+            // Act && Assert
+            mainWindow.ExitMenu_Click(null, null);
+        }
     }
 }
