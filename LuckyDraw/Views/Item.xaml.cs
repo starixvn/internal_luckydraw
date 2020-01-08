@@ -2,6 +2,7 @@
 using LuckyDraw.Utilities;
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Media;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,14 +27,12 @@ namespace LuckyDraw.Views
 
         public void LoadItemData(Result itemData)
         {
-            this.textPrize.Text = itemData.PrizeName.ToUpper();
+            this.textPrize.Text = itemData.PrizeName.ToUpper(CultureInfo.CurrentCulture);
             this.textRandom.Text = itemData.Random == string.Empty ? "000" : itemData.Random;
             const int fontSize = 73;
 
             if (this.textRandom.Text != "000")
             {
-                var converter = new System.Windows.Media.BrushConverter();
-                this.textRandom.Foreground = (Brush)converter.ConvertFromString("#ffd33b");
                 this.textRandom.FontSize = fontSize;
             }
 
@@ -44,9 +43,7 @@ namespace LuckyDraw.Views
         public async Task RunRandom(string random, int randomTime)
         {           
             await AnimateStarting();
-            var converter = new System.Windows.Media.BrushConverter();
-            this.textRandom.Foreground = (Brush)converter.ConvertFromString("#ffd33b");                
-
+            
             const int two = 2;
             var delay1 = await AnimateRandom(Consts.RangeThreeDigits, "000", string.Empty, this.textRandom, randomTime, Consts.AnimationDelay1);
             var delay2 = await AnimateRandom(Consts.RangeTwoDigits, "00", random.Substring(0, 1), this.textRandom, randomTime, delay1);
@@ -109,9 +106,10 @@ namespace LuckyDraw.Views
         private void timer_Tick(object sender, EventArgs e)
         {
             var converter = new System.Windows.Media.BrushConverter();
+            const string blinkColor = "#ffd33b";
             if (BlinkOn)
             {
-                this.textRandom.Foreground = (Brush)converter.ConvertFromString("#ffd33b");
+                this.textRandom.Foreground = (Brush)converter.ConvertFromString(blinkColor);
             }
             else {                 
                 this.textRandom.Foreground = Brushes.Orange;
@@ -167,10 +165,12 @@ namespace LuckyDraw.Views
             this.textRandom.Foreground = (Brush)converter.ConvertFromString("#ffd33b");
             this.textRandom.FontSize = fontSize;
 
-            this.arrowLeft.Width = 10;
-            this.arrowLeft.Height = 30;
-            this.arrowRight.Width = 10;
-            this.arrowRight.Height = 30;
+            const int arrowWidth = 10;
+            const int arrowHeight = 30;
+            this.arrowLeft.Width = arrowWidth;
+            this.arrowLeft.Height = arrowHeight;
+            this.arrowRight.Width = arrowWidth;
+            this.arrowRight.Height = arrowHeight;
         }
     }
 }

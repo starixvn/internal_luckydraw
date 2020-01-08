@@ -140,22 +140,24 @@ namespace LuckyDraw
             var centerX1 = item.PointToScreen(new Point(0, 0)).X;
             var centerY1 = item.PointToScreen(new Point(0, 0)).Y;
 
+            const double startOpacity = 0.1;
             centerITem.Width = width1;
             centerITem.Height = height1;
             centerITem.Left = centerX1;
             centerITem.Top = centerY1;
-            centerITem.Opacity = 0.1;
+            centerITem.Opacity = startOpacity;
 
             centerITem.LoadItemData(itemData);
             centerITem.Show();
 
             const double ratio = 1.268;
-            double height2 = this.mainViewBox.ActualHeight * 0.84;
+            const double screenRatio = 0.84;
+            double height2 = this.mainViewBox.ActualHeight * screenRatio;
             double width2 = height2 / ratio;
 
             var centerX2 = this.ActualWidth / 2 - width2 / 2;
             var centerY2 = this.ActualHeight / 2 - height2 / 2;
-            var loop = 15;
+            const int loop = 15;
             var deltaX = (centerX2 - centerX1) / loop;
             var deltaY = (centerY2 - centerY1) / loop;
             var deltaWidth = (width2 - width1) / loop;
@@ -170,30 +172,38 @@ namespace LuckyDraw
             }
 
             var blurX = 0;
+            const int deltaBlur = 5;
             var deltaOpacity1 = 0.9 / 10;
             var deltaOpacity2 = 0.6 / 10;
-            for (var j = 0; j < 10; j++)
+            const int loopOpacity = 10;
+            const int delay10 = 10;
+            for (var j = 0; j < loopOpacity; j++)
             {
-                blurX += 5;
-                await Task.Delay(10);
+                blurX += deltaBlur;
+                await Task.Delay(delay10);
                 this.Opacity -= deltaOpacity2;
                 centerITem.Opacity += deltaOpacity1;
             }
 
-            this.Effect = new BlurEffect() { Radius = 7 };
+            const int effectRadius = 7;
+            this.Effect = new BlurEffect() { Radius = effectRadius };
 
             await Task.Delay(600);
             await centerITem.RunRandom(random, randomTime);
             await Task.Delay(1000);
 
-            for (var j = 0; j < 3; j++)
+            const int loopBlur1 = 3;
+            
+            const int delay70 = 70;
+            for (var j = 0; j < loopBlur1; j++)
             {
-                blurX -= 5;
-                await Task.Delay(70);
+                blurX -= deltaBlur;
+                await Task.Delay(delay70);
                 this.Opacity += deltaOpacity2;
             }
 
-            for (var j = 0; j < 10; j++)
+            
+            for (var j = 0; j < loopOpacity; j++)
             {
                 centerITem.Opacity -= deltaOpacity1;
             }
@@ -207,10 +217,11 @@ namespace LuckyDraw
             }
             centerITem.Opacity = 0;
 
-            for (var j = 0; j < 7; j++)
+            const int loopBlur2 = 7;            
+            for (var j = 0; j < loopBlur2; j++)
             {
-                blurX -= 5;
-                await Task.Delay(10);
+                blurX -= deltaBlur;
+                await Task.Delay(delay10);
                 this.Opacity += deltaOpacity2;
             }
 
