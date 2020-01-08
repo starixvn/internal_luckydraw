@@ -133,19 +133,13 @@ namespace LuckyDraw
 
         private async Task AnimateRunning(Item item, Result itemData, int randomTime, string random)
         {
-            CenterItem centerITem = new CenterItem();
-            centerITem.Topmost = true;
-
-            var width1 = item.ActualWidth;
-            var height1 = item.ActualHeight;
-            var centerX1 = item.PointToScreen(new Point(0, 0)).X;
-            var centerY1 = item.PointToScreen(new Point(0, 0)).Y;
-
+            CenterItem centerITem = new CenterItem { Topmost = true };
+            
             const double startOpacity = 0.1;
-            centerITem.Width = width1;
-            centerITem.Height = height1;
-            centerITem.Left = centerX1;
-            centerITem.Top = centerY1;
+            centerITem.Width = item.ActualWidth;
+            centerITem.Height = item.ActualHeight;
+            centerITem.Left = item.PointToScreen(new Point(0, 0)).X;
+            centerITem.Top = item.PointToScreen(new Point(0, 0)).Y;
             centerITem.Opacity = startOpacity;
 
             centerITem.LoadItemData(itemData);
@@ -155,14 +149,11 @@ namespace LuckyDraw
             const double screenRatio = 0.84;
             double height2 = this.mainViewBox.ActualHeight * screenRatio;
             double width2 = height2 / ratio;
-
-            var centerX2 = this.ActualWidth / 2 - width2 / 2;
-            var centerY2 = this.ActualHeight / 2 - height2 / 2;
             const int loop = 15;
-            var deltaX = (centerX2 - centerX1) / loop;
-            var deltaY = (centerY2 - centerY1) / loop;
-            var deltaWidth = (width2 - width1) / loop;
-            var deltaHeight = (height2 - height1) / loop;
+            var deltaX = (this.ActualWidth / 2 - width2 / 2 - item.PointToScreen(new Point(0, 0)).X) / loop;
+            var deltaY = (this.ActualHeight / 2 - height2 / 2 - item.PointToScreen(new Point(0, 0)).Y) / loop;
+            var deltaWidth = (width2 - item.ActualWidth) / loop;
+            var deltaHeight = (height2 - item.ActualHeight) / loop;
             for (var j = 0; j < loop; j++)
             {
                 await Task.Delay(1);
@@ -204,7 +195,6 @@ namespace LuckyDraw
                 await Task.Delay(delay70);
                 this.Opacity += deltaOpacity2;
             }
-
             
             for (var j = 0; j < loopOpacity; j++)
             {
