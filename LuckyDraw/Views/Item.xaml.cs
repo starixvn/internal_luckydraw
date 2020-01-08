@@ -161,8 +161,6 @@ namespace LuckyDraw.Views
         {
             const int fontSize = 73;
             this.textRandom.Text = random;
-            var converter = new System.Windows.Media.BrushConverter();
-            this.textRandom.Foreground = (Brush)converter.ConvertFromString("#ffd33b");
             this.textRandom.FontSize = fontSize;
 
             const int arrowWidth = 10;

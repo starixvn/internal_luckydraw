@@ -44,5 +44,40 @@ namespace LuckyDraw.UnitTests.Views
             // Act && Assert
             new RoundView5();
         }
+
+        [WpfFact]
+        public void RoundView6_Init_WithoutError()
+        {
+            // Act && Assert
+            new RoundView6();
+        }
+
+        [WpfFact]
+        public void RoundView7_Init_WithoutError()
+        {
+            // Act && Assert
+            new RoundView7();
+        }
+
+        [WpfFact]
+        public void RoundView8_Init_WithoutError()
+        {
+            // Act && Assert
+            new RoundView8();
+        }
+
+        [WpfFact]
+        public void RoundView9_Init_WithoutError()
+        {
+            // Act && Assert
+            new RoundView9();
+        }
+
+        [WpfFact]
+        public void RoundView10_Init_WithoutError()
+        {
+            // Act && Assert
+            new RoundView10();
+        }
     }
 }

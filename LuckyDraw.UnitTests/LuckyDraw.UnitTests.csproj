@@ -111,6 +111,7 @@
     <Compile Include="Service\RunningServiceTests.cs" />
     <Compile Include="Service\SeedServiceTests.cs" />
     <Compile Include="Service\ValidationServiceTests.cs" />
+    <Compile Include="Views\CenterItemTest.cs" />
     <Compile Include="Views\MainWindowTests.cs" />
     <Compile Include="Views\PasswordDialogTests.cs" />
     <Compile Include="Views\RoundViewTest.cs" />
